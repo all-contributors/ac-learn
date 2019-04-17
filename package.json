@@ -42,10 +42,9 @@
     "all-contributors"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.4.3",
     "chalk": "^2.4.2",
-    "eslint-config-kentcdodds": "^14.3.2",
-    "inquirer": "^6.3.1",
-    "yargs": "^13.2.2"
+    "eslint-config-kentcdodds": "^14.3.2"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
