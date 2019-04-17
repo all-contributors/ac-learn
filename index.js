@@ -1,22 +1,17 @@
-const RFClassifier = require('ml-random-foreset').RandomForestClassifier
-const LabelDataset = require('./src/dataset')
+const bayes = require('classificator')
+const ds = require('./src/dataset.json')
 
-const trainingSet = LabelDataset.getLabels()
-const predictions = LabelDataset.getCategories().map(elem =>
-  LabelDataset.getDistinctCategories().indexOf(elem),
-)
+const classifier = bayes()
 
-const options = {
-  seed: 3,
-  maxFeatures: 0.8,
-  replacement: true,
-  nEstimators: 25,
-}
-
-const classifier = new RFClassifier(options)
-classifier.train(trainingSet, predictions)
-const result = classifier.predict(trainingSet)
 /* eslint-disable no-console */
-console.log('result=')
-console.dir(result)
-/* /* eslint-enable no-console */
+console.log('Learning....')
+ds.forEach(el => classifier.learn(...el))
+
+console.log('Test!!')
+const testSet = ['bug', 'enhancement', 'documentation', 'release']
+
+testSet.forEach(word => {
+  console.log(`${word}?`)
+  console.dir(classifier.categorize(word))
+})
+/* eslint-enable no-console */

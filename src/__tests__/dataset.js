@@ -15,7 +15,7 @@ test('has labels', () => {
 test('has categories', () => {
   const cats = ds.getCategories()
   expect(cats.length).toStrictEqual(60)
-  expect(cats[59]).toStrictEqual(null)
+  expect(cats[59]).toStrictEqual('null')
 })
 
 test('has distinct categories', () => {
