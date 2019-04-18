@@ -1,0 +1,1366 @@
+[
+  {
+    "label": "0 - backlog",
+    "category": ""
+  },
+  {
+    "label": "1 - ready",
+    "category": ""
+  },
+  {
+    "label": "2 - working",
+    "category": ""
+  },
+  {
+    "label": "2.x",
+    "category": ""
+  },
+  {
+    "label": "3 - done",
+    "category": ""
+  },
+  {
+    "label": "6.x: backport",
+    "category": ""
+  },
+  {
+    "label": "7.x: regression",
+    "category": ""
+  },
+  {
+    "label": ":arrow_heading_down: pull",
+    "category": ""
+  },
+  {
+    "label": ":boom: regression",
+    "category": ""
+  },
+  {
+    "label": ":bug: bug",
+    "category": ""
+  },
+  {
+    "label": ":rocket: enhancement",
+    "category": ""
+  },
+  {
+    "label": ":rocket: feature request",
+    "category": ""
+  },
+  {
+    "label": ":speech_balloon: question",
+    "category": ""
+  },
+  {
+    "label": "@font-face",
+    "category": ""
+  },
+  {
+    "label": "abandoned",
+    "category": ""
+  },
+  {
+    "label": "accepted",
+    "category": ""
+  },
+  {
+    "label": "accessibility",
+    "category": ""
+  },
+  {
+    "label": "adapter",
+    "category": "plugin"
+  },
+  {
+    "label": "advance developer workflow",
+    "category": ""
+  },
+  {
+    "label": "animals (category)",
+    "category": ""
+  },
+  {
+    "label": "answered",
+    "category": ""
+  },
+  {
+    "label": "approved",
+    "category": ""
+  },
+  {
+    "label": "area: concurrent",
+    "category": ""
+  },
+  {
+    "label": "area: crash",
+    "category": ""
+  },
+  {
+    "label": "arrows (category)",
+    "category": ""
+  },
+  {
+    "label": "automotive (category)",
+    "category": ""
+  },
+  {
+    "label": "available in fa pro",
+    "category": ""
+  },
+  {
+    "label": "beginner-friendly",
+    "category": ""
+  },
+  {
+    "label": "beverage (category)",
+    "category": ""
+  },
+  {
+    "label": "blocked",
+    "category": ""
+  },
+  {
+    "label": "blocker",
+    "category": ""
+  },
+  {
+    "label": "bootstrap",
+    "category": ""
+  },
+  {
+    "label": "brand icon",
+    "category": ""
+  },
+  {
+    "label": "breaking change",
+    "category": ""
+  },
+  {
+    "label": "browser bug",
+    "category": ""
+  },
+  {
+    "label": "browser: ie",
+    "category": ""
+  },
+  {
+    "label": "browser: safari",
+    "category": ""
+  },
+  {
+    "label": "bug",
+    "category": "bug"
+  },
+  {
+    "label": "bug report",
+    "category": ""
+  },
+  {
+    "label": "business (category)",
+    "category": ""
+  },
+  {
+    "label": "cannot reproduce",
+    "category": ""
+  },
+  {
+    "label": "cantfix",
+    "category": ""
+  },
+  {
+    "label": "cdn",
+    "category": ""
+  },
+  {
+    "label": "chat (category)",
+    "category": ""
+  },
+  {
+    "label": "cla signed",
+    "category": "null"
+  },
+  {
+    "label": "cla signed :heavy_check_mark:",
+    "category": ""
+  },
+  {
+    "label": "cla: no",
+    "category": ""
+  },
+  {
+    "label": "cla: yes",
+    "category": ""
+  },
+  {
+    "label": "cli",
+    "category": "code"
+  },
+  {
+    "label": "closed due to inactivity",
+    "category": ""
+  },
+  {
+    "label": "component: build infrastructure",
+    "category": ""
+  },
+  {
+    "label": "component: component api",
+    "category": ""
+  },
+  {
+    "label": "component: concurrent mode",
+    "category": ""
+  },
+  {
+    "label": "component: core utilities",
+    "category": ""
+  },
+  {
+    "label": "component: developer tools",
+    "category": ""
+  },
+  {
+    "label": "component: dom",
+    "category": ""
+  },
+  {
+    "label": "component: eslint rules",
+    "category": ""
+  },
+  {
+    "label": "component: hooks",
+    "category": ""
+  },
+  {
+    "label": "component: optimizing compiler",
+    "category": ""
+  },
+  {
+    "label": "component: reactis",
+    "category": ""
+  },
+  {
+    "label": "component: reconciler",
+    "category": ""
+  },
+  {
+    "label": "component: scheduler",
+    "category": ""
+  },
+  {
+    "label": "component: server rendering",
+    "category": ""
+  },
+  {
+    "label": "component: shallow renderer",
+    "category": ""
+  },
+  {
+    "label": "component: suspense",
+    "category": ""
+  },
+  {
+    "label": "component: test renderer",
+    "category": ""
+  },
+  {
+    "label": "component: test utils",
+    "category": ""
+  },
+  {
+    "label": "configuration",
+    "category": ""
+  },
+  {
+    "label": "confirmed",
+    "category": ""
+  },
+  {
+    "label": "contribution welcome",
+    "category": ""
+  },
+  {
+    "label": "critical",
+    "category": ""
+  },
+  {
+    "label": "css",
+    "category": ""
+  },
+  {
+    "label": "css-select",
+    "category": ""
+  },
+  {
+    "label": "currency (category)",
+    "category": ""
+  },
+  {
+    "label": "defect",
+    "category": ""
+  },
+  {
+    "label": "dependencies",
+    "category": ""
+  },
+  {
+    "label": "dependency related",
+    "category": ""
+  },
+  {
+    "label": "design",
+    "category": "design"
+  },
+  {
+    "label": "design (category)",
+    "category": ""
+  },
+  {
+    "label": "difficulty: challenging",
+    "category": ""
+  },
+  {
+    "label": "difficulty: easy",
+    "category": ""
+  },
+  {
+    "label": "difficulty: hard",
+    "category": ""
+  },
+  {
+    "label": "difficulty: medium",
+    "category": ""
+  },
+  {
+    "label": "difficulty: starter",
+    "category": ""
+  },
+  {
+    "label": "difficulty: unknown or n/a",
+    "category": ""
+  },
+  {
+    "label": "difficulty: very hard",
+    "category": ""
+  },
+  {
+    "label": "discussion",
+    "category": "ideas"
+  },
+  {
+    "label": "do not merge",
+    "category": ""
+  },
+  {
+    "label": "doc",
+    "category": "doc"
+  },
+  {
+    "label": "docs",
+    "category": ""
+  },
+  {
+    "label": "documentation",
+    "category": ""
+  },
+  {
+    "label": "documentation :book:",
+    "category": ""
+  },
+  {
+    "label": "duplicate",
+    "category": "null"
+  },
+  {
+    "label": "enhancement",
+    "category": "maintenance"
+  },
+  {
+    "label": "es6",
+    "category": ""
+  },
+  {
+    "label": "es7",
+    "category": ""
+  },
+  {
+    "label": "externs",
+    "category": ""
+  },
+  {
+    "label": "feat/cli",
+    "category": ""
+  },
+  {
+    "label": "feat: babel",
+    "category": ""
+  },
+  {
+    "label": "feat: cli",
+    "category": ""
+  },
+  {
+    "label": "feat: cli-service build",
+    "category": ""
+  },
+  {
+    "label": "feat: cli-service serve",
+    "category": ""
+  },
+  {
+    "label": "feat: e2e-cypress",
+    "category": ""
+  },
+  {
+    "label": "feat: e2e-nightwatch",
+    "category": ""
+  },
+  {
+    "label": "feat: eslint",
+    "category": ""
+  },
+  {
+    "label": "feat: plugin api",
+    "category": ""
+  },
+  {
+    "label": "feat: pwa",
+    "category": ""
+  },
+  {
+    "label": "feat: typescript",
+    "category": ""
+  },
+  {
+    "label": "feat: ui",
+    "category": ""
+  },
+  {
+    "label": "feat: unit-jest",
+    "category": ""
+  },
+  {
+    "label": "feat: unit-mocha",
+    "category": ""
+  },
+  {
+    "label": "feature",
+    "category": ""
+  },
+  {
+    "label": "feature request",
+    "category": ""
+  },
+  {
+    "label": "feedback requested",
+    "category": ""
+  },
+  {
+    "label": "files (category)",
+    "category": ""
+  },
+  {
+    "label": "first-timers-only",
+    "category": ""
+  },
+  {
+    "label": "flags (category)",
+    "category": ""
+  },
+  {
+    "label": "flashsocket",
+    "category": ""
+  },
+  {
+    "label": "fontawesome.com",
+    "category": ""
+  },
+  {
+    "label": "food (category)",
+    "category": ""
+  },
+  {
+    "label": "freemasonry icons",
+    "category": ""
+  },
+  {
+    "label": "genders (category)",
+    "category": ""
+  },
+  {
+    "label": "general js",
+    "category": ""
+  },
+  {
+    "label": "gh review: accepted",
+    "category": ""
+  },
+  {
+    "label": "good first issue",
+    "category": "null"
+  },
+  {
+    "label": "good first issue :+1:",
+    "category": ""
+  },
+  {
+    "label": "great insight",
+    "category": ""
+  },
+  {
+    "label": "greenkeeper",
+    "category": "infra"
+  },
+  {
+    "label": "hack",
+    "category": ""
+  },
+  {
+    "label": "hacktoberfest",
+    "category": "code"
+  },
+  {
+    "label": "handshakes",
+    "category": ""
+  },
+  {
+    "label": "has bounty",
+    "category": ""
+  },
+  {
+    "label": "has pr",
+    "category": ""
+  },
+  {
+    "label": "help",
+    "category": ""
+  },
+  {
+    "label": "help / pr wanted",
+    "category": ""
+  },
+  {
+    "label": "help wanted",
+    "category": "null"
+  },
+  {
+    "label": "help wanted :sos:",
+    "category": ""
+  },
+  {
+    "label": "hi-pri",
+    "category": ""
+  },
+  {
+    "label": "high-priority",
+    "category": ""
+  },
+  {
+    "label": "hodor",
+    "category": ""
+  },
+  {
+    "label": "hot discussion",
+    "category": ""
+  },
+  {
+    "label": "html",
+    "category": ""
+  },
+  {
+    "label": "htmlfile",
+    "category": ""
+  },
+  {
+    "label": "https",
+    "category": ""
+  },
+  {
+    "label": "icebox",
+    "category": ""
+  },
+  {
+    "label": "ie8",
+    "category": ""
+  },
+  {
+    "label": "import in progress",
+    "category": ""
+  },
+  {
+    "label": "import started",
+    "category": ""
+  },
+  {
+    "label": "in progress",
+    "category": ""
+  },
+  {
+    "label": "in review",
+    "category": ""
+  },
+  {
+    "label": "infrastructure :hammer_and_wrench:",
+    "category": ""
+  },
+  {
+    "label": "internal cleanup",
+    "category": ""
+  },
+  {
+    "label": "internal-issue-created",
+    "category": ""
+  },
+  {
+    "label": "invalid",
+    "category": "null"
+  },
+  {
+    "label": "jquery differences",
+    "category": ""
+  },
+  {
+    "label": "jsonp-polling",
+    "category": ""
+  },
+  {
+    "label": "library",
+    "category": "tool"
+  },
+  {
+    "label": "lint",
+    "category": ""
+  },
+  {
+    "label": "maintenance",
+    "category": "maintenance"
+  },
+  {
+    "label": "major",
+    "category": ""
+  },
+  {
+    "label": "minor",
+    "category": ""
+  },
+  {
+    "label": "mode: proxy",
+    "category": ""
+  },
+  {
+    "label": "modules",
+    "category": ""
+  },
+  {
+    "label": "must-triage",
+    "category": ""
+  },
+  {
+    "label": "namespaces",
+    "category": ""
+  },
+  {
+    "label": "need-info",
+    "category": ""
+  },
+  {
+    "label": "needs a example app.",
+    "category": ""
+  },
+  {
+    "label": "needs a failing test",
+    "category": ""
+  },
+  {
+    "label": "needs browser testing",
+    "category": ""
+  },
+  {
+    "label": "needs changelog",
+    "category": ""
+  },
+  {
+    "label": "needs docs",
+    "category": ""
+  },
+  {
+    "label": "needs documentation",
+    "category": ""
+  },
+  {
+    "label": "needs info",
+    "category": ""
+  },
+  {
+    "label": "needs more info :man_shrugging:",
+    "category": ""
+  },
+  {
+    "label": "needs repro",
+    "category": ""
+  },
+  {
+    "label": "needs review",
+    "category": ""
+  },
+  {
+    "label": "needs triage",
+    "category": ""
+  },
+  {
+    "label": "needs-more-info",
+    "category": "null"
+  },
+  {
+    "label": "needs-research",
+    "category": ""
+  },
+  {
+    "label": "new api proposal",
+    "category": ""
+  },
+  {
+    "label": "new best practice",
+    "category": ""
+  },
+  {
+    "label": "node next",
+    "category": ""
+  },
+  {
+    "label": "not a bug",
+    "category": ""
+  },
+  {
+    "label": "nti",
+    "category": ""
+  },
+  {
+    "label": "on hold",
+    "category": ""
+  },
+  {
+    "label": "open",
+    "category": ""
+  },
+  {
+    "label": "operations",
+    "category": ""
+  },
+  {
+    "label": "opinions needed",
+    "category": ""
+  },
+  {
+    "label": "other language integration feature",
+    "category": ""
+  },
+  {
+    "label": "oti",
+    "category": ""
+  },
+  {
+    "label": "p0",
+    "category": ""
+  },
+  {
+    "label": "p1",
+    "category": ""
+  },
+  {
+    "label": "p2",
+    "category": ""
+  },
+  {
+    "label": "p3",
+    "category": ""
+  },
+  {
+    "label": "parser",
+    "category": ""
+  },
+  {
+    "label": "parser-specific",
+    "category": ""
+  },
+  {
+    "label": "pending release",
+    "category": ""
+  },
+  {
+    "label": "performance",
+    "category": ""
+  },
+  {
+    "label": "planned feature",
+    "category": ""
+  },
+  {
+    "label": "planned for next release",
+    "category": ""
+  },
+  {
+    "label": "pr welcome",
+    "category": ""
+  },
+  {
+    "label": "pr-existing",
+    "category": ""
+  },
+  {
+    "label": "pr: breaking change",
+    "category": ""
+  },
+  {
+    "label": "pr: breaking change :boom:",
+    "category": ""
+  },
+  {
+    "label": "pr: bug fix",
+    "category": ""
+  },
+  {
+    "label": "pr: bug fix :bug:",
+    "category": ""
+  },
+  {
+    "label": "pr: dependency ⬆️",
+    "category": ""
+  },
+  {
+    "label": "pr: deprecation",
+    "category": ""
+  },
+  {
+    "label": "pr: docs :memo:",
+    "category": ""
+  },
+  {
+    "label": "pr: documentation",
+    "category": ""
+  },
+  {
+    "label": "pr: good example",
+    "category": ""
+  },
+  {
+    "label": "pr: internal",
+    "category": ""
+  },
+  {
+    "label": "pr: internal :house:",
+    "category": ""
+  },
+  {
+    "label": "pr: merged",
+    "category": ""
+  },
+  {
+    "label": "pr: needs review",
+    "category": ""
+  },
+  {
+    "label": "pr: new dependency",
+    "category": ""
+  },
+  {
+    "label": "pr: new feature",
+    "category": ""
+  },
+  {
+    "label": "pr: new feature :rocket:",
+    "category": ""
+  },
+  {
+    "label": "pr: polish :nail_care:",
+    "category": ""
+  },
+  {
+    "label": "pr: ready for review",
+    "category": ""
+  },
+  {
+    "label": "pr: ready to be merged",
+    "category": ""
+  },
+  {
+    "label": "pr: reviewed-approved",
+    "category": ""
+  },
+  {
+    "label": "pr: reviewed-changes-requested",
+    "category": ""
+  },
+  {
+    "label": "pr: spec compliance :eyeglasses:",
+    "category": ""
+  },
+  {
+    "label": "pr: underlying tools",
+    "category": ""
+  },
+  {
+    "label": "pr: unreviewed",
+    "category": ""
+  },
+  {
+    "label": "pr: wip",
+    "category": ""
+  },
+  {
+    "label": "priority: critical",
+    "category": ""
+  },
+  {
+    "label": "priority: high",
+    "category": ""
+  },
+  {
+    "label": "priority: low",
+    "category": ""
+  },
+  {
+    "label": "priority: medium",
+    "category": ""
+  },
+  {
+    "label": "question",
+    "category": "null"
+  },
+  {
+    "label": "react flare",
+    "category": ""
+  },
+  {
+    "label": "react native",
+    "category": ""
+  },
+  {
+    "label": "ready",
+    "category": ""
+  },
+  {
+    "label": "refactor",
+    "category": ""
+  },
+  {
+    "label": "regression",
+    "category": "null"
+  },
+  {
+    "label": "release: alpha",
+    "category": ""
+  },
+  {
+    "label": "released",
+    "category": "null"
+  },
+  {
+    "label": "reminder",
+    "category": "null"
+  },
+  {
+    "label": "resolution: duplicate",
+    "category": ""
+  },
+  {
+    "label": "resolution: invalid",
+    "category": ""
+  },
+  {
+    "label": "resolution: needs more information",
+    "category": ""
+  },
+  {
+    "label": "resolution: support redirect",
+    "category": ""
+  },
+  {
+    "label": "review",
+    "category": "review"
+  },
+  {
+    "label": "review in progress",
+    "category": ""
+  },
+  {
+    "label": "revisitinfuture",
+    "category": ""
+  },
+  {
+    "label": "rfc",
+    "category": ""
+  },
+  {
+    "label": "security",
+    "category": "security"
+  },
+  {
+    "label": "shell",
+    "category": ""
+  },
+  {
+    "label": "socket.io client",
+    "category": ""
+  },
+  {
+    "label": "spam",
+    "category": ""
+  },
+  {
+    "label": "spammy",
+    "category": ""
+  },
+  {
+    "label": "spec: async functions",
+    "category": ""
+  },
+  {
+    "label": "spec: async generators",
+    "category": ""
+  },
+  {
+    "label": "spec: bigint",
+    "category": ""
+  },
+  {
+    "label": "spec: class fields",
+    "category": ""
+  },
+  {
+    "label": "spec: classes",
+    "category": ""
+  },
+  {
+    "label": "spec: decorators",
+    "category": ""
+  },
+  {
+    "label": "spec: decorators (legacy)",
+    "category": ""
+  },
+  {
+    "label": "spec: do expressions",
+    "category": ""
+  },
+  {
+    "label": "stale",
+    "category": ""
+  },
+  {
+    "label": "status: accepted",
+    "category": ""
+  },
+  {
+    "label": "status: accepted :heavy_check_mark:",
+    "category": ""
+  },
+  {
+    "label": "status: available",
+    "category": ""
+  },
+  {
+    "label": "status: available :free:",
+    "category": ""
+  },
+  {
+    "label": "status: cla not signed",
+    "category": ""
+  },
+  {
+    "label": "status: code review request",
+    "category": ""
+  },
+  {
+    "label": "status: duplicate",
+    "category": ""
+  },
+  {
+    "label": "status: hacktoberfest approved",
+    "category": ""
+  },
+  {
+    "label": "status: help wanted",
+    "category": ""
+  },
+  {
+    "label": "status: in progress",
+    "category": ""
+  },
+  {
+    "label": "status: in progress :construction_worker:",
+    "category": ""
+  },
+  {
+    "label": "status: in review",
+    "category": ""
+  },
+  {
+    "label": "status: in review :detective:",
+    "category": ""
+  },
+  {
+    "label": "status: invalid",
+    "category": ""
+  },
+  {
+    "label": "status: left out",
+    "category": ""
+  },
+  {
+    "label": "status: left out :left_luggage:",
+    "category": ""
+  },
+  {
+    "label": "status: on hold",
+    "category": ""
+  },
+  {
+    "label": "status: on hold :stop_sign:",
+    "category": ""
+  },
+  {
+    "label": "status: ready for deploy",
+    "category": ""
+  },
+  {
+    "label": "status: review needed",
+    "category": ""
+  },
+  {
+    "label": "status: review needed :passport_control:",
+    "category": ""
+  },
+  {
+    "label": "status: waiting for feedback",
+    "category": ""
+  },
+  {
+    "label": "status: wontfix",
+    "category": ""
+  },
+  {
+    "label": "status: work in progress",
+    "category": ""
+  },
+  {
+    "label": "suggestion",
+    "category": ""
+  },
+  {
+    "label": "support",
+    "category": ""
+  },
+  {
+    "label": "syntax feature request",
+    "category": ""
+  },
+  {
+    "label": "technical debt",
+    "category": ""
+  },
+  {
+    "label": "technical-debt",
+    "category": ""
+  },
+  {
+    "label": "test",
+    "category": "test"
+  },
+  {
+    "label": "test needed",
+    "category": ""
+  },
+  {
+    "label": "tests",
+    "category": ""
+  },
+  {
+    "label": "tips",
+    "category": ""
+  },
+  {
+    "label": "to do",
+    "category": ""
+  },
+  {
+    "label": "to merge",
+    "category": ""
+  },
+  {
+    "label": "todo :spiral_notepad:",
+    "category": ""
+  },
+  {
+    "label": "translation",
+    "category": "translation"
+  },
+  {
+    "label": "triage",
+    "category": ""
+  },
+  {
+    "label": "triage-done",
+    "category": ""
+  },
+  {
+    "label": "trivial",
+    "category": ""
+  },
+  {
+    "label": "type: archive",
+    "category": ""
+  },
+  {
+    "label": "type: bug",
+    "category": ""
+  },
+  {
+    "label": "type: bug :bug:",
+    "category": ""
+  },
+  {
+    "label": "type: community enhancement",
+    "category": ""
+  },
+  {
+    "label": "type: discuss :speech_balloon:",
+    "category": ""
+  },
+  {
+    "label": "type: docs update",
+    "category": ""
+  },
+  {
+    "label": "type: documentation :book:",
+    "category": ""
+  },
+  {
+    "label": "type: duplicate :repeat:",
+    "category": ""
+  },
+  {
+    "label": "type: enhancement",
+    "category": ""
+  },
+  {
+    "label": "type: enhancement :bulb:",
+    "category": ""
+  },
+  {
+    "label": "type: getting started",
+    "category": ""
+  },
+  {
+    "label": "type: invalid :x:",
+    "category": ""
+  },
+  {
+    "label": "type: maintenance :construction:",
+    "category": ""
+  },
+  {
+    "label": "type: non-library issue",
+    "category": ""
+  },
+  {
+    "label": "type: question",
+    "category": ""
+  },
+  {
+    "label": "type: question :grey_question:",
+    "category": ""
+  },
+  {
+    "label": "type: regression :boom:",
+    "category": ""
+  },
+  {
+    "label": "type: security",
+    "category": ""
+  },
+  {
+    "label": "type: sendgrid enhancement",
+    "category": ""
+  },
+  {
+    "label": "type: support",
+    "category": ""
+  },
+  {
+    "label": "type: vulnerability :warning:",
+    "category": ""
+  },
+  {
+    "label": "types",
+    "category": ""
+  },
+  {
+    "label": "ui",
+    "category": "design"
+  },
+  {
+    "label": "unable to reproduce",
+    "category": ""
+  },
+  {
+    "label": "unconfirmed",
+    "category": ""
+  },
+  {
+    "label": "update",
+    "category": ""
+  },
+  {
+    "label": "upstream",
+    "category": ""
+  },
+  {
+    "label": "upstream bug",
+    "category": ""
+  },
+  {
+    "label": "ux",
+    "category": "design"
+  },
+  {
+    "label": "v3",
+    "category": ""
+  },
+  {
+    "label": "vulnerability",
+    "category": "security"
+  },
+  {
+    "label": "website",
+    "category": ""
+  },
+  {
+    "label": "websocket",
+    "category": ""
+  },
+  {
+    "label": "windows",
+    "category": ""
+  },
+  {
+    "label": "wip",
+    "category": "null"
+  },
+  {
+    "label": "wontfix",
+    "category": "null"
+  },
+  {
+    "label": "work in progress",
+    "category": ""
+  },
+  {
+    "label": "writer-needed",
+    "category": ""
+  },
+  {
+    "label": "xhr-polling",
+    "category": ""
+  }
+]

@@ -1,17 +1,22 @@
-const bayes = require('classificator')
-const ds = require('./src/dataset.json')
+const natural = require('natural')
+const trainSet = require('./src/dataset.json')
+const testSet = require('./src/testset.json')
 
-const classifier = bayes()
+const classifier = new natural.BayesClassifier()
+
 
 /* eslint-disable no-console */
-console.log('Learning....')
-ds.forEach(el => classifier.learn(...el))
+console.log('Learning...')
+trainSet.forEach(arr => classifier.addDocument(arr[0], arr[1]))
+classifier.train()
+console.log('Training complete')
 
-console.log('Test!!')
-const testSet = ['bug', 'enhancement', 'documentation', 'release']
+let correctResults = 0;
 
-testSet.forEach(word => {
-  console.log(`${word}?`)
-  console.dir(classifier.categorize(word))
-})
+for (let i = 0; i < testSet.length; i++) {
+  const result = classifier.classify(testSet[i][0]) //label
+  if (result === testSet[i][1]) correctResults++ //correct category
+}
+
+console.log(`Correct Results: ${correctResults}/${testSet.length}; (based on ${trainSet.length} data learnt)`);
 /* eslint-enable no-console */
