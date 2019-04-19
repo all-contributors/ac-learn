@@ -41,7 +41,7 @@
   ["priority", "null"],
   ["projectManagement", "projectManagement"],
   ["question", "null"],
-  ["regression", "null"],
+  ["regression", "bug"],
   ["released", "null"],
   ["reminder", "null"],
   ["review", "review"],

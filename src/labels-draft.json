@@ -25,15 +25,15 @@
   },
   {
     "label": "7.x: regression",
-    "category": "null"
+    "category": "bug"
   },
   {
     "label": ":arrow_heading_down: pull",
-    "category": "null"
+    "category": "maintenance"
   },
   {
     "label": ":boom: regression",
-    "category": "null"
+    "category": "bug"
   },
   {
     "label": ":bug: bug",
@@ -68,12 +68,24 @@
     "category": "null"
   },
   {
+    "label": "acked",
+    "category": ""
+  },
+  {
     "label": "adapter",
     "category": "plugin"
   },
   {
     "label": "advance developer workflow",
     "category": "projectManagement"
+  },
+  {
+    "label": "android",
+    "category": ""
+  },
+  {
+    "label": "angular",
+    "category": "code"
   },
   {
     "label": "animals (category)",
@@ -106,6 +118,10 @@
   {
     "label": "available in fa pro",
     "category": "null"
+  },
+  {
+    "label": "awaiting-review",
+    "category": ""
   },
   {
     "label": "beginner-friendly",
@@ -160,6 +176,10 @@
     "category": "business"
   },
   {
+    "label": "c/c++",
+    "category": ""
+  },
+  {
     "label": "cannot reproduce",
     "category": "null"
   },
@@ -174,6 +194,10 @@
   {
     "label": "chat (category)",
     "category": "ideas"
+  },
+  {
+    "label": "chore",
+    "category": "maintenance"
   },
   {
     "label": "cla signed",
@@ -197,6 +221,38 @@
   },
   {
     "label": "closed due to inactivity",
+    "category": "null"
+  },
+  {
+    "label": "cmty:bug-report",
+    "category": ""
+  },
+  {
+    "label": "cmty:feature-request",
+    "category": ""
+  },
+  {
+    "label": "cmty:question",
+    "category": ""
+  },
+  {
+    "label": "cmty:status:cancelled",
+    "category": ""
+  },
+  {
+    "label": "cmty:status:fixed",
+    "category": ""
+  },
+  {
+    "label": "cmty:status:implemented",
+    "category": ""
+  },
+  {
+    "label": "cmty:status:resolved",
+    "category": ""
+  },
+  {
+    "label": "community",
     "category": "null"
   },
   {
@@ -276,12 +332,24 @@
     "category": "null"
   },
   {
+    "label": "conflicts",
+    "category": ""
+  },
+  {
     "label": "contribution welcome",
     "category": "null"
   },
   {
+    "label": "core",
+    "category": ""
+  },
+  {
     "label": "critical",
     "category": "null"
+  },
+  {
+    "label": "csharp",
+    "category": ""
   },
   {
     "label": "css",
@@ -372,8 +440,28 @@
     "category": "null"
   },
   {
+    "label": "electron",
+    "category": ""
+  },
+  {
     "label": "enhancement",
     "category": "maintenance"
+  },
+  {
+    "label": "enterprise",
+    "category": ""
+  },
+  {
+    "label": "enterprise-2.0-backport",
+    "category": ""
+  },
+  {
+    "label": "enterprise-2.1-backport",
+    "category": ""
+  },
+  {
+    "label": "enterprise-2.2-backport",
+    "category": ""
   },
   {
     "label": "es6",
@@ -382,6 +470,10 @@
   {
     "label": "es7",
     "category": "code"
+  },
+  {
+    "label": "external",
+    "category": ""
   },
   {
     "label": "externs",
@@ -484,6 +576,18 @@
     "category": "design"
   },
   {
+    "label": "frontend",
+    "category": ""
+  },
+  {
+    "label": "future architecture enhancements",
+    "category": ""
+  },
+  {
+    "label": "future crypto enhancements",
+    "category": ""
+  },
+  {
     "label": "genders (category)",
     "category": "null"
   },
@@ -496,6 +600,10 @@
     "category": "null"
   },
   {
+    "label": "go client internal release",
+    "category": ""
+  },
+  {
     "label": "good first issue",
     "category": "null"
   },
@@ -505,7 +613,7 @@
   },
   {
     "label": "great insight",
-    "category": "null"
+    "category": "ideas"
   },
   {
     "label": "greenkeeper",
@@ -597,11 +705,15 @@
   },
   {
     "label": "in review",
-    "category": "null"
+    "category": "review"
   },
   {
     "label": "infrastructure :hammer_and_wrench:",
     "category": "infra"
+  },
+  {
+    "label": "installer",
+    "category": ""
   },
   {
     "label": "internal cleanup",
@@ -609,11 +721,15 @@
   },
   {
     "label": "internal-issue-created",
-    "category": "null"
+    "category": "bug"
   },
   {
     "label": "invalid",
     "category": "null"
+  },
+  {
+    "label": "ios",
+    "category": ""
   },
   {
     "label": "jquery differences",
@@ -624,11 +740,75 @@
     "category": "null"
   },
   {
+    "label": "kbfs",
+    "category": ""
+  },
+  {
+    "label": "lang-crystal",
+    "category": ""
+  },
+  {
+    "label": "lang-dart",
+    "category": ""
+  },
+  {
+    "label": "lang-elixir",
+    "category": ""
+  },
+  {
+    "label": "lang-go",
+    "category": ""
+  },
+  {
+    "label": "lang-julia",
+    "category": ""
+  },
+  {
+    "label": "lang-objc",
+    "category": ""
+  },
+  {
+    "label": "lang-r",
+    "category": ""
+  },
+  {
+    "label": "lang-scala",
+    "category": ""
+  },
+  {
+    "label": "legal",
+    "category": "security"
+  },
+  {
     "label": "library",
     "category": "tool"
   },
   {
     "label": "lint",
+    "category": ""
+  },
+  {
+    "label": "linux",
+    "category": ""
+  },
+  {
+    "label": "lks",
+    "category": ""
+  },
+  {
+    "label": "m1.s0",
+    "category": ""
+  },
+  {
+    "label": "m1.s1",
+    "category": ""
+  },
+  {
+    "label": "m1.s2",
+    "category": ""
+  },
+  {
+    "label": "macos",
     "category": ""
   },
   {
@@ -640,8 +820,16 @@
     "category": "null"
   },
   {
+    "label": "mass purge 2015.10.26",
+    "category": ""
+  },
+  {
     "label": "minor",
     "category": "null"
+  },
+  {
+    "label": "mobile device support",
+    "category": ""
   },
   {
     "label": "mode: proxy",
@@ -724,15 +912,15 @@
     "category": "doc"
   },
   {
+    "label": "node",
+    "category": "platform"
+  },
+  {
     "label": "node next",
     "category": "platform"
   },
   {
     "label": "not a bug",
-    "category": "null"
-  },
-  {
-    "label": "nti",
     "category": "null"
   },
   {
@@ -752,12 +940,12 @@
     "category": "ideas"
   },
   {
-    "label": "other language integration feature",
-    "category": "ideas"
+    "label": "optimisation",
+    "category": "code"
   },
   {
-    "label": "oti",
-    "category": "null"
+    "label": "other language integration feature",
+    "category": "ideas"
   },
   {
     "label": "p0",
@@ -776,6 +964,10 @@
     "category": "null"
   },
   {
+    "label": "packaging",
+    "category": "platform"
+  },
+  {
     "label": "parser",
     "category": "tool"
   },
@@ -789,7 +981,7 @@
   },
   {
     "label": "performance",
-    "category": "null"
+    "category": "code"
   },
   {
     "label": "planned feature",
@@ -841,7 +1033,7 @@
   },
   {
     "label": "pr: good example",
-    "category": "examples"
+    "category": "example"
   },
   {
     "label": "pr: internal",
@@ -924,6 +1116,14 @@
     "category": "null"
   },
   {
+    "label": "production",
+    "category": "null"
+  },
+  {
+    "label": "project management",
+    "category": ""
+  },
+  {
     "label": "question",
     "category": "null"
   },
@@ -945,7 +1145,7 @@
   },
   {
     "label": "regression",
-    "category": "null"
+    "category": "bug"
   },
   {
     "label": "release: alpha",
@@ -981,7 +1181,7 @@
   },
   {
     "label": "review in progress",
-    "category": "review"
+    "category": "null"
   },
   {
     "label": "revisitinfuture",
@@ -990,6 +1190,10 @@
   {
     "label": "rfc",
     "category": "ideas"
+  },
+  {
+    "label": "ruby",
+    "category": ""
   },
   {
     "label": "security",
@@ -1037,7 +1241,7 @@
   },
   {
     "label": "spec: decorators (legacy)",
-    "category": "cpde"
+    "category": "code"
   },
   {
     "label": "spec: do expressions",
@@ -1093,11 +1297,11 @@
   },
   {
     "label": "status: in review",
-    "category": "review"
+    "category": "null"
   },
   {
     "label": "status: in review :detective:",
-    "category": "review"
+    "category": "null"
   },
   {
     "label": "status: invalid",
@@ -1189,11 +1393,15 @@
   },
   {
     "label": "todo :spiral_notepad:",
-    "category": "null"
+    "category": "maintenance"
   },
   {
     "label": "translation",
     "category": "translation"
+  },
+  {
+    "label": "travis-yml",
+    "category": ""
   },
   {
     "label": "triage",
@@ -1201,51 +1409,51 @@
   },
   {
     "label": "triage-done",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "trivial",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: archive",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "type: bug",
-    "category": ""
+    "category": "bug"
   },
   {
     "label": "type: bug :bug:",
-    "category": ""
+    "category": "bug"
   },
   {
     "label": "type: community enhancement",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "type: discuss :speech_balloon:",
-    "category": ""
+    "category": "ideas"
   },
   {
     "label": "type: docs update",
-    "category": ""
+    "category": "doc"
   },
   {
     "label": "type: documentation :book:",
-    "category": ""
+    "category": "doc"
   },
   {
     "label": "type: duplicate :repeat:",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: enhancement",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "type: enhancement :bulb:",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "type: getting started",
@@ -1253,43 +1461,43 @@
   },
   {
     "label": "type: invalid :x:",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: maintenance :construction:",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "type: non-library issue",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: question",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: question :grey_question:",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: regression :boom:",
-    "category": ""
+    "category": "bug"
   },
   {
     "label": "type: security",
-    "category": ""
+    "category": "security"
   },
   {
     "label": "type: sendgrid enhancement",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "type: support",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: vulnerability :warning:",
-    "category": ""
+    "category": "security"
   },
   {
     "label": "types",
@@ -1301,23 +1509,23 @@
   },
   {
     "label": "unable to reproduce",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "unconfirmed",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "update",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "upstream",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "upstream bug",
-    "category": ""
+    "category": "bug"
   },
   {
     "label": "ux",
@@ -1325,7 +1533,7 @@
   },
   {
     "label": "v3",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "vulnerability",
@@ -1333,10 +1541,14 @@
   },
   {
     "label": "website",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "websocket",
+    "category": "tool"
+  },
+  {
+    "label": "weekly-digest",
     "category": ""
   },
   {
@@ -1353,10 +1565,14 @@
   },
   {
     "label": "work in progress",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "writer-needed",
+    "category": "null"
+  },
+  {
+    "label": "wrong repo",
     "category": ""
   },
   {
