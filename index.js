@@ -1,13 +1,16 @@
 const natural = require('natural')
 const ck = require('chalk')
-const trainSet = require('./src/dataset.json')
+const trainSet = require('./src/labels.json')
 const testSet = require('./src/testset.json')
 
 const classifier = new natural.BayesClassifier()
 
 /* eslint-disable no-console */
 console.log('Learning...')
-trainSet.forEach(arr => classifier.addDocument(arr[0], arr[1]))
+// trainSet.forEach(arr => classifier.addDocument(arr[0], arr[1]))
+trainSet.forEach(data => {
+  if (data.category.length) classifier.addDocument(data.label, data.category)
+})
 classifier.train()
 console.log('Training complete')
 
