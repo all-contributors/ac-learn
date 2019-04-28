@@ -49,11 +49,11 @@
   },
   {
     "label": ":speech_balloon: question",
-    "category": "null"
+    "category": "question"
   },
   {
     "label": "@font-face",
-    "category": "null"
+    "category": "design"
   },
   {
     "label": "abandoned",
@@ -68,8 +68,8 @@
     "category": "null"
   },
   {
-    "label": "acked",
-    "category": ""
+    "label": "hacked",
+    "category": "security"
   },
   {
     "label": "adapter",
@@ -77,11 +77,11 @@
   },
   {
     "label": "advance developer workflow",
-    "category": "projectManagement"
+    "category": "infra"
   },
   {
     "label": "android",
-    "category": ""
+    "category": "platform"
   },
   {
     "label": "angular",
@@ -89,7 +89,7 @@
   },
   {
     "label": "animals (category)",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "answered",
@@ -121,7 +121,7 @@
   },
   {
     "label": "awaiting-review",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "beginner-friendly",
@@ -157,11 +157,11 @@
   },
   {
     "label": "browser: ie",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "browser: safari",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "bug",
@@ -177,7 +177,7 @@
   },
   {
     "label": "c/c++",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "cannot reproduce",
@@ -225,31 +225,31 @@
   },
   {
     "label": "cmty:bug-report",
-    "category": ""
+    "category": "bug"
   },
   {
     "label": "cmty:feature-request",
-    "category": ""
+    "category": "ideas"
   },
   {
     "label": "cmty:question",
-    "category": ""
+    "category": "question"
   },
   {
     "label": "cmty:status:cancelled",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "cmty:status:fixed",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "cmty:status:implemented",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "cmty:status:resolved",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "community",
@@ -269,7 +269,7 @@
   },
   {
     "label": "component: core utilities",
-    "category": "code"
+    "category": "maintenance"
   },
   {
     "label": "component: developer tools",
@@ -281,11 +281,11 @@
   },
   {
     "label": "component: eslint rules",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "component: hooks",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "component: optimizing compiler",
@@ -293,15 +293,15 @@
   },
   {
     "label": "component: reactis",
-    "category": "plugin"
+    "category": "code"
   },
   {
     "label": "component: reconciler",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "component: scheduler",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "component: server rendering",
@@ -333,7 +333,7 @@
   },
   {
     "label": "conflicts",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "contribution welcome",
@@ -341,7 +341,7 @@
   },
   {
     "label": "core",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "critical",
@@ -349,7 +349,7 @@
   },
   {
     "label": "csharp",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "css",
@@ -441,7 +441,7 @@
   },
   {
     "label": "electron",
-    "category": ""
+    "category": "tool"
   },
   {
     "label": "enhancement",
@@ -449,19 +449,19 @@
   },
   {
     "label": "enterprise",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "enterprise-2.0-backport",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "enterprise-2.1-backport",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "enterprise-2.2-backport",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "es6",
@@ -473,7 +473,7 @@
   },
   {
     "label": "external",
-    "category": ""
+    "category": "plugin"
   },
   {
     "label": "externs",
@@ -485,7 +485,7 @@
   },
   {
     "label": "feat: babel",
-    "category": "code"
+    "category": "tool"
   },
   {
     "label": "feat: cli",
@@ -501,15 +501,15 @@
   },
   {
     "label": "feat: e2e-cypress",
-    "category": "plugin"
+    "category": "test"
   },
   {
     "label": "feat: e2e-nightwatch",
-    "category": "plugin"
+    "category": "test"
   },
   {
     "label": "feat: eslint",
-    "category": "tool"
+    "category": "maintenance"
   },
   {
     "label": "feat: plugin api",
@@ -529,11 +529,11 @@
   },
   {
     "label": "feat: unit-jest",
-    "category": "tool"
+    "category": "test"
   },
   {
     "label": "feat: unit-mocha",
-    "category": "tool"
+    "category": "test"
   },
   {
     "label": "feature",
@@ -561,11 +561,11 @@
   },
   {
     "label": "flashsocket",
-    "category": "null"
+    "category": "tool"
   },
   {
     "label": "fontawesome.com",
-    "category": "code"
+    "category": "null"
   },
   {
     "label": "food (category)",
@@ -577,15 +577,15 @@
   },
   {
     "label": "frontend",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "future architecture enhancements",
-    "category": ""
+    "category": "ideas"
   },
   {
     "label": "future crypto enhancements",
-    "category": ""
+    "category": "ideas"
   },
   {
     "label": "genders (category)",
@@ -601,7 +601,7 @@
   },
   {
     "label": "go client internal release",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "good first issue",
@@ -681,15 +681,15 @@
   },
   {
     "label": "https",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "icebox",
-    "category": "projectManagement"
+    "category": "platform"
   },
   {
     "label": "ie8",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "import in progress",
@@ -705,7 +705,7 @@
   },
   {
     "label": "in review",
-    "category": "review"
+    "category": "null"
   },
   {
     "label": "infrastructure :hammer_and_wrench:",
@@ -713,7 +713,7 @@
   },
   {
     "label": "installer",
-    "category": ""
+    "category": "tool"
   },
   {
     "label": "internal cleanup",
@@ -729,7 +729,7 @@
   },
   {
     "label": "ios",
-    "category": ""
+    "category": "platform"
   },
   {
     "label": "jquery differences",
@@ -741,39 +741,39 @@
   },
   {
     "label": "kbfs",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "lang-crystal",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "lang-dart",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "lang-elixir",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "lang-go",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "lang-julia",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "lang-objc",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "lang-r",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "lang-scala",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "legal",
@@ -785,31 +785,31 @@
   },
   {
     "label": "lint",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "linux",
-    "category": ""
+    "category": "platform"
   },
   {
     "label": "lks",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "m1.s0",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "m1.s1",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "m1.s2",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "macos",
-    "category": ""
+    "category": "platform"
   },
   {
     "label": "maintenance",
@@ -821,7 +821,7 @@
   },
   {
     "label": "mass purge 2015.10.26",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "minor",
@@ -829,7 +829,7 @@
   },
   {
     "label": "mobile device support",
-    "category": ""
+    "category": "platform"
   },
   {
     "label": "mode: proxy",
@@ -909,7 +909,7 @@
   },
   {
     "label": "new best practice",
-    "category": "doc"
+    "category": "ideas"
   },
   {
     "label": "node",
@@ -933,11 +933,11 @@
   },
   {
     "label": "operations",
-    "category": ""
+    "category": "maintenance"
   },
   {
     "label": "opinions needed",
-    "category": "ideas"
+    "category": "null"
   },
   {
     "label": "optimisation",
@@ -981,7 +981,7 @@
   },
   {
     "label": "performance",
-    "category": "code"
+    "category": "maintenance"
   },
   {
     "label": "planned feature",
@@ -1001,11 +1001,11 @@
   },
   {
     "label": "pr: breaking change",
-    "category": "null"
+    "category": "code"
   },
   {
     "label": "pr: breaking change :boom:",
-    "category": "null"
+    "category": "code"
   },
   {
     "label": "pr: bug fix",
@@ -1053,15 +1053,15 @@
   },
   {
     "label": "pr: new dependency",
-    "category": "maintenance"
+    "category": "ideas"
   },
   {
     "label": "pr: new feature",
-    "category": "maintenance"
+    "category": "ideas"
   },
   {
     "label": "pr: new feature :rocket:",
-    "category": "maintenance"
+    "category": "ideas"
   },
   {
     "label": "pr: polish :nail_care:",
@@ -1085,7 +1085,7 @@
   },
   {
     "label": "pr: spec compliance :eyeglasses:",
-    "category": "null"
+    "category": "doc"
   },
   {
     "label": "pr: underlying tools",
@@ -1121,11 +1121,11 @@
   },
   {
     "label": "project management",
-    "category": ""
+    "category": "projectManagement"
   },
   {
     "label": "question",
-    "category": "null"
+    "category": "question"
   },
   {
     "label": "react flare",
@@ -1141,7 +1141,7 @@
   },
   {
     "label": "refactor",
-    "category": "maintenance"
+    "category": "code"
   },
   {
     "label": "regression",
@@ -1185,7 +1185,7 @@
   },
   {
     "label": "revisitinfuture",
-    "category": "maintenance"
+    "category": "ideas"
   },
   {
     "label": "rfc",
@@ -1193,7 +1193,7 @@
   },
   {
     "label": "ruby",
-    "category": ""
+    "category": "code"
   },
   {
     "label": "security",
@@ -1205,7 +1205,7 @@
   },
   {
     "label": "socket.io client",
-    "category": "code"
+    "category": "tool"
   },
   {
     "label": "spam",
@@ -1217,35 +1217,35 @@
   },
   {
     "label": "spec: async functions",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "spec: async generators",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "spec: bigint",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "spec: class fields",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "spec: classes",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "spec: decorators",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "spec: decorators (legacy)",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "spec: do expressions",
-    "category": "code"
+    "category": "doc"
   },
   {
     "label": "stale",
@@ -1353,7 +1353,7 @@
   },
   {
     "label": "support",
-    "category": "maintenance"
+    "category": "null"
   },
   {
     "label": "syntax feature request",
@@ -1385,7 +1385,7 @@
   },
   {
     "label": "to do",
-    "category": "null"
+    "category": "maintenance"
   },
   {
     "label": "to merge",
@@ -1401,7 +1401,7 @@
   },
   {
     "label": "travis-yml",
-    "category": ""
+    "category": "infra"
   },
   {
     "label": "triage",
@@ -1417,7 +1417,7 @@
   },
   {
     "label": "type: archive",
-    "category": "maintenance"
+    "category": "null"
   },
   {
     "label": "type: bug",
@@ -1436,7 +1436,7 @@
     "category": "ideas"
   },
   {
-    "label": "type: docs update",
+    "label": "type: doc update",
     "category": "doc"
   },
   {
@@ -1453,11 +1453,11 @@
   },
   {
     "label": "type: enhancement :bulb:",
-    "category": "maintenance"
+    "category": "ideas"
   },
   {
     "label": "type: getting started",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "type: invalid :x:",
@@ -1473,11 +1473,11 @@
   },
   {
     "label": "type: question",
-    "category": "null"
+    "category": "question"
   },
   {
     "label": "type: question :grey_question:",
-    "category": "null"
+    "category": "question"
   },
   {
     "label": "type: regression :boom:",
@@ -1501,7 +1501,7 @@
   },
   {
     "label": "types",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "ui",
@@ -1549,11 +1549,11 @@
   },
   {
     "label": "weekly-digest",
-    "category": ""
+    "category": "blog"
   },
   {
     "label": "windows",
-    "category": ""
+    "category": "platform"
   },
   {
     "label": "wip",
@@ -1573,10 +1573,10 @@
   },
   {
     "label": "wrong repo",
-    "category": ""
+    "category": "null"
   },
   {
     "label": "xhr-polling",
-    "category": ""
+    "category": "null"
   }
 ]

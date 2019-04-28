@@ -44,9 +44,11 @@
   "dependencies": {
     "@babel/runtime": "^7.4.3",
     "chalk": "^2.4.2",
-    "classificator": "^0.3.3",
     "eslint-config-kentcdodds": "^14.3.2",
-    "natural": "^0.6.3"
+    "extract-lemmatized-nonstop-words": "^1.0.2",
+    "limdu": "^0.9.4",
+    "serialization": "^0.2.0",
+    "train-test-split": "^1.0.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
