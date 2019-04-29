@@ -1,6 +1,7 @@
 const serialize = require('serialization')
 const trainTestSplit = require('train-test-split')
 const ck = require('chalk')
+const {writeFile} = require('fs')
 const dataset = require('./src/conv')('io')
 const classifierBuilder = require('./src/classifier')
 const evaluate = require('./src/evaluate')
@@ -16,6 +17,11 @@ classifier.trainBatch(train)
 console.log(ck.cyan('Training complete'))
 
 evaluate(classifier, test, train)
-const classifierStr = serialize.toString(classifier, classifierBuilder);
-console.log('classifier str=', classifierStr)
+const classifierStr = serialize.toString(classifier, classifierBuilder)
+// console.log('classifier str=', classifierStr)
+
+writeFile('classifier.json', classifierStr, err => {
+  if (err) throw err
+  console.log(`\n${ck.magenta('classifier.json')} ready`)
+})
 /* eslint-enable no-console */

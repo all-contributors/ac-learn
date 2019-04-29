@@ -1,6 +1,6 @@
 const ck = require('chalk')
 
-module.exports = function evaluate (classifier, test, train) {
+module.exports = function evaluate(classifier, test, train) {
   let correctResults = 0
 
   test.forEach(t => {
@@ -8,17 +8,14 @@ module.exports = function evaluate (classifier, test, train) {
     const noGuess = !result.length && t.output === 'null'
     if (result[0] === t.output || noGuess) {
       ++correctResults
-      console.log(`${t.input}:`, ck.greenBright(result))
+      process.stdout.write(`${t.input}: ${ck.greenBright(result)}\n`)
     } else if (result.includes(t.output)) {
       //2+ classed guessed
       correctResults += 1 / result.length
-      console.log(`${t.input}:`, ck.yellowBright(result))
+      process.stdout.write(`${t.input}: ${ck.yellowBright(result)}\n`)
     } else {
-      console.log(
-        `${t.input}:`,
-        ck.redBright(result),
-        '!=',
-        ck.blueBright(t.output),
+      process.stdout.write(
+        `${t.input}: ${ck.redBright(result)} != ${ck.blueBright(t.output)}`,
       )
     }
   })
@@ -27,14 +24,14 @@ module.exports = function evaluate (classifier, test, train) {
 
   //@todo add precision/recall/f1-score
 
-  console.log(
+  process.stdout.write(
     `Correct Results: ${correctResults}/${
       test.length
-    } (${testAccuracy}%); (based on ${train.length} data learnt)`,
+    } (${testAccuracy}%); (based on ${train.length} data learnt)\n`,
   )
 
   return {
     correctResults,
-    testAccuracy
+    testAccuracy,
   }
 }
