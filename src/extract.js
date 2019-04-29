@@ -1,4 +1,4 @@
-const extractLemma = require('extract-lemmatized-nonstop-words')
+// const extractLemma = require('extract-lemmatized-nonstop-words')
 
 // Feature extractor - a function that takes a sample and adds features to a given features set:
 const wordExtractor = (input, features) => {
