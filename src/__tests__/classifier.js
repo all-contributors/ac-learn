@@ -7,6 +7,6 @@ test('attributes', () => {
   expect(classifier.classifier.binaryClassifierType.name).toStrictEqual(
     'bound WinnowHash',
   )
-  expect(classifier.featureExtractors.name).toStrictEqual('wordExtractor')
+  expect(classifier.featureExtractors.name).toStrictEqual('featureExtractor')
   expect(classifier.pastTrainingSamples).toEqual([])
 })
