@@ -59,3 +59,9 @@ test('Labels with a valid category', () => {
 test('Bad data', () => {
   expect(labels.getBadData()).toEqual([])
 })
+
+test('Labels with a `bug` category', () => {
+  const nl = labels.getLabelsFromCategory('bug')
+  expect(nl.length > 2).toBeTruthy()
+  expect(nl[0]).toEqual({label: '7.x: regression', category: 'bug'})
+})

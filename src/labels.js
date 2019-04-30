@@ -15,11 +15,13 @@ module.exports = {
   getCategories: () => labels.map(d => d.category),
   getDistinctCategories: () => CATEGORIES,
   size: () => labels.length,
-  getCategorisedLabels: () => labels.filter(l => !!l.category),
-  getNullCatLabels: () => labels.filter(l => l.category == 'null'),
-  getValidCatLabels: () => labels.filter(l => CATEGORIES.includes(l.category)),
+  getCategorisedLabels: () => labels.filter(d => !!d.category),
+  getNullCatLabels: () => labels.filter(d => d.category == 'null'),
+  getValidCatLabels: () => labels.filter(d => CATEGORIES.includes(d.category)),
   getBadData: () =>
     labels.filter(
-      l => (!!l.category && !CATEGORIES.includes(l.category)) || !l.category,
+      d => (!!d.category && !CATEGORIES.includes(d.category)) || !d.category,
     ),
+  getLabelsFromCategory: category =>
+    labels.filter(d => d.category === category),
 }
