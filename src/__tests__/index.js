@@ -43,24 +43,53 @@ describe('a learner', () => {
     expect(str.length > 'classifier'.length).toBeTruthy()
   })
 
+  const SERIAL_STR = `{
+  "createNewObjectString": "(pastTrainingSamples = []) => {\\n  const limdu = require('limdu'); // Word extractor - a function that takes a sample and adds features to a given features set:\\n\\n\\n  const TextClassifier = limdu.classifiers.multilabel.BinaryRelevance.bind(0, {\\n    binaryClassifierType: limdu.classifiers.Winnow.bind(0, {\\n      retrain_count: 10\\n    })\\n  });\\n  const classifier = new limdu.classifiers.EnhancedClassifier({\\n    classifierType: TextClassifier,\\n    featureExtractor: (input, features) => {\\n      //similar to limdu.features.NGramsOfWords(1)\\n      input.split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\n      .filter(Boolean).forEach(word => {\\n        features[word.toLowerCase()] = 1;\\n      });\\n    },\\n    //or extract\\n    pastTrainingSamples\\n  });\\n  return classifier;\\n}",
+  "object": {\n\t\t"classifier": {},\n\t\t"pastTrainingSamples": []\n\t}\n}`
+  const SERIAL_JSON = JSON.parse(SERIAL_STR)
+
   test('serialized and saved', done => {
     const learner = new Learner()
-    const str = learner.serializeClassifier()
-    const file = '_sns.json'
     learner
-      .serializeAndSaveClassifier(file)
+      .serializeAndSaveClassifier('_sns.json')
       /* eslint-disable no-console */
-      .then(f => expect(f).toStrictEqual(str), console.error)
+      .then(
+        data => expect(JSON.parse(data)).toEqual(SERIAL_JSON),
+        console.error,
+      )
       /* eslint-enable no-console */
       .then(_ => done())
   })
 
   test('deserialization', () => {
-    const str = `{\n\t"createNewObjectString": "(pastTrainingSamples = []) => {\\r\\n  const limdu = require('limdu')\\r\\n  \\r\\n  // Word extractor - a function that takes a sample and adds features to a given features set:\\r\\n  const featureExtractor = (input, features) => { //similar to limdu.features.NGramsOfWords(1)\\r\\n    input\\r\\n      .split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\r\\n      .filter(Boolean)\\r\\n      .forEach(word => {\\r\\n        features[word.toLowerCase()] = 1\\r\\n      })\\r\\n  }\\r\\n\\r\\n  const TextClassifier = limdu.classifiers.multilabel.BinaryRelevance.bind(0, {\\r\\n    binaryClassifierType: limdu.classifiers.Winnow.bind(0, {retrain_count: 10}),\\r\\n  })\\r\\n\\r\\n  const classifier = new limdu.classifiers.EnhancedClassifier({\\r\\n    classifierType: TextClassifier,\\r\\n    featureExtractor, //or extract\\r\\n    pastTrainingSamples\\r\\n  })\\r\\n\\r\\n  return classifier\\r\\n}",\n\t"object": {\n\t\t"classifier": {},\n\t\t"pastTrainingSamples": []\n\t}\n}`
     const learner = new Learner()
-    const classifier = learner.deserializeClassifier(str)
+    const classifier = learner.deserializeClassifier(SERIAL_STR)
     expect(typeof classifier).toStrictEqual('object')
     expect(classifier.pastTrainingSamples).toEqual([])
+  })
+
+  test('loaded and deserialized', done => {
+    const learner = new Learner()
+    learner
+      .loadAndDeserializeClassifier('_sns.json')
+      /* eslint-disable no-console */
+      .then(classifier => {
+        expect(classifier).not.toMatchObject(learner.classifier)
+        // const moddedClassifier = {
+        //   ...learner.classifier,
+        //   classifier: {
+        //     binaryClassifierType: Winnow,
+        //     debug: false,
+        //     mapClassnameToClassifier: {}
+        //   },
+        //   createNewObjectString: SERIAL_JSON.createNewObjectString,
+        //   featureDocumentFrequency: undefined,
+        //   documentCount: undefined,
+        // }
+        // expect(classifier).toMatchObject(moddedClassifier)
+      }, console.error)
+      /* eslint-enable no-console */
+      .then(_ => done())
   })
 })
 

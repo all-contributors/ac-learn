@@ -28,7 +28,7 @@ class Learner {
   }
 
   train() {
-    const learning = new Spinner('Learning...', [
+    const training = new Spinner('Training...', [
       '⣾',
       '⣽',
       '⣻',
@@ -38,10 +38,10 @@ class Learner {
       '⣯',
       '⣷',
     ])
-    learning.start()
+    training.start()
     this.classifier.trainBatch(this.trainSet)
-    learning.message('Learning complete')
-    learning.stop()
+    training.message('Training complete')
+    training.stop()
   }
 
   eval(log = false) {
@@ -75,8 +75,8 @@ class Learner {
     return new Promise((resolve, reject) => {
       readFile(file, 'utf8', (err, data) => {
         if (err) reject(err)
-        const content = this.deserializeClassifier(data)
-        resolve(content)
+        const classifier = this.deserializeClassifier(data)
+        resolve(classifier)
       })
     })
   }
