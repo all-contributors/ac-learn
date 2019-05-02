@@ -1,6 +1,8 @@
 const Learner = require('../../')
 const dataset = require('../conv')('io')
 
+const copy = x => JSON.parse(JSON.stringify(x))
+
 describe('a learner', () => {
   test('is constructible', () => {
     const learner = new Learner(dataset)
@@ -97,12 +99,12 @@ describe('a knowledgeable learner', () => {
   //Commented out because the issue is affecting the whole suite
   const trainSplit = 0.8
   const learner = new Learner({
-    dataset: JSON.parse(JSON.stringify(dataset)),
+    dataset: copy(dataset),
     trainSplit,
   })
   const testSplit = Math.round((1 - trainSplit) * 1000) / 1000 // because 1 - .8 = .199..
   learner.train()
-  test('is knowledgeable', () => {
+  it('is knowledgeable', () => {
     // expect(learner.dataset).toEqual(dataset) //cf. https://github.com/erelsgl/limdu/issues/62
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
     expect(learner.trainSet.length).toStrictEqual(dataset.length * trainSplit)
@@ -121,5 +123,76 @@ describe('a knowledgeable learner', () => {
     expect(learner.classifier.pastTrainingSamples.length).toStrictEqual(
       learner.trainSet.length,
     )
+  })
+
+  it('is x-valid', () => {
+    expect(learner.macroAvg).toBeUndefined()
+    expect(learner.microAvg).toBeUndefined()
+    learner.crossValidate(4)
+    expect(typeof learner.macroAvg).toStrictEqual('object')
+    expect(typeof learner.microAvg).toStrictEqual('object')
+  })
+})
+
+describe('has stats', () => {
+  const learner = new Learner({
+    dataset: copy(dataset),
+  })
+  learner.crossValidate()
+
+  const props = [
+    'TP',
+    'TN',
+    'FP',
+    'FN',
+    'Accuracy',
+    'Precision',
+    'Recall',
+    'F1',
+    'count',
+    'TRUE',
+    'confusion',
+  ]
+  const objProps = ['confusion', 'labels']
+  const details = []
+  props.forEach(p => {
+    details.push([p, 'macro'])
+    details.push([p, 'micro'])
+  })
+
+  test.each(details)('has %s in %sAvg', (prop, avgType) => {
+    const avg = learner[`${avgType}Avg`]
+    expect(avg).toHaveProperty(prop)
+    /* eslint-disable babel/no-unused-expressions */
+    objProps.includes(prop)
+      ? expect(typeof avg[prop]).toStrictEqual('object')
+      : expect(avg[prop] >= 0).toBeTruthy()
+    /* eslint-enable babel/no-unused-expressions */
+  })
+
+  // console.log('micro=', learner.microAvg, '\nmacro=', learner.macroAvg)
+  it('has a correct accuracy', () => {
+    const acc = avg => (avg.TP + avg.TN) / avg.count
+    expect(learner.macroAvg.Accuracy).not.toEqual(acc(learner.macroAvg))
+    // expect(learner.microAvg.Accuracy).toEqual(acc(learner.microAvg)) //cf. https://github.com/erelsgl/limdu/issues/64
+  })
+
+  it('has a correct precision', () => {
+    const pr = avg => avg.TP / (avg.TP + avg.FP)
+    expect(learner.macroAvg.Precision).not.toEqual(pr(learner.macroAvg))
+    expect(learner.microAvg.Precision).toEqual(pr(learner.microAvg))
+  })
+
+  it('has a correct recall', () => {
+    const re = avg => avg.TP / (avg.TP + avg.FN)
+    expect(learner.macroAvg.Recall).not.toEqual(re(learner.macroAvg))
+    expect(learner.microAvg.Recall).toEqual(re(learner.microAvg))
+  })
+
+  it('has a correct f1 score', () => {
+    const f1 = avg =>
+      (2 * (avg.Precision * avg.Recall)) / (avg.Precision + avg.Recall)
+    expect(learner.macroAvg.F1).not.toEqual(f1(learner.macroAvg))
+    expect(learner.microAvg.F1).toEqual(f1(learner.microAvg))
   })
 })

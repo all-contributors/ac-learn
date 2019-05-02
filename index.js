@@ -86,7 +86,7 @@ class Learner {
     return this.classifier.classify(data)
   }
 
-  crossValidate(numOfFolds = 5, verboseLevel = 1, log = false) {
+  crossValidate(numOfFolds = 5, verboseLevel = 0, log = false) {
     /* ML Reminder (https://o.quizlet.com/Xc3kmIUi19opPDYn3hTo3A.png)
     T: True     F: False
     P: Positive N: Negative
