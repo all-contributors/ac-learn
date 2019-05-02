@@ -5,7 +5,7 @@ describe('a learner', () => {
   test('is constructible', () => {
     const learner = new Learner(dataset)
     const trainSplit = 0.8
-    const testSplit = Math.round((1 - 0.8) * 1000) / 1000 // because 1 - .8 = .199..
+    const testSplit = Math.round((1 - trainSplit) * 1000) / 1000 // because 1 - .8 = .199..
     expect(learner.dataset).toEqual(dataset)
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
     expect(learner.trainSet.length).toStrictEqual(dataset.length * trainSplit)
@@ -44,7 +44,7 @@ describe('a learner', () => {
   })
 
   const SERIAL_STR = `{
-  "createNewObjectString": "(pastTrainingSamples = []) => {\\n  const limdu = require('limdu'); // Word extractor - a function that takes a sample and adds features to a given features set:\\n\\n\\n  const TextClassifier = limdu.classifiers.multilabel.BinaryRelevance.bind(0, {\\n    binaryClassifierType: limdu.classifiers.Winnow.bind(0, {\\n      retrain_count: 10\\n    })\\n  });\\n  const classifier = new limdu.classifiers.EnhancedClassifier({\\n    classifierType: TextClassifier,\\n    featureExtractor: (input, features) => {\\n      //similar to limdu.features.NGramsOfWords(1)\\n      input.split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\n      .filter(Boolean).forEach(word => {\\n        features[word.toLowerCase()] = 1;\\n      });\\n    },\\n    //or extract\\n    pastTrainingSamples\\n  });\\n  return classifier;\\n}",
+  "createNewObjectString": "(pastTrainingSamples = []) => {\\n  const {\\n    multilabel,\\n    Winnow,\\n    EnhancedClassifier\\n  } = require('limdu').classifiers; // Word extractor - a function that takes a sample and adds features to a given features set:\\n\\n\\n  const TextClassifier = multilabel.BinaryRelevance.bind(0, {\\n    binaryClassifierType: Winnow.bind(0, {\\n      retrain_count: 10\\n    })\\n  });\\n  const classifier = new EnhancedClassifier({\\n    classifierType: TextClassifier,\\n    featureExtractor: (input, features) => {\\n      //similar to limdu.features.NGramsOfWords(1)\\n      input.split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\n      .filter(Boolean).forEach(word => {\\n        features[word.toLowerCase()] = 1;\\n      });\\n    },\\n    //or extract\\n    pastTrainingSamples\\n  });\\n  return classifier;\\n}",
   "object": {\n\t\t"classifier": {},\n\t\t"pastTrainingSamples": []\n\t}\n}`
   const SERIAL_JSON = JSON.parse(SERIAL_STR)
 
@@ -93,21 +93,33 @@ describe('a learner', () => {
   })
 })
 
-/* describe('a knowledgeable learner', () => { //Commented out because the issue is affecting the whole suite
-  const learner = new Learner()
+describe('a knowledgeable learner', () => {
+  //Commented out because the issue is affecting the whole suite
+  const trainSplit = 0.8
+  const learner = new Learner({
+    dataset: JSON.parse(JSON.stringify(dataset)),
+    trainSplit,
+  })
+  const testSplit = Math.round((1 - trainSplit) * 1000) / 1000 // because 1 - .8 = .199..
   learner.train()
   test('is knowledgeable', () => {
     // expect(learner.dataset).toEqual(dataset) //cf. https://github.com/erelsgl/limdu/issues/62
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
-    // expect(learner.trainSet.length).toStrictEqual(dataset.length * trainSplit)
-    // expect(Array.isArray(learner.testSet)).toBeTruthy()
-    // expect(learner.testSet.length).toStrictEqual(dataset.length * testSplit)
-    // expect(learner.trainSplit).toStrictEqual(trainSplit)
-    // expect(typeof learner.classifier).toStrictEqual('object')
-    // expect('null' in learner.classifier.classifier.mapClassnameToClassifier).toBeTruthy()
-    // expect('doc' in learner.classifier.classifier.mapClassnameToClassifier).toBeTruthy()
-    // expect(typeof learner.classifierBuilder).toStrictEqual('function')
-    // expect(learner.classifierBuilder.name).toStrictEqual('classifierBuilder')
-    // expect(learner.classifier.classifier.pastTrainingSamples.length).toStrictEqual(learner.trainSet.length)
+    expect(learner.trainSet.length).toStrictEqual(dataset.length * trainSplit)
+    expect(Array.isArray(learner.testSet)).toBeTruthy()
+    expect(learner.testSet.length).toStrictEqual(dataset.length * testSplit)
+    expect(learner.trainSplit).toStrictEqual(trainSplit)
+    expect(typeof learner.classifier).toStrictEqual('object')
+    expect(
+      'null' in learner.classifier.classifier.mapClassnameToClassifier,
+    ).toBeTruthy()
+    expect(
+      'doc' in learner.classifier.classifier.mapClassnameToClassifier,
+    ).toBeTruthy()
+    expect(typeof learner.classifierBuilder).toStrictEqual('function')
+    expect(learner.classifierBuilder.name).toStrictEqual('classifierBuilder')
+    expect(learner.classifier.pastTrainingSamples.length).toStrictEqual(
+      learner.trainSet.length,
+    )
   })
-}) */
+})

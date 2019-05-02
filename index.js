@@ -2,6 +2,7 @@ const {writeFile, readFile} = require('fs')
 const serialize = require('serialization')
 const trainTestSplit = require('train-test-split')
 const {Spinner} = require('clui')
+const {PrecisionRecall, partitions, test} = require('limdu').utils
 const labelDS = require('./src/conv')('io')
 const classifierBuilder = require('./src/classifier')
 const evaluate = require('./src/evaluate')
@@ -19,15 +20,15 @@ class Learner {
     classifier = classifierBuilder,
   } = {}) {
     this.dataset = dataset
-    const [train, test] = trainTestSplit(dataset, trainSplit)
+    const [train, _test] = trainTestSplit(dataset, trainSplit)
     this.trainSplit = trainSplit
     this.trainSet = train
-    this.testSet = test
+    this.testSet = _test
     this.classifier = classifier()
     this.classifierBuilder = classifier
   }
 
-  train() {
+  train(trainSet = this.trainSet) {
     const training = new Spinner('Training...', [
       '⣾',
       '⣽',
@@ -39,7 +40,7 @@ class Learner {
       '⣷',
     ])
     training.start()
-    this.classifier.trainBatch(this.trainSet)
+    this.classifier.trainBatch(trainSet)
     training.message('Training complete')
     training.stop()
   }
@@ -85,13 +86,43 @@ class Learner {
     return this.classifier.classify(data)
   }
 
+  crossValidate(numOfFolds = 5, verboseLevel = 1, log = false) {
+    /* ML Reminder (https://o.quizlet.com/Xc3kmIUi19opPDYn3hTo3A.png)
+    T: True     F: False
+    P: Positive N: Negative
+
+    Precision (Pr, PPV): TP / (TP + FP) <=> TP / predictedP
+    Recall (R, TPR): TP / (TP + FN) <=> TP / actualP
+    Accuracy (A): (TP + TN) / Total
+    Specificity (S, TNR): TN / (FP + TN) <=> TN / actualN
+    F_1 (or effectiveness)  = 2 * (Pr * R) / (Pr + R)
+    ...
+    */
+    this.macroAvg = new PrecisionRecall()
+    this.microAvg = new PrecisionRecall()
+
+    partitions.partitions(this.dataset, numOfFolds, (trainSet, testSet) => {
+      if (log)
+        process.stdout.write(
+          `Training on ${trainSet.length} samples, testing ${
+            testSet.length
+          } samples`,
+        )
+      this.train(trainSet)
+      test(this.classifier, testSet, verboseLevel, this.microAvg, this.macroAvg)
+    })
+    this.macroAvg.calculateMacroAverageStats(numOfFolds)
+    this.microAvg.calculateStats()
+    return {
+      macroAvg: this.macroAvg.fullStats(), //preferable in 2-class settings or in balanced multi-class settings
+      microAvg: this.microAvg.fullStats(), //preferable in multi-class settings (in case of class imbalance)
+      //https://pdfs.semanticscholar.org/1d10/6a2730801b6210a67f7622e4d192bb309303.pdf and https://datascience.stackexchange.com/a/24051/73511
+    }
+  }
   /*
     @todo add the ability to get:
-    - # of T(P|N)s|F(P|N)s (cf. [..].report.explanations, utils.PrecisionRecall())
-    - m(i|a)cro average (cf. utils.PrecisionRecall())
-    - precision, recall, f1-score (cf. utils.PrecisionRecall())
     - diagrams of categories based on what its training and testing sets
-    - confusion matrix (cf. utils.PrecisionRecall())
+    - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
     - ROC/AUC graphs
     - back classification
     @todo use utils.PrecisionRecall.Accuracy instead of doing that manually

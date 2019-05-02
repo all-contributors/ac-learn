@@ -29,7 +29,7 @@ writeFile('classifier.json', classifierStr, err => {
 const microAvg = new lutils.PrecisionRecall()
 const macroAvg = new lutils.PrecisionRecall() //requires the use of folds (cf, lutils.partitions)
 
-lutils.test(classifier, test, /* verbosity = */ 0, microAvg, macroAvg)
+lutils.test(classifier, test, /* verbosity = */ 1, microAvg, macroAvg)
 microAvg.calculateStats()
 console.log('microAvg=')
 console.dir(microAvg.fullStats()) //or shortStats()?

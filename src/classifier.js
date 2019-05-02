@@ -1,6 +1,6 @@
 // Creates a fresh stand-alone (untrained) classifier.
 const classifierBuilder = (pastTrainingSamples = []) => {
-  const limdu = require('limdu')
+  const {multilabel, Winnow, EnhancedClassifier} = require('limdu').classifiers
 
   // Word extractor - a function that takes a sample and adds features to a given features set:
   const featureExtractor = (input, features) => {
@@ -13,11 +13,11 @@ const classifierBuilder = (pastTrainingSamples = []) => {
       })
   }
 
-  const TextClassifier = limdu.classifiers.multilabel.BinaryRelevance.bind(0, {
-    binaryClassifierType: limdu.classifiers.Winnow.bind(0, {retrain_count: 10}),
+  const TextClassifier = multilabel.BinaryRelevance.bind(0, {
+    binaryClassifierType: Winnow.bind(0, {retrain_count: 10}),
   })
 
-  const classifier = new limdu.classifiers.EnhancedClassifier({
+  const classifier = new EnhancedClassifier({
     classifierType: TextClassifier,
     featureExtractor, //or extract
     pastTrainingSamples,
