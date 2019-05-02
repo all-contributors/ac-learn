@@ -119,13 +119,16 @@ class Learner {
       //https://pdfs.semanticscholar.org/1d10/6a2730801b6210a67f7622e4d192bb309303.pdf and https://datascience.stackexchange.com/a/24051/73511
     }
   }
+
+  backClassify(category) {
+    return this.classifier.backClassify(category)
+  }
   /*
     @todo add the ability to get:
     - diagrams of categories based on what its training and testing sets
     - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
     - ROC/AUC graphs
-    - back classification
-    @todo use utils.PrecisionRecall.Accuracy instead of doing that manually
+    @todo use utils.PrecisionRecall.Accuracy instead of doing that manually //waiting on ^
     @todo add randomization feature to limdu's partitions (with trainTestSplit as example) and fix typos
     @todo add a (to|from)JSON or (de|)serialize for the `Learner` class which will use the classifier's one
   */

@@ -132,6 +132,20 @@ describe('a knowledgeable learner', () => {
     expect(typeof learner.macroAvg).toStrictEqual('object')
     expect(typeof learner.microAvg).toStrictEqual('object')
   })
+
+  it('can generate bug labels', () => {
+    const bugs = learner.backClassify('bug')
+    expect(bugs).toContain('bug')
+    expect(bugs).toContain(':bug: bug')
+    expect(bugs).toContain('regression')
+    expect(bugs).toContain('browser bug')
+  })
+  it('can generate code labels', () => {
+    const code = learner.backClassify('code')
+    expect(code).toContain('frontend')
+    expect(code).toContain('breaking change')
+    expect(code).toContain('html')
+  })
 })
 
 describe('has stats', () => {
