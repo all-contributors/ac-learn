@@ -6,6 +6,7 @@ const {PrecisionRecall, partitions, test} = require('limdu').utils
 const labelDS = require('./src/conv')('io')
 const classifierBuilder = require('./src/classifier')
 const evaluate = require('./src/evaluate')
+const categories = require('./src/categories')
 
 class Learner {
   /**
@@ -123,14 +124,98 @@ class Learner {
   backClassify(category) {
     return this.classifier.backClassify(category)
   }
+
+  toJSON() {
+    const classifier = this.serializeClassifier()
+    const json = {
+      classifier,
+      classifierBuilder: this.classifierBuilder,
+      dataset: this.dataset,
+      trainSplit: this.trainSplit,
+      trainSet: this.trainSet,
+      testSet: this.testSet,
+    }
+    if (this.macroAvg) json.macroAvg = this.macroAvg
+    if (this.microAvg) json.microAvg = this.microAvg
+    return json
+  }
+
+  static fromJSON(json) {
+    const ALLOWED_PROPS = [
+      'classifierBuilder',
+      /* 'dataset', 'trainSplit', */ 'trainSet',
+      'testSet',
+      'macroAvg',
+      'microAvg',
+    ]
+    const newLearner = new Learner({
+      dataset: json.dataset,
+      trainSplit: json.trainSplit,
+    })
+    for (const prop in json) {
+      if (ALLOWED_PROPS.includes(prop)) newLearner[prop] = json[prop]
+    }
+
+    newLearner.classifier = newLearner.deserializeClassifier(json.classifier)
+    return newLearner
+  }
+
+  getCategoryPartition() {
+    const res = {}
+    categories.forEach(cat => {
+      res[cat] = {
+        overall: 0,
+        test: 0,
+        train: 0,
+      }
+    })
+    this.dataset.forEach(data => {
+      ++res[data.output].overall
+      if (this.trainSet.includes(data)) ++res[data.output].train
+      if (this.testSet.includes(data)) ++res[data.output].test
+    })
+    return res
+  }
+
+  getStats() {
+    //@todo use C3.js for a stacked baar chart
+    const {
+      TP,
+      TN,
+      FP,
+      FN,
+      Precision,
+      Accuracy,
+      Recall,
+      F1,
+      count,
+      confusion,
+    } = this.microAvg
+    return {
+      TP,
+      TN,
+      FP,
+      FN,
+      confusion,
+      Precision,
+      Accuracy,
+      Recall,
+      F1,
+      Specificity: TN / (FP + TN),
+      totalCount: count,
+      trainCount: this.trainSet.length,
+      testCount: this.testSet.length,
+      categoryPartition: this.getCategoryPartition(),
+      //ROC, AUC
+    }
+  }
   /*
     @todo add the ability to get:
     - diagrams of categories based on what its training and testing sets
     - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
     - ROC/AUC graphs
     @todo use utils.PrecisionRecall.Accuracy instead of doing that manually //waiting on ^
-    @todo add randomization feature to limdu's partitions (with trainTestSplit as example) and fix typos
-    @todo add a (to|from)JSON or (de|)serialize for the `Learner` class which will use the classifier's one
+    @todo add randomization feature to limdu's partitions (with trainTestSplit as example) and fix typos //cf. https://github.com/erelsgl/limdu/issues/65
   */
 }
 

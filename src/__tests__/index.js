@@ -209,4 +209,70 @@ describe('has stats', () => {
     expect(learner.macroAvg.F1).not.toEqual(f1(learner.macroAvg))
     expect(learner.microAvg.F1).toEqual(f1(learner.microAvg))
   })
+
+  // const stats = learner.getStats()
+  // const STAT_PROPS = [
+  //   'TP',
+  //   'TN',
+  //   'FP',
+  //   'FN',
+  //   'Accuracy',
+  //   'Precision',
+  //   'Recall',
+  //   'F1',
+  //   'Specifity',
+  //   'totalCount',
+  //   'trainCount',
+  //   'testCount',
+  //   'confusion',
+  //   'categoryPartition'
+  // ]
+  // test.each(STAT_PROPS)('has stat: %s', (prop) => {
+  //   expect(stats).toHaveProperty(prop)
+  // })
+
+  // it('has category info', () => {
+  //   expect(stats.null).toHaveProperty(overall)
+  //   expect(stats.null).toHaveProperty(test)
+  //   expect(stats.null).toHaveProperty(train)
+  //   expect(stats.bug).toHaveProperty(overall)
+  //   expect(stats.bug).toHaveProperty(test)
+  //   expect(stats.bug).toHaveProperty(train)
+  // })
+})
+
+describe('JSON', () => {
+  const learner = new Learner({
+    dataset: copy(dataset),
+  })
+  learner.crossValidate(1)
+  const learnerJSON = learner.toJSON()
+  const staticProps = [
+    'classifierBuilder',
+    'dataset',
+    'trainSplit',
+    'trainSet',
+    'testSet',
+    'macroAvg',
+    'microAvg',
+  ]
+
+  test.each(staticProps)('(toJSON) has %s', prop => {
+    expect(learnerJSON[prop]).toEqual(learner[prop])
+  })
+
+  it('(toJSON) has a classifier', () => {
+    expect(typeof learnerJSON.classifier).toStrictEqual('string')
+  })
+
+  const jsonLearner = Learner.fromJSON(learnerJSON)
+  // console.log('jsonLearner=', jsonLearner)
+
+  test.each(staticProps)('(fromJSON) has %s', prop => {
+    expect(jsonLearner[prop]).toEqual(learnerJSON[prop])
+  })
+
+  it('(fromJSON) has a classifier', () => {
+    expect(typeof jsonLearner.classifier).toStrictEqual('object')
+  })
 })
