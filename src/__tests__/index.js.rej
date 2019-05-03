@@ -1,0 +1,7 @@
+diff a/src/__tests__/index.js b/src/__tests__/index.js	(rejected hunks)
+@@ -228 +228 @@ describe('has stats', () => {
+-    'categoryPartition'
++    'categoryPartition',
+@@ -230 +230 @@ describe('has stats', () => {
+-  test.each(STAT_PROPS)('has stat: %s', (prop) => {
++  test.each(STAT_PROPS)('has stat: %s', prop => {
