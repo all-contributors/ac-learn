@@ -210,35 +210,35 @@ describe('has stats', () => {
     expect(learner.microAvg.F1).toEqual(f1(learner.microAvg))
   })
 
-  // const stats = learner.getStats()
-  // const STAT_PROPS = [
-  //   'TP',
-  //   'TN',
-  //   'FP',
-  //   'FN',
-  //   'Accuracy',
-  //   'Precision',
-  //   'Recall',
-  //   'F1',
-  //   'Specifity',
-  //   'totalCount',
-  //   'trainCount',
-  //   'testCount',
-  //   'confusion',
-  //   'categoryPartition'
-  // ]
-  // test.each(STAT_PROPS)('has stat: %s', (prop) => {
-  //   expect(stats).toHaveProperty(prop)
-  // })
-
-  // it('has category info', () => {
-  //   expect(stats.null).toHaveProperty(overall)
-  //   expect(stats.null).toHaveProperty(test)
-  //   expect(stats.null).toHaveProperty(train)
-  //   expect(stats.bug).toHaveProperty(overall)
-  //   expect(stats.bug).toHaveProperty(test)
-  //   expect(stats.bug).toHaveProperty(train)
-  // })
+  const stats = learner.getStats()
+  const STAT_PROPS = [
+    'TP',
+    'TN',
+    'FP',
+    'FN',
+    'Accuracy',
+    'Precision',
+    'Recall',
+    'F1',
+    'Specificity',
+    'totalCount',
+    'trainCount',
+    'testCount',
+    'confusion',
+    'categoryPartition',
+  ]
+  test.each(STAT_PROPS)('has stat: %s', prop => {
+    expect(stats).toHaveProperty(prop)
+  })
+  it('has category info', () => {
+    expect(stats.categoryPartition.null).toHaveProperty('overall')
+    expect(stats.categoryPartition.null).toHaveProperty('test')
+    expect(stats.categoryPartition.null).toHaveProperty('train')
+    expect(stats.categoryPartition.bug).toHaveProperty('overall')
+    expect(stats.categoryPartition.bug).toHaveProperty('test')
+    expect(stats.categoryPartition.bug).toHaveProperty('train')
+    //assuming the other categories are set properly as well
+  })
 })
 
 describe('JSON', () => {
