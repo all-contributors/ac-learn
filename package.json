@@ -27,7 +27,10 @@
     "validate": "kcd-scripts validate",
     "commit": "git-cz",
     "start": "./dist/cli.js",
-    "dev": "./src/cli.js"
+    "dev": "./src/cli.js",
+    "doc:lint": "documentation lint index.js",
+    "doc:gen": "documentation readme index.js -s Documentation",
+    "doc": "yarn doc:lint && yarn doc:gen"
   },
   "husky": {
     "hooks": {
@@ -45,6 +48,7 @@
     "@babel/runtime": "^7.4.3",
     "chalk": "^2.4.2",
     "clui": "^0.3.6",
+    "documentation": "^10.1.0",
     "eslint-config-kentcdodds": "^14.3.2",
     "javascript-lemmatizer": "0.0.2",
     "limdu": "^0.9.4",
