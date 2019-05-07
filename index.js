@@ -14,6 +14,20 @@ class Learner {
    * @param {Object[]} [opts.dataset=require('./src/conv')('io')] Dataset (for training and testing)
    * @param {number} [trainSplit=.8] Dataset split percentage for the training set
    * @param {function(): Object} [classifier=classifierBuilder] Classifier builder function
+   * @example <caption>Using pre-defined data</caption>
+   * const learner = new Learner()
+   * @example <caption>Using a custom dataset</caption>
+   * const learner = new Learner({
+   *  dataset: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
+   * })
+   * @example <caption>Using a specified classifier function</caption>
+   * const learner = new Learner({
+   *  classifier: myClassifierBuilderFn //see {@link module:./src/classifier} for an example (or checkout `limdu`'s examples)
+   * })
+   * @example <caption>Changing the train/test split percentage</caption>
+   * const learner = new Learner({
+   *  trainSplit: .6
+   * })
    */
   constructor({
     dataset = labelDS,
@@ -143,7 +157,7 @@ class Learner {
   static fromJSON(json) {
     const ALLOWED_PROPS = [
       'classifierBuilder',
-      /* 'dataset', 'trainSplit', */ 'trainSet',
+      'trainSet',
       'testSet',
       'macroAvg',
       'microAvg',
