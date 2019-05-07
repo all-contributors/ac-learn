@@ -1,4 +1,5 @@
 // Creates a fresh stand-alone (untrained) classifier.
+/* istanbul ignore next */
 const classifierBuilder = (pastTrainingSamples = []) => {
   const {multilabel, Winnow, EnhancedClassifier} = require('limdu').classifiers
 
@@ -25,5 +26,5 @@ const classifierBuilder = (pastTrainingSamples = []) => {
 
   return classifier
 }
-
+/* istanbul ignore next */
 module.exports = classifierBuilder

@@ -241,12 +241,17 @@ describe('has stats', () => {
   })
 })
 
-describe('JSON', () => {
+const setupLearners = () => {
   const learner = new Learner({
     dataset: copy(dataset),
   })
   learner.crossValidate(1)
   const learnerJSON = learner.toJSON()
+  const jsonLearner = Learner.fromJSON(learnerJSON)
+  return {learner, learnerJSON, jsonLearner}
+}
+describe('JSON', () => {
+  const {learner, learnerJSON, jsonLearner} = setupLearners()
   const staticProps = [
     'classifierBuilder',
     'dataset',
@@ -264,9 +269,6 @@ describe('JSON', () => {
   it('(toJSON) has a classifier', () => {
     expect(typeof learnerJSON.classifier).toStrictEqual('string')
   })
-
-  const jsonLearner = Learner.fromJSON(learnerJSON)
-  // console.log('jsonLearner=', jsonLearner)
 
   test.each(staticProps)('(fromJSON) has %s', prop => {
     expect(jsonLearner[prop]).toEqual(learnerJSON[prop])
