@@ -8,12 +8,14 @@ const classifierBuilder = require('./src/classifier')
 const evaluate = require('./src/evaluate')
 const categories = require('./src/categories')
 
+/** @class Learner */
 class Learner {
   /**
    * @param {Object} opts Options.
    * @param {Object[]} [opts.dataset=require('./src/conv')('io')] Dataset (for training and testing)
-   * @param {number} [trainSplit=.8] Dataset split percentage for the training set
-   * @param {function(): Object} [classifier=classifierBuilder] Classifier builder function
+   * @param {number} [opts.trainSplit=.8] Dataset split percentage for the training set
+   * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
+   * @memberof Learner
    * @example <caption>Using pre-defined data</caption>
    * const learner = new Learner()
    * @example <caption>Using a custom dataset</caption>
@@ -43,6 +45,10 @@ class Learner {
     this.classifierBuilder = classifier
   }
 
+  /**
+   * @param {Object[]} trainSet Training set
+   * @memberof Learner
+   */
   train(trainSet = this.trainSet) {
     const training = new Spinner('Training...', [
       '⣾',
@@ -60,6 +66,12 @@ class Learner {
     training.stop()
   }
 
+  /**
+   *
+   * @param {boolean} log Log results as it goes along
+   * @memberof Learner
+   * @returns {{correctResults: number, testAccuracy: number}} Result scores
+   */
   eval(log = false) {
     return evaluate({
       classifier: this.classifier,
@@ -69,10 +81,19 @@ class Learner {
     })
   }
 
+  /**
+   * @memberof Learner
+   * @returns {string} Serialized classifier
+   */
   serializeClassifier() {
     return serialize.toString(this.classifier, this.classifierBuilder)
   }
 
+  /**
+   * @param {string} file Filename
+   * @memberof Learner
+   * @returns {Promise<(string|Error)>} Serialized classifier
+   */
   serializeAndSaveClassifier(file = 'classifier.json') {
     return new Promise((resolve, reject) => {
       const data = this.serializeClassifier()
@@ -83,6 +104,11 @@ class Learner {
     })
   }
 
+  /**
+   * @param {string} serializedClassifier .
+   * @memberof Learner
+   * @returns {Object} Classifier Deserialized classifier
+   */
   deserializeClassifier(serializedClassifier) {
     return serialize.fromString(serializedClassifier, __dirname)
   }
@@ -97,10 +123,22 @@ class Learner {
     })
   }
 
+  /**
+   * @param {{input: *, output: *}} data Data to classify
+   * @memberof Learner
+   * @returns {string[]} Classes
+   */
   classify(data) {
     return this.classifier.classify(data)
   }
 
+  /**
+   * @param {number} [numOfFolds=5] Cross-validation folds
+   * @param {number} [verboseLevel=0] Verbosity
+   * @param {boolean} [log=false] Pre-training logging
+   * @returns {{microAvg: Object, macroAvg: Object}} Averages
+   * @memberof Learner
+   */
   crossValidate(numOfFolds = 5, verboseLevel = 0, log = false) {
     /* ML Reminder (https://o.quizlet.com/Xc3kmIUi19opPDYn3hTo3A.png)
     T: True     F: False
@@ -135,10 +173,19 @@ class Learner {
     }
   }
 
+  /**
+   * @param {string} category Category name
+   * @memberof Learner
+   * @returns {string[]} Labels associated with `category`
+   */
   backClassify(category) {
     return this.classifier.backClassify(category)
   }
 
+  /**
+   * @memberof Learner
+   * @returns {Object} JSON representation
+   */
   toJSON() {
     const classifier = this.serializeClassifier()
     const json = {
@@ -154,6 +201,11 @@ class Learner {
     return json
   }
 
+  /**
+   * @param {JSON|Object} json JSON form
+   * @memberof Learner
+   * @returns {Learner} Generated learner from `json`
+   */
   static fromJSON(json) {
     const ALLOWED_PROPS = [
       'classifierBuilder',
@@ -174,6 +226,10 @@ class Learner {
     return newLearner
   }
 
+  /**
+   * @memberof Learner
+   * @returns {Object<string, {overall: number, test: number, train: number}>} Partitions
+   */
   getCategoryPartition() {
     const res = {}
     categories.forEach(cat => {
@@ -191,6 +247,10 @@ class Learner {
     return res
   }
 
+  /**
+   * @memberof Learner
+   * @returns {Object} Statistics
+   */
   getStats() {
     //@todo use C3.js for a stacked baar chart
     const {
