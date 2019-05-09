@@ -59,4 +59,8 @@ const column = (matrix, colName) => {
   return res
 }
 
-module.exports = {objectify, sum, column, matrixSum}
+const PRECISION = 1000000000
+const toPrecision = (num, precision = PRECISION) =>
+  Math.round(num * precision) / precision
+
+module.exports = {objectify, sum, column, matrixSum, toPrecision}

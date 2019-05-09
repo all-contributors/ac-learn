@@ -1,4 +1,5 @@
 const CM = require('../confusionMatrix')
+const {toPrecision} = require('../utils')
 
 const CATEGORIES = ['bug', 'code', 'other']
 const MTX = {
@@ -23,34 +24,36 @@ test('can get a matrix', () => {
   expect(cm.matrix).toMatchObject(MTX)
 })
 
-test('can add to existing entries', () => {
-  const cm = new CM(CATEGORIES)
-  cm.addEntry('bug', 'bug')
-  expect(cm.classes).toEqual(CATEGORIES)
-  expect(cm.matrix.bug).toEqual({bug: 1, code: 0, other: 0})
-  // expect(cm.matrix).toMatchObject(MTX)
-})
+describe('Entries', () => {
+  test('can add to existing entries', () => {
+    const cm = new CM(CATEGORIES)
+    cm.addEntry('bug', 'bug')
+    expect(cm.classes).toEqual(CATEGORIES)
+    expect(cm.matrix.bug).toEqual({bug: 1, code: 0, other: 0})
+    // expect(cm.matrix).toMatchObject(MTX)
+  })
 
-test('can add new entries', () => {
-  const cm = new CM(CATEGORIES)
-  cm.addEntry('bug', 'chore')
-  expect(cm.classes).toEqual(CATEGORIES)
-  expect(cm.matrix.bug).toEqual({bug: 0, code: 0, other: 0, chore: 1})
-})
+  test('can add new entries', () => {
+    const cm = new CM(CATEGORIES)
+    cm.addEntry('bug', 'chore')
+    expect(cm.classes).toEqual(CATEGORIES)
+    expect(cm.matrix.bug).toEqual({bug: 0, code: 0, other: 0, chore: 1})
+  })
 
-test('can set entries', () => {
-  const cm = new CM(CATEGORIES)
-  cm.setEntry('code', 'bug', 1)
-  cm.setEntry('code', 'code', 2)
-  const ROW = {bug: 0, code: 0, other: 0}
-  expect(cm.matrix.bug).toEqual(ROW)
-  expect(cm.matrix.code).toEqual({bug: 1, code: 2, other: 0})
-})
+  test('can set entries', () => {
+    const cm = new CM(CATEGORIES)
+    cm.setEntry('code', 'bug', 1)
+    cm.setEntry('code', 'code', 2)
+    const ROW = {bug: 0, code: 0, other: 0}
+    expect(cm.matrix.bug).toEqual(ROW)
+    expect(cm.matrix.code).toEqual({bug: 1, code: 2, other: 0})
+  })
 
-test('can get entries', () => {
-  const cm = new CM(CATEGORIES, MTX)
-  expect(cm.getEntry('bug', 'bug')).toStrictEqual(1)
-  expect(cm.getEntry('code', 'other')).toStrictEqual(0)
+  test('can get entries', () => {
+    const cm = new CM(CATEGORIES, MTX)
+    expect(cm.getEntry('bug', 'bug')).toStrictEqual(1)
+    expect(cm.getEntry('code', 'other')).toStrictEqual(0)
+  })
 })
 
 test('total 1/2', () => {
@@ -171,6 +174,41 @@ describe('Recall', () => {
   test('Micro recall', () => {
     expect(cm.getMicroRecall()).toStrictEqual(0.75)
   })
+})
+
+describe('Precision', () => {
+  const cm = new CM(CATEGORIES, M0)
+  test('Precision', () => {
+    expect(cm.getPrecision('bug')).toStrictEqual(5 / 6) //.833
+    expect(cm.getPrecision('code')).toStrictEqual(0.4)
+    expect(cm.getPrecision('other')).toStrictEqual(8 / 9) //.889
+  })
+
+  test('Macro precision', () => {
+    expect(cm.getMacroPrecision()).toStrictEqual((5 / 6 + 0.4 + 8 / 9) / 3) //~.707
+  })
+
+  test('Micro precision', () => {
+    expect(cm.getMicroPrecision()).toStrictEqual(0.75)
+  })
+})
+
+describe('F1', () => {
+  const cm = new CM(CATEGORIES, M0)
+  test('F1', () => {
+    expect(cm.getF1('bug')).toStrictEqual(5 / 6) //.833
+    expect(cm.getF1('code')).toStrictEqual(0.5)
+    expect(toPrecision(cm.getF1('other'))).toStrictEqual(0.8) //FPA is fun (not)!
+  })
+
+  test('Macro F1', () => {
+    expect(cm.getMacroF1()).toStrictEqual((5 / 6 + 1.3) / 3) //~.711
+  })
+
+  // test('Micro F1', () => {
+  //   console.log(cm.getMicroF1())
+  //   expect((cm.getMicroF1())).toStrictEqual(0.75)
+  // })
 })
 
 test('toString', () => {

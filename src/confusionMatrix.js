@@ -205,18 +205,75 @@ class ConfusionMatrix {
     return fxSum(this, 'Recall') / this.classes.length
   }
 
+  /**
+   * Prediction precision for `category`
+   * @alias getPositivePredictiveValue
+   * @param {string} category Class/category considered as positive
+   * @returns {number} TP / (TP + FP)
+   */
+  getPrecision(category) {
+    return this.getTP(category) / this.getPredPositive(category)
+  }
+
+  /**
+   * Micro-average of the precision.
+   * @returns {number} (TP0 + ... + TPn) / (TP0 + ... + TPn + FP0 + ... FPn)
+   */
+  getMicroPrecision() {
+    const TPs = fxSum(this, 'TP')
+    const FPs = fxSum(this, 'FP')
+    return TPs / (TPs + FPs)
+  }
+
+  /**
+   * Macro-average of the precsion.
+   * @returns {number} (Pr0 + Pr1 + ... + Pr_n-1) / n
+   */
+  getMacroPrecision() {
+    return fxSum(this, 'Precision') / this.classes.length
+  }
+
+  /**
+   * Prediction F1 score for `category`
+   * @alias getPositivePredictiveValue
+   * @param {string} category Class/category considered as positive
+   * @returns {number} 2 * (Pr * R) / (Pr + R)
+   */
+  getF1(category) {
+    const Pr = this.getPrecision(category)
+    const R = this.getRecall(category)
+    return (2 * (Pr * R)) / (Pr + R)
+  }
+
+  /**
+   * Micro-average of the F1 score.
+   * @todo Check if it's correct if the TPs/... is the right way
+   * @returns {number} 2 * ((Pr0 + ... + Pr_n) * (R0 + ... + Rn)) / ((Pr0 + ... + Pr_n) + (R0 + ... + Rn))
+   */
+  getMicroF1() {
+    const Prs = fxSum(this, 'Precision')
+    const Rs = fxSum(this, 'Recall')
+    return (2 * (Prs * Rs)) / (Prs + Rs)
+  }
+
+  /**
+   * Macro-average of the precsion.
+   * @returns {number} (F0_1 + F1_1 + ... + F_n-1_1) / n
+   */
+  getMacroF1() {
+    return fxSum(this, 'F1') / this.classes.length
+  }
+
   //getMissRate, getFNRate: getFN() / getRealPositive() <=> getFN() / (getTP() + getFN())
   //getFallOut, getFPRate: getFP() / getRealNegative() <=> getFP() / (getFP() + getTN())
   //getSpecificity, getTNRate: getTN() / getRealNegative() <=> getTN() / (getFP() + getTN())
   //getPrevalence: getRealPositive() / getTotalPopulation()
-  //getPrecision, getPosPredictiveVal: getTP() / getPredictedPositive()
   //getFalseDiscoveryRate: getFP() / getPredictedPositive()
   //getFalseOmmissionRate: getFN() / getPredictedNegative()
   //getNegPredictiveVal: getTN() / getPredictedNegative()
   //getPosLikelihoodRatio: getRecall() / getFallOut()
   //getNegLikelihoodRatio: getSpecificity() / getMissRate()
   //getDiagnosticOddsRatio: getPosLikelihoodRatio() / getNegLikelihoodRatio()
-  //getF1: 2*(getPrecision() * getRecall()) / (getPrecision() + getRecall())
 
   //Macro/Micro Avg versions of the above
 
