@@ -44,4 +44,5 @@ yarn.lock
 .vscode
 .idea
 _*.json
+_*.js
 .env

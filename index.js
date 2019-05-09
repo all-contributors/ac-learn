@@ -143,6 +143,10 @@ class Learner {
     /* ML Reminder (https://o.quizlet.com/Xc3kmIUi19opPDYn3hTo3A.png)
     T: True     F: False
     P: Positive N: Negative
+    TP: The actual and expected category are the same
+    FP: The actual category isn't the same as the expected one
+    FN: The expected category isn't in the list of actual (guessed) categories
+    TN: The rest
 
     Precision (Pr, PPV): TP / (TP + FP) <=> TP / predictedP
     Recall (R, TPR): TP / (TP + FN) <=> TP / actualP
