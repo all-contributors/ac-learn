@@ -5,7 +5,7 @@ const copy = x => JSON.parse(JSON.stringify(x))
 
 describe('a learner', () => {
   test('is constructible', () => {
-    const learner = new Learner(dataset)
+    const learner = new Learner({dataset})
     const trainSplit = 0.8
     const testSplit = Math.round((1 - trainSplit) * 1000) / 1000 // because 1 - .8 = .199..
     expect(learner.dataset).toEqual(dataset)

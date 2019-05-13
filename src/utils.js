@@ -1,3 +1,5 @@
+const chalk = require('chalk')
+
 const objectify = (arr, val = {}) => {
   const res = {}
   arr.forEach(el => {
@@ -63,4 +65,81 @@ const PRECISION = 1000000000
 const toPrecision = (num, precision = PRECISION) =>
   Math.round(num * precision) / precision
 
-module.exports = {objectify, sum, column, matrixSum, toPrecision}
+//https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_chunk
+const chunk = (input, size) => {
+  return input.reduce((arr, item, idx) => {
+    return idx % size === 0
+      ? [...arr, [item]]
+      : [...arr.slice(0, -1), [...arr.slice(-1)[0], item]]
+  }, [])
+}
+
+/**
+ * @param {Object<Object>} matrix Confusion matrix
+ * @returns {Object<Object>} Matrix with no empty (zeroed) cross-entries
+ */
+const rmEmpty = matrix => {
+  const empty = []
+  Object.keys(matrix).forEach(k => {
+    const emptyRow = !Object.values(matrix[k]).filter(Boolean).length
+    const emptyCol = !column(matrix, k).filter(Boolean).length
+    if (emptyRow && emptyCol) empty.push(k)
+  })
+  const nonEmpty = {}
+  for (const row in matrix) {
+    if (matrix.hasOwnProperty(row) && !empty.includes(row))
+      nonEmpty[row] = matrix[row]
+  }
+  return nonEmpty
+}
+
+/**
+ * Hexademical colour series.
+ * @param {number} position Position in the R(0)G(1)B(2) order
+ * @param {number} [inc=.1] Increment
+ * @throws {Error} `0 <= position <= 2` condition not respected
+ * @returns {string[]} Series
+ */
+const hexSeries = (position, inc = 0.1) => {
+  if (position < 0 || position > 2)
+    throw new Error('position needs be between 0 and 2')
+  const TEMPLATE = ['00', '00', '00']
+  const res = []
+  for (let i = 0.1; i <= 1; i += inc) {
+    res.push([...TEMPLATE])
+    res[res.length - 1][position] = Math.round(parseFloat(0xff * i)).toString(
+      16,
+    )
+    res[res.length - 1] = `#${res[res.length - 1].join('')}`
+  }
+  return res
+}
+
+const COLOURS = {
+  good: hexSeries(1), //numbers in the True diagonal
+  bad: hexSeries(0), //numbers in the other sections
+}
+
+/**
+ * @param {number} num Number to colourize
+ * @param {number} maxVal Highest value to expect
+ * @param {boolean} [goodValue=false] Indication on whether it's a good or bad value
+ * @returns {string} Coloured number
+ */
+const clrVal = (num, maxVal, goodValue = false) => {
+  const palette = COLOURS[goodValue ? 'good' : 'bad']
+  const pos = Math.round((num / maxVal) * palette.length)
+  const clr = palette[pos]
+  return chalk.hex(clr)(num.toFixed(2))
+}
+
+module.exports = {
+  objectify,
+  sum,
+  column,
+  matrixSum,
+  toPrecision,
+  chunk,
+  rmEmpty,
+  clrVal,
+}

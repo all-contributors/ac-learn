@@ -77,6 +77,7 @@ class Learner {
       classifier: this.classifier,
       test: this.testSet,
       train: this.trainSet,
+      classes: categories,
       log,
     })
   }

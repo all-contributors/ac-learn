@@ -8,6 +8,7 @@ module.exports = {
     'babel/camelcase': 0,
     'import/extensions': 0,
     'consistent-return': 0,
+    'no-bitwise': 0,
     'no-process-exit': 0,
   },
 }

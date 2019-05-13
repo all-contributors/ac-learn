@@ -1,5 +1,13 @@
 const Table = require('easy-table')
-const {objectify, sum, column, matrixSum} = require('./utils')
+const {
+  objectify,
+  sum,
+  column,
+  matrixSum,
+  chunk,
+  rmEmpty,
+  clrVal,
+} = require('./utils')
 
 const fxSum = (cm, fx) => sum(...cm.classes.map(c => cm[`get${fx}`](c)))
 
@@ -13,7 +21,7 @@ class ConfusionMatrix {
    * @param {?Object<Object, number>} matrix Matrix
    */
   constructor(classes, matrix = null) {
-    this.classes = classes
+    this.classes = [...new Set(classes)]
     if (matrix === null) {
       this.matrix = objectify(this.classes)
       for (const category in this.matrix) {
@@ -39,7 +47,23 @@ class ConfusionMatrix {
     return this.matrix[actual][predicted]
   }
 
-  //@todo fromData(actual: Array, predictions: Array, classes=: string[])
+  /**
+   * Creates a confusion matrix from the `actual` and `predictions` classes.
+   * @param {string[]} actual Actual classes
+   * @param {string[]} predictions Predicted classes
+   * @param {string[]} classes Classes/categories to use
+   * @returns {ConfusionMatrix} Filled confusion matrix
+   */
+  static fromData(actual, predictions, classes = []) {
+    if (actual.length !== predictions.length)
+      throw new Error("actual and predictions don't have the same length")
+    const cm = new ConfusionMatrix(
+      classes.length ? classes : [...actual, ...predictions],
+    )
+    for (let i = 0; i < actual.length; ++i)
+      cm.addEntry(actual[i], predictions[i])
+    return cm
+  }
 
   /**
    * Get the total count of **all** entries.
@@ -389,7 +413,55 @@ class ConfusionMatrix {
   //getDiagnosticOddsRatio: getPosLikelihoodRatio() / getNegLikelihoodRatio()
   //Macro/Micro Avg versions of the above
 
-  toString() {
+  /**
+   * @param {Object} opt Options
+   * @param {boolean} [opt.split=false] Split the classes in half (&rarr; 2 matrices)
+   * @param {boolean} [opt.clean=false] Remove empty column/row pairs
+   * @param {boolean} [opt.colours=true] Colourize cells
+   * @returns {string} String representation
+   */
+  toString({
+    split = false,
+    clean = false,
+    colours = true,
+    maxValue = 100,
+  } = {}) {
+    const mtx = clean ? rmEmpty(this.matrix) : this.matrix
+    const classes = Object.keys(mtx)
+
+    if (split) {
+      const limit = (classes.length / 2) | 0
+      const [head, tail] = chunk(classes, limit)
+      const t0 = new Table()
+      const t1 = new Table()
+      for (const row of classes) {
+        t0.cell('1/2 Actual \\ Predicted', `   ${row}`)
+
+        head.forEach(cls => {
+          let val = this.matrix[row][cls]
+          if (colours) {
+            val = clrVal(val, maxValue, row === cls)
+          }
+          t0.cell(
+            cls,
+            val,
+            /* , Table.number(2) */
+          )
+        })
+        t0.newRow()
+
+        t1.cell('2/2 Actual \\ Predicted', `   ${row}`)
+        tail.forEach(cls => {
+          let val = this.matrix[row][cls]
+          if (colours) {
+            val = clrVal(val, maxValue, row === cls)
+          }
+          t1.cell(cls, val /* , Table.number(2) */)
+        })
+        t1.newRow()
+      }
+      return `${t0.toString()}\n${t1.toString()}`
+    }
     const t = new Table()
     for (const row in this.matrix) {
       if (this.matrix.hasOwnProperty(row)) {

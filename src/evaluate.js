@@ -1,5 +1,6 @@
 // const ck = require('chalk')
 const {PrecisionRecall} = require('limdu').utils
+const ConfusionMatrix = require('./confusionMatrix')
 
 // function evaluate({classifier, test, train, log = true}) {
 //   let correctResults = 0
@@ -34,7 +35,7 @@ const {PrecisionRecall} = require('limdu').utils
 //   }
 // }
 
-const evalu = ({classifier, test /* , log = true */}) => {
+const evalu = ({classifier, test, classes /* , log = true */}) => {
   const curStats = new PrecisionRecall()
   const stats = {
     total: 0,
@@ -42,26 +43,41 @@ const evalu = ({classifier, test /* , log = true */}) => {
     TN: 0,
     FP: 0,
     FN: 0,
-    confusionMatrix: [],
+    confusionMatrix2D: [],
+    // confusionMatrix: new ConfusionMatrix(classes),
   }
+  const actual = [] //t.map(t => t.output)
+  const predicted = []
   test.forEach(t => {
     // const expectedClasses = [t.output]
-    const actualClasses = classifier.classify(t.input)
-    // const expl = curStats.addCases([t.output], actualClasses, log)
+    const predictedClasses = classifier.classify(t.input)
+
+    /* const expl =  */ curStats.addCases([t.output], predictedClasses)
     // console.log(`explanations (on ${t.input}->${t.output})= ${expl.join('\t')}`)
     let tn = true
-    actualClasses.forEach(ac => {
-      stats[ac === t.output ? 'TP' : 'FP']++
+    predictedClasses.forEach(pc => {
+      stats[pc === t.output ? 'TP' : 'FP']++
       tn = false
     })
-    if (!actualClasses.includes(t.output)) {
+    if (!predictedClasses.includes(t.output)) {
       tn = false
       stats.FN++
     }
     if (tn) stats.TN++
+    stats.total += Math.max(predictedClasses.length, 1)
+    if (predictedClasses.length) {
+      predictedClasses.forEach(pc => {
+        actual.push(t.output)
+        predicted.push(pc)
+      })
+    } else {
+      actual.push(t.output)
+      predicted.push('')
+    }
   })
   curStats.calculateStats()
-  stats.confusionMatrix = [[stats.TP, stats.FP], [stats.FN, stats.TN]]
+  stats.confusionMatrix2D = [[stats.TP, stats.FP], [stats.FN, stats.TN]]
+  stats.confusionMatrix = ConfusionMatrix.fromData(actual, predicted, classes)
   return {curStats, stats}
 }
 
