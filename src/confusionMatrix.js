@@ -248,12 +248,17 @@ class ConfusionMatrix {
   /**
    * Micro-average of the F1 score.
    * @todo Check if it's correct if the TPs/... is the right way
-   * @returns {number} 2 * ((Pr0 + ... + Pr_n) * (R0 + ... + Rn)) / ((Pr0 + ... + Pr_n) + (R0 + ... + Rn))
+   * @returns {number} 2 * (TP0 + ... + TPn) / (2 * (TP0 + ... + TPn) + (FN0 + ... + FNn) + (FP0 + ... + FPn))
    */
   getMicroF1() {
-    const Prs = fxSum(this, 'Precision')
-    const Rs = fxSum(this, 'Recall')
-    return (2 * (Prs * Rs)) / (Prs + Rs)
+    // const Prs = fxSum(this, 'Precision')
+    // const Rs = fxSum(this, 'Recall')
+    /* 2 * ((Pr0 + ... + Pr_n) * (R0 + ... + Rn)) / ((Pr0 + ... + Pr_n) + (R0 + ... + Rn)) */
+    // return (2 * (Prs * Rs)) / (Prs + Rs)
+    const tp = 2 * fxSum(this, 'TP')
+    const FPs = fxSum(this, 'FP')
+    const FNs = fxSum(this, 'FN')
+    return tp / (tp + FNs + FPs)
   }
 
   /**

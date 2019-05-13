@@ -205,10 +205,10 @@ describe('F1', () => {
     expect(cm.getMacroF1()).toStrictEqual((5 / 6 + 1.3) / 3) //~.711
   })
 
-  // test('Micro F1', () => {
-  //   console.log(cm.getMicroF1())
-  //   expect((cm.getMicroF1())).toStrictEqual(0.75)
-  // })
+  test('Micro F1', () => {
+    console.log(cm.getMicroF1())
+    expect((cm.getMicroF1())).toStrictEqual(0.75)
+  })
 })
 
 test('toString', () => {
