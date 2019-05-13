@@ -206,7 +206,7 @@ class ConfusionMatrix {
   }
 
   /**
-   * Prediction precision for `category`
+   * Prediction precision for `category`.
    * @alias getPositivePredictiveValue
    * @param {string} category Class/category considered as positive
    * @returns {number} TP / (TP + FP)
@@ -234,7 +234,7 @@ class ConfusionMatrix {
   }
 
   /**
-   * Prediction F1 score for `category`
+   * Prediction F1 score for `category`.
    * @alias getPositivePredictiveValue
    * @param {string} category Class/category considered as positive
    * @returns {number} 2 * (Pr * R) / (Pr + R)
@@ -262,24 +262,131 @@ class ConfusionMatrix {
   }
 
   /**
-   * Macro-average of the precsion.
+   * Macro-average of the precision.
    * @returns {number} (F0_1 + F1_1 + ... + F_n-1_1) / n
    */
   getMacroF1() {
     return fxSum(this, 'F1') / this.classes.length
   }
 
-  //getMissRate, getFNRate: getFN() / getRealPositive() <=> getFN() / (getTP() + getFN())
-  //getFallOut, getFPRate: getFP() / getRealNegative() <=> getFP() / (getFP() + getTN())
-  //getSpecificity, getTNRate: getTN() / getRealNegative() <=> getTN() / (getFP() + getTN())
-  //getPrevalence: getRealPositive() / getTotalPopulation()
+  /**
+   * Miss rates on predictions for `category`.
+   * @alias getFalseNegativeRate
+   * @param {string} category Class/category considered as positive
+   * @returns {number} FN / (TP + FN)
+   */
+  getMissRate(category) {
+    return this.getFN(category) / this.getPositive(category)
+  }
+
+  /**
+   * Micro-average of the miss rate.
+   * @returns {number} (FN0 + ... + FNn) / (TP0 + ... + TPn + FN0 + ... FNn)
+   */
+  getMicroMissRate() {
+    const TPs = fxSum(this, 'TP')
+    const FNs = fxSum(this, 'FN')
+    return FNs / (TPs + FNs)
+  }
+
+  /**
+   * Macro-average of the miss rate.
+   * @returns {number} (M0 + M1 + ... + Mn) / n
+   */
+  getMacroMissRate() {
+    return fxSum(this, 'MissRate') / this.classes.length
+  }
+
+  /**
+   * Fall out (false alarm) on predictions for `category`.
+   * @alias getFalsePositiveRate
+   * @param {string} category Class/category considered as positive
+   * @returns {number} FP / (FP + TN)
+   */
+  getFallOut(category) {
+    return this.getFP(category) / this.getNegative(category)
+  }
+
+  /**
+   * Micro-average of the fall out.
+   * @returns {number} (FP0 + ... + FPn) / (FP0 + ... + FPn + TN0 + ... TNn)
+   */
+  getMicroFallOut() {
+    const FPs = fxSum(this, 'FP')
+    const TNs = fxSum(this, 'TN')
+    return FPs / (FPs + TNs)
+  }
+
+  /**
+   * Macro-average of the fall out.
+   * @returns {number} (Fo0 + Fo1 + ... + Fo_n) / n
+   */
+  getMacroFallOut() {
+    return fxSum(this, 'FallOut') / this.classes.length
+  }
+
+  /**
+   * Specificity on predictions for `category`.
+   * @alias getSelectivity
+   * @alias getTrueNegativeRate
+   * @param {string} category Class/category considered as positive
+   * @returns {number} TN / (FP + TN)
+   */
+  getSpecificity(category) {
+    return this.getTN(category) / this.getNegative(category)
+  }
+
+  /**
+   * Micro-average of the specificity.
+   * @returns {number} (TN0 + ... + TNn) / (FP0 + ... + FPn + TN0 + ... TNn)
+   */
+  getMicroSpecificity() {
+    const FPs = fxSum(this, 'FP')
+    const TNs = fxSum(this, 'TN')
+    return TNs / (FPs + TNs)
+  }
+
+  /**
+   * Macro-average of the specificity.
+   * @returns {number} (S0 + S1 + ... + Sn) / n
+   */
+  getMacroSpecificity() {
+    return fxSum(this, 'Specificity') / this.classes.length
+  }
+
+  /**
+   * Prevalence on predictions for `category`.
+   * @param {string} category Class/category considered as positive
+   * @returns {number} (TP + FN) / (TP + TN + FP + FN)
+   */
+  getPrevalence(category) {
+    return this.getPositive(category) / this.getTotal()
+  }
+
+  /**
+   * Micro-average of the prevalence.
+   * @returns {number} (TP0 + ... + TPn + FN0 + ... + FNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 + ... + FPn + FN0 + ... + FNn)
+   */
+  getMicroPrevalence() {
+    const P = fxSum(this, 'Positive')
+    const N = fxSum(this, 'Negative')
+    return P / (P + N)
+  }
+
+  /**
+   * Macro-average of the prevalence.
+   * @returns {number} (S0 + S1 + ... + Sn) / n
+   */
+  getMacroPrevalence() {
+    return fxSum(this, 'Prevalence') / this.classes.length
+  }
+
   //getFalseDiscoveryRate: getFP() / getPredictedPositive()
   //getFalseOmmissionRate: getFN() / getPredictedNegative()
   //getNegPredictiveVal: getTN() / getPredictedNegative()
   //getPosLikelihoodRatio: getRecall() / getFallOut()
   //getNegLikelihoodRatio: getSpecificity() / getMissRate()
   //getDiagnosticOddsRatio: getPosLikelihoodRatio() / getNegLikelihoodRatio()
-
   //Macro/Micro Avg versions of the above
 
   toString() {

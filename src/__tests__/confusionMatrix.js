@@ -206,8 +206,77 @@ describe('F1', () => {
   })
 
   test('Micro F1', () => {
-    console.log(cm.getMicroF1())
-    expect((cm.getMicroF1())).toStrictEqual(0.75)
+    expect(cm.getMicroF1()).toStrictEqual(0.75)
+  })
+})
+
+describe('MissRate', () => {
+  const cm = new CM(CATEGORIES, M0)
+  test('MissRate', () => {
+    expect(cm.getMissRate('bug')).toStrictEqual(1 / 6) //.167
+    expect(cm.getMissRate('code')).toStrictEqual(1 / 3) //.333
+    expect(cm.getMissRate('other')).toStrictEqual(3 / 11) //.273
+  })
+
+  test('Macro MissRate', () => {
+    expect(cm.getMacroMissRate()).toStrictEqual((0.5 + 3 / 11) / 3) //~.258
+  })
+
+  test('Micro MissRate', () => {
+    expect(cm.getMicroMissRate()).toStrictEqual(0.25)
+  })
+})
+
+describe('FallOut', () => {
+  const cm = new CM(CATEGORIES, M0)
+  const FOs = [1 / 14, 3 / 17, 1 / 9]
+  test('FallOut', () => {
+    expect(cm.getFallOut('bug')).toStrictEqual(FOs[0]) //.071
+    expect(cm.getFallOut('code')).toStrictEqual(FOs[1]) //.176
+    expect(cm.getFallOut('other')).toStrictEqual(FOs[2]) //.111
+  })
+
+  test('Macro FallOut', () => {
+    expect(cm.getMacroFallOut()).toStrictEqual((FOs[0] + FOs[1] + FOs[2]) / 3) //.12
+  })
+
+  test('Micro FallOut', () => {
+    expect(cm.getMicroFallOut()).toStrictEqual(0.125)
+  })
+})
+
+describe('Specificity', () => {
+  const cm = new CM(CATEGORIES, M0)
+  const Ss = [13 / 14, 14 / 17, 8 / 9]
+  test('Specificity', () => {
+    expect(cm.getSpecificity('bug')).toStrictEqual(Ss[0]) //.929
+    expect(cm.getSpecificity('code')).toStrictEqual(Ss[1]) //.824
+    expect(cm.getSpecificity('other')).toStrictEqual(Ss[2]) //.889
+  })
+
+  test('Macro Specificity', () => {
+    expect(cm.getMacroSpecificity()).toStrictEqual((Ss[0] + Ss[1] + Ss[2]) / 3) //.88
+  })
+
+  test('Micro Specificity', () => {
+    expect(cm.getMicroSpecificity()).toStrictEqual(0.875)
+  })
+})
+
+describe('Prevalence', () => {
+  const cm = new CM(CATEGORIES, M0)
+  test('Prevalence', () => {
+    expect(cm.getPrevalence('bug')).toStrictEqual(0.3)
+    expect(cm.getPrevalence('code')).toStrictEqual(0.15)
+    expect(cm.getPrevalence('other')).toStrictEqual(0.55)
+  })
+
+  test('Macro Prevalence', () => {
+    expect(cm.getMacroPrevalence()).toStrictEqual(1 / 3) //.333
+  })
+
+  test('Micro Prevalence', () => {
+    expect(cm.getMicroPrevalence()).toStrictEqual(1 / 3)
   })
 })
 
