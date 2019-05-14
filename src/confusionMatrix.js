@@ -59,8 +59,11 @@ class ConfusionMatrix {
     const cm = new ConfusionMatrix(
       classes.length ? classes : [...actual, ...predictions],
     )
-    for (let i = 0; i < actual.length; ++i)
+    for (let i = 0; i < actual.length; ++i) {
       cm.addEntry(actual[i], predictions[i])
+      if (cm.getEntry(predictions[i], actual[i]) === undefined)
+        cm.setEntry(predictions[i], actual[i], 0)
+    }
     return cm
   }
 
@@ -434,25 +437,21 @@ class ConfusionMatrix {
         t0.cell('1/2 Actual \\ Predicted', `   ${row}`)
 
         head.forEach(cls => {
-          let val = this.matrix[row][cls]
+          let val = this.matrix[row][cls].toFixed(2)
           if (colours) {
             val = clrVal(val, maxValue, row === cls)
           }
-          t0.cell(
-            cls,
-            val,
-            /* , Table.number(2) */
-          )
+          t0.cell(cls, val)
         })
         t0.newRow()
 
         t1.cell('2/2 Actual \\ Predicted', `   ${row}`)
         tail.forEach(cls => {
-          let val = this.matrix[row][cls]
+          let val = this.matrix[row][cls].toFixed(2)
           if (colours) {
             val = clrVal(val, maxValue, row === cls)
           }
-          t1.cell(cls, val /* , Table.number(2) */)
+          t1.cell(cls, val)
         })
         t1.newRow()
       }
@@ -462,9 +461,13 @@ class ConfusionMatrix {
     for (const row in this.matrix) {
       if (this.matrix.hasOwnProperty(row)) {
         t.cell('Actual \\ Predicted', `   ${row}`)
-        this.classes.forEach(cls =>
-          t.cell(cls, this.matrix[row][cls], Table.number(2)),
-        )
+        this.classes.forEach(cls => {
+          let val = this.matrix[row][cls].toFixed(2)
+          if (colours) {
+            val = clrVal(val, maxValue, row === cls)
+          }
+          t.cell(cls, val)
+        })
         t.newRow()
       }
     }

@@ -127,10 +127,11 @@ const COLOURS = {
  * @returns {string} Coloured number
  */
 const clrVal = (num, maxVal, goodValue = false) => {
+  if (num == 0) return chalk.hex(goodValue ? '#ff0' : '#fff')('0.00')
   const palette = COLOURS[goodValue ? 'good' : 'bad']
   const pos = Math.round((num / maxVal) * palette.length)
   const clr = palette[pos]
-  return chalk.hex(clr)(num.toFixed(2))
+  return chalk.hex(clr)(num)
 }
 
 /**
