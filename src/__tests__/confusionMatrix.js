@@ -150,12 +150,12 @@ describe('Accuracy', () => {
     expect(cm.getAccuracy('code')).toStrictEqual(0.8)
     expect(cm.getAccuracy('other')).toStrictEqual(0.8)
   })
-  const acc = 5 / 6
+
   test('Macro accuracy', () => {
-    expect(cm.getMacroAccuracy()).toStrictEqual(acc)
+    expect(cm.getMacroAccuracy()).toStrictEqual(5 / 6)
   })
   test('Micro accuracy', () => {
-    expect(cm.getMicroAccuracy()).toStrictEqual(acc)
+    expect(cm.getMicroAccuracy()).toStrictEqual(0.75)
   })
 })
 

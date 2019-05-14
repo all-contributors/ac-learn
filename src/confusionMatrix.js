@@ -124,7 +124,7 @@ class ConfusionMatrix {
 
   /**
    * Number of correct (truthful) predictions.
-   * @returns {number} TP + TN
+   * @returns {number} TP
    */
   getTrue() {
     return sum(...this.getDiagonal())
@@ -188,10 +188,8 @@ class ConfusionMatrix {
    * @returns {number} (TP0 + ... + TPn + TN0 + ... + TNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 + ... + FPn + FN0 + ... + FNn)
    */
   getMicroAccuracy() {
-    const Ts = fxSum(this, 'TP') + fxSum(this, 'TN')
-    const FNs = fxSum(this, 'FN')
-    const FPs = fxSum(this, 'FP')
-    return Ts / (Ts + FPs + FNs)
+    const Ts = this.getTrue()
+    return Ts / (Ts + this.getFalse())
   }
 
   getMacroAccuracy() {
@@ -214,7 +212,7 @@ class ConfusionMatrix {
    * @returns {number} (TP0 + ... + TPn) / (TP0 + ... + TPn + FN0 + ... + FNn)
    */
   getMicroRecall() {
-    const TPs = fxSum(this, 'TP')
+    const TPs = this.getTrue()
     const FNs = fxSum(this, 'FN')
     return TPs / (TPs + FNs)
   }
@@ -242,7 +240,7 @@ class ConfusionMatrix {
    * @returns {number} (TP0 + ... + TPn) / (TP0 + ... + TPn + FP0 + ... FPn)
    */
   getMicroPrecision() {
-    const TPs = fxSum(this, 'TP')
+    const TPs = this.getTrue()
     const FPs = fxSum(this, 'FP')
     return TPs / (TPs + FPs)
   }
@@ -277,7 +275,7 @@ class ConfusionMatrix {
     // const Rs = fxSum(this, 'Recall')
     /* 2 * ((Pr0 + ... + Pr_n) * (R0 + ... + Rn)) / ((Pr0 + ... + Pr_n) + (R0 + ... + Rn)) */
     // return (2 * (Prs * Rs)) / (Prs + Rs)
-    const tp = 2 * fxSum(this, 'TP')
+    const tp = 2 * this.getTrue()
     const FPs = fxSum(this, 'FP')
     const FNs = fxSum(this, 'FN')
     return tp / (tp + FNs + FPs)
@@ -306,7 +304,7 @@ class ConfusionMatrix {
    * @returns {number} (FN0 + ... + FNn) / (TP0 + ... + TPn + FN0 + ... FNn)
    */
   getMicroMissRate() {
-    const TPs = fxSum(this, 'TP')
+    const TPs = this.getTrue()
     const FNs = fxSum(this, 'FN')
     return FNs / (TPs + FNs)
   }

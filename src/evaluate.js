@@ -55,6 +55,7 @@ const evalu = ({classifier, test, classes /* , log = true */}) => {
     /* const expl =  */ curStats.addCases([t.output], predictedClasses)
     // console.log(`explanations (on ${t.input}->${t.output})= ${expl.join('\t')}`)
     let tn = true
+    // console.log(`expected "${ck.green.bold(t.output)}" on "${ck.cyan(t.input)}" and got: "${ck.yellow(predictedClasses.join('/'))}"`)
     predictedClasses.forEach(pc => {
       stats[pc === t.output ? 'TP' : 'FP']++
       tn = false
@@ -66,10 +67,12 @@ const evalu = ({classifier, test, classes /* , log = true */}) => {
     if (tn) stats.TN++
     stats.total += Math.max(predictedClasses.length, 1)
     if (predictedClasses.length) {
-      predictedClasses.forEach(pc => {
+      /* predictedClasses.forEach(pc => {
         actual.push(t.output)
         predicted.push(pc)
-      })
+      }) */
+      actual.push(t.output)
+      predicted.push(predictedClasses[0])
     } else {
       actual.push(t.output)
       predicted.push('')
