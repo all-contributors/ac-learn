@@ -333,3 +333,15 @@ test('toString', () => {
    other${S}${W}0.00${E}  \u001b[38;5;88m3.00${E}  \u001b[38;5;34m8.00${E} \n`
   expect(cm.toString({maxValue: 20})).toStrictEqual(colouredStr)
 })
+
+test('shortStats', () => {
+  const cm = new CM(CATEGORIES, M0)
+  const ss = `Total: 20
+True: 15
+False: 5
+Accuracy: 75%
+Precision: 75%
+Recall: 75%
+F1: 75%`
+  expect(cm.getShortStats()).toStrictEqual(ss)
+})

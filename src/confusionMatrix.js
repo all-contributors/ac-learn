@@ -474,7 +474,36 @@ class ConfusionMatrix {
     return t.toString()
   }
 
-  //@todo add shortStats:string
+  /**
+   * @returns {string} Short statistics (total, true, false, accuracy, precision, recall and f1)
+   */
+  getShortStats() {
+    return `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\nAccuracy: ${this.getMicroAccuracy() *
+      100}%\nPrecision: ${this.getMicroPrecision() *
+      100}%\nRecall: ${this.getMicroPrecision() *
+      100}%\nF1: ${this.getMicroF1() * 100}%`
+  }
+
+  /*
+    @todo add a `getStats` or `getLongStats` which would return an object like:
+   {
+    total: int
+    classes: string[]
+    microAvg: {precision: float, recall: float, accuracy: float, ...}
+    macroAvg: {...}
+    results: {
+      null: {
+        TP: int, FP: int, FN: int, TN: int,
+        total: int,
+        populationPortion: float (?.results.null.total / ?.total)
+        confusionMatrix: int[][],
+        precision: float, recall: float, accuracy: float, ...},
+      bug: {...},
+      blog: {...}
+      ...
+    }
+   }
+   */
 }
 
 module.exports = ConfusionMatrix
