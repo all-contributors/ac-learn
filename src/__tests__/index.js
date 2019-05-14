@@ -5,7 +5,7 @@ const copy = x => JSON.parse(JSON.stringify(x))
 
 describe('a learner', () => {
   test('is constructible', () => {
-    const learner = new Learner(dataset)
+    const learner = new Learner({dataset})
     const trainSplit = 0.8
     const testSplit = Math.round((1 - trainSplit) * 1000) / 1000 // because 1 - .8 = .199..
     expect(learner.dataset).toEqual(dataset)
@@ -21,21 +21,19 @@ describe('a learner', () => {
 
   test('pre-training evaluation', () => {
     const learner = new Learner()
-    const ev = learner.eval()
-    const MIN_ACCURACY = 0.4
-    const MIN_CORRECT = MIN_ACCURACY * learner.testSet.length
-    expect(ev.correctResults >= MIN_CORRECT).toBeTruthy()
-    expect(ev.testAccuracy >= MIN_ACCURACY).toBeTruthy()
+    const ev = learner.eval().stats
+    // console.table(ev.confusionMatrix2D)
+    const MIN_ACCURACY = 0
+    expect(ev.confusionMatrix.getMicroAccuracy() >= MIN_ACCURACY).toBeTruthy()
   })
 
   test('post-training evaluation', () => {
     const learner = new Learner()
     learner.train()
-    const ev = learner.eval()
-    const MIN_ACCURACY = 0.6
-    const MIN_CORRECT = MIN_ACCURACY * learner.testSet.length
-    expect(ev.correctResults >= MIN_CORRECT).toBeTruthy()
-    expect(ev.testAccuracy >= MIN_ACCURACY).toBeTruthy()
+    const ev = learner.eval().stats
+    // console.table(ev.confusionMatrix2D)
+    const MIN_ACCURACY = 0.2
+    expect(ev.confusionMatrix.getMicroAccuracy() >= MIN_ACCURACY).toBeTruthy()
   })
 
   test('serialization', () => {

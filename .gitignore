@@ -32,36 +32,17 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# TypeScript v1 declaration files
-typings/
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
+node_modules
+coverage
+dist
+.opt-in
+.opt-out
+.DS_Store
 .eslintcache
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
-.env
-
-# next.js build output
-.next
-
-# Editors
-.idea
+package-lock.json
+yarn.lock
 .vscode
-
+.idea
 _*.json
+_*.js
+.env
