@@ -133,6 +133,14 @@ const clrVal = (num, maxVal, goodValue = false) => {
   return chalk.hex(clr)(num.toFixed(2))
 }
 
+/**
+ * Functional sum on all classes of a confusion matrix.
+ * @param {ConfusionMatrix} cm Confusion matrix instance
+ * @param {string} fx Function name (without the `get`)
+ * @returns {number} Sum
+ */
+const fxSum = (cm, fx) => sum(...cm.classes.map(c => cm[`get${fx}`](c)))
+
 module.exports = {
   objectify,
   sum,
@@ -142,4 +150,5 @@ module.exports = {
   chunk,
   rmEmpty,
   clrVal,
+  fxSum,
 }

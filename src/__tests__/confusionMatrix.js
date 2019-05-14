@@ -153,7 +153,7 @@ describe('Accuracy', () => {
   const acc = 5 / 6
   test('Macro accuracy', () => {
     expect(cm.getMacroAccuracy()).toStrictEqual(acc)
-  }) //overall?
+  })
   test('Micro accuracy', () => {
     expect(cm.getMicroAccuracy()).toStrictEqual(acc)
   })

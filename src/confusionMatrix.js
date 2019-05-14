@@ -7,9 +7,8 @@ const {
   chunk,
   rmEmpty,
   clrVal,
+  fxSum,
 } = require('./utils')
-
-const fxSum = (cm, fx) => sum(...cm.classes.map(c => cm[`get${fx}`](c)))
 
 /**
  * Multi-class focused confusion matrix
@@ -189,11 +188,10 @@ class ConfusionMatrix {
    * @returns {number} (TP0 + ... + TPn + TN0 + ... + TNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 + ... + FPn + FN0 + ... + FNn)
    */
   getMicroAccuracy() {
-    const TPs = this.getTrue()
-    const TNs = fxSum(this, 'TN')
+    const Ts = fxSum(this, 'TP') + fxSum(this, 'TN')
     const FNs = fxSum(this, 'FN')
     const FPs = fxSum(this, 'FP')
-    return (TPs + TNs) / (TPs + TNs + FPs + FNs)
+    return Ts / (Ts + FPs + FNs)
   }
 
   getMacroAccuracy() {
