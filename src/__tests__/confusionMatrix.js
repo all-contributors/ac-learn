@@ -280,21 +280,52 @@ describe('Prevalence', () => {
   })
 })
 
-// test('fromData', () => {
-
-// })
+test('fromData', () => {
+  const actual = [
+    'code',
+    'code',
+    'other',
+    'other',
+    'bug',
+    'bug',
+    'code',
+    'other',
+    'code',
+    'bug',
+  ]
+  const predicted = [
+    'other',
+    'code',
+    'other',
+    'other',
+    'bug',
+    'other',
+    'code',
+    'bug',
+    'code',
+    'bug',
+  ]
+  const cm = CM.fromData(actual, predicted, CATEGORIES)
+  expect(cm.classes).toEqual(CATEGORIES)
+  expect(cm.matrix).toMatchObject({
+    bug: {bug: 2, code: 0, other: 1},
+    code: {bug: 0, code: 3, other: 1},
+    other: {bug: 1, code: 0, other: 2},
+  })
+})
 
 test('toString', () => {
   const cm = new CM(CATEGORIES, M0)
+  const S = ' '.repeat(12)
   const cmStr = `Actual \\ Predicted  bug   code  other
 ------------------  ----  ----  -----
-   bug${' '.repeat(14)}5.00  0.00  1.00 
-   code${' '.repeat(13)}1.00  2.00  0.00 
-   other${' '.repeat(12)}0.00  3.00  8.00 \n`
+   bug${S}  5.00  0.00  1.00 
+   code${S} 1.00  2.00  0.00 
+   other${S}0.00  3.00  8.00 \n`
   expect(cm.toString({colours: false})).toStrictEqual(cmStr)
   const E = '\u001b[39m'
   const W = '\u001b[38;5;231m'
-  const S = ' '.repeat(12)
+
   const colouredStr = `Actual \\ Predicted  bug   code  other
 ------------------  ----  ----  -----
    bug${S}  \u001b[38;5;28m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 

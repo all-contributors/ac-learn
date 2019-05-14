@@ -473,6 +473,8 @@ class ConfusionMatrix {
     }
     return t.toString()
   }
+
+  //@todo add shortStats:string
 }
 
 module.exports = ConfusionMatrix

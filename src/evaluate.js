@@ -11,7 +11,6 @@ const evalu = ({classifier, test, classes /* , log = true */}) => {
     FP: 0,
     FN: 0,
     confusionMatrix2D: [],
-    // confusionMatrix: new ConfusionMatrix(classes),
   }
   const actual = [] //t.map(t => t.output)
   const predicted = []
@@ -22,13 +21,19 @@ const evalu = ({classifier, test, classes /* , log = true */}) => {
     // console.log(`explanations (on ${t.input}->${t.output})= ${expl.join('\t')}`)
     let tn = true
     // console.log(`expected "${ck.green.bold(t.output)}" on "${ck.cyan(t.input)}" and got: "${ck.yellow(predictedClasses.join('/'))}"`)
-    predictedClasses.forEach(pc => {
-      stats[pc === t.output ? 'TP' : 'FP']++
+    // predictedClasses.forEach(pc => {
+    //   stats[pc === t.output ? 'TP' : 'FP']++
+    //   tn = false
+    // })
+    if (predictedClasses[0] === t.output) {
       tn = false
-    })
-    if (!predictedClasses.includes(t.output)) {
+      stats.TP++
+    } else if (!predictedClasses.includes(t.output)) {
       tn = false
       stats.FN++
+    } else if (predictedClasses.length) {
+      tn = false
+      stats.FP++
     }
     if (tn) stats.TN++
     stats.total += Math.max(predictedClasses.length, 1)
@@ -41,7 +46,7 @@ const evalu = ({classifier, test, classes /* , log = true */}) => {
       predicted.push(predictedClasses[0])
     } else {
       actual.push(t.output)
-      predicted.push('')
+      predicted.push('null')
     }
   })
   curStats.calculateStats()
