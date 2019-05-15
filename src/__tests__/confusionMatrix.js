@@ -287,7 +287,7 @@ describe('Prevalence', () => {
   })
 })
 
-test('fromData', () => {
+describe('fromData', () => {
   const actual = [
     'code',
     'code',
@@ -312,42 +312,95 @@ test('fromData', () => {
     'code',
     'bug',
   ]
-  const cm = CM.fromData(actual, predicted, CATEGORIES)
-  expect(cm.classes).toEqual(CATEGORIES)
-  expect(cm.matrix).toMatchObject({
-    bug: {bug: 2, code: 0, other: 1},
-    code: {bug: 0, code: 3, other: 1},
-    other: {bug: 1, code: 0, other: 2},
+  it('works', () => {
+    const cm = CM.fromData(actual, predicted, CATEGORIES)
+    expect(cm.classes).toEqual(CATEGORIES)
+    expect(cm.matrix).toMatchObject({
+      bug: {bug: 2, code: 0, other: 1},
+      code: {bug: 0, code: 3, other: 1},
+      other: {bug: 1, code: 0, other: 2},
+    })
+  })
+
+  it('fails on disparate arrays', () => {
+    const pred = [
+      'other',
+      'code',
+      'other',
+      'other',
+      'bug',
+      'other',
+      'code',
+      'bug',
+      'code',
+    ]
+    expect(() => CM.fromData(actual, pred, CATEGORIES)).toThrowError(
+      "actual and predictions don't have the same length",
+    )
+  })
+
+  it('can gather classes', () => {
+    const cm = CM.fromData(actual, predicted)
+    expect(cm.classes).toEqual(['code', 'other', 'bug'])
+    expect(cm.matrix).toMatchObject({
+      bug: {bug: 2, code: 0, other: 1},
+      code: {bug: 0, code: 3, other: 1},
+      other: {bug: 1, code: 0, other: 2},
+    })
   })
 })
 
-test('toString', () => {
+describe('toString', () => {
   const cm = new CM(CATEGORIES, M0)
   const S = ' '.repeat(12)
-  const cmStr = `Actual \\ Predicted  bug   code  other
+  const S4 = `${S}    `
+  const E = '\u001b[39m'
+  const W = '\u001b[38;5;231m'
+
+  it('can show a colourless table', () => {
+    const cmStr = `Actual \\ Predicted  bug   code  other
 ------------------  ----  ----  -----
    bug${S}  5.00  0.00  1.00 
    code${S} 1.00  2.00  0.00 
    other${S}0.00  3.00  8.00 \n`
-  expect(cm.toString({colours: false})).toStrictEqual(cmStr)
-  const E = '\u001b[39m'
-  const W = '\u001b[38;5;231m'
+    expect(cm.toString({colours: false})).toStrictEqual(cmStr)
+    expect(cm.toString({colours: false, clean: true})).toStrictEqual(cmStr)
+    expect(cm.toString({colours: false, maxValue: 10})).toStrictEqual(cmStr)
+  })
+
   if (!process.env.CI) {
-    const colouredStr = `Actual \\ Predicted  bug   code  other
-------------------  ----  ----  -----
-   bug${S}  \u001b[38;5;28m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 
-   code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
-   other${S}${W}0.00${E}  \u001b[38;5;88m3.00${E}  \u001b[38;5;34m8.00${E} \n`
-    expect(cm.toString({maxValue: 20})).toStrictEqual(colouredStr)
-    const colouredStr0 = `Actual \\ Predicted  bug   code  other
+    it('can show a coloured table', () => {
+      const colouredStr0 = `Actual \\ Predicted  bug   code  other
 ------------------  ----  ----  -----
    bug${S}  \u001b[38;5;22m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 
    code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
    other${S}${W}0.00${E}  \u001b[38;5;52m3.00${E}  \u001b[38;5;22m8.00${E} \n`
-    expect(cm.toString()).toStrictEqual(colouredStr0)
+      expect(cm.toString()).toStrictEqual(colouredStr0)
+      const colouredStr = `Actual \\ Predicted  bug   code  other
+------------------  ----  ----  -----
+   bug${S}  \u001b[38;5;28m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 
+   code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
+   other${S}${W}0.00${E}  \u001b[38;5;88m3.00${E}  \u001b[38;5;34m8.00${E} \n`
+      expect(cm.toString({maxValue: 20})).toStrictEqual(colouredStr)
+    })
+
+    it('can show split coloured table', () => {
+      const splitColouredStr = `1/2 Actual \\ Predicted  bug   code
+----------------------  ----  ----
+   bug${S4}  \u001b[38;5;22m5.00${E}  ${W}0.00${E}
+   code${S4} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}
+   other${S4}${W}0.00${E}  \u001b[38;5;52m3.00${E}
+
+2/2 Actual \\ Predicted  other
+----------------------  -----
+   bug${S4}  \u001b[38;5;52m1.00${E} 
+   code${S4} ${W}0.00${E} 
+   other${S4}\u001b[38;5;22m8.00${E} \n`
+      expect(cm.toString({split: true})).toStrictEqual(splitColouredStr)
+    })
   }
-  const S4 = `${S}    `
-  const cmSplitStr = `1/2 Actual \\ Predicted  bug   code
+  it('can show a split colourless table', () => {
+    const cmSplitStr = `1/2 Actual \\ Predicted  bug   code
 ----------------------  ----  ----
    bug${S4}  5.00  0.00
    code${S4} 1.00  2.00
@@ -358,9 +411,8 @@ test('toString', () => {
    bug${S4}  1.00 
    code${S4} 0.00 
    other${S4}8.00 \n`
-  expect(cm.toString({colours: false, split: true})).toStrictEqual(cmSplitStr)
-  expect(cm.toString({colours: false, clean: true})).toStrictEqual(cmStr)
-  expect(cm.toString({colours: false, maxValue: 10})).toStrictEqual(cmStr)
+    expect(cm.toString({colours: false, split: true})).toStrictEqual(cmSplitStr)
+  })
 })
 
 test('shortStats', () => {

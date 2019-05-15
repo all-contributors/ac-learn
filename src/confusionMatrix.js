@@ -110,8 +110,6 @@ class ConfusionMatrix {
     )
     for (let i = 0; i < actual.length; ++i) {
       cm.addEntry(actual[i], predictions[i])
-      if (cm.getEntry(predictions[i], actual[i]) === undefined)
-        cm.setEntry(predictions[i], actual[i], 0)
     }
     return cm
   }
