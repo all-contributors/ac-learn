@@ -1,4 +1,5 @@
 const Table = require('easy-table')
+const camel = require('camel-case')
 const {
   objectify,
   sum,
@@ -8,7 +9,55 @@ const {
   rmEmpty,
   clrVal,
   fxSum,
+  mapObject,
 } = require('./utils')
+
+const METRICS = [
+  'Accuracy',
+  'F1',
+  'FallOut',
+  'MissRate',
+  'Precision',
+  'Prevalence',
+  'Recall',
+  'Specificity',
+]
+const RES_METRICS = ['TP', 'FP', 'FN', 'TN', ...METRICS]
+
+/**
+ * @param {ConfusionMatrix} cm Confusion matrix
+ * @param {string} type Average type (`Mi` or `Ma`)
+ * @returns {{accuracy: number, f1: number, fallOut: number, missRate: number, precision: number, prevalence: number, recall: number, specificity: number}}
+ * Micro/Macro-average metrics
+ */
+const mAvg = (cm, type) => {
+  const prefix = `get${type}cro`
+  const res = {}
+  for (const m of METRICS) res[camel(m)] = cm[`${prefix}${m}`]()
+  return res
+}
+
+/**
+ * @param {ConfusionMatrix} cm Confusion matrix
+ * @param {number} sampleSize Sample size (total)
+ * @returns {{tp: number, fp: number, fn: number, tn: number, total: number, accuracy: number, f1: number, fallOut: number, missRate: number, precision: number, prevalence: number, recall: number, specificity: number}}
+ * Results per class
+ */
+const getResults = (cm, sampleSize) => {
+  const results = category => {
+    const total = cm.getPositive(category)
+    const res = {
+      total,
+      samplePortion: total / sampleSize,
+    }
+    RES_METRICS.forEach(m => {
+      res[camel(m)] = cm[`get${m}`](category)
+    })
+    res.confusionMatrix = [[res.tp, res.fp], [res.fn, res.tn]]
+    return res
+  }
+  return mapObject(cm.classes, cls => results(cls))
+}
 
 /**
  * Multi-class focused confusion matrix
@@ -504,6 +553,23 @@ class ConfusionMatrix {
     }
    }
    */
+
+  /**
+   * @returns {{total: number, correctPredictions: number, incorrectPredictions: number, classes: string[], microAvg: Object, macroAvg: Object, results: Object}}
+   * (Long) statistics
+   */
+  getStats() {
+    const total = this.getTotal()
+    return {
+      total,
+      correctPredictions: this.getTrue(),
+      incorrectPredictions: this.getFalse(),
+      classes: this.classes,
+      microAvg: mAvg(this, 'Mi'),
+      macroAvg: mAvg(this, 'Ma'),
+      results: getResults(this, total),
+    }
+  }
 }
 
 module.exports = ConfusionMatrix

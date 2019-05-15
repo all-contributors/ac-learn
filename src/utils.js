@@ -142,6 +142,21 @@ const clrVal = (num, maxVal, goodValue = false) => {
  */
 const fxSum = (cm, fx) => sum(...cm.classes.map(c => cm[`get${fx}`](c)))
 
+/**
+ * Maps the values of an array to an object using a function,
+ * where the key-value pairs consist of the original value as the key and the mapped value.
+ * Based on {@link https://github.com/30-seconds/30-seconds-of-code#mapobject-}
+ * @param {Array} arr Array
+ * @param {function(*): *} fx Mapping function
+ * @returns {Object} Mapped object
+ */
+const mapObject = (arr, fx) => {
+  return arr.reduce((acc, val) => {
+    acc[val] = fx(val)
+    return acc
+  }, {})
+}
+
 module.exports = {
   objectify,
   sum,
@@ -152,4 +167,5 @@ module.exports = {
   rmEmpty,
   clrVal,
   fxSum,
+  mapObject,
 }

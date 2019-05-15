@@ -46,6 +46,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.4.3",
+    "camel-case": "^3.0.0",
     "chalk": "^2.4.2",
     "clui": "^0.3.6",
     "documentation": "^10.1.0",
