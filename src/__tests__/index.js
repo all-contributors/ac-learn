@@ -21,19 +21,17 @@ describe('a learner', () => {
 
   test('pre-training evaluation', () => {
     const learner = new Learner()
-    const ev = learner.eval().stats
-    // console.table(ev.confusionMatrix2D)
+    const stats = learner.eval()
     const MIN_ACCURACY = 0
-    expect(ev.confusionMatrix.getMicroAccuracy() >= MIN_ACCURACY).toBeTruthy()
+    expect(stats.microAvg.accuracy >= MIN_ACCURACY).toBeTruthy()
   })
 
   test('post-training evaluation', () => {
     const learner = new Learner()
     learner.train()
-    const ev = learner.eval().stats
-    // console.table(ev.confusionMatrix2D)
+    const stats = learner.eval()
     const MIN_ACCURACY = 0.2
-    expect(ev.confusionMatrix.getMicroAccuracy() >= MIN_ACCURACY).toBeTruthy()
+    expect(stats.microAvg.accuracy >= MIN_ACCURACY).toBeTruthy()
   })
 
   test('serialization', () => {

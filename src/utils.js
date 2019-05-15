@@ -65,13 +65,22 @@ const PRECISION = 1000000000
 const toPrecision = (num, precision = PRECISION) =>
   Math.round(num * precision) / precision
 
-//https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_chunk
-const chunk = (input, size) => {
-  return input.reduce((arr, item, idx) => {
-    return idx % size === 0
-      ? [...arr, [item]]
-      : [...arr.slice(0, -1), [...arr.slice(-1)[0], item]]
-  }, [])
+const partition = (arr, fn) =>
+  arr.reduce(
+    (acc, val, i, part) => {
+      acc[fn(val, i, part) ? 0 : 1].push(val)
+      return acc
+    },
+    [[], []],
+  )
+
+/**
+ * @param {Array} arr Array to split
+ * @returns {Array<Array>} Array split in half
+ */
+const half = arr => {
+  const limit = arr.length / 2
+  return partition(arr, (x, i) => i < limit)
 }
 
 /**
@@ -127,10 +136,11 @@ const COLOURS = {
  * @returns {string} Coloured number
  */
 const clrVal = (num, maxVal, goodValue = false) => {
+  if (num == 0) return chalk.hex(goodValue ? '#ff0' : '#fff')('0.00')
   const palette = COLOURS[goodValue ? 'good' : 'bad']
   const pos = Math.round((num / maxVal) * palette.length)
   const clr = palette[pos]
-  return chalk.hex(clr)(num.toFixed(2))
+  return chalk.hex(clr)(num)
 }
 
 /**
@@ -141,14 +151,30 @@ const clrVal = (num, maxVal, goodValue = false) => {
  */
 const fxSum = (cm, fx) => sum(...cm.classes.map(c => cm[`get${fx}`](c)))
 
+/**
+ * Maps the values of an array to an object using a function,
+ * where the key-value pairs consist of the original value as the key and the mapped value.
+ * Based on {@link https://github.com/30-seconds/30-seconds-of-code#mapobject-}
+ * @param {Array} arr Array
+ * @param {function(*): *} fx Mapping function
+ * @returns {Object} Mapped object
+ */
+const mapObject = (arr, fx) => {
+  return arr.reduce((acc, val) => {
+    acc[val] = fx(val)
+    return acc
+  }, {})
+}
+
 module.exports = {
   objectify,
   sum,
   column,
   matrixSum,
   toPrecision,
-  chunk,
+  half,
   rmEmpty,
   clrVal,
   fxSum,
+  mapObject,
 }

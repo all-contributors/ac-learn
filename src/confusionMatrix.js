@@ -1,14 +1,63 @@
 const Table = require('easy-table')
+const camel = require('camel-case')
 const {
   objectify,
   sum,
   column,
   matrixSum,
-  chunk,
+  half,
   rmEmpty,
   clrVal,
   fxSum,
+  mapObject,
 } = require('./utils')
+
+const METRICS = [
+  'Accuracy',
+  'F1',
+  'FallOut',
+  'MissRate',
+  'Precision',
+  'Prevalence',
+  'Recall',
+  'Specificity',
+]
+const RES_METRICS = ['TP', 'FP', 'FN', 'TN', ...METRICS]
+
+/**
+ * @param {ConfusionMatrix} cm Confusion matrix
+ * @param {string} type Average type (`Mi` or `Ma`)
+ * @returns {{accuracy: number, f1: number, fallOut: number, missRate: number, precision: number, prevalence: number, recall: number, specificity: number}}
+ * Micro/Macro-average metrics
+ */
+const mAvg = (cm, type) => {
+  const prefix = `get${type}cro`
+  const res = {}
+  for (const m of METRICS) res[camel(m)] = cm[`${prefix}${m}`]()
+  return res
+}
+
+/**
+ * @param {ConfusionMatrix} cm Confusion matrix
+ * @param {number} sampleSize Sample size (total)
+ * @returns {{tp: number, fp: number, fn: number, tn: number, total: number, accuracy: number, f1: number, fallOut: number, missRate: number, precision: number, prevalence: number, recall: number, specificity: number}}
+ * Results per class
+ */
+const getResults = (cm, sampleSize) => {
+  const results = category => {
+    const total = cm.getPositive(category)
+    const res = {
+      total,
+      samplePortion: total / sampleSize,
+    }
+    RES_METRICS.forEach(m => {
+      res[camel(m)] = cm[`get${m}`](category)
+    })
+    res.confusionMatrix = [[res.tp, res.fp], [res.fn, res.tn]]
+    return res
+  }
+  return mapObject(cm.classes, cls => results(cls))
+}
 
 /**
  * Multi-class focused confusion matrix
@@ -59,8 +108,9 @@ class ConfusionMatrix {
     const cm = new ConfusionMatrix(
       classes.length ? classes : [...actual, ...predictions],
     )
-    for (let i = 0; i < actual.length; ++i)
+    for (let i = 0; i < actual.length; ++i) {
       cm.addEntry(actual[i], predictions[i])
+    }
     return cm
   }
 
@@ -426,33 +476,28 @@ class ConfusionMatrix {
     const classes = Object.keys(mtx)
 
     if (split) {
-      const limit = (classes.length / 2) | 0
-      const [head, tail] = chunk(classes, limit)
+      const [head, tail] = half(classes)
       const t0 = new Table()
       const t1 = new Table()
       for (const row of classes) {
         t0.cell('1/2 Actual \\ Predicted', `   ${row}`)
 
         head.forEach(cls => {
-          let val = this.matrix[row][cls]
+          let val = this.matrix[row][cls].toFixed(2)
           if (colours) {
             val = clrVal(val, maxValue, row === cls)
           }
-          t0.cell(
-            cls,
-            val,
-            /* , Table.number(2) */
-          )
+          t0.cell(cls, val)
         })
         t0.newRow()
 
         t1.cell('2/2 Actual \\ Predicted', `   ${row}`)
         tail.forEach(cls => {
-          let val = this.matrix[row][cls]
+          let val = this.matrix[row][cls].toFixed(2)
           if (colours) {
             val = clrVal(val, maxValue, row === cls)
           }
-          t1.cell(cls, val /* , Table.number(2) */)
+          t1.cell(cls, val)
         })
         t1.newRow()
       }
@@ -462,13 +507,44 @@ class ConfusionMatrix {
     for (const row in this.matrix) {
       if (this.matrix.hasOwnProperty(row)) {
         t.cell('Actual \\ Predicted', `   ${row}`)
-        this.classes.forEach(cls =>
-          t.cell(cls, this.matrix[row][cls], Table.number(2)),
-        )
+        this.classes.forEach(cls => {
+          let val = this.matrix[row][cls].toFixed(2)
+          if (colours) {
+            val = clrVal(val, maxValue, row === cls)
+          }
+          t.cell(cls, val)
+        })
         t.newRow()
       }
     }
     return t.toString()
+  }
+
+  /**
+   * @returns {string} Short statistics (total, true, false, accuracy, precision, recall and f1)
+   */
+  getShortStats() {
+    return `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\nAccuracy: ${this.getMicroAccuracy() *
+      100}%\nPrecision: ${this.getMicroPrecision() *
+      100}%\nRecall: ${this.getMicroPrecision() *
+      100}%\nF1: ${this.getMicroF1() * 100}%`
+  }
+
+  /**
+   * @returns {{total: number, correctPredictions: number, incorrectPredictions: number, classes: string[], microAvg: Object, macroAvg: Object, results: Object}}
+   * (Long) statistics
+   */
+  getStats() {
+    const total = this.getTotal()
+    return {
+      total,
+      correctPredictions: this.getTrue(),
+      incorrectPredictions: this.getFalse(),
+      classes: this.classes,
+      microAvg: mAvg(this, 'Mi'),
+      macroAvg: mAvg(this, 'Ma'),
+      results: getResults(this, total),
+    }
   }
 }
 

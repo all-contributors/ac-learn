@@ -5,8 +5,9 @@ const {Spinner} = require('clui')
 const {PrecisionRecall, partitions, test} = require('limdu').utils
 const labelDS = require('./src/conv')('io')
 const classifierBuilder = require('./src/classifier')
-const evaluate = require('./src/evaluate')
+// const evaluate = require('./src/evaluate')
 const categories = require('./src/categories')
+const ConfusionMatrix = require('./src/confusionMatrix')
 
 /** @class Learner */
 class Learner {
@@ -43,6 +44,7 @@ class Learner {
     this.testSet = _test
     this.classifier = classifier()
     this.classifierBuilder = classifier
+    this.confusionMatrix = null //new ConfusionMatrix(categories)
   }
 
   /**
@@ -67,19 +69,23 @@ class Learner {
   }
 
   /**
-   *
-   * @param {boolean} log Log results as it goes along
    * @memberof Learner
-   * @returns {{correctResults: number, testAccuracy: number}} Result scores
+   * @returns {Object} Statistics from a confusion matrix
    */
-  eval(log = false) {
-    return evaluate({
-      classifier: this.classifier,
-      test: this.testSet,
-      train: this.trainSet,
-      classes: categories,
-      log,
-    })
+  eval() {
+    const actual = []
+    const predicted = []
+    for (const data of this.testSet) {
+      const predictions = this.classify(data.input)
+      actual.push(data.output)
+      predicted.push(predictions.length ? predictions[0] : 'null') //Ignores the rest (as it only wants one guess)
+    }
+    this.confusionMatrix = ConfusionMatrix.fromData(
+      actual,
+      predicted,
+      categories,
+    )
+    return this.confusionMatrix.getStats()
   }
 
   /**

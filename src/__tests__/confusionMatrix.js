@@ -66,6 +66,13 @@ const M0 = {
   code: {bug: 1, code: 2, other: 0},
   other: {bug: 0, code: 3, other: 8},
 }
+const M = {
+  13: 1 / 3,
+  23: 2 / 3,
+  56: 5 / 6,
+  811: 8 / 11,
+  89: 8 / 9,
+}
 
 test('total 2/2', () => {
   const cm = new CM(CATEGORIES, M0)
@@ -152,7 +159,7 @@ describe('Accuracy', () => {
   })
 
   test('Macro accuracy', () => {
-    expect(cm.getMacroAccuracy()).toStrictEqual(5 / 6)
+    expect(cm.getMacroAccuracy()).toStrictEqual(M[56])
   })
   test('Micro accuracy', () => {
     expect(cm.getMicroAccuracy()).toStrictEqual(0.75)
@@ -162,13 +169,13 @@ describe('Accuracy', () => {
 describe('Recall', () => {
   const cm = new CM(CATEGORIES, M0)
   test('Recall', () => {
-    expect(cm.getRecall('bug')).toStrictEqual(5 / 6) //.833
-    expect(cm.getRecall('code')).toStrictEqual(2 / 3) //.667
-    expect(cm.getRecall('other')).toStrictEqual(8 / 11) //.727
+    expect(cm.getRecall('bug')).toStrictEqual(M[56]) //.833
+    expect(cm.getRecall('code')).toStrictEqual(M[23]) //.667
+    expect(cm.getRecall('other')).toStrictEqual(M[811]) //.727
   })
 
   test('Macro recall', () => {
-    expect(cm.getMacroRecall()).toStrictEqual((3 / 2 + 8 / 11) / 3) //~.742
+    expect(cm.getMacroRecall()).toStrictEqual((3 / 2 + M[811]) / 3) //~.742
   })
 
   test('Micro recall', () => {
@@ -179,13 +186,13 @@ describe('Recall', () => {
 describe('Precision', () => {
   const cm = new CM(CATEGORIES, M0)
   test('Precision', () => {
-    expect(cm.getPrecision('bug')).toStrictEqual(5 / 6) //.833
+    expect(cm.getPrecision('bug')).toStrictEqual(M[56]) //.833
     expect(cm.getPrecision('code')).toStrictEqual(0.4)
-    expect(cm.getPrecision('other')).toStrictEqual(8 / 9) //.889
+    expect(cm.getPrecision('other')).toStrictEqual(M[89]) //.889
   })
 
   test('Macro precision', () => {
-    expect(cm.getMacroPrecision()).toStrictEqual((5 / 6 + 0.4 + 8 / 9) / 3) //~.707
+    expect(cm.getMacroPrecision()).toStrictEqual((M[56] + 0.4 + M[89]) / 3) //~.707
   })
 
   test('Micro precision', () => {
@@ -196,13 +203,13 @@ describe('Precision', () => {
 describe('F1', () => {
   const cm = new CM(CATEGORIES, M0)
   test('F1', () => {
-    expect(cm.getF1('bug')).toStrictEqual(5 / 6) //.833
+    expect(cm.getF1('bug')).toStrictEqual(M[56]) //.833
     expect(cm.getF1('code')).toStrictEqual(0.5)
     expect(toPrecision(cm.getF1('other'))).toStrictEqual(0.8) //FPA is fun (not)!
   })
 
   test('Macro F1', () => {
-    expect(cm.getMacroF1()).toStrictEqual((5 / 6 + 1.3) / 3) //~.711
+    expect(cm.getMacroF1()).toStrictEqual((M[56] + 1.3) / 3) //~.711
   })
 
   test('Micro F1', () => {
@@ -214,7 +221,7 @@ describe('MissRate', () => {
   const cm = new CM(CATEGORIES, M0)
   test('MissRate', () => {
     expect(cm.getMissRate('bug')).toStrictEqual(1 / 6) //.167
-    expect(cm.getMissRate('code')).toStrictEqual(1 / 3) //.333
+    expect(cm.getMissRate('code')).toStrictEqual(M[13]) //.333
     expect(cm.getMissRate('other')).toStrictEqual(3 / 11) //.273
   })
 
@@ -247,7 +254,7 @@ describe('FallOut', () => {
 
 describe('Specificity', () => {
   const cm = new CM(CATEGORIES, M0)
-  const Ss = [13 / 14, 14 / 17, 8 / 9]
+  const Ss = [13 / 14, 14 / 17, M[89]]
   test('Specificity', () => {
     expect(cm.getSpecificity('bug')).toStrictEqual(Ss[0]) //.929
     expect(cm.getSpecificity('code')).toStrictEqual(Ss[1]) //.824
@@ -272,20 +279,217 @@ describe('Prevalence', () => {
   })
 
   test('Macro Prevalence', () => {
-    expect(cm.getMacroPrevalence()).toStrictEqual(1 / 3) //.333
+    expect(cm.getMacroPrevalence()).toStrictEqual(M[13]) //.333
   })
 
   test('Micro Prevalence', () => {
-    expect(cm.getMicroPrevalence()).toStrictEqual(1 / 3)
+    expect(cm.getMicroPrevalence()).toStrictEqual(M[13])
   })
 })
 
-test('toString', () => {
+describe('fromData', () => {
+  const actual = [
+    'code',
+    'code',
+    'other',
+    'other',
+    'bug',
+    'bug',
+    'code',
+    'other',
+    'code',
+    'bug',
+  ]
+  const predicted = [
+    'other',
+    'code',
+    'other',
+    'other',
+    'bug',
+    'other',
+    'code',
+    'bug',
+    'code',
+    'bug',
+  ]
+  it('works', () => {
+    const cm = CM.fromData(actual, predicted, CATEGORIES)
+    expect(cm.classes).toEqual(CATEGORIES)
+    expect(cm.matrix).toMatchObject({
+      bug: {bug: 2, code: 0, other: 1},
+      code: {bug: 0, code: 3, other: 1},
+      other: {bug: 1, code: 0, other: 2},
+    })
+  })
+
+  it('fails on disparate arrays', () => {
+    const pred = [
+      'other',
+      'code',
+      'other',
+      'other',
+      'bug',
+      'other',
+      'code',
+      'bug',
+      'code',
+    ]
+    expect(() => CM.fromData(actual, pred, CATEGORIES)).toThrowError(
+      "actual and predictions don't have the same length",
+    )
+  })
+
+  it('can gather classes', () => {
+    const cm = CM.fromData(actual, predicted)
+    expect(cm.classes).toEqual(['code', 'other', 'bug'])
+    expect(cm.matrix).toMatchObject({
+      bug: {bug: 2, code: 0, other: 1},
+      code: {bug: 0, code: 3, other: 1},
+      other: {bug: 1, code: 0, other: 2},
+    })
+  })
+})
+
+describe('toString', () => {
   const cm = new CM(CATEGORIES, M0)
-  const cmStr = `Actual \\ Predicted  bug   code  other
+  const S = ' '.repeat(12)
+  const S4 = `${S}    `
+  const E = '\u001b[39m'
+  const W = '\u001b[38;5;231m'
+
+  it('can show a colourless table', () => {
+    const cmStr = `Actual \\ Predicted  bug   code  other
 ------------------  ----  ----  -----
-   bug${' '.repeat(14)}5.00  0.00   1.00
-   code${' '.repeat(13)}1.00  2.00   0.00
-   other${' '.repeat(12)}0.00  3.00   8.00\n`
-  expect(cm.toString()).toStrictEqual(cmStr)
+   bug${S}  5.00  0.00  1.00 
+   code${S} 1.00  2.00  0.00 
+   other${S}0.00  3.00  8.00 \n`
+    expect(cm.toString({colours: false})).toStrictEqual(cmStr)
+    expect(cm.toString({colours: false, clean: true})).toStrictEqual(cmStr)
+    expect(cm.toString({colours: false, maxValue: 10})).toStrictEqual(cmStr)
+  })
+
+  if (!process.env.CI) {
+    it('can show a coloured table', () => {
+      const colouredStr0 = `Actual \\ Predicted  bug   code  other
+------------------  ----  ----  -----
+   bug${S}  \u001b[38;5;22m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 
+   code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
+   other${S}${W}0.00${E}  \u001b[38;5;52m3.00${E}  \u001b[38;5;22m8.00${E} \n`
+      expect(cm.toString()).toStrictEqual(colouredStr0)
+      const colouredStr = `Actual \\ Predicted  bug   code  other
+------------------  ----  ----  -----
+   bug${S}  \u001b[38;5;28m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 
+   code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
+   other${S}${W}0.00${E}  \u001b[38;5;88m3.00${E}  \u001b[38;5;34m8.00${E} \n`
+      expect(cm.toString({maxValue: 20})).toStrictEqual(colouredStr)
+    })
+
+    it('can show split coloured table', () => {
+      const splitColouredStr = `1/2 Actual \\ Predicted  bug   code
+----------------------  ----  ----
+   bug${S4}  \u001b[38;5;22m5.00${E}  ${W}0.00${E}
+   code${S4} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}
+   other${S4}${W}0.00${E}  \u001b[38;5;52m3.00${E}
+
+2/2 Actual \\ Predicted  other
+----------------------  -----
+   bug${S4}  \u001b[38;5;52m1.00${E} 
+   code${S4} ${W}0.00${E} 
+   other${S4}\u001b[38;5;22m8.00${E} \n`
+      expect(cm.toString({split: true})).toStrictEqual(splitColouredStr)
+    })
+  }
+  it('can show a split colourless table', () => {
+    const cmSplitStr = `1/2 Actual \\ Predicted  bug   code
+----------------------  ----  ----
+   bug${S4}  5.00  0.00
+   code${S4} 1.00  2.00
+   other${S4}0.00  3.00
+
+2/2 Actual \\ Predicted  other
+----------------------  -----
+   bug${S4}  1.00 
+   code${S4} 0.00 
+   other${S4}8.00 \n`
+    expect(cm.toString({colours: false, split: true})).toStrictEqual(cmSplitStr)
+  })
+})
+
+test('shortStats', () => {
+  const cm = new CM(CATEGORIES, M0)
+  const ss = `Total: 20
+True: 15
+False: 5
+Accuracy: 75%
+Precision: 75%
+Recall: 75%
+F1: 75%`
+  expect(cm.getShortStats()).toStrictEqual(ss)
+})
+
+describe('Long stats', () => {
+  const cm = new CM(CATEGORIES, M0)
+  const stats = cm.getStats()
+  it('has general stats', () => {
+    expect(stats).toMatchObject({
+      total: 20,
+      correctPredictions: 15,
+      incorrectPredictions: 5,
+      classes: CATEGORIES,
+      microAvg: {},
+      macroAvg: {},
+      results: {
+        bug: {},
+        code: {},
+        other: {},
+      },
+    })
+  })
+
+  it('has micro details', () => {
+    expect(stats.microAvg).toMatchObject({
+      accuracy: 0.75,
+      f1: 0.75,
+      fallOut: 0.125,
+      missRate: 0.25,
+      precision: 0.75,
+      prevalence: M[13],
+      recall: 0.75,
+      specificity: 0.875,
+    })
+  })
+
+  it('has macro details', () => {
+    expect(stats.macroAvg).toMatchObject({
+      accuracy: M[56],
+      f1: 19.2 / 27,
+      fallOut: 59 / 714 + 1 / 27,
+      missRate: 25.5 / 99,
+      precision: (M[56] + 0.4 + M[89]) / 3,
+      prevalence: M[13],
+      recall: (3 / 2 + 8 / 11) / 3,
+      specificity: 417 / 714 + 8 / 27,
+    })
+  })
+
+  it('has class details', () => {
+    const bugStats = stats.results.bug
+    expect(bugStats).toMatchObject({
+      total: 6,
+      samplePortion: 0.3,
+      tp: 5,
+      fp: 1,
+      fn: 1,
+      tn: 13,
+      confusionMatrix: [[5, 1], [1, 13]],
+    })
+    expect(bugStats).toHaveProperty('accuracy')
+    expect(bugStats).toHaveProperty('f1')
+    expect(bugStats).toHaveProperty('fallOut')
+    expect(bugStats).toHaveProperty('missRate')
+    expect(bugStats).toHaveProperty('precision')
+    expect(bugStats).toHaveProperty('prevalence')
+    expect(bugStats).toHaveProperty('recall')
+    expect(bugStats).toHaveProperty('specificity')
+  })
 })
