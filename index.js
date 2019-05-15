@@ -70,7 +70,7 @@ class Learner {
 
   /**
    * @memberof Learner
-   * @returns {ConfusionMatrix} Confusion matrix with results
+   * @returns {Object} Statistics from a confusion matrix
    */
   eval() {
     const actual = []
@@ -85,7 +85,7 @@ class Learner {
       predicted,
       categories,
     )
-    return this.confusionMatrix
+    return this.confusionMatrix.getStats()
   }
 
   /**
