@@ -332,13 +332,14 @@ test('toString', () => {
   expect(cm.toString({colours: false})).toStrictEqual(cmStr)
   const E = '\u001b[39m'
   const W = '\u001b[38;5;231m'
-
-  const colouredStr = `Actual \\ Predicted  bug   code  other
+  if (!process.env.CI) {
+    const colouredStr = `Actual \\ Predicted  bug   code  other
 ------------------  ----  ----  -----
    bug${S}  \u001b[38;5;28m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 
    code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
    other${S}${W}0.00${E}  \u001b[38;5;88m3.00${E}  \u001b[38;5;34m8.00${E} \n`
-  expect(cm.toString({maxValue: 20})).toStrictEqual(colouredStr)
+    expect(cm.toString({maxValue: 20})).toStrictEqual(colouredStr)
+  }
 })
 
 test('shortStats', () => {
