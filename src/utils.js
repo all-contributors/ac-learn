@@ -65,13 +65,22 @@ const PRECISION = 1000000000
 const toPrecision = (num, precision = PRECISION) =>
   Math.round(num * precision) / precision
 
-//https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_chunk
-const chunk = (input, size) => {
-  return input.reduce((arr, item, idx) => {
-    return idx % size === 0
-      ? [...arr, [item]]
-      : [...arr.slice(0, -1), [...arr.slice(-1)[0], item]]
-  }, [])
+const partition = (arr, fn) =>
+  arr.reduce(
+    (acc, val, i, part) => {
+      acc[fn(val, i, part) ? 0 : 1].push(val)
+      return acc
+    },
+    [[], []],
+  )
+
+/**
+ * @param {Array} arr Array to split
+ * @returns {Array<Array>} Array split in half
+ */
+const half = arr => {
+  const limit = arr.length / 2
+  return partition(arr, (x, i) => i < limit)
 }
 
 /**
@@ -163,7 +172,7 @@ module.exports = {
   column,
   matrixSum,
   toPrecision,
-  chunk,
+  half,
   rmEmpty,
   clrVal,
   fxSum,

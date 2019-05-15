@@ -5,7 +5,7 @@ const {
   sum,
   column,
   matrixSum,
-  chunk,
+  half,
   rmEmpty,
   clrVal,
   fxSum,
@@ -478,8 +478,7 @@ class ConfusionMatrix {
     const classes = Object.keys(mtx)
 
     if (split) {
-      const limit = (classes.length / 2) | 0
-      const [head, tail] = chunk(classes, limit)
+      const [head, tail] = half(classes)
       const t0 = new Table()
       const t1 = new Table()
       for (const row of classes) {
@@ -532,27 +531,6 @@ class ConfusionMatrix {
       100}%\nRecall: ${this.getMicroPrecision() *
       100}%\nF1: ${this.getMicroF1() * 100}%`
   }
-
-  /*
-    @todo add a `getStats` or `getLongStats` which would return an object like:
-   {
-    total: int
-    classes: string[]
-    microAvg: {precision: float, recall: float, accuracy: float, ...}
-    macroAvg: {...}
-    results: {
-      null: {
-        TP: int, FP: int, FN: int, TN: int,
-        total: int,
-        populationPortion: float (?.results.null.total / ?.total)
-        confusionMatrix: int[][],
-        precision: float, recall: float, accuracy: float, ...},
-      bug: {...},
-      blog: {...}
-      ...
-    }
-   }
-   */
 
   /**
    * @returns {{total: number, correctPredictions: number, incorrectPredictions: number, classes: string[], microAvg: Object, macroAvg: Object, results: Object}}

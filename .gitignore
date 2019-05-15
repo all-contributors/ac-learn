@@ -45,4 +45,5 @@ yarn.lock
 .idea
 _*.json
 _*.js
+_*.txt
 .env

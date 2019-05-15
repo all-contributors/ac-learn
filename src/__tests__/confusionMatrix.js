@@ -339,7 +339,28 @@ test('toString', () => {
    code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
    other${S}${W}0.00${E}  \u001b[38;5;88m3.00${E}  \u001b[38;5;34m8.00${E} \n`
     expect(cm.toString({maxValue: 20})).toStrictEqual(colouredStr)
+    const colouredStr0 = `Actual \\ Predicted  bug   code  other
+------------------  ----  ----  -----
+   bug${S}  \u001b[38;5;22m5.00${E}  ${W}0.00${E}  \u001b[38;5;52m1.00${E} 
+   code${S} \u001b[38;5;52m1.00${E}  \u001b[38;5;22m2.00${E}  ${W}0.00${E} 
+   other${S}${W}0.00${E}  \u001b[38;5;52m3.00${E}  \u001b[38;5;22m8.00${E} \n`
+    expect(cm.toString()).toStrictEqual(colouredStr0)
   }
+  const S4 = `${S}    `
+  const cmSplitStr = `1/2 Actual \\ Predicted  bug   code
+----------------------  ----  ----
+   bug${S4}  5.00  0.00
+   code${S4} 1.00  2.00
+   other${S4}0.00  3.00
+
+2/2 Actual \\ Predicted  other
+----------------------  -----
+   bug${S4}  1.00 
+   code${S4} 0.00 
+   other${S4}8.00 \n`
+  expect(cm.toString({colours: false, split: true})).toStrictEqual(cmSplitStr)
+  expect(cm.toString({colours: false, clean: true})).toStrictEqual(cmStr)
+  expect(cm.toString({colours: false, maxValue: 10})).toStrictEqual(cmStr)
 })
 
 test('shortStats', () => {
