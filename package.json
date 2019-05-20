@@ -44,7 +44,6 @@
     "camel-case": "^3.0.0",
     "chalk": "^2.4.2",
     "clui": "^0.3.6",
-    "documentation": "^11.0.0",
     "easy-table": "^1.1.1",
     "javascript-lemmatizer": "0.0.2",
     "limdu": "^0.9.4",
@@ -54,6 +53,7 @@
   "devDependencies": {
     "codecov": "^3.5.0",
     "cz-conventional-changelog": "^2.1.0",
+    "documentation": "^11.0.0",
     "eslint-config-kentcdodds": "^14.3.2",
     "git-cz": "^3.0.1",
     "kcd-scripts": "^1.4.0",
