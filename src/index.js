@@ -5,11 +5,13 @@ const {Spinner} = require('clui')
 const {PrecisionRecall, partitions, test} = require('limdu').utils
 const labelDS = require('./conv')('io')
 const classifierBuilder = require('./classifier')
-// const evaluate = require('./evaluate')
 const categories = require('./categories')
 const ConfusionMatrix = require('./confusionMatrix')
 
-/** @class Learner */
+/**
+ * NodeJS Classification-based learner.
+ * @class Learner
+ */
 class Learner {
   /**
    * @param {Object} opts Options.
@@ -31,6 +33,7 @@ class Learner {
    * const learner = new Learner({
    *  trainSplit: .6
    * })
+   * @public
    */
   constructor({
     dataset = labelDS,
@@ -50,6 +53,7 @@ class Learner {
   /**
    * @param {Object[]} trainSet Training set
    * @memberof Learner
+   * @public
    */
   train(trainSet = this.trainSet) {
     const training = new Spinner('Training...', [
@@ -71,6 +75,7 @@ class Learner {
   /**
    * @memberof Learner
    * @returns {Object} Statistics from a confusion matrix
+   * @public
    */
   eval() {
     const actual = []
@@ -91,15 +96,17 @@ class Learner {
   /**
    * @memberof Learner
    * @returns {string} Serialized classifier
+   * @public
    */
   serializeClassifier() {
     return serialize.toString(this.classifier, this.classifierBuilder)
   }
 
   /**
-   * @param {string} file Filename
+   * @param {string} [file='classifier.json'] Filename
    * @memberof Learner
    * @returns {Promise<(string|Error)>} Serialized classifier
+   * @public
    */
   serializeAndSaveClassifier(file = 'classifier.json') {
     return new Promise((resolve, reject) => {
@@ -114,12 +121,19 @@ class Learner {
   /**
    * @param {string} serializedClassifier .
    * @memberof Learner
-   * @returns {Object} Classifier Deserialized classifier
+   * @returns {Object} Deserialized classifier
+   * @public
    */
   deserializeClassifier(serializedClassifier) {
     return serialize.fromString(serializedClassifier, __dirname)
   }
 
+  /**
+   * @param {string} [file='classifier.json'] Filename
+   * @memberof Learner
+   * @returns {Promise<(string|Error)>} Deserialized classifier
+   * @public
+   */
   loadAndDeserializeClassifier(file = 'classifier.json') {
     return new Promise((resolve, reject) => {
       readFile(file, 'utf8', (err, data) => {
@@ -134,6 +148,7 @@ class Learner {
    * @param {{input: *, output: *}} data Data to classify
    * @memberof Learner
    * @returns {string[]} Classes
+   * @public
    */
   classify(data) {
     return this.classifier.classify(data)
@@ -145,6 +160,7 @@ class Learner {
    * @param {boolean} [log=false] Pre-training logging
    * @returns {{microAvg: Object, macroAvg: Object}} Averages
    * @memberof Learner
+   * @public
    */
   crossValidate(numOfFolds = 5, verboseLevel = 0, log = false) {
     /* ML Reminder (https://o.quizlet.com/Xc3kmIUi19opPDYn3hTo3A.png)
@@ -185,9 +201,10 @@ class Learner {
   }
 
   /**
-   * @param {string} category Category name
+   * @param {string} category Category name.
    * @memberof Learner
    * @returns {string[]} Labels associated with `category`
+   * @public
    */
   backClassify(category) {
     return this.classifier.backClassify(category)
@@ -196,6 +213,7 @@ class Learner {
   /**
    * @memberof Learner
    * @returns {Object} JSON representation
+   * @public
    */
   toJSON() {
     const classifier = this.serializeClassifier()
@@ -216,6 +234,7 @@ class Learner {
    * @param {JSON|Object} json JSON form
    * @memberof Learner
    * @returns {Learner} Generated learner from `json`
+   * @public
    */
   static fromJSON(json) {
     const ALLOWED_PROPS = [
@@ -240,6 +259,7 @@ class Learner {
   /**
    * @memberof Learner
    * @returns {Object<string, {overall: number, test: number, train: number}>} Partitions
+   * @public
    */
   getCategoryPartition() {
     const res = {}
@@ -261,6 +281,7 @@ class Learner {
   /**
    * @memberof Learner
    * @returns {Object} Statistics
+   * @public
    */
   getStats() {
     //@todo use C3.js for a stacked baar chart
