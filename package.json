@@ -1,6 +1,6 @@
 {
   "name": "ac-learn",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "description": "ML platform for All Contributors",
   "main": "dist/index.js",
   "repository": "https://github.com/all-contributors/ac-learn.git",
