@@ -15,6 +15,7 @@ const classifierBuilder = (pastTrainingSamples = []) => {
   }
 
   const TextClassifier = multilabel.BinaryRelevance.bind(0, {
+    //eslint-disable-next-line babel/camelcase
     binaryClassifierType: Winnow.bind(0, {retrain_count: 10}),
   })
 

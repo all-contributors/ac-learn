@@ -20,6 +20,7 @@ const sum = (...arr) => [...arr].reduce((acc, val) => acc + val, 0)
  *   other: { bug: 0, code: 0, other: 3}
  * }
  * matrixTo2dArr(mtx) //[[1, 0, 0], [1, 2, 0], [0, 0, 3]]
+ * @private
  */
 const matrixTo2dArr = mtx => Object.keys(mtx).map(k => Object.values(mtx[k]))
 
@@ -33,6 +34,7 @@ const matrixTo2dArr = mtx => Object.keys(mtx).map(k => Object.values(mtx[k]))
  *  other: { bug: 0, code: 0, other: 3}
  * }
  * matrixSum(mtx) //7
+ * @private
  */
 const matrixSum = matrix => {
   const twoD = matrixTo2dArr(matrix).reduce((a, b) => a.concat(b), [])
@@ -52,6 +54,7 @@ const matrixSum = matrix => {
  * }
  * column(mtx, 'bug') //[1, 1, 0]
  * column(mtx, 'code') //[0, 2, 0]
+ * @private
  */
 const column = (matrix, colName) => {
   const res = []
@@ -77,6 +80,7 @@ const partition = (arr, fn) =>
 /**
  * @param {Array} arr Array to split
  * @returns {Array<Array>} Array split in half
+ * @private
  */
 const half = arr => {
   const limit = arr.length / 2
@@ -86,6 +90,7 @@ const half = arr => {
 /**
  * @param {Object<Object>} matrix Confusion matrix
  * @returns {Object<Object>} Matrix with no empty (zeroed) cross-entries
+ * @private
  */
 const rmEmpty = matrix => {
   const empty = []
@@ -108,6 +113,7 @@ const rmEmpty = matrix => {
  * @param {number} [inc=.1] Increment
  * @throws {Error} `0 <= position <= 2` condition not respected
  * @returns {string[]} Series
+ * @private
  */
 const hexSeries = (position, inc = 0.1) => {
   if (position < 0 || position > 2)
@@ -134,6 +140,7 @@ const COLOURS = {
  * @param {number} maxVal Highest value to expect
  * @param {boolean} [goodValue=false] Indication on whether it's a good or bad value
  * @returns {string} Coloured number
+ * @private
  */
 const clrVal = (num, maxVal, goodValue = false) => {
   if (num == 0) return chalk.hex(goodValue ? '#ff0' : '#fff')('0.00')
@@ -148,6 +155,7 @@ const clrVal = (num, maxVal, goodValue = false) => {
  * @param {ConfusionMatrix} cm Confusion matrix instance
  * @param {string} fx Function name (without the `get`)
  * @returns {number} Sum
+ * @private
  */
 const fxSum = (cm, fx) => sum(...cm.classes.map(c => cm[`get${fx}`](c)))
 
@@ -158,6 +166,7 @@ const fxSum = (cm, fx) => sum(...cm.classes.map(c => cm[`get${fx}`](c)))
  * @param {Array} arr Array
  * @param {function(*): *} fx Mapping function
  * @returns {Object} Mapped object
+ * @private
  */
 const mapObject = (arr, fx) => {
   return arr.reduce((acc, val) => {

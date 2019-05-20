@@ -29,6 +29,7 @@ const RES_METRICS = ['TP', 'FP', 'FN', 'TN', ...METRICS]
  * @param {string} type Average type (`Mi` or `Ma`)
  * @returns {{accuracy: number, f1: number, fallOut: number, missRate: number, precision: number, prevalence: number, recall: number, specificity: number}}
  * Micro/Macro-average metrics
+ * @private
  */
 const mAvg = (cm, type) => {
   const prefix = `get${type}cro`
@@ -42,6 +43,7 @@ const mAvg = (cm, type) => {
  * @param {number} sampleSize Sample size (total)
  * @returns {{tp: number, fp: number, fn: number, tn: number, total: number, accuracy: number, f1: number, fallOut: number, missRate: number, precision: number, prevalence: number, recall: number, specificity: number}}
  * Results per class
+ * @private
  */
 const getResults = (cm, sampleSize) => {
   const results = category => {
@@ -60,13 +62,14 @@ const getResults = (cm, sampleSize) => {
 }
 
 /**
- * Multi-class focused confusion matrix
+ * Multi-class focused confusion matrix.
  * @class ConfusionMatrix
  */
 class ConfusionMatrix {
   /**
    * @param {string[]} classes List of classes/categories
    * @param {?Object<Object, number>} matrix Matrix
+   * @protected
    */
   constructor(classes, matrix = null) {
     this.classes = [...new Set(classes)]
@@ -79,6 +82,12 @@ class ConfusionMatrix {
     } else this.matrix = matrix
   }
 
+  /**
+   * @param {string} actual Actual class
+   * @param {string} predicted Predicted class
+   * @returns {number} Updated entry
+   * @protected
+   */
   addEntry(actual, predicted) {
     if (this.matrix[actual][predicted]) return ++this.matrix[actual][predicted]
     else {
@@ -87,10 +96,22 @@ class ConfusionMatrix {
     }
   }
 
+  /**
+   * @param {string} actual Actual class
+   * @param {string} predicted Predicted class
+   * @param {number} val New entry
+   * @protected
+   */
   setEntry(actual, predicted, val) {
     this.matrix[actual][predicted] = val
   }
 
+  /**
+   * @param {string} actual Actual class
+   * @param {string} predicted Predicted class
+   * @returns {number} Entry
+   * @protected
+   */
   getEntry(actual, predicted) {
     return this.matrix[actual][predicted]
   }
@@ -101,6 +122,7 @@ class ConfusionMatrix {
    * @param {string[]} predictions Predicted classes
    * @param {string[]} classes Classes/categories to use
    * @returns {ConfusionMatrix} Filled confusion matrix
+   * @protected
    */
   static fromData(actual, predictions, classes = []) {
     if (actual.length !== predictions.length)
@@ -117,6 +139,7 @@ class ConfusionMatrix {
   /**
    * Get the total count of **all** entries.
    * @returns {number} Total count
+   * @protected
    */
   getTotal() {
     return matrixSum(this.matrix)
@@ -126,6 +149,7 @@ class ConfusionMatrix {
    * Number of elements _in_ the `category` class correctly predicted.
    * @param {string} category Class/category considered as positive
    * @returns {number} True Positives
+   * @protected
    */
   getTP(category) {
     return this.matrix[category][category]
@@ -135,6 +159,7 @@ class ConfusionMatrix {
    * Number of elements that _aren't in_ the `category` class but predicted as such.
    * @param {string} category Class/category considered as positive
    * @returns {number} False Positives
+   * @protected
    */
   getFP(category) {
     const predicted = column(this.matrix, category)
@@ -145,6 +170,7 @@ class ConfusionMatrix {
    * Number of elements _in_ the `category` class but predicted as not being in it.
    * @param {string} category Class/category considered as positive
    * @returns {number} False Negatives
+   * @protected
    */
   getFN(category) {
     return sum(...Object.values(this.matrix[category])) - this.getTP(category)
@@ -154,6 +180,7 @@ class ConfusionMatrix {
    * Number of elements that _aren't in_ the `category` class correctly predicted.
    * @param {string} category Class/category considered as positive
    * @returns {number} True Negatives
+   * @protected
    */
   getTN(category) {
     const FN_TP = sum(...Object.values(this.matrix[category]))
@@ -163,6 +190,7 @@ class ConfusionMatrix {
   /**
    * Diagonal of truth (top-left &rarr; bottom-right)
    * @returns {number[]} Numbers in the diagonal
+   * @protected
    */
   getDiagonal() {
     const diag = []
@@ -175,6 +203,7 @@ class ConfusionMatrix {
   /**
    * Number of correct (truthful) predictions.
    * @returns {number} TP
+   * @protected
    */
   getTrue() {
     return sum(...this.getDiagonal())
@@ -183,6 +212,7 @@ class ConfusionMatrix {
   /**
    * Number of incorrect predictions.
    * @returns {number} FP + FN
+   * @protected
    */
   getFalse() {
     return this.getTotal() - this.getTrue()
@@ -192,6 +222,7 @@ class ConfusionMatrix {
    * Number of real (actual) "positive" elements (i.e. elements that belong to the `category` class).
    * @param {string} category Class/category considered as positive
    * @returns {number} TP + FN
+   * @protected
    */
   getPositive(category) {
     return this.getTP(category) + this.getFN(category)
@@ -201,6 +232,7 @@ class ConfusionMatrix {
    * Number of real (actual) "negative" elements (i.e. elements that don't belong to the `category` class).
    * @param {string} category Class/category considered as positive
    * @returns {number} TN + FP
+   * @protected
    */
   getNegative(category) {
     return this.getTN(category) + this.getFP(category)
@@ -210,6 +242,7 @@ class ConfusionMatrix {
    * Number of predicted "positive" elements (i.e. elements guessed as belonging to the `category` class).
    * @param {string} category Class/category considered as positive
    * @returns {number} TP + FN
+   * @protected
    */
   getPredPositive(category) {
     return this.getTP(category) + this.getFP(category)
@@ -219,6 +252,7 @@ class ConfusionMatrix {
    * Number of predicted "negative" elements (i.e. elements guessed as not belonging to the `category` class).
    * @param {string} category Class/category considered as positive
    * @returns {number} TN + FP
+   * @protected
    */
   getPredNegative(category) {
     return this.getTN(category) + this.getFN(category)
@@ -228,6 +262,7 @@ class ConfusionMatrix {
    * Prediction accuracy for `category`.
    * @param {string} category Class/category considered as positive
    * @returns {number} (TP + TN) / (TP + TN + FP + FN)
+   * @protected
    */
   getAccuracy(category) {
     return (this.getTP(category) + this.getTN(category)) / this.getTotal()
@@ -236,12 +271,18 @@ class ConfusionMatrix {
   /**
    * Micro-average of accuracy.
    * @returns {number} (TP0 + ... + TPn + TN0 + ... + TNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 + ... + FPn + FN0 + ... + FNn)
+   * @protected
    */
   getMicroAccuracy() {
     const Ts = this.getTrue()
     return Ts / (Ts + this.getFalse())
   }
 
+  /**
+   * Macro-average of accuracy.
+   * @returns {number} (A0 + ... An_1) / n
+   * @protected
+   */
   getMacroAccuracy() {
     return fxSum(this, 'Accuracy') / this.classes.length
   }
@@ -252,6 +293,7 @@ class ConfusionMatrix {
    * @alias getSensitivity
    * @alias getTotalPositiveRate
    * @returns {number} TP / (TP + FN)
+   * @protected
    */
   getRecall(category) {
     return this.getTP(category) / this.getPositive(category)
@@ -260,6 +302,7 @@ class ConfusionMatrix {
   /**
    * Micro-average of recall.
    * @returns {number} (TP0 + ... + TPn) / (TP0 + ... + TPn + FN0 + ... + FNn)
+   * @protected
    */
   getMicroRecall() {
     const TPs = this.getTrue()
@@ -270,6 +313,7 @@ class ConfusionMatrix {
   /**
    * Macro-average of recall.
    * @returns {number} (R0 + R1 + ... + Rn-1) / n
+   * @protected
    */
   getMacroRecall() {
     return fxSum(this, 'Recall') / this.classes.length
@@ -280,6 +324,7 @@ class ConfusionMatrix {
    * @alias getPositivePredictiveValue
    * @param {string} category Class/category considered as positive
    * @returns {number} TP / (TP + FP)
+   * @protected
    */
   getPrecision(category) {
     return this.getTP(category) / this.getPredPositive(category)
@@ -288,6 +333,7 @@ class ConfusionMatrix {
   /**
    * Micro-average of the precision.
    * @returns {number} (TP0 + ... + TPn) / (TP0 + ... + TPn + FP0 + ... FPn)
+   * @protected
    */
   getMicroPrecision() {
     const TPs = this.getTrue()
@@ -298,6 +344,7 @@ class ConfusionMatrix {
   /**
    * Macro-average of the precsion.
    * @returns {number} (Pr0 + Pr1 + ... + Pr_n-1) / n
+   * @protected
    */
   getMacroPrecision() {
     return fxSum(this, 'Precision') / this.classes.length
@@ -308,6 +355,7 @@ class ConfusionMatrix {
    * @alias getPositivePredictiveValue
    * @param {string} category Class/category considered as positive
    * @returns {number} 2 * (Pr * R) / (Pr + R)
+   * @protected
    */
   getF1(category) {
     const Pr = this.getPrecision(category)
@@ -317,14 +365,10 @@ class ConfusionMatrix {
 
   /**
    * Micro-average of the F1 score.
-   * @todo Check if it's correct if the TPs/... is the right way
    * @returns {number} 2 * (TP0 + ... + TPn) / (2 * (TP0 + ... + TPn) + (FN0 + ... + FNn) + (FP0 + ... + FPn))
+   * @protected
    */
   getMicroF1() {
-    // const Prs = fxSum(this, 'Precision')
-    // const Rs = fxSum(this, 'Recall')
-    /* 2 * ((Pr0 + ... + Pr_n) * (R0 + ... + Rn)) / ((Pr0 + ... + Pr_n) + (R0 + ... + Rn)) */
-    // return (2 * (Prs * Rs)) / (Prs + Rs)
     const tp = 2 * this.getTrue()
     const FPs = fxSum(this, 'FP')
     const FNs = fxSum(this, 'FN')
@@ -334,6 +378,7 @@ class ConfusionMatrix {
   /**
    * Macro-average of the precision.
    * @returns {number} (F0_1 + F1_1 + ... + F_n-1_1) / n
+   * @protected
    */
   getMacroF1() {
     return fxSum(this, 'F1') / this.classes.length
@@ -344,6 +389,7 @@ class ConfusionMatrix {
    * @alias getFalseNegativeRate
    * @param {string} category Class/category considered as positive
    * @returns {number} FN / (TP + FN)
+   * @protected
    */
   getMissRate(category) {
     return this.getFN(category) / this.getPositive(category)
@@ -352,6 +398,7 @@ class ConfusionMatrix {
   /**
    * Micro-average of the miss rate.
    * @returns {number} (FN0 + ... + FNn) / (TP0 + ... + TPn + FN0 + ... FNn)
+   * @protected
    */
   getMicroMissRate() {
     const TPs = this.getTrue()
@@ -362,6 +409,7 @@ class ConfusionMatrix {
   /**
    * Macro-average of the miss rate.
    * @returns {number} (M0 + M1 + ... + Mn) / n
+   * @protected
    */
   getMacroMissRate() {
     return fxSum(this, 'MissRate') / this.classes.length
@@ -372,6 +420,7 @@ class ConfusionMatrix {
    * @alias getFalsePositiveRate
    * @param {string} category Class/category considered as positive
    * @returns {number} FP / (FP + TN)
+   * @protected
    */
   getFallOut(category) {
     return this.getFP(category) / this.getNegative(category)
@@ -380,6 +429,7 @@ class ConfusionMatrix {
   /**
    * Micro-average of the fall out.
    * @returns {number} (FP0 + ... + FPn) / (FP0 + ... + FPn + TN0 + ... TNn)
+   * @protected
    */
   getMicroFallOut() {
     const FPs = fxSum(this, 'FP')
@@ -390,6 +440,7 @@ class ConfusionMatrix {
   /**
    * Macro-average of the fall out.
    * @returns {number} (Fo0 + Fo1 + ... + Fo_n) / n
+   * @protected
    */
   getMacroFallOut() {
     return fxSum(this, 'FallOut') / this.classes.length
@@ -401,6 +452,7 @@ class ConfusionMatrix {
    * @alias getTrueNegativeRate
    * @param {string} category Class/category considered as positive
    * @returns {number} TN / (FP + TN)
+   * @protected
    */
   getSpecificity(category) {
     return this.getTN(category) / this.getNegative(category)
@@ -409,6 +461,7 @@ class ConfusionMatrix {
   /**
    * Micro-average of the specificity.
    * @returns {number} (TN0 + ... + TNn) / (FP0 + ... + FPn + TN0 + ... TNn)
+   * @protected
    */
   getMicroSpecificity() {
     const FPs = fxSum(this, 'FP')
@@ -419,6 +472,7 @@ class ConfusionMatrix {
   /**
    * Macro-average of the specificity.
    * @returns {number} (S0 + S1 + ... + Sn) / n
+   * @protected
    */
   getMacroSpecificity() {
     return fxSum(this, 'Specificity') / this.classes.length
@@ -428,6 +482,7 @@ class ConfusionMatrix {
    * Prevalence on predictions for `category`.
    * @param {string} category Class/category considered as positive
    * @returns {number} (TP + FN) / (TP + TN + FP + FN)
+   * @protected
    */
   getPrevalence(category) {
     return this.getPositive(category) / this.getTotal()
@@ -436,6 +491,7 @@ class ConfusionMatrix {
   /**
    * Micro-average of the prevalence.
    * @returns {number} (TP0 + ... + TPn + FN0 + ... + FNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 + ... + FPn + FN0 + ... + FNn)
+   * @protected
    */
   getMicroPrevalence() {
     const P = fxSum(this, 'Positive')
@@ -446,6 +502,7 @@ class ConfusionMatrix {
   /**
    * Macro-average of the prevalence.
    * @returns {number} (S0 + S1 + ... + Sn) / n
+   * @protected
    */
   getMacroPrevalence() {
     return fxSum(this, 'Prevalence') / this.classes.length
@@ -465,6 +522,7 @@ class ConfusionMatrix {
    * @param {boolean} [opt.clean=false] Remove empty column/row pairs
    * @param {boolean} [opt.colours=true] Colourize cells
    * @returns {string} String representation
+   * @protected
    */
   toString({
     split = false,
@@ -522,6 +580,7 @@ class ConfusionMatrix {
 
   /**
    * @returns {string} Short statistics (total, true, false, accuracy, precision, recall and f1)
+   * @protected
    */
   getShortStats() {
     return `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\nAccuracy: ${this.getMicroAccuracy() *
@@ -533,6 +592,7 @@ class ConfusionMatrix {
   /**
    * @returns {{total: number, correctPredictions: number, incorrectPredictions: number, classes: string[], microAvg: Object, macroAvg: Object, results: Object}}
    * (Long) statistics
+   * @protected
    */
   getStats() {
     const total = this.getTotal()
