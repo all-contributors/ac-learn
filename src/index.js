@@ -3,17 +3,17 @@ const serialize = require('serialization')
 const trainTestSplit = require('train-test-split')
 const {Spinner} = require('clui')
 const {PrecisionRecall, partitions, test} = require('limdu').utils
-const labelDS = require('./src/conv')('io')
-const classifierBuilder = require('./src/classifier')
-// const evaluate = require('./src/evaluate')
-const categories = require('./src/categories')
-const ConfusionMatrix = require('./src/confusionMatrix')
+const labelDS = require('./conv')('io')
+const classifierBuilder = require('./classifier')
+// const evaluate = require('./evaluate')
+const categories = require('./categories')
+const ConfusionMatrix = require('./confusionMatrix')
 
 /** @class Learner */
 class Learner {
   /**
    * @param {Object} opts Options.
-   * @param {Object[]} [opts.dataset=require('./src/conv')('io')] Dataset (for training and testing)
+   * @param {Object[]} [opts.dataset=require('./conv')('io')] Dataset (for training and testing)
    * @param {number} [opts.trainSplit=.8] Dataset split percentage for the training set
    * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
    * @memberof Learner
@@ -25,7 +25,7 @@ class Learner {
    * })
    * @example <caption>Using a specified classifier function</caption>
    * const learner = new Learner({
-   *  classifier: myClassifierBuilderFn //see {@link module:./src/classifier} for an example (or checkout `limdu`'s examples)
+   *  classifier: myClassifierBuilderFn //see {@link module:./classifier} for an example (or checkout `limdu`'s examples)
    * })
    * @example <caption>Changing the train/test split percentage</caption>
    * const learner = new Learner({
