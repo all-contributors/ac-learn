@@ -1,4 +1,4 @@
-const Learner = require('../../')
+const Learner = require('../')
 const dataset = require('../conv')('io')
 
 const copy = x => JSON.parse(JSON.stringify(x))

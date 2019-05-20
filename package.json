@@ -2,7 +2,7 @@
   "name": "ac-learn",
   "version": "0.0.0",
   "description": "ML platform for All Contributors",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/all-contributors/ac-learn.git",
   "files": [
     "dist"
@@ -17,17 +17,12 @@
   "author": "Maximilian Berkmann <maxieberkmann@gmail.com>",
   "license": "MIT",
   "private": false,
-  "bin": {
-    "ac-learn": "dist/cli.js"
-  },
   "scripts": {
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
     "test": "kcd-scripts test",
     "validate": "kcd-scripts validate",
     "commit": "git-cz",
-    "start": "./dist/cli.js",
-    "dev": "./src/cli.js",
     "doc:lint": "documentation lint index.js",
     "doc:gen": "documentation readme index.js -s Documentation",
     "doc": "yarn doc:lint && yarn doc:gen"
@@ -50,6 +45,7 @@
     "chalk": "^2.4.2",
     "clui": "^0.3.6",
     "documentation": "^10.1.0",
+    "easy-table": "^1.1.1",
     "eslint-config-kentcdodds": "^14.3.2",
     "javascript-lemmatizer": "0.0.2",
     "limdu": "^0.9.4",
@@ -59,7 +55,6 @@
   "devDependencies": {
     "codecov": "^3.5.0",
     "cz-conventional-changelog": "^2.1.0",
-    "easy-table": "^1.1.1",
     "git-cz": "^3.0.1",
     "kcd-scripts": "^1.1.3",
     "semantic-release": "^15.13.3"
