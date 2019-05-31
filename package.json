@@ -40,7 +40,7 @@
     "all-contributors"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.4.3",
+    "@babel/runtime": "^7.4.5",
     "camel-case": "^3.0.0",
     "chalk": "^2.4.2",
     "clui": "^0.3.6",
@@ -57,7 +57,7 @@
     "eslint-config-kentcdodds": "^14.3.2",
     "git-cz": "^3.0.1",
     "kcd-scripts": "^1.4.0",
-    "semantic-release": "^15.13.3"
+    "semantic-release": "^15.13.12"
   },
   "eslintIgnore": [
     "node_modules",
