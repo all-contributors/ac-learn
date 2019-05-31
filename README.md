@@ -16,8 +16,6 @@ Where the All Contributors machine can learn about your contributions.
 
 ## Install
 
-TBC once its deployed
-
 ```bash
 yarn add ac-learn --save
 #or
