@@ -227,6 +227,7 @@ class Learner {
     }
     if (this.macroAvg) json.macroAvg = this.macroAvg
     if (this.microAvg) json.microAvg = this.microAvg
+    if (this.confusionMatrix) json.confusionMatrix = this.confusionMatrix
     return json
   }
 
@@ -239,6 +240,7 @@ class Learner {
   static fromJSON(json) {
     const ALLOWED_PROPS = [
       'classifierBuilder',
+      'confusionMatrix',
       'trainSet',
       'testSet',
       'macroAvg',
