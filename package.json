@@ -57,7 +57,7 @@
     "eslint-config-kentcdodds": "^14.3.2",
     "git-cz": "^3.0.1",
     "kcd-scripts": "^1.4.0",
-    "semantic-release": "^15.13.12"
+    "semantic-release": "^15.13.16"
   },
   "eslintIgnore": [
     "node_modules",
