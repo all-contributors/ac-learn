@@ -4,29 +4,8 @@ const Lem = require('javascript-lemmatizer')
 const Learner = require('./')
 const dataset = require('./src/conv')('io')
 const classifierFactory = require('./src/classifierFactory')
-const svmFactory = require('./src/svmFactory')
-const extract = require('./src/extract').extract
 
 const lemmatizer = new Lem()
-
-const keepLodash = (input, features) => {
-  input
-    .split(/[ \t,;:.-]/) //like the default featureExtractor but w/o _
-    .filter(Boolean)
-    .forEach(word => {
-      features[word.toLowerCase()] = 1
-    })
-}
-
-const extractKeep = (input, features) => {
-  input
-    .split(/[ \t,;:.-]/)
-    .filter(Boolean)
-    .map(token => lemmatizer.only_lemmas(token)[0])
-    .forEach(word => {
-      features[word] = 1
-    })
-}
 
 //learningRate?
 
@@ -79,7 +58,14 @@ const classifiers = [
     learner: new Learner({
       dataset: [...dataset],
       // trainSplit: .7,
-      classifier: classifierFactory(keepLodash),
+      classifier: classifierFactory((input, features) => {
+        input
+          .split(/[ \t,;:.-]/) //like the default featureExtractor but w/o _
+          .filter(Boolean)
+          .forEach(word => {
+            features[word.toLowerCase()] = 1
+          })
+      }),
     }),
     info: 'Keep "_"',
   },
@@ -88,7 +74,15 @@ const classifiers = [
       //require('./extract').extract
       dataset: [...dataset],
       // trainSplit: .7,
-      classifier: classifierFactory(extract),
+      classifier: classifierFactory((input, features) => {
+        input
+          .split(/[ \t,;:.-_]/)
+          .filter(Boolean)
+          .map(token => lemmatizer.only_lemmas(token)[0])
+          .forEach(word => {
+            features[word] = 1
+          })
+      }),
     }),
     info: 'extract()',
   },
@@ -97,59 +91,18 @@ const classifiers = [
       //require('./extract').extract w/o _ in `split`
       dataset: [...dataset],
       // trainSplit: .7,
-      classifier: classifierFactory(extractKeep),
+      classifier: classifierFactory((input, features) => {
+        input
+          .split(/[ \t,;:.-]/)
+          .filter(Boolean)
+          .map(token => lemmatizer.only_lemmas(token)[0])
+          .forEach(word => {
+            features[word] = 1
+          })
+      }),
     }),
     info: 'extract() that keeps "_"',
   },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(),
-    }),
-    info: 'SVM w/ a feature lookup table',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(ngow(1)),
-    }),
-    info: 'SVM ... 1-gram',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(ngow(2)),
-    }),
-    info: 'SVM ... 2-grams',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(keepLodash),
-    }),
-    info: 'SVM ... keep "_"',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(extract),
-    }),
-    info: 'SVM ... extract()',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(extractKeep),
-    }),
-    info: 'SVM ... extract() & keep "_"',
-  },
-  //limdu.classifiers.(Baysian|NeuralNetwork|kNN|DecisionTree|...)?
 ]
 
 const round = x => Math.round(x * 1000) / 1000
