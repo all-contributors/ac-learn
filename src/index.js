@@ -181,6 +181,11 @@ class Learner {
     this.macroAvg = new PrecisionRecall()
     this.microAvg = new PrecisionRecall()
 
+    /*
+    @TODO: instead of using `this.dataset`, use `this.trainSet` (which would include the training and validation data)
+    (which would contain ~85% of the data) and keep out the test set.
+
+    */
     partitions.partitions(this.dataset, numOfFolds, (trainSet, testSet) => {
       if (log)
         process.stdout.write(
