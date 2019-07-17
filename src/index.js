@@ -184,9 +184,7 @@ class Learner {
     partitions.partitions(this.dataset, numOfFolds, (trainSet, testSet) => {
       if (log)
         process.stdout.write(
-          `Training on ${trainSet.length} samples, testing ${
-            testSet.length
-          } samples`,
+          `Training on ${trainSet.length} samples, testing ${testSet.length} samples`,
         )
       this.train(trainSet)
       test(this.classifier, testSet, verboseLevel, this.microAvg, this.macroAvg)
@@ -286,7 +284,7 @@ class Learner {
    * @public
    */
   getStats() {
-    //@todo use C3.js for a stacked baar chart
+    //@todo use C3.js (or whatever fits the bill) for a stacked bar chart
     const {
       TP,
       TN,
