@@ -1,0 +1,43 @@
+Training trainers...
+[0G[2K[0G[2K[0G[2KEvaluating trainers...
+trainer#0 (Default (trainSplit=.8))
+	49/79 = 62.025% on 28 classes
+m F1/A/P/R (in %)= 62.025 62.025 62.025 62.025
+M F1/A/P/R (in %)= NaN 97.288 NaN NaN 
+
+trainer#1 (trainSplit=.7)
+	80/118 = 67.797% on 28 classes
+m F1/A/P/R (in %)= 67.797 67.797 67.797 67.797
+M F1/A/P/R (in %)= NaN 97.7 NaN NaN 
+
+trainer#2 (trainSplit=.85)
+	35/59 = 59.322% on 28 classes
+m F1/A/P/R (in %)= 59.322 59.322 59.322 59.322
+M F1/A/P/R (in %)= NaN 97.094 NaN NaN 
+
+Training classifiers...
+[0G[2K[0G[2K[0G[2K[0G[2K[0G[2K[0G[2KEvaluating classifiers...
+classifier#0 (Default) 51/79 = 64.557% on 28 classes
+m F1/A/P/R (in %)= 64.557 64.557 64.557 64.557
+M F1/A/P/R (in %)= NaN 97.468 NaN NaN 
+
+classifier#1 (1-gram) 49/79 = 62.025% on 28 classes
+m F1/A/P/R (in %)= 62.025 62.025 62.025 62.025
+M F1/A/P/R (in %)= NaN 97.288 NaN NaN 
+
+classifier#2 (2-grams) 52/79 = 65.823% on 28 classes
+m F1/A/P/R (in %)= 65.823 65.823 65.823 65.823
+M F1/A/P/R (in %)= NaN 97.559 NaN NaN 
+
+classifier#3 (Keep "_") 52/79 = 65.823% on 28 classes
+m F1/A/P/R (in %)= 65.823 65.823 65.823 65.823
+M F1/A/P/R (in %)= NaN 97.559 NaN NaN 
+
+classifier#4 (extract()) 54/79 = 68.354% on 28 classes
+m F1/A/P/R (in %)= 68.354 68.354 68.354 68.354
+M F1/A/P/R (in %)= NaN 97.74 NaN NaN 
+
+classifier#5 (extract() that keeps "_") 57/79 = 72.152% on 28 classes
+m F1/A/P/R (in %)= 72.152 72.152 72.152 72.152
+M F1/A/P/R (in %)= NaN 98.011 NaN NaN 
+
