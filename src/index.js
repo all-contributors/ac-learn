@@ -37,7 +37,7 @@ class Learner {
    */
   constructor({
     dataset = labelDS,
-    splits = [0.7, .15],
+    splits = [0.7, 0.15],
     classifier = classifierBuilder,
   } = {}) {
     this.dataset = dataset
@@ -183,7 +183,7 @@ class Learner {
     this.macroAvg = new PrecisionRecall()
     this.microAvg = new PrecisionRecall()
 
-    partitions.partitions(this.dataset, numOfFolds, (trainSet, testSet) => {
+    partitions.partitions([...this.trainSet, ...this.validationSet], numOfFolds, (trainSet, testSet) => {
       if (log)
         process.stdout.write(
           `Training on ${trainSet.length} samples, testing ${testSet.length} samples`,
@@ -221,8 +221,9 @@ class Learner {
       classifier,
       classifierBuilder: this.classifierBuilder,
       dataset: this.dataset,
-      trainSplit: this.trainSplit,
+      splits: this.splits,
       trainSet: this.trainSet,
+      validationSet: this.validationSet,
       testSet: this.testSet,
     }
     if (this.macroAvg) json.macroAvg = this.macroAvg
@@ -242,13 +243,14 @@ class Learner {
       'classifierBuilder',
       'confusionMatrix',
       'trainSet',
+      'validationSet',
       'testSet',
       'macroAvg',
       'microAvg',
     ]
     const newLearner = new Learner({
       dataset: json.dataset,
-      trainSplit: json.trainSplit,
+      splits: json.splits,
     })
     for (const prop in json) {
       if (ALLOWED_PROPS.includes(prop)) newLearner[prop] = json[prop]
@@ -260,7 +262,7 @@ class Learner {
 
   /**
    * @memberof Learner
-   * @returns {Object<string, {overall: number, test: number, train: number}>} Partitions
+   * @returns {Object<string, {overall: number, test: number, validation: number, train: number}>} Partitions
    * @public
    */
   getCategoryPartition() {
@@ -269,12 +271,14 @@ class Learner {
       res[cat] = {
         overall: 0,
         test: 0,
+        validation: 0,
         train: 0,
       }
     })
     this.dataset.forEach(data => {
       ++res[data.output].overall
       if (this.trainSet.includes(data)) ++res[data.output].train
+      if (this.validationSet.includes(data)) ++res[data.output].validation
       if (this.testSet.includes(data)) ++res[data.output].test
     })
     return res
@@ -312,6 +316,7 @@ class Learner {
       Specificity: TN / (FP + TN),
       totalCount: count,
       trainCount: this.trainSet.length,
+      validationCount: this.validationSet.length,
       testCount: this.testSet.length,
       categoryPartition: this.getCategoryPartition(),
       //ROC, AUC
