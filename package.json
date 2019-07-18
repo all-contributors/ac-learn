@@ -20,12 +20,13 @@
   "scripts": {
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
-    "test": "kcd-scripts test",
+    "test": "snyk test && kcd-scripts test",
     "validate": "kcd-scripts validate",
     "commit": "git-cz",
     "doc:lint": "documentation lint src/index.js",
     "doc:gen": "documentation readme src/index.js -s Documentation",
-    "doc": "yarn doc:lint && yarn doc:gen"
+    "doc": "yarn doc:lint && yarn doc:gen",
+    "prepare": "snyk protect"
   },
   "husky": {
     "hooks": {
@@ -40,7 +41,7 @@
     "all-contributors"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
+    "@babel/runtime": "^7.5.4",
     "camel-case": "^3.0.0",
     "chalk": "^2.4.2",
     "clui": "^0.3.6",
@@ -53,11 +54,12 @@
   "devDependencies": {
     "codecov": "^3.5.0",
     "cz-conventional-changelog": "^2.1.0",
-    "documentation": "^11.0.0",
-    "eslint-config-kentcdodds": "^14.3.2",
-    "git-cz": "^3.0.1",
+    "documentation": "^12.0.1",
+    "eslint-config-kentcdodds": "^14.3.4",
+    "git-cz": "^3.2.1",
     "kcd-scripts": "^1.5.2",
-    "semantic-release": "^15.13.16"
+    "semantic-release": "^15.13.18",
+    "snyk": "^1.193.1"
   },
   "eslintIgnore": [
     "node_modules",
