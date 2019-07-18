@@ -16,7 +16,7 @@ class Learner {
   /**
    * @param {Object} opts Options.
    * @param {Object[]} [opts.dataset=require('./conv')('io')] Dataset (for training and testing)
-   * @param {number} [opts.trainSplit=.8] Dataset split percentage for the training set
+   * @param {number} [opts.splits=[.7, .15]] Dataset split percentage for the training/validation set (default: 70%/15%/15%)
    * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
    * @memberof Learner
    * @example <caption>Using pre-defined data</caption>
@@ -31,19 +31,21 @@ class Learner {
    * })
    * @example <caption>Changing the train/test split percentage</caption>
    * const learner = new Learner({
-   *  trainSplit: .6
+   *  splits: [.6, .2]
    * })
    * @public
    */
   constructor({
     dataset = labelDS,
-    trainSplit = 0.8,
+    splits = [0.7, .15],
     classifier = classifierBuilder,
   } = {}) {
     this.dataset = dataset
-    const [train, _test] = trainTestSplit(dataset, trainSplit)
-    this.trainSplit = trainSplit
+    const [train, _tNv] = trainTestSplit(dataset, splits[0]) //@TODO make a library or module that handles train/validation/test splits
+    const [validation, _test] = trainTestSplit(_tNv, splits[1])
+    this.splits = splits
     this.trainSet = train
+    this.validationSet = validation
     this.testSet = _test
     this.classifier = classifier()
     this.classifierBuilder = classifier
