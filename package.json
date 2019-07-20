@@ -20,7 +20,7 @@
   "scripts": {
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
-    "test": "snyk test && kcd-scripts test",
+    "test": "kcd-scripts test",
     "validate": "kcd-scripts validate",
     "commit": "git-cz",
     "doc:lint": "documentation lint src/index.js",
@@ -49,17 +49,19 @@
     "javascript-lemmatizer": "0.0.2",
     "limdu": "^0.9.4",
     "serialization": "^0.2.0",
-    "train-test-split": "^1.0.0"
+    "tvt-split": "^1.0.2"
   },
   "devDependencies": {
+    "anychart-nodejs": "^1.3.8",
     "codecov": "^3.5.0",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.1",
     "documentation": "^12.0.1",
     "eslint-config-kentcdodds": "^14.3.4",
     "git-cz": "^3.2.1",
+    "jsdom": "^15.1.1",
     "kcd-scripts": "^1.5.2",
     "semantic-release": "^15.13.18",
-    "snyk": "^1.193.1"
+    "snyk": "^1.195.1"
   },
   "eslintIgnore": [
     "node_modules",

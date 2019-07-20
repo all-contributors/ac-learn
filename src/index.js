@@ -1,6 +1,6 @@
 const {writeFile, readFile} = require('fs')
 const serialize = require('serialization')
-const trainTestSplit = require('train-test-split')
+const tvts = require('tvt-split')
 const {Spinner} = require('clui')
 const {PrecisionRecall, partitions, test} = require('limdu').utils
 const labelDS = require('./conv')('io')
@@ -16,7 +16,7 @@ class Learner {
   /**
    * @param {Object} opts Options.
    * @param {Object[]} [opts.dataset=require('./conv')('io')] Dataset (for training and testing)
-   * @param {number} [opts.trainSplit=.8] Dataset split percentage for the training set
+   * @param {number} [opts.splits=[.7, .15]] Dataset split percentage for the training/validation set (default: 70%/15%/15%)
    * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
    * @memberof Learner
    * @example <caption>Using pre-defined data</caption>
@@ -31,19 +31,20 @@ class Learner {
    * })
    * @example <caption>Changing the train/test split percentage</caption>
    * const learner = new Learner({
-   *  trainSplit: .6
+   *  splits: [.6, .2]
    * })
    * @public
    */
   constructor({
     dataset = labelDS,
-    trainSplit = 0.8,
+    splits = [0.7, 0.15],
     classifier = classifierBuilder,
   } = {}) {
     this.dataset = dataset
-    const [train, _test] = trainTestSplit(dataset, trainSplit)
-    this.trainSplit = trainSplit
+    const [train, validation, _test] = tvts(dataset, ...splits)
+    this.splits = splits
     this.trainSet = train
+    this.validationSet = validation
     this.testSet = _test
     this.classifier = classifier()
     this.classifierBuilder = classifier
@@ -181,14 +182,24 @@ class Learner {
     this.macroAvg = new PrecisionRecall()
     this.microAvg = new PrecisionRecall()
 
-    partitions.partitions(this.dataset, numOfFolds, (trainSet, testSet) => {
-      if (log)
-        process.stdout.write(
-          `Training on ${trainSet.length} samples, testing ${testSet.length} samples`,
+    partitions.partitions(
+      [...this.trainSet, ...this.validationSet],
+      numOfFolds,
+      (trainSet, validationSet) => {
+        if (log)
+          process.stdout.write(
+            `Training on ${trainSet.length} samples, testing ${validationSet.length} samples`,
+          )
+        this.train(trainSet)
+        test(
+          this.classifier,
+          validationSet,
+          verboseLevel,
+          this.microAvg,
+          this.macroAvg,
         )
-      this.train(trainSet)
-      test(this.classifier, testSet, verboseLevel, this.microAvg, this.macroAvg)
-    })
+      },
+    )
     this.macroAvg.calculateMacroAverageStats(numOfFolds)
     this.microAvg.calculateStats()
     return {
@@ -219,8 +230,9 @@ class Learner {
       classifier,
       classifierBuilder: this.classifierBuilder,
       dataset: this.dataset,
-      trainSplit: this.trainSplit,
+      splits: this.splits,
       trainSet: this.trainSet,
+      validationSet: this.validationSet,
       testSet: this.testSet,
     }
     if (this.macroAvg) json.macroAvg = this.macroAvg
@@ -240,13 +252,14 @@ class Learner {
       'classifierBuilder',
       'confusionMatrix',
       'trainSet',
+      'validationSet',
       'testSet',
       'macroAvg',
       'microAvg',
     ]
     const newLearner = new Learner({
       dataset: json.dataset,
-      trainSplit: json.trainSplit,
+      splits: json.splits,
     })
     for (const prop in json) {
       if (ALLOWED_PROPS.includes(prop)) newLearner[prop] = json[prop]
@@ -258,7 +271,7 @@ class Learner {
 
   /**
    * @memberof Learner
-   * @returns {Object<string, {overall: number, test: number, train: number}>} Partitions
+   * @returns {Object<string, {overall: number, test: number, validation: number, train: number}>} Partitions
    * @public
    */
   getCategoryPartition() {
@@ -267,12 +280,14 @@ class Learner {
       res[cat] = {
         overall: 0,
         test: 0,
+        validation: 0,
         train: 0,
       }
     })
     this.dataset.forEach(data => {
       ++res[data.output].overall
       if (this.trainSet.includes(data)) ++res[data.output].train
+      if (this.validationSet.includes(data)) ++res[data.output].validation
       if (this.testSet.includes(data)) ++res[data.output].test
     })
     return res
@@ -310,6 +325,7 @@ class Learner {
       Specificity: TN / (FP + TN),
       totalCount: count,
       trainCount: this.trainSet.length,
+      validationCount: this.validationSet.length,
       testCount: this.testSet.length,
       categoryPartition: this.getCategoryPartition(),
       //ROC, AUC
@@ -321,7 +337,7 @@ class Learner {
     - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
     - ROC/AUC graphs
     @todo use utils.PrecisionRecall.Accuracy instead of doing that manually //waiting on ^
-    @todo add randomization feature to limdu's partitions (with trainTestSplit as example) and fix typos //cf. https://github.com/erelsgl/limdu/issues/65
+    @todo add randomization feature to limdu's partitions (with tvt-split as example) and fix typos //cf. https://github.com/erelsgl/limdu/issues/65
   */
 }
 
