@@ -337,7 +337,7 @@ class Learner {
     - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
     - ROC/AUC graphs
     @todo use utils.PrecisionRecall.Accuracy instead of doing that manually //waiting on ^
-    @todo add randomization feature to limdu's partitions (with trainTestSplit as example) and fix typos //cf. https://github.com/erelsgl/limdu/issues/65
+    @todo add randomization feature to limdu's partitions (with tvt-split as example) and fix typos //cf. https://github.com/erelsgl/limdu/issues/65
   */
 }
 
