@@ -19,7 +19,11 @@
         "code",
         "doc",
         "ideas",
-        "maintenance"
+        "maintenance",
+        "platform",
+        "infra",
+        "test",
+        "security"
       ]
     }
   ],
