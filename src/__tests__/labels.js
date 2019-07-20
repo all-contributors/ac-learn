@@ -1,7 +1,7 @@
 import labels from '../labels'
 import categories from '../categories'
 
-const LEN = 395
+const LEN = 435
 
 test('All data', () => {
   const data = labels.getAll()

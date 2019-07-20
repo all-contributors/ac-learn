@@ -120,12 +120,20 @@
     "category": "null"
   },
   {
+    "label": "badges",
+    "category": "doc"
+  },
+  {
     "label": "beginner-friendly",
     "category": "null"
   },
   {
     "label": "beverage (category)",
     "category": "null"
+  },
+  {
+    "label": "bitbucket cloud",
+    "category": "infra"
   },
   {
     "label": "blocked",
@@ -336,6 +344,10 @@
     "category": "null"
   },
   {
+    "label": "contributions",
+    "category": "maintenance"
+  },
+  {
     "label": "core",
     "category": "maintenance"
   },
@@ -360,8 +372,28 @@
     "category": "financial"
   },
   {
+    "label": "debug information",
+    "category": "bug"
+  },
+  {
     "label": "defect",
     "category": "bug"
+  },
+  {
+    "label": "Definition:Bug",
+    "category": "bug"
+  },
+  {
+    "label": "Definition:Creating",
+    "category": "code"
+  },
+  {
+    "label": "Definition:Enhancement",
+    "category": "maintenance"
+  },
+  {
+    "label": "Definition:Request",
+    "category": "ideas"
   },
   {
     "label": "dependencies",
@@ -420,6 +452,10 @@
     "category": "doc"
   },
   {
+    "label": "docker",
+    "category": "infra"
+  },
+  {
     "label": "docs",
     "category": "doc"
   },
@@ -432,12 +468,20 @@
     "category": "doc"
   },
   {
+    "label": "Documents",
+    "category": "doc"
+  },
+  {
     "label": "duplicate",
     "category": "null"
   },
   {
     "label": "electron",
     "category": "tool"
+  },
+  {
+    "label": "engine vulns",
+    "category": "security"
   },
   {
     "label": "enhancement",
@@ -596,6 +640,10 @@
     "category": "null"
   },
   {
+    "label": "go",
+    "category": "code"
+  },
+  {
     "label": "go client internal release",
     "category": "null"
   },
@@ -606,6 +654,10 @@
   {
     "label": "good first issue :+1:",
     "category": "null"
+  },
+  {
+    "label": "gradle",
+    "category": "infra"
   },
   {
     "label": "great insight",
@@ -700,6 +752,10 @@
     "category": "null"
   },
   {
+    "label": "improved error handling",
+    "category": "code"
+  },
+  {
     "label": "in progress",
     "category": "null"
   },
@@ -709,6 +765,10 @@
   },
   {
     "label": "infrastructure :hammer_and_wrench:",
+    "category": "infra"
+  },
+  {
+    "label": "Infrastructure",
     "category": "infra"
   },
   {
@@ -742,6 +802,10 @@
   {
     "label": "kbfs",
     "category": "null"
+  },
+  {
+    "label": "kotlin",
+    "category": "code"
   },
   {
     "label": "lang-crystal",
@@ -778,6 +842,10 @@
   {
     "label": "legal",
     "category": "security"
+  },
+  {
+    "label": "lerna",
+    "category": "infra"
   },
   {
     "label": "library",
@@ -824,6 +892,10 @@
     "category": "null"
   },
   {
+    "label": "maven",
+    "category": "infra"
+  },
+  {
     "label": "minor",
     "category": "null"
   },
@@ -838,6 +910,14 @@
   {
     "label": "modules",
     "category": "code"
+  },
+  {
+    "label": "monitor",
+    "category": "maintenance"
+  },
+  {
+    "label": "multi module",
+    "category": "maintenance"
   },
   {
     "label": "must-triage",
@@ -904,6 +984,18 @@
     "category": "null"
   },
   {
+    "label": ".net Core",
+    "category": "code"
+  },
+  {
+    "label": ".NET Framework",
+    "category": "code"
+  },
+  {
+    "label": ".NET Standard",
+    "category": "code"
+  },
+  {
     "label": "new api proposal",
     "category": "ideas"
   },
@@ -912,7 +1004,15 @@
     "category": "ideas"
   },
   {
+    "label": "New Definition",
+    "category": "code"
+  },
+  {
     "label": "node",
+    "category": "platform"
+  },
+  {
+    "label": "node-4",
     "category": "platform"
   },
   {
@@ -922,6 +1022,10 @@
   {
     "label": "not a bug",
     "category": "null"
+  },
+  {
+    "label": "npm",
+    "category": "infra"
   },
   {
     "label": "on hold",
@@ -1124,6 +1228,10 @@
     "category": "projectManagement"
   },
   {
+    "label": "python",
+    "category": "code"
+  },
+  {
     "label": "question",
     "category": "question"
   },
@@ -1158,6 +1266,10 @@
   {
     "label": "reminder",
     "category": "null"
+  },
+  {
+    "label": "requires upstream change",
+    "category": "code"
   },
   {
     "label": "resolution: duplicate",
@@ -1360,6 +1472,46 @@
     "category": "ideas"
   },
   {
+    "label": "Target:Android",
+    "category": "platform"
+  },
+  {
+    "label": "Target:Browser",
+    "category": "platform"
+  },
+  {
+    "label": "Target:GNU/Linux",
+    "category": "platform"
+  },
+  {
+    "label": "Target:iOS",
+    "category": "platform"
+  },
+  {
+    "label": "Target:Linux",
+    "category": "platform"
+  },
+  {
+    "label": "Target:MacOS",
+    "category": "platform"
+  },
+  {
+    "label": "Target:NodeJS",
+    "category": "platform"
+  },
+  {
+    "label": "Target:OSX",
+    "category": "platform"
+  },
+  {
+    "label": "Target:Unix",
+    "category": "platform"
+  },
+  {
+    "label": "Target:Windows",
+    "category": "platform"
+  },
+  {
     "label": "technical debt",
     "category": "maintenance"
   },
@@ -1414,6 +1566,10 @@
   {
     "label": "trivial",
     "category": "null"
+  },
+  {
+    "label": "troubleshooting",
+    "category": "bug"
   },
   {
     "label": "type: archive",
@@ -1578,5 +1734,9 @@
   {
     "label": "xhr-polling",
     "category": "null"
+  },
+  {
+    "label": "yarn",
+    "category": "infra"
   }
 ]
