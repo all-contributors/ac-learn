@@ -728,6 +728,10 @@
     "category": "infra"
   },
   {
+    "label": "Infrastructure",
+    "category": "infra"
+  },
+  {
     "label": "installer",
     "category": "tool"
   },
@@ -904,6 +908,18 @@
     "category": "null"
   },
   {
+    "label": ".net Core",
+    "category": "code"
+  },
+  {
+    "label": ".NET Framework",
+    "category": "code"
+  },
+  {
+    "label": ".NET Standard",
+    "category": "code"
+  },
+  {
     "label": "new api proposal",
     "category": "ideas"
   },
@@ -925,6 +941,10 @@
   },
   {
     "label": "node",
+    "category": "platform"
+  },
+  {
+    "label": "node-4",
     "category": "platform"
   },
   {
