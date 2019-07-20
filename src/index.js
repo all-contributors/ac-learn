@@ -1,6 +1,6 @@
 const {writeFile, readFile} = require('fs')
 const serialize = require('serialization')
-const trainTestSplit = require('train-test-split')
+const tvts = require('tvt-split')
 const {Spinner} = require('clui')
 const {PrecisionRecall, partitions, test} = require('limdu').utils
 const labelDS = require('./conv')('io')
@@ -41,8 +41,7 @@ class Learner {
     classifier = classifierBuilder,
   } = {}) {
     this.dataset = dataset
-    const [train, _tNv] = trainTestSplit(dataset, splits[0]) //@TODO make a library or module that handles train/validation/test splits
-    const [validation, _test] = trainTestSplit(_tNv, splits[1])
+    const [train, validation, _test] = tvts(dataset, ...splits)
     this.splits = splits
     this.trainSet = train
     this.validationSet = validation
@@ -183,14 +182,24 @@ class Learner {
     this.macroAvg = new PrecisionRecall()
     this.microAvg = new PrecisionRecall()
 
-    partitions.partitions([...this.trainSet, ...this.validationSet], numOfFolds, (trainSet, testSet) => {
-      if (log)
-        process.stdout.write(
-          `Training on ${trainSet.length} samples, testing ${testSet.length} samples`,
+    partitions.partitions(
+      [...this.trainSet, ...this.validationSet],
+      numOfFolds,
+      (trainSet, validationSet) => {
+        if (log)
+          process.stdout.write(
+            `Training on ${trainSet.length} samples, testing ${validationSet.length} samples`,
+          )
+        this.train(trainSet)
+        test(
+          this.classifier,
+          validationSet,
+          verboseLevel,
+          this.microAvg,
+          this.macroAvg,
         )
-      this.train(trainSet)
-      test(this.classifier, testSet, verboseLevel, this.microAvg, this.macroAvg)
-    })
+      },
+    )
     this.macroAvg.calculateMacroAverageStats(numOfFolds)
     this.microAvg.calculateStats()
     return {
