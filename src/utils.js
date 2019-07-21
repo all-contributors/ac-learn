@@ -1,9 +1,30 @@
 const chalk = require('chalk')
 
+/**
+ * @param {*} el Element
+ * @returns {*} Copy of <code>el</code>
+ */
+const copy = el => {
+  if (
+    typeof el === 'string' ||
+    typeof el === 'number' ||
+    typeof el === 'boolean'
+  )
+    return el
+  //As they are immutable types
+  else {
+    const clone = {}
+    for (const i in el) {
+      if (el.hasOwnProperty(i)) clone[i] = el[i]
+    }
+    return Array.isArray(el) ? Array.from(clone) : clone
+  }
+}
+
 const objectify = (arr, val = {}) => {
   const res = {}
   arr.forEach(el => {
-    res[el] = val
+    res[el] = copy(val)
   })
   return res
 }
@@ -110,17 +131,18 @@ const rmEmpty = matrix => {
 /**
  * Hexademical colour series.
  * @param {number} position Position in the R(0)G(1)B(2) order
+ * @param {number} [start=.1] Starting percent of 0xFF
  * @param {number} [inc=.1] Increment
  * @throws {Error} `0 <= position <= 2` condition not respected
  * @returns {string[]} Series
  * @private
  */
-const hexSeries = (position, inc = 0.1) => {
+const hexSeries = (position, start = 0.1, inc = 0.1) => {
   if (position < 0 || position > 2)
     throw new Error('position needs be between 0 and 2')
   const TEMPLATE = ['00', '00', '00']
   const res = []
-  for (let i = 0.1; i <= 1; i += inc) {
+  for (let i = start; i <= 1; i += inc) {
     res.push([...TEMPLATE])
     res[res.length - 1][position] = Math.round(parseFloat(0xff * i)).toString(
       16,
@@ -131,12 +153,12 @@ const hexSeries = (position, inc = 0.1) => {
 }
 
 const COLOURS = {
-  good: hexSeries(1), //numbers in the True diagonal
-  bad: hexSeries(0), //numbers in the other sections
+  good: hexSeries(1, 0.5), //numbers in the True diagonal
+  bad: hexSeries(0, 0.5), //numbers in the other sections
 }
 
 /**
- * @param {number} num Number to colourize
+ * @param {string} num Number to colourize
  * @param {number} maxVal Highest value to expect
  * @param {boolean} [goodValue=false] Indication on whether it's a good or bad value
  * @returns {string} Coloured number
@@ -176,6 +198,7 @@ const mapObject = (arr, fx) => {
 }
 
 module.exports = {
+  copy,
   objectify,
   sum,
   column,
