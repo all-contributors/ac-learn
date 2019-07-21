@@ -1588,6 +1588,10 @@
     "category": "security"
   },
   {
+    "label": "vuln",
+    "category": "security"
+  },
+  {
     "label": "waterfall",
     "category": "projectManagement"
   },
