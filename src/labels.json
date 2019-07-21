@@ -680,6 +680,10 @@
     "category": "code"
   },
   {
+    "label": "funding finder",
+    "category": "fundingFinding"
+  },
+  {
     "label": "future architecture enhancements",
     "category": "ideas"
   },
@@ -718,6 +722,10 @@
   {
     "label": "gradle",
     "category": "infra"
+  },
+  {
+    "label": "gramt finder",
+    "category": "fundingFinding"
   },
   {
     "label": "great insight",
@@ -1348,6 +1356,10 @@
     "category": "null"
   },
   {
+    "label": "recording",
+    "category": "talk"
+  },
+  {
     "label": "refactor",
     "category": "code"
   },
@@ -1418,6 +1430,10 @@
   {
     "label": "shell",
     "category": "tool"
+  },
+  {
+    "label": "slides",
+    "category": "talk"
   },
   {
     "label": "social",
