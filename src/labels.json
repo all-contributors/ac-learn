@@ -1,5 +1,17 @@
 [
   {
+    "label": ".net core",
+    "category": "code"
+  },
+  {
+    "label": ".net framework",
+    "category": "code"
+  },
+  {
+    "label": ".net standard",
+    "category": "code"
+  },
+  {
     "label": "0 - backlog",
     "category": "null"
   },
@@ -444,19 +456,19 @@
     "category": "bug"
   },
   {
-    "label": "Definition:Bug",
+    "label": "definition:bug",
     "category": "bug"
   },
   {
-    "label": "Definition:Creating",
+    "label": "definition:creating",
     "category": "code"
   },
   {
-    "label": "Definition:Enhancement",
+    "label": "definition:enhancement",
     "category": "maintenance"
   },
   {
-    "label": "Definition:Request",
+    "label": "definition:request",
     "category": "ideas"
   },
   {
@@ -532,7 +544,7 @@
     "category": "doc"
   },
   {
-    "label": "Documents",
+    "label": "documents",
     "category": "doc"
   },
   {
@@ -872,11 +884,11 @@
     "category": "null"
   },
   {
-    "label": "infrastructure :hammer_and_wrench:",
+    "label": "infrastructure",
     "category": "infra"
   },
   {
-    "label": "Infrastructure",
+    "label": "infrastructure :hammer_and_wrench:",
     "category": "infra"
   },
   {
@@ -1108,18 +1120,6 @@
     "category": "null"
   },
   {
-    "label": ".net Core",
-    "category": "code"
-  },
-  {
-    "label": ".NET Framework",
-    "category": "code"
-  },
-  {
-    "label": ".NET Standard",
-    "category": "code"
-  },
-  {
     "label": "new api proposal",
     "category": "ideas"
   },
@@ -1128,7 +1128,7 @@
     "category": "ideas"
   },
   {
-    "label": "New Definition",
+    "label": "new definition",
     "category": "code"
   },
   {
@@ -1136,7 +1136,7 @@
     "category": "content"
   },
   {
-    "label": "Next Meetup!",
+    "label": "next meetup!",
     "category": "eventOrganizing"
   },
   {
@@ -1144,11 +1144,11 @@
     "category": "platform"
   },
   {
-    "label": "node-4",
+    "label": "node next",
     "category": "platform"
   },
   {
-    "label": "node next",
+    "label": "node-4",
     "category": "platform"
   },
   {
@@ -1640,43 +1640,43 @@
     "category": "ideas"
   },
   {
-    "label": "Target:Android",
+    "label": "target:android",
     "category": "platform"
   },
   {
-    "label": "Target:Browser",
+    "label": "target:browser",
     "category": "platform"
   },
   {
-    "label": "Target:GNU/Linux",
+    "label": "target:gnu/linux",
     "category": "platform"
   },
   {
-    "label": "Target:iOS",
+    "label": "target:ios",
     "category": "platform"
   },
   {
-    "label": "Target:Linux",
+    "label": "target:linux",
     "category": "platform"
   },
   {
-    "label": "Target:MacOS",
+    "label": "target:macos",
     "category": "platform"
   },
   {
-    "label": "Target:NodeJS",
+    "label": "target:nodejs",
     "category": "platform"
   },
   {
-    "label": "Target:OSX",
+    "label": "target:osx",
     "category": "platform"
   },
   {
-    "label": "Target:Unix",
+    "label": "target:unix",
     "category": "platform"
   },
   {
-    "label": "Target:Windows",
+    "label": "target:windows",
     "category": "platform"
   },
   {
@@ -1876,11 +1876,11 @@
     "category": "video"
   },
   {
-    "label": "vulnerability",
+    "label": "vuln",
     "category": "security"
   },
   {
-    "label": "vuln",
+    "label": "vulnerability",
     "category": "security"
   },
   {
