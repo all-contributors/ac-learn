@@ -120,13 +120,9 @@ describe('a knowledgeable learner', () => {
   it('is knowledgeable', () => {
     // expect(learner.dataset).toEqual(dataset) //cf. https://github.com/erelsgl/limdu/issues/62
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
-    expect(learner.trainSet.length).toStrictEqual(
-      Math.round(dataset.length * trainSplit),
-    )
+    expect(learner.trainSet.length).toStrictEqual(trainLen)
     expect(Array.isArray(learner.validationSet)).toBeTruthy()
-    expect(learner.validationSet.length).toStrictEqual(
-      Math.round(dataset.length * validationSplit),
-    )
+    expect(learner.validationSet.length).toStrictEqual(validationLen)
     expect(Array.isArray(learner.testSet)).toBeTruthy()
     expect(learner.testSet.length).toStrictEqual(testLen)
     expect(learner.splits).toStrictEqual([trainSplit, validationSplit])
