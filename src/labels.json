@@ -728,7 +728,7 @@
     "category": "infra"
   },
   {
-    "label": "Infrastructure",
+    "label": "infrastructure :hammer_and_wrench:",
     "category": "infra"
   },
   {
@@ -908,18 +908,6 @@
     "category": "null"
   },
   {
-    "label": ".net Core",
-    "category": "code"
-  },
-  {
-    "label": ".NET Framework",
-    "category": "code"
-  },
-  {
-    "label": ".NET Standard",
-    "category": "code"
-  },
-  {
     "label": "new api proposal",
     "category": "ideas"
   },
@@ -944,11 +932,11 @@
     "category": "platform"
   },
   {
-    "label": "node-4",
+    "label": "node next",
     "category": "platform"
   },
   {
-    "label": "node next",
+    "label": "node-4",
     "category": "platform"
   },
   {
@@ -1588,7 +1576,7 @@
     "category": "security"
   },
   {
-    "label": "vuln",
+    "label": "vulnerability",
     "category": "security"
   },
   {
