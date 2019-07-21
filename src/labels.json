@@ -56,6 +56,10 @@
     "category": "design"
   },
   {
+    "label": "a/b testing",
+    "category": "userTesting"
+  },
+  {
     "label": "abandoned",
     "category": "null"
   },
@@ -74,6 +78,10 @@
   {
     "label": "advance developer workflow",
     "category": "infra"
+  },
+  {
+    "label": "agile",
+    "category": "projectManagement"
   },
   {
     "label": "android",
@@ -108,6 +116,14 @@
     "category": "null"
   },
   {
+    "label": "art",
+    "category": "design"
+  },
+  {
+    "label": "article",
+    "category": "content"
+  },
+  {
     "label": "automotive (category)",
     "category": "null"
   },
@@ -118,6 +134,10 @@
   {
     "label": "awaiting-review",
     "category": "null"
+  },
+  {
+    "label": "backer",
+    "category": "financial"
   },
   {
     "label": "badges",
@@ -144,8 +164,20 @@
     "category": "null"
   },
   {
+    "label": "blog",
+    "category": "blog"
+  },
+  {
+    "label": "blogpost",
+    "category": "blog"
+  },
+  {
     "label": "bootstrap",
     "category": "tool"
+  },
+  {
+    "label": "brainstorming",
+    "category": "ideas"
   },
   {
     "label": "brand icon",
@@ -174,6 +206,10 @@
   {
     "label": "bug report",
     "category": "bug"
+  },
+  {
+    "label": "business",
+    "category": "business"
   },
   {
     "label": "business (category)",
@@ -222,6 +258,10 @@
   {
     "label": "cli",
     "category": "code"
+  },
+  {
+    "label": "client test",
+    "category": "userTesting"
   },
   {
     "label": "closed due to inactivity",
@@ -512,6 +552,14 @@
     "category": "code"
   },
   {
+    "label": "event",
+    "category": "eventOrganizing"
+  },
+  {
+    "label": "example",
+    "category": "example"
+  },
+  {
     "label": "external",
     "category": "plugin"
   },
@@ -590,6 +638,18 @@
   {
     "label": "files (category)",
     "category": "null"
+  },
+  {
+    "label": "film",
+    "category": "video"
+  },
+  {
+    "label": "finance",
+    "category": "financial"
+  },
+  {
+    "label": "financial support",
+    "category": "financial"
   },
   {
     "label": "first-timers-only",
@@ -724,6 +784,10 @@
     "category": "ideas"
   },
   {
+    "label": "how-to",
+    "category": "tutorial"
+  },
+  {
     "label": "html",
     "category": "code"
   },
@@ -738,6 +802,10 @@
   {
     "label": "icebox",
     "category": "platform"
+  },
+  {
+    "label": "icon",
+    "category": "design"
   },
   {
     "label": "ie8",
@@ -864,6 +932,10 @@
     "category": "null"
   },
   {
+    "label": "logo",
+    "category": "design"
+  },
+  {
     "label": "m1.s0",
     "category": "null"
   },
@@ -888,12 +960,20 @@
     "category": "null"
   },
   {
+    "label": "manual",
+    "category": "doc"
+  },
+  {
     "label": "mass purge 2015.10.26",
     "category": "null"
   },
   {
     "label": "maven",
     "category": "infra"
+  },
+  {
+    "label": "meetup",
+    "category": "eventOrganizing"
   },
   {
     "label": "minor",
@@ -1008,6 +1088,14 @@
     "category": "code"
   },
   {
+    "label": "newsletter",
+    "category": "content"
+  },
+  {
+    "label": "Next Meetup!",
+    "category": "eventOrganizing"
+  },
+  {
     "label": "node",
     "category": "platform"
   },
@@ -1094,6 +1182,10 @@
   {
     "label": "planned for next release",
     "category": "null"
+  },
+  {
+    "label": "porting",
+    "category": "platform"
   },
   {
     "label": "pr welcome",
@@ -1204,6 +1296,10 @@
     "category": "null"
   },
   {
+    "label": "prince2",
+    "category": "projectManagement"
+  },
+  {
     "label": "priority: critical",
     "category": "null"
   },
@@ -1242,6 +1338,10 @@
   {
     "label": "react native",
     "category": "code"
+  },
+  {
+    "label": "readme",
+    "category": "doc"
   },
   {
     "label": "ready",
@@ -1308,12 +1408,20 @@
     "category": "code"
   },
   {
+    "label": "scrum",
+    "category": "projectManagement"
+  },
+  {
     "label": "security",
     "category": "security"
   },
   {
     "label": "shell",
     "category": "tool"
+  },
+  {
+    "label": "social",
+    "category": "eventOrganizing"
   },
   {
     "label": "socket.io client",
@@ -1572,6 +1680,10 @@
     "category": "bug"
   },
   {
+    "label": "tutorial",
+    "category": "tutorial"
+  },
+  {
     "label": "type: archive",
     "category": "null"
   },
@@ -1684,6 +1796,10 @@
     "category": "bug"
   },
   {
+    "label": "user testing",
+    "category": "userTesting"
+  },
+  {
     "label": "ux",
     "category": "design"
   },
@@ -1692,8 +1808,16 @@
     "category": "null"
   },
   {
+    "label": "video",
+    "category": "video"
+  },
+  {
     "label": "vulnerability",
     "category": "security"
+  },
+  {
+    "label": "waterfall",
+    "category": "projectManagement"
   },
   {
     "label": "website",
@@ -1706,6 +1830,10 @@
   {
     "label": "weekly-digest",
     "category": "blog"
+  },
+  {
+    "label": "wiki",
+    "category": "doc"
   },
   {
     "label": "windows",
@@ -1738,5 +1866,9 @@
   {
     "label": "yarn",
     "category": "infra"
+  },
+  {
+    "label": "youtube",
+    "category": "video"
   }
 ]

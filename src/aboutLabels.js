@@ -23,4 +23,6 @@ console.log(ck`# of labels: {cyan ${len}}
 }} {greenBright (${(validCategorisedData.length / len) * 100}%)}
 # of labels to fix: {red ${badData.length}} {yellow (${(badData.length / len) *
   100}%)}`)
+
+//@todo Add a duplicate check
 /* eslint-enable no-console */

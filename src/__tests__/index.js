@@ -107,12 +107,15 @@ describe('a learner', () => {
 describe('a knowledgeable learner', () => {
   //Commented out because the issue is affecting the whole suite
   const trainSplit = 0.8
+  const trainLen = Math.round(dataset.length * trainSplit)
   const validationSplit = 0.1
+  const validationLen = Math.round(dataset.length * validationSplit)
   const learner = new Learner({
     dataset: copy(dataset),
     splits: [trainSplit, validationSplit],
   })
-  const testSplit = Math.round((1 - trainSplit - validationSplit) * 1000) / 1000
+  // const testSplit = Math.round((1 - trainSplit - validationSplit) * 1000) / 1000
+  const testLen = dataset.length - trainLen - validationLen
   learner.train()
   it('is knowledgeable', () => {
     // expect(learner.dataset).toEqual(dataset) //cf. https://github.com/erelsgl/limdu/issues/62
@@ -125,9 +128,7 @@ describe('a knowledgeable learner', () => {
       Math.round(dataset.length * validationSplit),
     )
     expect(Array.isArray(learner.testSet)).toBeTruthy()
-    expect(learner.testSet.length).toStrictEqual(
-      Math.floor(dataset.length * testSplit),
-    )
+    expect(learner.testSet.length).toStrictEqual(testLen)
     expect(learner.splits).toStrictEqual([trainSplit, validationSplit])
     expect(typeof learner.classifier).toStrictEqual('object')
     expect(
@@ -153,8 +154,6 @@ describe('a knowledgeable learner', () => {
 
   it('can generate bug labels', () => {
     const bugs = learner.backClassify('bug')
-    // eslint-disable-next-line no-console
-    console.log('bugs=', bugs)
     // expect(bugs.includes('bug')).toBeTruthy()
     // expect(bugs.includes(':bug: bug')).toBeTruthy()
     // expect(bugs.includes('regression')).toBeTruthy()
