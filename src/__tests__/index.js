@@ -204,8 +204,8 @@ describe('has stats', () => {
   // console.log('micro=', learner.microAvg, '\nmacro=', learner.macroAvg)
   it('has a correct accuracy', () => {
     const acc = avg => (avg.TP + avg.TN) / avg.count
-    expect(Math.round(learner.macroAvg.Accuracy * 100) / 100).toEqual(
-      Math.round(acc(learner.macroAvg) * 100) / 100,
+    expect(Math.round(learner.macroAvg.Accuracy * 10) / 10).toEqual(
+      Math.round(acc(learner.macroAvg) * 10) / 10,
     )
     // expect(learner.microAvg.Accuracy).toEqual(acc(learner.microAvg)) //cf. https://github.com/erelsgl/limdu/issues/64
   })
@@ -278,8 +278,9 @@ describe('JSON', () => {
   const staticProps = [
     'classifierBuilder',
     'dataset',
-    'trainSplit',
+    'splits',
     'trainSet',
+    'validationSet',
     'testSet',
     'macroAvg',
     'microAvg',
