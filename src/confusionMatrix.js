@@ -579,6 +579,50 @@ class ConfusionMatrix {
   }
 
   /**
+   * @param {Object} opt Options
+   * @param {boolean} [opt.split=false] Split the classes in half (&rarr; 2 matrices)
+   * @param {boolean} [opt.clean=false] Remove empty column/row pairs
+   * @param {boolean} [opt.colours=true] Colourize cells
+   * @protected
+   */
+  toTable({
+    split = false,
+    clean = false,
+    colours = false,
+    maxValue = 100,
+  } = {}) {
+    const mtx = clean ? rmEmpty(this.matrix) : this.matrix
+    const classes = Object.keys(mtx)
+
+    if (split) {
+      const [head, tail] = half(classes)
+      const t0 = objectify(classes) //objectify(head)
+      const t1 = objectify(classes) //objectify(tail)
+
+      for (const row of classes) {
+        for (const cls of head) {
+          let val = this.matrix[row][cls].toFixed(2)
+          if (colours) {
+            val = clrVal(val, maxValue, row === cls)
+          }
+          t0[row][cls] = val
+        }
+        for (const cls of tail) {
+          let val = this.matrix[row][cls].toFixed(2)
+          if (colours) {
+            val = clrVal(val, maxValue, row === cls)
+          }
+          t1[row][cls] = val
+        }
+      }
+      /* eslint-disable no-console */
+      console.table(t0)
+      console.table(t1)
+    } else console.table(mtx)
+    /* eslint-enable no-console */
+  }
+
+  /**
    * @returns {string} Short statistics (total, true, false, accuracy, precision, recall and f1)
    * @protected
    */

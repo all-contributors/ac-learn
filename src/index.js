@@ -18,6 +18,7 @@ class Learner {
    * @param {Object[]} [opts.dataset=require('./conv')('io')] Dataset (for training and testing)
    * @param {number} [opts.splits=[.7, .15]] Dataset split percentage for the training/validation set (default: 70%/15%/15%)
    * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
+   * @param {Object[]} [opts.pastTrainingSamples=[]] Past training samples for the classifier
    * @memberof Learner
    * @example <caption>Using pre-defined data</caption>
    * const learner = new Learner()
@@ -39,6 +40,7 @@ class Learner {
     dataset = labelDS,
     splits = [0.7, 0.15],
     classifier = classifierBuilder,
+    pastTrainingSamples = [],
   } = {}) {
     this.dataset = dataset
     const [train, validation, _test] = tvts(dataset, ...splits)
@@ -46,7 +48,7 @@ class Learner {
     this.trainSet = train
     this.validationSet = validation
     this.testSet = _test
-    this.classifier = classifier()
+    this.classifier = classifier(pastTrainingSamples)
     this.classifierBuilder = classifier
     this.confusionMatrix = null //new ConfusionMatrix(categories)
   }
@@ -57,6 +59,7 @@ class Learner {
    * @public
    */
   train(trainSet = this.trainSet) {
+    //@todo Move this so it could be used for any potentially lengthy ops
     const training = new Spinner('Training...', [
       '⣾',
       '⣽',
@@ -299,7 +302,6 @@ class Learner {
    * @public
    */
   getStats() {
-    //@todo use C3.js (or whatever fits the bill) for a stacked bar chart
     const {
       TP,
       TN,
@@ -333,11 +335,8 @@ class Learner {
   }
   /*
     @todo add the ability to get:
-    - diagrams of categories based on what its training and testing sets
-    - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
+    - diagrams of categories including what are in training/validation/testing sets
     - ROC/AUC graphs
-    @todo use utils.PrecisionRecall.Accuracy instead of doing that manually //waiting on ^
-    @todo add randomization feature to limdu's partitions (with tvt-split as example) and fix typos //cf. https://github.com/erelsgl/limdu/issues/65
   */
 }
 
