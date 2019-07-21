@@ -44,5 +44,4 @@ console.log(ck`# of labels: {cyan ${len}}
   dupLabels.length
 }} ({yellow ${(dupLabels.length / len) * 100}%})`)
 
-//@todo Add a duplicate check
 /* eslint-enable no-console */
