@@ -84,6 +84,10 @@
     "category": "projectManagement"
   },
   {
+    "label": "analysis",
+    "category": "review"
+  },
+  {
     "label": "android",
     "category": "platform"
   },
@@ -124,6 +128,10 @@
     "category": "content"
   },
   {
+    "label": "assess",
+    "category": "test"
+  },
+  {
     "label": "automotive (category)",
     "category": "null"
   },
@@ -142,6 +150,10 @@
   {
     "label": "badges",
     "category": "doc"
+  },
+  {
+    "label": "bdd",
+    "category": "test"
   },
   {
     "label": "beginner-friendly",
@@ -236,6 +248,10 @@
     "category": "ideas"
   },
   {
+    "label": "check",
+    "category": "review"
+  },
+  {
     "label": "chore",
     "category": "maintenance"
   },
@@ -266,6 +282,10 @@
   {
     "label": "closed due to inactivity",
     "category": "null"
+  },
+  {
+    "label": "cloud",
+    "category": "infra"
   },
   {
     "label": "cmty:bug-report",
@@ -410,6 +430,10 @@
   {
     "label": "currency (category)",
     "category": "financial"
+  },
+  {
+    "label": "data protection",
+    "category": "security"
   },
   {
     "label": "debug information",
@@ -692,6 +716,10 @@
     "category": "ideas"
   },
   {
+    "label": "gdpr",
+    "category": "security"
+  },
+  {
     "label": "genders (category)",
     "category": "null"
   },
@@ -724,7 +752,7 @@
     "category": "infra"
   },
   {
-    "label": "gramt finder",
+    "label": "grant finder",
     "category": "fundingFinding"
   },
   {
@@ -734,6 +762,10 @@
   {
     "label": "greenkeeper",
     "category": "infra"
+  },
+  {
+    "label": "guide",
+    "category": "tutorial"
   },
   {
     "label": "hack",
@@ -874,6 +906,10 @@
   {
     "label": "jsonp-polling",
     "category": "null"
+  },
+  {
+    "label": "kanban",
+    "category": "projectManagement"
   },
   {
     "label": "kbfs",
@@ -1332,8 +1368,16 @@
     "category": "projectManagement"
   },
   {
+    "label": "proposal",
+    "category": "ideas"
+  },
+  {
     "label": "python",
     "category": "code"
+  },
+  {
+    "label": "qa",
+    "category": "test"
   },
   {
     "label": "question",
@@ -1636,6 +1680,10 @@
     "category": "platform"
   },
   {
+    "label": "tdd",
+    "category": "test"
+  },
+  {
     "label": "technical debt",
     "category": "maintenance"
   },
@@ -1832,6 +1880,10 @@
     "category": "security"
   },
   {
+    "label": "vuln",
+    "category": "security"
+  },
+  {
     "label": "waterfall",
     "category": "projectManagement"
   },
@@ -1849,6 +1901,10 @@
   },
   {
     "label": "wiki",
+    "category": "doc"
+  },
+  {
+    "label": "wikipedia",
     "category": "doc"
   },
   {

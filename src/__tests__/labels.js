@@ -1,11 +1,11 @@
 import labels from '../labels'
 import categories from '../categories'
 
-const LEN = 472
+const LEN = 486
 
 test('All data', () => {
   const data = labels.getAll()
-  expect(data.length).toStrictEqual(LEN)
+  expect(data.length >= LEN).toBeTruthy()
   expect(Array.isArray(data)).toBeTruthy()
   expect(data[9]).toEqual({label: ':bug: bug', category: 'bug'})
 })
@@ -17,14 +17,14 @@ test('get', () => {
 
 test('Labels', () => {
   const lbls = labels.getLabels()
-  expect(lbls.length).toStrictEqual(LEN)
+  expect(lbls.length >= LEN).toBeTruthy()
   expect(Array.isArray(lbls)).toBeTruthy()
   expect(lbls[9]).toEqual(':bug: bug')
 })
 
 test('Categories', () => {
   const cats = labels.getCategories()
-  expect(cats.length).toStrictEqual(LEN)
+  expect(cats.length >= LEN).toBeTruthy()
   expect(Array.isArray(cats)).toBeTruthy()
   expect(cats[9]).toEqual('bug')
 })
