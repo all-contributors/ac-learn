@@ -333,7 +333,7 @@ class Learner {
   }
   /*
     @todo add the ability to get:
-    - diagrams of categories based on what its training and testing sets
+    - diagrams of categories including what are in training/validation/testing sets
     - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
     - ROC/AUC graphs
     @todo use utils.PrecisionRecall.Accuracy instead of doing that manually //waiting on ^
