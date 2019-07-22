@@ -47,3 +47,5 @@ writeFileSync(
   'playground-fullStats.json',
   JSON.stringify(longStats, null, 2),
 ) && console.log('Saved learner to "playground-fullStats.json"')
+
+process.exit(0)
