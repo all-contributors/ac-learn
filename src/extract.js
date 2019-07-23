@@ -17,7 +17,12 @@ const wordExtractor = (input, features) => {
 //@TODO compare/benchmark it to `wordExtractor` again
 const extract = (input, features) => {
   const tokens = tokenize(input)
-  const extraction = tokens.map(token => lemmatizer.only_lemmas(token)[0])
+  const extraction = tokens
+    .map(token => {
+      const lemmas = lemmatizer.only_lemmas(token)
+      return lemmas.length ? lemmas[0] : false
+    })
+    .filter(Boolean)
   extraction.forEach(word => {
     features[word.toLowerCase()] = 1
   })
