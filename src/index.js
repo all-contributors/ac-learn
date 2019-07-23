@@ -3,6 +3,7 @@ const serialize = require('serialization')
 const tvts = require('tvt-split')
 const {Spinner} = require('clui')
 const {PrecisionRecall, partitions, test} = require('limdu').utils
+const {use, succ, error, info} = require('nclr/symbols')
 const labelDS = require('./conv')('io')
 const classifierBuilder = require('./classifier')
 const categories = require('./categories')
@@ -80,10 +81,11 @@ class Learner {
 
   /**
    * @memberof Learner
+   * @param {boolean} [log=false] Log events
    * @returns {Object} Statistics from a confusion matrix
    * @public
    */
-  eval() {
+  eval(log = false) {
     spinner.message('Evaluating...')
     spinner.start()
     const actual = []
@@ -92,8 +94,20 @@ class Learner {
     let idx = 0
     for (const data of this.testSet) {
       const predictions = this.classify(data.input)
+      const guess = predictions.length ? predictions[0] : 'null'
       actual.push(data.output)
-      predicted.push(predictions.length ? predictions[0] : 'null') //Ignores the rest (as it only wants one guess)
+      predicted.push(guess) //Ignores the rest (as it only wants one guess)
+      if (log) {
+        if (guess === data.output)
+          succ(`Classified "${data.input}" as "${guess}"`)
+        else
+          error(
+            `Classified "${data.input}" as "${guess}" instead of "${use(
+              'info',
+              data.output,
+            )}"`,
+          )
+      }
       spinner.message(
         `Evaluating instances (${Math.round((idx++ / len) * 10000) / 100}%)`,
       )
@@ -103,7 +117,10 @@ class Learner {
       predicted,
       categories,
     )
-    // spinner.message('Evaluation complete')
+
+    const completeMsg = 'Evaluation complete'
+    //eslint-disable-next-line babel/no-unused-expressions
+    log ? succ(completeMsg) : spinner.message(completeMsg)
     spinner.stop()
     return this.confusionMatrix.getStats()
   }
@@ -171,7 +188,7 @@ class Learner {
 
   /**
    * @param {number} [numOfFolds=5] Cross-validation folds
-   * @param {number} [verboseLevel=0] Verbosity
+   * @param {number} [verboseLevel=0] Verbosity level on limdu's explainations
    * @param {boolean} [log=false] Pre-training logging
    * @returns {{microAvg: Object, macroAvg: Object}} Averages
    * @memberof Learner
@@ -198,11 +215,14 @@ class Learner {
     this.macroAvg = new PrecisionRecall()
     this.microAvg = new PrecisionRecall()
     const set = [...this.trainSet, ...this.validationSet]
+    let fold = 0
 
     partitions.partitions(set, numOfFolds, (trainSet, validationSet) => {
-      const status = `Training on ${trainSet.length} samples, testing ${validationSet.length} samples`
+      const status = `Fold #${fold++}\nTraining on ${
+        trainSet.length
+      } samples, testing ${validationSet.length} samples`
       //eslint-disable-next-line babel/no-unused-expressions
-      log ? process.stdout.write(status) : spinner.message(status)
+      log ? info(status) : spinner.message(status)
       this.train(trainSet)
       test(
         this.classifier,
@@ -212,10 +232,12 @@ class Learner {
         this.macroAvg,
       )
     })
-    spinner.message('Calculating stats')
+    spinner.message('Calculating stats...')
     this.macroAvg.calculateMacroAverageStats(numOfFolds)
     this.microAvg.calculateStats()
-    // spinner.message('Cross-validation complete')
+    const completeMsg = 'Cross-validation complete'
+    //eslint-disable-next-line babel/no-unused-expressions
+    log ? succ(completeMsg) : spinner.message(completeMsg)
     spinner.stop()
     return {
       macroAvg: this.macroAvg.fullStats(), //preferable in 2-class settings or in balanced multi-class settings

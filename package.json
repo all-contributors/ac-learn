@@ -48,6 +48,7 @@
     "easy-table": "^1.1.1",
     "javascript-lemmatizer": "0.0.2",
     "limdu": "^0.9.4",
+    "nclr": "^2.2.2",
     "serialization": "^0.2.0",
     "tvt-split": "^1.0.2"
   },
