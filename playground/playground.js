@@ -4,7 +4,7 @@ const Learner = require('../src')
 
 let learner = null
 
-if (existsSync('playground-learner.json')) {
+if (existsSync('playground-learner.json') && !process.env.DRY) {
   //If there's already a JSON version of a learner, use it's past training samples
   const pgl = require('./playground-learner.json')
   learner = Learner.fromJSON(pgl)
