@@ -274,8 +274,7 @@ class ConfusionMatrix {
    * @protected
    */
   getMicroAccuracy() {
-    const Ts = this.getTrue()
-    return Ts / (Ts + this.getFalse())
+    return this.getTrue() / this.getTotal()
   }
 
   /**
@@ -629,8 +628,8 @@ class ConfusionMatrix {
   getShortStats() {
     return `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\nAccuracy: ${this.getMicroAccuracy() *
       100}%\nPrecision: ${this.getMicroPrecision() *
-      100}%\nRecall: ${this.getMicroPrecision() *
-      100}%\nF1: ${this.getMicroF1() * 100}%`
+      100}%\nRecall: ${this.getMicroRecall() * 100}%\nF1: ${this.getMicroF1() *
+      100}%`
   }
 
   /**
