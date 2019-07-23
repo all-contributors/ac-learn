@@ -1,6 +1,7 @@
 const chalk = require('chalk')
 const ngow = require('limdu').features.NGramsOfWords
 const Lem = require('javascript-lemmatizer')
+const {writeFileSync, existsSync} = require('fs')
 const Learner = require('./')
 const dataset = require('./src/conv')('io')
 const classifierFactory = require('./src/classifierFactory')
@@ -28,8 +29,6 @@ const extractKeep = (input, features) => {
     })
 }
 
-//learningRate?
-
 const trainers = [
   {
     learner: new Learner({
@@ -52,105 +51,141 @@ const trainers = [
     info: 'trainSplit=.85',
   },
 ]
-const classifiers = [
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-    }),
-    info: 'Default',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: classifierFactory(ngow(1)),
-    }),
-    info: '1-gram',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: classifierFactory(ngow(2)),
-    }),
-    info: '2-grams',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: classifierFactory(keepLodash),
-    }),
-    info: 'Keep "_"',
-  },
-  {
-    learner: new Learner({
-      //require('./extract').extract
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: classifierFactory(extract),
-    }),
-    info: 'extract()',
-  },
-  {
-    learner: new Learner({
-      //require('./extract').extract w/o _ in `split`
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: classifierFactory(extractKeep),
-    }),
-    info: 'extract() that keeps "_"',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(),
-    }),
-    info: 'SVM w/ a feature lookup table',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(ngow(1)),
-    }),
-    info: 'SVM ... 1-gram',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(ngow(2)),
-    }),
-    info: 'SVM ... 2-grams',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(keepLodash),
-    }),
-    info: 'SVM ... keep "_"',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(extract),
-    }),
-    info: 'SVM ... extract()',
-  },
-  {
-    learner: new Learner({
-      dataset: [...dataset],
-      // trainSplit: .7,
-      classifier: svmFactory(extractKeep),
-    }),
-    info: 'SVM ... extract() & keep "_"',
-  },
-  //limdu.classifiers.(Baysian|NeuralNetwork|kNN|DecisionTree|...)?
-]
+
+const setupClassifiers = () => {
+  const list = [
+    'Default',
+    '1-gram',
+    '2-grams',
+    'Keep "_"',
+    'extract()',
+    'extract() that keeps "_"',
+    'SVM',
+    'SVM ... 1-gram',
+    'SVM ... 2-grams',
+    'SVM ... keep "_"',
+    'SVM ... extract()',
+    'SVM ... extract() & keep "_"',
+  ]
+
+  if (process.env.DRY) {
+    return [
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+        }),
+        info: 'Default',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: classifierFactory(ngow(1)),
+        }),
+        info: '1-gram',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: classifierFactory(ngow(2)),
+        }),
+        info: '2-grams',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: classifierFactory(keepLodash),
+        }),
+        info: 'Keep "_"',
+      },
+      {
+        learner: new Learner({
+          //require('./extract').extract
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: classifierFactory(extract),
+        }),
+        info: 'extract()',
+      },
+      {
+        learner: new Learner({
+          //require('./extract').extract w/o _ in `split`
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: classifierFactory(extractKeep),
+        }),
+        info: 'extract() that keeps "_"',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: svmFactory(),
+        }),
+        info: 'SVM',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: svmFactory(ngow(1)),
+        }),
+        info: 'SVM ... 1-gram',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: svmFactory(ngow(2)),
+        }),
+        info: 'SVM ... 2-grams',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: svmFactory(keepLodash),
+        }),
+        info: 'SVM ... keep "_"',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: svmFactory(extract),
+        }),
+        info: 'SVM ... extract()',
+      },
+      {
+        learner: new Learner({
+          dataset: [...dataset],
+          // trainSplit: .7,
+          classifier: svmFactory(extractKeep),
+        }),
+        info: 'SVM ... extract() & keep "_"',
+      },
+      //limdu.classifiers.(Baysian|NeuralNetwork|kNN|DecisionTree|...)?
+    ]
+  }
+
+  const cfrs = []
+  list.forEach(info => {
+    if (!existsSync(`./comparisons/classifiers/${info}.json`))
+      throw new Error(`Missing "${info}.json" classifier`)
+    const learner = Learner.fromJSON(
+      require(`./comparisons/classifiers/${info}.json`),
+    )
+    cfrs.push({
+      learner,
+      info,
+    })
+  })
+  return cfrs
+}
+
+const classifiers = setupClassifiers()
 
 const round = x => Math.round(x * 1000) / 1000
 const prc = x => round(x * 100)
@@ -192,13 +227,23 @@ trainers.forEach((trainer, i) => {
 // console.log('trainerEvs=', trainerEvs);
 
 console.log(chalk.cyan('Training classifiers...'))
-classifiers.forEach(cfr => cfr.learner.train())
+classifiers.forEach(cfr => {
+  console.log('Training', cfr.info)
+  cfr.learner.train()
+})
 
 const cfrEvs = []
 console.log(chalk.cyan('Evaluating classifiers...'))
 classifiers.forEach((cfr, i) => {
   const ev = cfr.learner.eval()
   cfrEvs.push(ev)
+
+  const classifier = JSON.stringify(cfr.learner.toJSON(), null, 2)
+  if (process.env.SAVE) {
+    writeFileSync(`./comparisons/classifiers/${cfr.info}.json`, classifier)
+    writeFileSync(`./comparisons/results/${cfr.info}.json`, ev)
+  }
+
   console.log(
     `classifier#${i} (${chalk.green(cfr.info)}) ${chalk.green(
       ev.correctPredictions,
