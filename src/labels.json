@@ -1,5 +1,17 @@
 [
   {
+    "label": ".net core",
+    "category": "code"
+  },
+  {
+    "label": ".net framework",
+    "category": "code"
+  },
+  {
+    "label": ".net standard",
+    "category": "code"
+  },
+  {
     "label": "0 - backlog",
     "category": "null"
   },
@@ -56,6 +68,10 @@
     "category": "design"
   },
   {
+    "label": "a/b testing",
+    "category": "userTesting"
+  },
+  {
     "label": "abandoned",
     "category": "null"
   },
@@ -74,6 +90,14 @@
   {
     "label": "advance developer workflow",
     "category": "infra"
+  },
+  {
+    "label": "agile",
+    "category": "projectManagement"
+  },
+  {
+    "label": "analysis",
+    "category": "review"
   },
   {
     "label": "android",
@@ -108,6 +132,18 @@
     "category": "null"
   },
   {
+    "label": "art",
+    "category": "design"
+  },
+  {
+    "label": "article",
+    "category": "content"
+  },
+  {
+    "label": "assess",
+    "category": "test"
+  },
+  {
     "label": "automotive (category)",
     "category": "null"
   },
@@ -120,12 +156,28 @@
     "category": "null"
   },
   {
+    "label": "backer",
+    "category": "financial"
+  },
+  {
+    "label": "badges",
+    "category": "doc"
+  },
+  {
+    "label": "bdd",
+    "category": "test"
+  },
+  {
     "label": "beginner-friendly",
     "category": "null"
   },
   {
     "label": "beverage (category)",
     "category": "null"
+  },
+  {
+    "label": "bitbucket cloud",
+    "category": "infra"
   },
   {
     "label": "blocked",
@@ -136,8 +188,20 @@
     "category": "null"
   },
   {
+    "label": "blog",
+    "category": "blog"
+  },
+  {
+    "label": "blogpost",
+    "category": "blog"
+  },
+  {
     "label": "bootstrap",
     "category": "tool"
+  },
+  {
+    "label": "brainstorming",
+    "category": "ideas"
   },
   {
     "label": "brand icon",
@@ -168,6 +232,10 @@
     "category": "bug"
   },
   {
+    "label": "business",
+    "category": "business"
+  },
+  {
     "label": "business (category)",
     "category": "business"
   },
@@ -190,6 +258,10 @@
   {
     "label": "chat (category)",
     "category": "ideas"
+  },
+  {
+    "label": "check",
+    "category": "review"
   },
   {
     "label": "chore",
@@ -216,8 +288,16 @@
     "category": "code"
   },
   {
+    "label": "client test",
+    "category": "userTesting"
+  },
+  {
     "label": "closed due to inactivity",
     "category": "null"
+  },
+  {
+    "label": "cloud",
+    "category": "infra"
   },
   {
     "label": "cmty:bug-report",
@@ -336,6 +416,10 @@
     "category": "null"
   },
   {
+    "label": "contributions",
+    "category": "maintenance"
+  },
+  {
     "label": "core",
     "category": "maintenance"
   },
@@ -360,8 +444,32 @@
     "category": "financial"
   },
   {
+    "label": "data protection",
+    "category": "security"
+  },
+  {
+    "label": "debug information",
+    "category": "bug"
+  },
+  {
     "label": "defect",
     "category": "bug"
+  },
+  {
+    "label": "definition:bug",
+    "category": "bug"
+  },
+  {
+    "label": "definition:creating",
+    "category": "code"
+  },
+  {
+    "label": "definition:enhancement",
+    "category": "maintenance"
+  },
+  {
+    "label": "definition:request",
+    "category": "ideas"
   },
   {
     "label": "dependencies",
@@ -420,6 +528,10 @@
     "category": "doc"
   },
   {
+    "label": "docker",
+    "category": "infra"
+  },
+  {
     "label": "docs",
     "category": "doc"
   },
@@ -432,12 +544,20 @@
     "category": "doc"
   },
   {
+    "label": "documents",
+    "category": "doc"
+  },
+  {
     "label": "duplicate",
     "category": "null"
   },
   {
     "label": "electron",
     "category": "tool"
+  },
+  {
+    "label": "engine vulns",
+    "category": "security"
   },
   {
     "label": "enhancement",
@@ -466,6 +586,14 @@
   {
     "label": "es7",
     "category": "code"
+  },
+  {
+    "label": "event",
+    "category": "eventOrganizing"
+  },
+  {
+    "label": "example",
+    "category": "example"
   },
   {
     "label": "external",
@@ -548,6 +676,18 @@
     "category": "null"
   },
   {
+    "label": "film",
+    "category": "video"
+  },
+  {
+    "label": "finance",
+    "category": "financial"
+  },
+  {
+    "label": "financial support",
+    "category": "financial"
+  },
+  {
     "label": "first-timers-only",
     "category": "null"
   },
@@ -576,12 +716,20 @@
     "category": "code"
   },
   {
+    "label": "funding finder",
+    "category": "fundingFinding"
+  },
+  {
     "label": "future architecture enhancements",
     "category": "ideas"
   },
   {
     "label": "future crypto enhancements",
     "category": "ideas"
+  },
+  {
+    "label": "gdpr",
+    "category": "security"
   },
   {
     "label": "genders (category)",
@@ -596,6 +744,10 @@
     "category": "null"
   },
   {
+    "label": "go",
+    "category": "code"
+  },
+  {
     "label": "go client internal release",
     "category": "null"
   },
@@ -608,12 +760,24 @@
     "category": "null"
   },
   {
+    "label": "gradle",
+    "category": "infra"
+  },
+  {
+    "label": "grant finder",
+    "category": "fundingFinding"
+  },
+  {
     "label": "great insight",
     "category": "ideas"
   },
   {
     "label": "greenkeeper",
     "category": "infra"
+  },
+  {
+    "label": "guide",
+    "category": "tutorial"
   },
   {
     "label": "hack",
@@ -672,6 +836,10 @@
     "category": "ideas"
   },
   {
+    "label": "how-to",
+    "category": "tutorial"
+  },
+  {
     "label": "html",
     "category": "code"
   },
@@ -688,6 +856,10 @@
     "category": "platform"
   },
   {
+    "label": "icon",
+    "category": "design"
+  },
+  {
     "label": "ie8",
     "category": "null"
   },
@@ -700,12 +872,20 @@
     "category": "null"
   },
   {
+    "label": "improved error handling",
+    "category": "code"
+  },
+  {
     "label": "in progress",
     "category": "null"
   },
   {
     "label": "in review",
     "category": "null"
+  },
+  {
+    "label": "infrastructure",
+    "category": "infra"
   },
   {
     "label": "infrastructure :hammer_and_wrench:",
@@ -740,8 +920,16 @@
     "category": "null"
   },
   {
+    "label": "kanban",
+    "category": "projectManagement"
+  },
+  {
     "label": "kbfs",
     "category": "null"
+  },
+  {
+    "label": "kotlin",
+    "category": "code"
   },
   {
     "label": "lang-crystal",
@@ -780,6 +968,10 @@
     "category": "security"
   },
   {
+    "label": "lerna",
+    "category": "infra"
+  },
+  {
     "label": "library",
     "category": "tool"
   },
@@ -794,6 +986,10 @@
   {
     "label": "lks",
     "category": "null"
+  },
+  {
+    "label": "logo",
+    "category": "design"
   },
   {
     "label": "m1.s0",
@@ -820,8 +1016,20 @@
     "category": "null"
   },
   {
+    "label": "manual",
+    "category": "doc"
+  },
+  {
     "label": "mass purge 2015.10.26",
     "category": "null"
+  },
+  {
+    "label": "maven",
+    "category": "infra"
+  },
+  {
+    "label": "meetup",
+    "category": "eventOrganizing"
   },
   {
     "label": "minor",
@@ -838,6 +1046,14 @@
   {
     "label": "modules",
     "category": "code"
+  },
+  {
+    "label": "monitor",
+    "category": "maintenance"
+  },
+  {
+    "label": "multi module",
+    "category": "maintenance"
   },
   {
     "label": "must-triage",
@@ -912,6 +1128,18 @@
     "category": "ideas"
   },
   {
+    "label": "new definition",
+    "category": "code"
+  },
+  {
+    "label": "newsletter",
+    "category": "content"
+  },
+  {
+    "label": "next meetup!",
+    "category": "eventOrganizing"
+  },
+  {
     "label": "node",
     "category": "platform"
   },
@@ -920,8 +1148,16 @@
     "category": "platform"
   },
   {
+    "label": "node-4",
+    "category": "platform"
+  },
+  {
     "label": "not a bug",
     "category": "null"
+  },
+  {
+    "label": "npm",
+    "category": "infra"
   },
   {
     "label": "on hold",
@@ -990,6 +1226,10 @@
   {
     "label": "planned for next release",
     "category": "null"
+  },
+  {
+    "label": "porting",
+    "category": "platform"
   },
   {
     "label": "pr welcome",
@@ -1100,6 +1340,10 @@
     "category": "null"
   },
   {
+    "label": "prince2",
+    "category": "projectManagement"
+  },
+  {
     "label": "priority: critical",
     "category": "null"
   },
@@ -1124,6 +1368,18 @@
     "category": "projectManagement"
   },
   {
+    "label": "proposal",
+    "category": "ideas"
+  },
+  {
+    "label": "python",
+    "category": "code"
+  },
+  {
+    "label": "qa",
+    "category": "test"
+  },
+  {
     "label": "question",
     "category": "question"
   },
@@ -1136,8 +1392,16 @@
     "category": "code"
   },
   {
+    "label": "readme",
+    "category": "doc"
+  },
+  {
     "label": "ready",
     "category": "null"
+  },
+  {
+    "label": "recording",
+    "category": "talk"
   },
   {
     "label": "refactor",
@@ -1158,6 +1422,10 @@
   {
     "label": "reminder",
     "category": "null"
+  },
+  {
+    "label": "requires upstream change",
+    "category": "code"
   },
   {
     "label": "resolution: duplicate",
@@ -1196,12 +1464,24 @@
     "category": "code"
   },
   {
+    "label": "scrum",
+    "category": "projectManagement"
+  },
+  {
     "label": "security",
     "category": "security"
   },
   {
     "label": "shell",
     "category": "tool"
+  },
+  {
+    "label": "slides",
+    "category": "talk"
+  },
+  {
+    "label": "social",
+    "category": "eventOrganizing"
   },
   {
     "label": "socket.io client",
@@ -1360,6 +1640,50 @@
     "category": "ideas"
   },
   {
+    "label": "target:android",
+    "category": "platform"
+  },
+  {
+    "label": "target:browser",
+    "category": "platform"
+  },
+  {
+    "label": "target:gnu/linux",
+    "category": "platform"
+  },
+  {
+    "label": "target:ios",
+    "category": "platform"
+  },
+  {
+    "label": "target:linux",
+    "category": "platform"
+  },
+  {
+    "label": "target:macos",
+    "category": "platform"
+  },
+  {
+    "label": "target:nodejs",
+    "category": "platform"
+  },
+  {
+    "label": "target:osx",
+    "category": "platform"
+  },
+  {
+    "label": "target:unix",
+    "category": "platform"
+  },
+  {
+    "label": "target:windows",
+    "category": "platform"
+  },
+  {
+    "label": "tdd",
+    "category": "test"
+  },
+  {
     "label": "technical debt",
     "category": "maintenance"
   },
@@ -1414,6 +1738,14 @@
   {
     "label": "trivial",
     "category": "null"
+  },
+  {
+    "label": "troubleshooting",
+    "category": "bug"
+  },
+  {
+    "label": "tutorial",
+    "category": "tutorial"
   },
   {
     "label": "type: archive",
@@ -1528,6 +1860,10 @@
     "category": "bug"
   },
   {
+    "label": "user testing",
+    "category": "userTesting"
+  },
+  {
     "label": "ux",
     "category": "design"
   },
@@ -1536,8 +1872,20 @@
     "category": "null"
   },
   {
+    "label": "video",
+    "category": "video"
+  },
+  {
+    "label": "vuln",
+    "category": "security"
+  },
+  {
     "label": "vulnerability",
     "category": "security"
+  },
+  {
+    "label": "waterfall",
+    "category": "projectManagement"
   },
   {
     "label": "website",
@@ -1550,6 +1898,14 @@
   {
     "label": "weekly-digest",
     "category": "blog"
+  },
+  {
+    "label": "wiki",
+    "category": "doc"
+  },
+  {
+    "label": "wikipedia",
+    "category": "doc"
   },
   {
     "label": "windows",
@@ -1578,5 +1934,13 @@
   {
     "label": "xhr-polling",
     "category": "null"
+  },
+  {
+    "label": "yarn",
+    "category": "infra"
+  },
+  {
+    "label": "youtube",
+    "category": "video"
   }
 ]

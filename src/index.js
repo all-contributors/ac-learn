@@ -1,12 +1,23 @@
 const {writeFile, readFile} = require('fs')
 const serialize = require('serialization')
-const trainTestSplit = require('train-test-split')
+const tvts = require('tvt-split')
 const {Spinner} = require('clui')
 const {PrecisionRecall, partitions, test} = require('limdu').utils
 const labelDS = require('./conv')('io')
 const classifierBuilder = require('./classifier')
 const categories = require('./categories')
 const ConfusionMatrix = require('./confusionMatrix')
+
+const spinner = new Spinner('Loading...', [
+  '⣾',
+  '⣽',
+  '⣻',
+  '⢿',
+  '⡿',
+  '⣟',
+  '⣯',
+  '⣷',
+])
 
 /**
  * NodeJS Classification-based learner.
@@ -16,8 +27,9 @@ class Learner {
   /**
    * @param {Object} opts Options.
    * @param {Object[]} [opts.dataset=require('./conv')('io')] Dataset (for training and testing)
-   * @param {number} [opts.trainSplit=.8] Dataset split percentage for the training set
+   * @param {number} [opts.splits=[.7, .15]] Dataset split percentage for the training/validation set (default: 70%/15%/15%)
    * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
+   * @param {Object[]} [opts.pastTrainingSamples=[]] Past training samples for the classifier
    * @memberof Learner
    * @example <caption>Using pre-defined data</caption>
    * const learner = new Learner()
@@ -31,21 +43,23 @@ class Learner {
    * })
    * @example <caption>Changing the train/test split percentage</caption>
    * const learner = new Learner({
-   *  trainSplit: .6
+   *  splits: [.6, .2]
    * })
    * @public
    */
   constructor({
     dataset = labelDS,
-    trainSplit = 0.8,
+    splits = [0.7, 0.15],
     classifier = classifierBuilder,
+    pastTrainingSamples = [],
   } = {}) {
     this.dataset = dataset
-    const [train, _test] = trainTestSplit(dataset, trainSplit)
-    this.trainSplit = trainSplit
+    const [train, validation, _test] = tvts(dataset, ...splits)
+    this.splits = splits
     this.trainSet = train
+    this.validationSet = validation
     this.testSet = _test
-    this.classifier = classifier()
+    this.classifier = classifier(pastTrainingSamples)
     this.classifierBuilder = classifier
     this.confusionMatrix = null //new ConfusionMatrix(categories)
   }
@@ -56,20 +70,12 @@ class Learner {
    * @public
    */
   train(trainSet = this.trainSet) {
-    const training = new Spinner('Training...', [
-      '⣾',
-      '⣽',
-      '⣻',
-      '⢿',
-      '⡿',
-      '⣟',
-      '⣯',
-      '⣷',
-    ])
-    training.start()
+    //@todo Move this so it could be used for any potentially lengthy ops
+    spinner.message('Training...')
+    spinner.start()
     this.classifier.trainBatch(trainSet)
-    training.message('Training complete')
-    training.stop()
+    // spinner.message('Training complete')
+    spinner.stop()
   }
 
   /**
@@ -78,18 +84,27 @@ class Learner {
    * @public
    */
   eval() {
+    spinner.message('Evaluating...')
+    spinner.start()
     const actual = []
     const predicted = []
+    const len = this.testSet.length
+    let idx = 0
     for (const data of this.testSet) {
       const predictions = this.classify(data.input)
       actual.push(data.output)
       predicted.push(predictions.length ? predictions[0] : 'null') //Ignores the rest (as it only wants one guess)
+      spinner.message(
+        `Evaluating instances (${Math.round((idx++ / len) * 10000) / 100}%)`,
+      )
     }
     this.confusionMatrix = ConfusionMatrix.fromData(
       actual,
       predicted,
       categories,
     )
+    // spinner.message('Evaluation complete')
+    spinner.stop()
     return this.confusionMatrix.getStats()
   }
 
@@ -178,24 +193,30 @@ class Learner {
     F_1 (or effectiveness)  = 2 * (Pr * R) / (Pr + R)
     ...
     */
+    spinner.message('Cross-validating...')
+    spinner.start()
     this.macroAvg = new PrecisionRecall()
     this.microAvg = new PrecisionRecall()
+    const set = [...this.trainSet, ...this.validationSet]
 
-    /*
-    @TODO: instead of using `this.dataset`, use `this.trainSet` (which would include the training and validation data)
-    (which would contain ~85% of the data) and keep out the test set.
-
-    */
-    partitions.partitions(this.dataset, numOfFolds, (trainSet, testSet) => {
-      if (log)
-        process.stdout.write(
-          `Training on ${trainSet.length} samples, testing ${testSet.length} samples`,
-        )
+    partitions.partitions(set, numOfFolds, (trainSet, validationSet) => {
+      const status = `Training on ${trainSet.length} samples, testing ${validationSet.length} samples`
+      //eslint-disable-next-line babel/no-unused-expressions
+      log ? process.stdout.write(status) : spinner.message(status)
       this.train(trainSet)
-      test(this.classifier, testSet, verboseLevel, this.microAvg, this.macroAvg)
+      test(
+        this.classifier,
+        validationSet,
+        verboseLevel,
+        this.microAvg,
+        this.macroAvg,
+      )
     })
+    spinner.message('Calculating stats')
     this.macroAvg.calculateMacroAverageStats(numOfFolds)
     this.microAvg.calculateStats()
+    // spinner.message('Cross-validation complete')
+    spinner.stop()
     return {
       macroAvg: this.macroAvg.fullStats(), //preferable in 2-class settings or in balanced multi-class settings
       microAvg: this.microAvg.fullStats(), //preferable in multi-class settings (in case of class imbalance)
@@ -224,8 +245,9 @@ class Learner {
       classifier,
       classifierBuilder: this.classifierBuilder,
       dataset: this.dataset,
-      trainSplit: this.trainSplit,
+      splits: this.splits,
       trainSet: this.trainSet,
+      validationSet: this.validationSet,
       testSet: this.testSet,
     }
     if (this.macroAvg) json.macroAvg = this.macroAvg
@@ -245,13 +267,14 @@ class Learner {
       'classifierBuilder',
       'confusionMatrix',
       'trainSet',
+      'validationSet',
       'testSet',
       'macroAvg',
       'microAvg',
     ]
     const newLearner = new Learner({
       dataset: json.dataset,
-      trainSplit: json.trainSplit,
+      splits: json.splits,
     })
     for (const prop in json) {
       if (ALLOWED_PROPS.includes(prop)) newLearner[prop] = json[prop]
@@ -263,23 +286,30 @@ class Learner {
 
   /**
    * @memberof Learner
-   * @returns {Object<string, {overall: number, test: number, train: number}>} Partitions
+   * @returns {Object<string, {overall: number, test: number, validation: number, train: number}>} Partitions
    * @public
    */
   getCategoryPartition() {
+    spinner.message('Generating category partitions...')
+    spinner.start()
     const res = {}
     categories.forEach(cat => {
       res[cat] = {
         overall: 0,
         test: 0,
+        validation: 0,
         train: 0,
       }
     })
     this.dataset.forEach(data => {
+      spinner.message(`Adding ${data.output} data`)
       ++res[data.output].overall
       if (this.trainSet.includes(data)) ++res[data.output].train
+      if (this.validationSet.includes(data)) ++res[data.output].validation
       if (this.testSet.includes(data)) ++res[data.output].test
     })
+    // spinner.message('Category partitions complete')
+    spinner.stop()
     return res
   }
 
@@ -289,7 +319,6 @@ class Learner {
    * @public
    */
   getStats() {
-    //@todo use C3.js (or whatever fits the bill) for a stacked bar chart
     const {
       TP,
       TN,
@@ -315,6 +344,7 @@ class Learner {
       Specificity: TN / (FP + TN),
       totalCount: count,
       trainCount: this.trainSet.length,
+      validationCount: this.validationSet.length,
       testCount: this.testSet.length,
       categoryPartition: this.getCategoryPartition(),
       //ROC, AUC
@@ -322,11 +352,8 @@ class Learner {
   }
   /*
     @todo add the ability to get:
-    - diagrams of categories based on what its training and testing sets
-    - [WIP] confusion matrix (cf. utils.PrecisionRecall()) //cf. https://github.com/erelsgl/limdu/issues/63
+    - diagrams of categories including what are in training/validation/testing sets
     - ROC/AUC graphs
-    @todo use utils.PrecisionRecall.Accuracy instead of doing that manually //waiting on ^
-    @todo add randomization feature to limdu's partitions (with trainTestSplit as example) and fix typos //cf. https://github.com/erelsgl/limdu/issues/65
   */
 }
 

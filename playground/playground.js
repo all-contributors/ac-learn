@@ -4,18 +4,18 @@ const Learner = require('../src')
 
 let learner = null
 
-if (existsSync('playground-learner.json')) {
+if (existsSync('playground-learner.json') && !process.env.DRY) {
   //If there's already a JSON version of a learner, use it's past training samples
   const pgl = require('./playground-learner.json')
   learner = Learner.fromJSON(pgl)
 } else learner = new Learner() //Or use a fresh one
 
 // Cross-validated training on the training/validation sets
-const {microAvg} = learner.crossValidate(5) //@todo Make the crossValidation()/train() show where the model is in the testing (with informative status logs)
+const {microAvg} = learner.crossValidate(5)
 const jsonData = learner.toJSON()
 console.log('micro avg:', microAvg)
 // Evaluation time
-const longStats = learner.eval() //@todo Make the eval() show where the model is in the testing (with informative status logs)
+const longStats = learner.eval()
 const stats = learner.confusionMatrix.getShortStats()
 console.log('\nShort stats=\n', stats)
 
@@ -47,3 +47,5 @@ writeFileSync(
   'playground-fullStats.json',
   JSON.stringify(longStats, null, 2),
 ) && console.log('Saved learner to "playground-fullStats.json"')
+
+process.exit(0)
