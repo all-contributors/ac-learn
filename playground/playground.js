@@ -11,11 +11,11 @@ if (existsSync('playground-learner.json') && !process.env.DRY) {
 } else learner = new Learner() //Or use a fresh one
 
 // Cross-validated training on the training/validation sets
-const {microAvg} = learner.crossValidate(5)
+const {microAvg} = learner.crossValidate(5, 0, true)
 const jsonData = learner.toJSON()
 console.log('micro avg:', microAvg)
 // Evaluation time
-const longStats = learner.eval()
+const longStats = learner.eval(process.env.VERBOSE)
 const stats = learner.confusionMatrix.getShortStats()
 console.log('\nShort stats=\n', stats)
 
