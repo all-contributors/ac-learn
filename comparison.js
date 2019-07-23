@@ -241,7 +241,7 @@ classifiers.forEach((cfr, i) => {
   const classifier = JSON.stringify(cfr.learner.toJSON(), null, 2)
   if (process.env.SAVE) {
     writeFileSync(`./comparisons/classifiers/${cfr.info}.json`, classifier)
-    writeFileSync(`./comparisons/results/${cfr.info}.json`, ev)
+    writeFileSync(`./comparisons/results/${cfr.info}.json`, JSON.stringify(ev))
   }
 
   console.log(
