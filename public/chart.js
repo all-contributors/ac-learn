@@ -37,10 +37,14 @@ const loadData = async () => {
   try {
     const data = await Promise.all([
       fetch('../src/categories.json').then(res => res.json(), console.error),
-      fetch('../src/labels.json').then(res => res.json(), console.error),
+      // fetch('../src/labels.json').then(res => res.json(), console.error),
+      fetch('../playground/categoryPartitions.json').then(
+        res => res.json(),
+        console.error,
+      ),
     ])
 
-    return data //[categories, dataset]
+    return data //[categories, dataset, categoryPartitions]
   } catch (error) {
     console.log('Error downloading one or more files:', error)
   }
@@ -49,26 +53,44 @@ const loadData = async () => {
 /**
  * Organise a dataset for ChartJS.
  * @param {[string[], object[]]} data Dataset of categories and instances
- * @param {string} caption Caption of the chart
  * @returns {Object} configuration for ChartJS
  */
-const buildConfig = (data, caption = 'Categories') => {
+const buildConfig = data => {
   const res = {
     labels: data[0], //categories
     datasets: [
       {
-        label: caption,
+        label: 'Training',
         data: new Array(data[0].length).fill(0),
         backgroundColor: '#00f',
+      },
+      {
+        label: 'Validation',
+        data: new Array(data[0].length).fill(0),
+        backgroundColor: '#0f0',
+      },
+      {
+        label: 'Test',
+        data: new Array(data[0].length).fill(0),
+        backgroundColor: '#f00',
       },
     ],
   }
 
-  data[1].forEach(instance => {
-    const idx = data[0].indexOf(instance.category)
-    res.datasets[0].data[idx]++
-  })
-  // console.log('dataset=', res.dataset.backgroundColor);
+  // data[1].forEach(instance => { //For labels.json
+  //   const idx = data[0].indexOf(instance.category)
+  //   res.datasets[0].data[idx]++
+  // })
+  for (const cat in data[1]) {
+    if (data[1].hasOwnProperty(cat)) {
+      const inf = data[1][cat]
+      const idx = data[0].indexOf(cat)
+      // res.datasets[0].data[idx] = inf.overall
+      res.datasets[0].data[idx] = inf.train
+      res.datasets[1].data[idx] = inf.validation
+      res.datasets[2].data[idx] = inf.test
+    }
+  }
   return res
 }
 
@@ -87,6 +109,12 @@ loadData().then(
               ticks: {
                 beginAtZero: true,
               },
+              stacked: true,
+            },
+          ],
+          xAxes: [
+            {
+              stacked: true,
             },
           ],
         },
