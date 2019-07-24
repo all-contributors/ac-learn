@@ -9,6 +9,7 @@ const {
   rmEmpty,
   clrVal,
   fxSum,
+  fxWeightedSum,
   mapObject,
 } = require('./utils')
 
@@ -259,6 +260,16 @@ class ConfusionMatrix {
   }
 
   /**
+   * Support value (count/occurrences) of `category` in the matrix
+   * @param {string} category Class/category to look at
+   * @returns {number} Support value
+   */
+  getSupport(category) {
+    const counts = Object.values(this.matrix[category])
+    return sum(...counts)
+  }
+
+  /**
    * Prediction accuracy for `category`.
    * @param {string} category Class/category considered as positive
    * @returns {number} (TP + TN) / (TP + TN + FP + FN)
@@ -279,11 +290,19 @@ class ConfusionMatrix {
 
   /**
    * Macro-average of accuracy.
-   * @returns {number} (A0 + ... An_1) / n
+   * @returns {number} (A0 + ...+ An_1) / n
    * @protected
    */
   getMacroAccuracy() {
     return fxSum(this, 'Accuracy') / this.classes.length
+  }
+
+  /**
+   * Weighted accuracy.
+   * @returns {number} (A0 * s0 + ... + An * sn) / Total
+   */
+  getWeightedAccuracy() {
+    return fxWeightedSum(this, 'Accuracy') / this.getTotal()
   }
 
   /**
@@ -319,6 +338,14 @@ class ConfusionMatrix {
   }
 
   /**
+   * Weighted recalll.
+   * @returns {number} (R0 * s0 + ... + Rn * sn) / Total
+   */
+  getWeightedRecall() {
+    return fxWeightedSum(this, 'Recall') / this.getTotal()
+  }
+
+  /**
    * Prediction precision for `category`.
    * @alias getPositivePredictiveValue
    * @param {string} category Class/category considered as positive
@@ -350,6 +377,14 @@ class ConfusionMatrix {
   }
 
   /**
+   * Weighted precision.
+   * @returns {number} (Pr0 * s0 + ... + Prn * sn) / Total
+   */
+  getWeightedPrecision() {
+    return fxWeightedSum(this, 'Precision') / this.getTotal()
+  }
+
+  /**
    * Prediction F1 score for `category`.
    * @alias getPositivePredictiveValue
    * @param {string} category Class/category considered as positive
@@ -375,12 +410,21 @@ class ConfusionMatrix {
   }
 
   /**
-   * Macro-average of the precision.
+   * Macro-average of the F1 score.
    * @returns {number} (F0_1 + F1_1 + ... + F_n-1_1) / n
    * @protected
    */
   getMacroF1() {
+    //@todo Perhaps convert NaNs to 0's to reflect correct calculations (e.g https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)
     return fxSum(this, 'F1') / this.classes.length
+  }
+
+  /**
+   * Weighted F1.
+   * @returns {number} (F0_1 * s0 + ... + Fn_1 * sn) / Total
+   */
+  getWeightedF1() {
+    return fxWeightedSum(this, 'F1') / this.getTotal()
   }
 
   /**
@@ -415,6 +459,14 @@ class ConfusionMatrix {
   }
 
   /**
+   * Weighted miss rate.
+   * @returns {number} (M0 * s0 + ... + Mn * sn) / Total
+   */
+  getWeightedMissRate() {
+    return fxWeightedSum(this, 'MissRate') / this.getTotal()
+  }
+
+  /**
    * Fall out (false alarm) on predictions for `category`.
    * @alias getFalsePositiveRate
    * @param {string} category Class/category considered as positive
@@ -443,6 +495,14 @@ class ConfusionMatrix {
    */
   getMacroFallOut() {
     return fxSum(this, 'FallOut') / this.classes.length
+  }
+
+  /**
+   * Weighted fall out.
+   * @returns {number} (Fo0 * s0 + ... + Fon * sn) / Total
+   */
+  getWeightedFallOut() {
+    return fxWeightedSum(this, 'FallOut') / this.getTotal()
   }
 
   /**
@@ -478,6 +538,14 @@ class ConfusionMatrix {
   }
 
   /**
+   * Weighted specificity.
+   * @returns {number} (S0 * s0 + ... + Sn * sn) / Total
+   */
+  getWeightedSpecificity() {
+    return fxWeightedSum(this, 'Specificity') / this.getTotal()
+  }
+
+  /**
    * Prevalence on predictions for `category`.
    * @param {string} category Class/category considered as positive
    * @returns {number} (TP + FN) / (TP + TN + FP + FN)
@@ -500,11 +568,19 @@ class ConfusionMatrix {
 
   /**
    * Macro-average of the prevalence.
-   * @returns {number} (S0 + S1 + ... + Sn) / n
+   * @returns {number} (Pe0 + Pe1 + ... + Pen) / n
    * @protected
    */
   getMacroPrevalence() {
     return fxSum(this, 'Prevalence') / this.classes.length
+  }
+
+  /**
+   * Weighted prevalence.
+   * @returns {number} (Pe0 * s0 + ... + Pen * sn) / Total
+   */
+  getWeightedPrevalence() {
+    return fxWeightedSum(this, 'Prevalence') / this.getTotal()
   }
 
   //getFalseDiscoveryRate: getFP() / getPredictedPositive()
@@ -623,13 +699,38 @@ class ConfusionMatrix {
 
   /**
    * @returns {string} Short statistics (total, true, false, accuracy, precision, recall and f1)
+   * @param {string} [type='micro'] Type of stats (`micro`/`macro`/`weighted` average)
+   * @todo Add options to use `micro`/`macro`/`weighted`
    * @protected
    */
-  getShortStats() {
-    return `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\nAccuracy: ${this.getMicroAccuracy() *
-      100}%\nPrecision: ${this.getMicroPrecision() *
-      100}%\nRecall: ${this.getMicroRecall() * 100}%\nF1: ${this.getMicroF1() *
-      100}%`
+  getShortStats(type = 'micro') {
+    const stats = `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\n`
+    let Ac = 0
+    let Pr = 0
+    let R = 0
+    let F1 = 0
+    switch (type) {
+      case 'macro':
+        Ac = this.getMacroAccuracy()
+        Pr = this.getMacroPrecision()
+        R = this.getMacroRecall()
+        F1 = this.getMacroF1()
+        break
+      case 'weighted':
+        Ac = this.getWeightedAccuracy()
+        Pr = this.getWeightedPrecision()
+        R = this.getWeightedRecall()
+        F1 = this.getWeightedF1()
+        break
+      default:
+        Ac = this.getMicroAccuracy()
+        Pr = this.getMicroPrecision()
+        R = this.getMicroRecall()
+        F1 = this.getMicroF1()
+    }
+
+    return `${stats}Accuracy: ${Ac * 100}%\nPrecision: ${Pr *
+      100}%\nRecall: ${R * 100}%\nF1: ${F1 * 100}%`
   }
 
   /**
@@ -639,6 +740,11 @@ class ConfusionMatrix {
    */
   getStats() {
     const total = this.getTotal()
+    const weightedAverage = () => {
+      const res = {}
+      for (const m of METRICS) res[camel(m)] = this[`getWeighted${m}`]()
+      return res
+    }
     return {
       total,
       correctPredictions: this.getTrue(),
@@ -646,6 +752,7 @@ class ConfusionMatrix {
       classes: this.classes,
       microAvg: mAvg(this, 'Mi'),
       macroAvg: mAvg(this, 'Ma'),
+      weightedAvg: weightedAverage(),
       results: getResults(this, total),
     }
   }
