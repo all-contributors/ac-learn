@@ -1,4 +1,4 @@
-const {writeFile, readFile} = require('fs')
+const {writeFile, readFile, writeFileSync} = require('fs')
 const serialize = require('serialization')
 const tvts = require('tvt-split')
 const {Spinner} = require('clui')
@@ -37,7 +37,7 @@ class Learner {
    * @example <caption>Using a custom dataset</caption>
    * const learner = new Learner({
    *  dataset: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
-   * })
+   *  })
    * @example <caption>Using a specified classifier function</caption>
    * const learner = new Learner({
    *  classifier: myClassifierBuilderFn //see {@link module:./classifier} for an example (or checkout `limdu`'s examples)
@@ -72,11 +72,11 @@ class Learner {
    */
   train(trainSet = this.trainSet) {
     //@todo Move this so it could be used for any potentially lengthy ops
-    spinner.message('Training...')
-    spinner.start()
+    // spinner.start()
+    // spinner.message('Training...')
     this.classifier.trainBatch(trainSet)
     // spinner.message('Training complete')
-    spinner.stop()
+    // spinner.stop()
   }
 
   /**
@@ -189,7 +189,7 @@ class Learner {
   /**
    * @param {number} [numOfFolds=5] Cross-validation folds
    * @param {number} [verboseLevel=0] Verbosity level on limdu's explainations
-   * @param {boolean} [log=false] Pre-training logging
+   * @param {boolean} [log=false] Cross-validation logging
    * @returns {{microAvg: Object, macroAvg: Object}} Averages
    * @memberof Learner
    * @public
@@ -232,7 +232,7 @@ class Learner {
         this.macroAvg,
       )
     })
-    spinner.message('Calculating stats...')
+    if (!log) spinner.message('Calculating stats...')
     this.macroAvg.calculateMacroAverageStats(numOfFolds)
     this.microAvg.calculateStats()
     const completeMsg = 'Cross-validation complete'
@@ -308,10 +308,14 @@ class Learner {
 
   /**
    * @memberof Learner
+   * @param {boolean} [log=false] Log events
+   * @param {string} [outputFile='categoryPartitions.json'] Filename for the output (to be used by chart.html)
    * @returns {Object<string, {overall: number, test: number, validation: number, train: number}>} Partitions
    * @public
    */
-  getCategoryPartition() {
+  getCategoryPartition(log = false, outputFile = 'categoryPartitions.json') {
+    const hasInput = (set, input) => set.find(o => o.input === input)
+
     spinner.message('Generating category partitions...')
     spinner.start()
     const res = {}
@@ -326,21 +330,30 @@ class Learner {
     this.dataset.forEach(data => {
       spinner.message(`Adding ${data.output} data`)
       ++res[data.output].overall
-      if (this.trainSet.includes(data)) ++res[data.output].train
-      if (this.validationSet.includes(data)) ++res[data.output].validation
-      if (this.testSet.includes(data)) ++res[data.output].test
+      if (hasInput(this.trainSet, data.input)) ++res[data.output].train
+      if (hasInput(this.validationSet, data.input))
+        ++res[data.output].validation
+      if (hasInput(this.testSet, data.input)) ++res[data.output].test
     })
-    // spinner.message('Category partitions complete')
+
+    const completeMsg = 'Category partitions complete'
+    //eslint-disable-next-line babel/no-unused-expressions
+    log ? succ(completeMsg) : spinner.message(completeMsg)
     spinner.stop()
+    if (outputFile.length) {
+      writeFileSync(outputFile, JSON.stringify(res, null, 2))
+      if (log) succ(`Saved the partitions to "${outputFile}"`)
+    }
     return res
   }
 
   /**
    * @memberof Learner
+   * @param {boolean} [log=false] Log events
    * @returns {Object} Statistics
    * @public
    */
-  getStats() {
+  getStats(log = false) {
     const {
       TP,
       TN,
@@ -368,7 +381,7 @@ class Learner {
       trainCount: this.trainSet.length,
       validationCount: this.validationSet.length,
       testCount: this.testSet.length,
-      categoryPartition: this.getCategoryPartition(),
+      categoryPartition: this.getCategoryPartition(log),
       //ROC, AUC
     }
   }
