@@ -699,14 +699,38 @@ class ConfusionMatrix {
 
   /**
    * @returns {string} Short statistics (total, true, false, accuracy, precision, recall and f1)
+   * @param {string} [type='micro'] Type of stats (`micro`/`macro`/`weighted` average)
    * @todo Add options to use `micro`/`macro`/`weighted`
    * @protected
    */
-  getShortStats() {
-    return `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\nAccuracy: ${this.getMicroAccuracy() *
-      100}%\nPrecision: ${this.getMicroPrecision() *
-      100}%\nRecall: ${this.getMicroRecall() * 100}%\nF1: ${this.getMicroF1() *
-      100}%`
+  getShortStats(type = 'micro') {
+    const stats = `Total: ${this.getTotal()}\nTrue: ${this.getTrue()}\nFalse: ${this.getFalse()}\n`
+    let Ac = 0
+    let Pr = 0
+    let R = 0
+    let F1 = 0
+    switch (type) {
+      case 'macro':
+        Ac = this.getMacroAccuracy()
+        Pr = this.getMacroPrecision()
+        R = this.getMacroRecall()
+        F1 = this.getMacroF1()
+        break
+      case 'weighted':
+        Ac = this.getWeightedAccuracy()
+        Pr = this.getWeightedPrecision()
+        R = this.getWeightedRecall()
+        F1 = this.getWeightedF1()
+        break
+      default:
+        Ac = this.getMicroAccuracy()
+        Pr = this.getMicroPrecision()
+        R = this.getMicroRecall()
+        F1 = this.getMicroF1()
+    }
+
+    return `${stats}Accuracy: ${Ac * 100}%\nPrecision: ${Pr *
+      100}%\nRecall: ${R * 100}%\nF1: ${F1 * 100}%`
   }
 
   /**

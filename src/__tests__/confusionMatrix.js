@@ -472,16 +472,42 @@ describe('toString', () => {
   })
 })
 
-test('shortStats', () => {
-  const cm = new CM(CATEGORIES, M0)
-  const ss = `Total: 20
+describe('shortStats', () => {
+  test('default', () => {
+    const cm = new CM(CATEGORIES, M0)
+    const ss = `Total: 20
 True: 15
 False: 5
 Accuracy: 75%
 Precision: 75%
 Recall: 75%
 F1: 75%`
-  expect(cm.getShortStats()).toStrictEqual(ss)
+    expect(cm.getShortStats()).toStrictEqual(ss)
+  })
+
+  test('macro', () => {
+    const cm = new CM(CATEGORIES, M0)
+    const ss = `Total: 20
+True: 15
+False: 5
+Accuracy: 83.33333333333334%
+Precision: 70.74074074074073%
+Recall: 74.24242424242425%
+F1: 71.11111111111111%`
+    expect(cm.getShortStats('macro')).toStrictEqual(ss)
+  })
+
+  test('weighted', () => {
+    const cm = new CM(CATEGORIES, M0)
+    const ss = `Total: 20
+True: 15
+False: 5
+Accuracy: 83%
+Precision: 79.88888888888889%
+Recall: 75%
+F1: 76.49999999999999%`
+    expect(cm.getShortStats('weighted')).toStrictEqual(ss)
+  })
 })
 
 describe('Long stats', () => {
