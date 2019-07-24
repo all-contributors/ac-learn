@@ -37,7 +37,7 @@ class Learner {
    * @example <caption>Using a custom dataset</caption>
    * const learner = new Learner({
    *  dataset: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
-   * })
+   *  })
    * @example <caption>Using a specified classifier function</caption>
    * const learner = new Learner({
    *  classifier: myClassifierBuilderFn //see {@link module:./classifier} for an example (or checkout `limdu`'s examples)
@@ -72,11 +72,11 @@ class Learner {
    */
   train(trainSet = this.trainSet) {
     //@todo Move this so it could be used for any potentially lengthy ops
-    spinner.message('Training...')
-    spinner.start()
+    // spinner.start()
+    // spinner.message('Training...')
     this.classifier.trainBatch(trainSet)
     // spinner.message('Training complete')
-    spinner.stop()
+    // spinner.stop()
   }
 
   /**
@@ -232,7 +232,7 @@ class Learner {
         this.macroAvg,
       )
     })
-    spinner.message('Calculating stats...')
+    if (!log) spinner.message('Calculating stats...')
     this.macroAvg.calculateMacroAverageStats(numOfFolds)
     this.microAvg.calculateStats()
     const completeMsg = 'Cross-validation complete'
