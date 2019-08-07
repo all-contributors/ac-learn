@@ -24,10 +24,6 @@
     "category": "null"
   },
   {
-    "label": "2.x",
-    "category": "null"
-  },
-  {
     "label": "3 - done",
     "category": "null"
   },
@@ -108,10 +104,6 @@
     "category": "code"
   },
   {
-    "label": "animals (category)",
-    "category": "null"
-  },
-  {
     "label": "answered",
     "category": "null"
   },
@@ -128,10 +120,6 @@
     "category": "bug"
   },
   {
-    "label": "arrows (category)",
-    "category": "null"
-  },
-  {
     "label": "art",
     "category": "design"
   },
@@ -142,14 +130,6 @@
   {
     "label": "assess",
     "category": "test"
-  },
-  {
-    "label": "automotive (category)",
-    "category": "null"
-  },
-  {
-    "label": "available in fa pro",
-    "category": "null"
   },
   {
     "label": "awaiting-review",
@@ -172,19 +152,11 @@
     "category": "null"
   },
   {
-    "label": "beverage (category)",
-    "category": "null"
-  },
-  {
     "label": "bitbucket cloud",
     "category": "infra"
   },
   {
     "label": "blocked",
-    "category": "null"
-  },
-  {
-    "label": "blocker",
     "category": "null"
   },
   {
@@ -217,11 +189,11 @@
   },
   {
     "label": "browser: ie",
-    "category": "null"
+    "category": "platform"
   },
   {
     "label": "browser: safari",
-    "category": "null"
+    "category": "platform"
   },
   {
     "label": "bug",
@@ -241,14 +213,10 @@
   },
   {
     "label": "c/c++",
-    "category": "null"
+    "category": "code"
   },
   {
     "label": "cannot reproduce",
-    "category": "null"
-  },
-  {
-    "label": "cantfix",
     "category": "null"
   },
   {
@@ -269,10 +237,6 @@
   },
   {
     "label": "cla signed",
-    "category": "null"
-  },
-  {
-    "label": "cla signed :heavy_check_mark:",
     "category": "null"
   },
   {
@@ -508,14 +472,6 @@
     "category": "null"
   },
   {
-    "label": "difficulty: unknown or n/a",
-    "category": "null"
-  },
-  {
-    "label": "difficulty: very hard",
-    "category": "null"
-  },
-  {
     "label": "discussion",
     "category": "ideas"
   },
@@ -565,18 +521,6 @@
   },
   {
     "label": "enterprise",
-    "category": "null"
-  },
-  {
-    "label": "enterprise-2.0-backport",
-    "category": "null"
-  },
-  {
-    "label": "enterprise-2.1-backport",
-    "category": "null"
-  },
-  {
-    "label": "enterprise-2.2-backport",
     "category": "null"
   },
   {
@@ -672,10 +616,6 @@
     "category": "null"
   },
   {
-    "label": "files (category)",
-    "category": "null"
-  },
-  {
     "label": "film",
     "category": "video"
   },
@@ -692,20 +632,8 @@
     "category": "null"
   },
   {
-    "label": "flags (category)",
-    "category": "null"
-  },
-  {
     "label": "flashsocket",
     "category": "tool"
-  },
-  {
-    "label": "fontawesome.com",
-    "category": "null"
-  },
-  {
-    "label": "food (category)",
-    "category": "null"
   },
   {
     "label": "freemasonry icons",
@@ -732,10 +660,6 @@
     "category": "security"
   },
   {
-    "label": "genders (category)",
-    "category": "null"
-  },
-  {
     "label": "general js",
     "category": "code"
   },
@@ -749,14 +673,10 @@
   },
   {
     "label": "go client internal release",
-    "category": "null"
+    "category": "infra"
   },
   {
     "label": "good first issue",
-    "category": "null"
-  },
-  {
-    "label": "good first issue :+1:",
     "category": "null"
   },
   {
@@ -816,19 +736,7 @@
     "category": "null"
   },
   {
-    "label": "help wanted :sos:",
-    "category": "null"
-  },
-  {
-    "label": "hi-pri",
-    "category": "null"
-  },
-  {
     "label": "high-priority",
-    "category": "null"
-  },
-  {
-    "label": "hodor",
     "category": "null"
   },
   {
@@ -861,7 +769,7 @@
   },
   {
     "label": "ie8",
-    "category": "null"
+    "category": "platform"
   },
   {
     "label": "import in progress",
@@ -912,20 +820,8 @@
     "category": "platform"
   },
   {
-    "label": "jquery differences",
-    "category": "null"
-  },
-  {
-    "label": "jsonp-polling",
-    "category": "null"
-  },
-  {
     "label": "kanban",
     "category": "projectManagement"
-  },
-  {
-    "label": "kbfs",
-    "category": "null"
   },
   {
     "label": "kotlin",
@@ -996,14 +892,6 @@
     "category": "null"
   },
   {
-    "label": "m1.s1",
-    "category": "null"
-  },
-  {
-    "label": "m1.s2",
-    "category": "null"
-  },
-  {
     "label": "macos",
     "category": "platform"
   },
@@ -1018,10 +906,6 @@
   {
     "label": "manual",
     "category": "doc"
-  },
-  {
-    "label": "mass purge 2015.10.26",
-    "category": "null"
   },
   {
     "label": "maven",
@@ -1185,18 +1069,6 @@
   },
   {
     "label": "p0",
-    "category": "null"
-  },
-  {
-    "label": "p1",
-    "category": "null"
-  },
-  {
-    "label": "p2",
-    "category": "null"
-  },
-  {
-    "label": "p3",
     "category": "null"
   },
   {
@@ -1492,10 +1364,6 @@
     "category": "null"
   },
   {
-    "label": "spammy",
-    "category": "null"
-  },
-  {
     "label": "spec: async functions",
     "category": "doc"
   },
@@ -1536,15 +1404,7 @@
     "category": "null"
   },
   {
-    "label": "status: accepted :heavy_check_mark:",
-    "category": "null"
-  },
-  {
     "label": "status: available",
-    "category": "null"
-  },
-  {
-    "label": "status: available :free:",
     "category": "null"
   },
   {
@@ -1580,19 +1440,11 @@
     "category": "null"
   },
   {
-    "label": "status: in review :detective:",
-    "category": "null"
-  },
-  {
     "label": "status: invalid",
     "category": "null"
   },
   {
     "label": "status: left out",
-    "category": "null"
-  },
-  {
-    "label": "status: left out :left_luggage:",
     "category": "null"
   },
   {
@@ -1609,10 +1461,6 @@
   },
   {
     "label": "status: review needed",
-    "category": "null"
-  },
-  {
-    "label": "status: review needed :passport_control:",
     "category": "null"
   },
   {
@@ -1732,10 +1580,6 @@
     "category": "null"
   },
   {
-    "label": "triage-done",
-    "category": "null"
-  },
-  {
     "label": "trivial",
     "category": "null"
   },
@@ -1832,10 +1676,6 @@
     "category": "security"
   },
   {
-    "label": "types",
-    "category": "null"
-  },
-  {
     "label": "ui",
     "category": "design"
   },
@@ -1929,10 +1769,6 @@
   },
   {
     "label": "wrong repo",
-    "category": "null"
-  },
-  {
-    "label": "xhr-polling",
     "category": "null"
   },
   {
