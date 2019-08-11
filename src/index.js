@@ -309,11 +309,11 @@ class Learner {
   /**
    * @memberof Learner
    * @param {boolean} [log=false] Log events
-   * @param {string} [outputFile='categoryPartitions.json'] Filename for the output (to be used by chart.html)
+   * @param {string} [outputFile=''] Filename for the output (to be used by chart.html)
    * @returns {Object<string, {overall: number, test: number, validation: number, train: number}>} Partitions
    * @public
    */
-  getCategoryPartition(log = false, outputFile = 'categoryPartitions.json') {
+  getCategoryPartition(log = false, outputFile = '') {
     const hasInput = (set, input) => set.find(o => o.input === input)
 
     spinner.message('Generating category partitions...')
@@ -350,10 +350,11 @@ class Learner {
   /**
    * @memberof Learner
    * @param {boolean} [log=false] Log events
+   * @param {string} [categoryPartitionOutput=''] Filename for the output of the category partitions.
    * @returns {Object} Statistics
    * @public
    */
-  getStats(log = false) {
+  getStats(log = false, categoryPartitionOutput = '') {
     const {
       TP,
       TN,
@@ -381,7 +382,10 @@ class Learner {
       trainCount: this.trainSet.length,
       validationCount: this.validationSet.length,
       testCount: this.testSet.length,
-      categoryPartition: this.getCategoryPartition(log),
+      categoryPartition: this.getCategoryPartition(
+        log,
+        categoryPartitionOutput,
+      ),
       //ROC, AUC
     }
   }
