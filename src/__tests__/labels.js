@@ -1,8 +1,8 @@
 import labels from '../labels'
 import categories from '../categories'
 
-const LEN = 440
-const nineth = {label: ':arrow_heading_down: pull', category: 'maintenance'}
+const LEN = 380
+const nineth = {label: ':rocket: enhancement', category: 'maintenance'}
 
 test('All data', () => {
   const data = labels.getAll()
@@ -48,7 +48,7 @@ test('Labels with categories', () => {
 test('Labels with a `null` category', () => {
   const nl = labels.getNullCatLabels()
   expect(nl.length < LEN - categories.length).toBeTruthy()
-  expect(nl[3]).toEqual({label: '3 - done', category: 'null'})
+  expect(nl[3]).toEqual({label: 'accepted', category: 'null'})
 })
 
 test('Labels with a valid category', () => {

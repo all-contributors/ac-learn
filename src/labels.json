@@ -20,18 +20,6 @@
     "category": "null"
   },
   {
-    "label": "2 - working",
-    "category": "null"
-  },
-  {
-    "label": "3 - done",
-    "category": "null"
-  },
-  {
-    "label": "6.x: backport",
-    "category": "null"
-  },
-  {
     "label": "7.x: regression",
     "category": "bug"
   },
@@ -77,7 +65,7 @@
   },
   {
     "label": "accessibility",
-    "category": "null"
+    "category": "design"
   },
   {
     "label": "adapter",
@@ -104,15 +92,7 @@
     "category": "code"
   },
   {
-    "label": "answered",
-    "category": "null"
-  },
-  {
     "label": "approved",
-    "category": "null"
-  },
-  {
-    "label": "area: concurrent",
     "category": "null"
   },
   {
@@ -240,14 +220,6 @@
     "category": "null"
   },
   {
-    "label": "cla: no",
-    "category": "null"
-  },
-  {
-    "label": "cla: yes",
-    "category": "null"
-  },
-  {
     "label": "cli",
     "category": "code"
   },
@@ -280,18 +252,6 @@
     "category": "null"
   },
   {
-    "label": "cmty:status:fixed",
-    "category": "null"
-  },
-  {
-    "label": "cmty:status:implemented",
-    "category": "null"
-  },
-  {
-    "label": "cmty:status:resolved",
-    "category": "null"
-  },
-  {
     "label": "community",
     "category": "null"
   },
@@ -302,10 +262,6 @@
   {
     "label": "component: component api",
     "category": "code"
-  },
-  {
-    "label": "component: concurrent mode",
-    "category": "null"
   },
   {
     "label": "component: core utilities",
@@ -336,10 +292,6 @@
     "category": "code"
   },
   {
-    "label": "component: reconciler",
-    "category": "null"
-  },
-  {
     "label": "component: scheduler",
     "category": "null"
   },
@@ -350,10 +302,6 @@
   {
     "label": "component: shallow renderer",
     "category": "code"
-  },
-  {
-    "label": "component: suspense",
-    "category": "null"
   },
   {
     "label": "component: test renderer",
@@ -452,10 +400,6 @@
     "category": "design"
   },
   {
-    "label": "difficulty: challenging",
-    "category": "null"
-  },
-  {
     "label": "difficulty: easy",
     "category": "null"
   },
@@ -465,10 +409,6 @@
   },
   {
     "label": "difficulty: medium",
-    "category": "null"
-  },
-  {
-    "label": "difficulty: starter",
     "category": "null"
   },
   {
@@ -518,10 +458,6 @@
   {
     "label": "enhancement",
     "category": "maintenance"
-  },
-  {
-    "label": "enterprise",
-    "category": "null"
   },
   {
     "label": "es6",
@@ -664,10 +600,6 @@
     "category": "code"
   },
   {
-    "label": "gh review: accepted",
-    "category": "null"
-  },
-  {
     "label": "go",
     "category": "code"
   },
@@ -716,27 +648,11 @@
     "category": "business"
   },
   {
-    "label": "has bounty",
-    "category": "null"
-  },
-  {
     "label": "has pr",
     "category": "null"
   },
   {
-    "label": "help",
-    "category": "null"
-  },
-  {
-    "label": "help / pr wanted",
-    "category": "null"
-  },
-  {
     "label": "help wanted",
-    "category": "null"
-  },
-  {
-    "label": "high-priority",
     "category": "null"
   },
   {
@@ -756,10 +672,6 @@
     "category": "code"
   },
   {
-    "label": "https",
-    "category": "null"
-  },
-  {
     "label": "icebox",
     "category": "platform"
   },
@@ -770,14 +682,6 @@
   {
     "label": "ie8",
     "category": "platform"
-  },
-  {
-    "label": "import in progress",
-    "category": "null"
-  },
-  {
-    "label": "import started",
-    "category": "null"
   },
   {
     "label": "improved error handling",
@@ -880,16 +784,8 @@
     "category": "platform"
   },
   {
-    "label": "lks",
-    "category": "null"
-  },
-  {
     "label": "logo",
     "category": "design"
-  },
-  {
-    "label": "m1.s0",
-    "category": "null"
   },
   {
     "label": "macos",
@@ -916,16 +812,8 @@
     "category": "eventOrganizing"
   },
   {
-    "label": "minor",
-    "category": "null"
-  },
-  {
     "label": "mobile device support",
     "category": "platform"
-  },
-  {
-    "label": "mode: proxy",
-    "category": "null"
   },
   {
     "label": "modules",
@@ -941,10 +829,6 @@
   },
   {
     "label": "must-triage",
-    "category": "null"
-  },
-  {
-    "label": "namespaces",
     "category": "null"
   },
   {
@@ -972,18 +856,6 @@
     "category": "null"
   },
   {
-    "label": "needs documentation",
-    "category": "null"
-  },
-  {
-    "label": "needs info",
-    "category": "null"
-  },
-  {
-    "label": "needs more info :man_shrugging:",
-    "category": "null"
-  },
-  {
     "label": "needs repro",
     "category": "null"
   },
@@ -993,10 +865,6 @@
   },
   {
     "label": "needs triage",
-    "category": "null"
-  },
-  {
-    "label": "needs-more-info",
     "category": "null"
   },
   {
@@ -1048,16 +916,12 @@
     "category": "null"
   },
   {
-    "label": "open",
-    "category": "null"
-  },
-  {
     "label": "operations",
     "category": "maintenance"
   },
   {
     "label": "opinions needed",
-    "category": "null"
+    "category": "ideas"
   },
   {
     "label": "optimisation",
@@ -1066,10 +930,6 @@
   {
     "label": "other language integration feature",
     "category": "ideas"
-  },
-  {
-    "label": "p0",
-    "category": "null"
   },
   {
     "label": "packaging",
@@ -1082,10 +942,6 @@
   {
     "label": "parser-specific",
     "category": "tool"
-  },
-  {
-    "label": "pending release",
-    "category": "null"
   },
   {
     "label": "performance",
@@ -1108,10 +964,6 @@
     "category": "null"
   },
   {
-    "label": "pr-existing",
-    "category": "null"
-  },
-  {
     "label": "pr: breaking change",
     "category": "code"
   },
@@ -1130,10 +982,6 @@
   {
     "label": "pr: dependency ⬆️",
     "category": "maintenance"
-  },
-  {
-    "label": "pr: deprecation",
-    "category": "null"
   },
   {
     "label": "pr: docs :memo:",
@@ -1216,10 +1064,6 @@
     "category": "projectManagement"
   },
   {
-    "label": "priority: critical",
-    "category": "null"
-  },
-  {
     "label": "priority: high",
     "category": "null"
   },
@@ -1229,10 +1073,6 @@
   },
   {
     "label": "priority: medium",
-    "category": "null"
-  },
-  {
-    "label": "production",
     "category": "null"
   },
   {
@@ -1268,10 +1108,6 @@
     "category": "doc"
   },
   {
-    "label": "ready",
-    "category": "null"
-  },
-  {
     "label": "recording",
     "category": "talk"
   },
@@ -1298,18 +1134,6 @@
   {
     "label": "requires upstream change",
     "category": "code"
-  },
-  {
-    "label": "resolution: duplicate",
-    "category": "null"
-  },
-  {
-    "label": "resolution: invalid",
-    "category": "null"
-  },
-  {
-    "label": "resolution: needs more information",
-    "category": "null"
   },
   {
     "label": "resolution: support redirect",
@@ -1408,15 +1232,7 @@
     "category": "null"
   },
   {
-    "label": "status: cla not signed",
-    "category": "null"
-  },
-  {
     "label": "status: code review request",
-    "category": "null"
-  },
-  {
-    "label": "status: duplicate",
     "category": "null"
   },
   {
@@ -1432,15 +1248,7 @@
     "category": "null"
   },
   {
-    "label": "status: in progress :construction_worker:",
-    "category": "null"
-  },
-  {
     "label": "status: in review",
-    "category": "null"
-  },
-  {
-    "label": "status: invalid",
     "category": "null"
   },
   {
@@ -1449,10 +1257,6 @@
   },
   {
     "label": "status: on hold",
-    "category": "null"
-  },
-  {
-    "label": "status: on hold :stop_sign:",
     "category": "null"
   },
   {
@@ -1465,10 +1269,6 @@
   },
   {
     "label": "status: waiting for feedback",
-    "category": "null"
-  },
-  {
-    "label": "status: wontfix",
     "category": "null"
   },
   {
@@ -1592,10 +1392,6 @@
     "category": "tutorial"
   },
   {
-    "label": "type: archive",
-    "category": "null"
-  },
-  {
     "label": "type: bug",
     "category": "bug"
   },
@@ -1644,10 +1440,6 @@
     "category": "maintenance"
   },
   {
-    "label": "type: non-library issue",
-    "category": "null"
-  },
-  {
     "label": "type: question",
     "category": "question"
   },
@@ -1668,20 +1460,12 @@
     "category": "maintenance"
   },
   {
-    "label": "type: support",
-    "category": "null"
-  },
-  {
     "label": "type: vulnerability :warning:",
     "category": "security"
   },
   {
     "label": "ui",
     "category": "design"
-  },
-  {
-    "label": "unable to reproduce",
-    "category": "null"
   },
   {
     "label": "unconfirmed",
@@ -1706,10 +1490,6 @@
   {
     "label": "ux",
     "category": "design"
-  },
-  {
-    "label": "v3",
-    "category": "null"
   },
   {
     "label": "video",
@@ -1757,10 +1537,6 @@
   },
   {
     "label": "wontfix",
-    "category": "null"
-  },
-  {
-    "label": "work in progress",
     "category": "null"
   },
   {
