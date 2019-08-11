@@ -49,10 +49,12 @@
     "javascript-lemmatizer": "0.0.2",
     "limdu": "^0.9.4",
     "nclr": "^2.2.2",
+    "node-fetch": "^2.6.0",
     "serialization": "^0.2.0",
     "tvt-split": "^1.0.2"
   },
   "devDependencies": {
+    "anychart": "8.3.0",
     "anychart-nodejs": "^1.3.8",
     "codecov": "^3.5.0",
     "cz-conventional-changelog": "^3.0.1",

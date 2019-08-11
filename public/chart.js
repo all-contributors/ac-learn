@@ -37,14 +37,13 @@ const loadData = async () => {
   try {
     const data = await Promise.all([
       fetch('../src/categories.json').then(res => res.json(), console.error),
-      // fetch('../src/labels.json').then(res => res.json(), console.error),
       fetch('../playground/categoryPartitions.json').then(
         res => res.json(),
         console.error,
       ),
     ])
 
-    return data //[categories, dataset, categoryPartitions]
+    return data //[categories, categoryPartitions]
   } catch (error) {
     console.log('Error downloading one or more files:', error)
   }

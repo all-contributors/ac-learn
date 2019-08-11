@@ -1923,6 +1923,11 @@ anychart-nodejs@^1.3.8:
     vm2 "^3.5.2"
     xmldom "^0.1.27"
 
+anychart@8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/anychart/-/anychart-8.3.0.tgz#9ced99b667f072aea3d4f3adf276e792c31c5e2d"
+  integrity sha512-rRovqq5jKxAIFOhBZAgQ0aSdIv7oJ5kbrtRTuEO5OCzTmu9U1NFH4sWOI7WhEqxy0ZIrEj9VSREYGMQ4gfRJaw==
+
 anychart@^8.0.0:
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/anychart/-/anychart-8.6.0.tgz#0123175953f60647fcf0c13268c1405c7624c315"
