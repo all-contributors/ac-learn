@@ -72,6 +72,10 @@
     "category": "plugin"
   },
   {
+    "label": "addon",
+    "category": "plugin"
+  },
+  {
     "label": "advance developer workflow",
     "category": "infra"
   },
@@ -122,6 +126,10 @@
   {
     "label": "badges",
     "category": "doc"
+  },
+  {
+    "label": "basecamp",
+    "category": "projectManagement"
   },
   {
     "label": "bdd",
@@ -312,6 +320,10 @@
     "category": "test"
   },
   {
+    "label": "conference",
+    "category": "eventOrganizing"
+  },
+  {
     "label": "configuration",
     "category": "code"
   },
@@ -334,6 +346,10 @@
   {
     "label": "core",
     "category": "maintenance"
+  },
+  {
+    "label": "crowdin",
+    "category": "translation"
   },
   {
     "label": "critical",
@@ -476,6 +492,10 @@
     "category": "example"
   },
   {
+    "label": "extension",
+    "category": "plugin"
+  },
+  {
     "label": "external",
     "category": "plugin"
   },
@@ -598,6 +618,10 @@
   {
     "label": "general js",
     "category": "code"
+  },
+  {
+    "label": "glo",
+    "category": "projectManagement"
   },
   {
     "label": "go",
@@ -772,6 +796,14 @@
     "category": "infra"
   },
   {
+    "label": "lecture",
+    "category": "tutorial"
+  },
+  {
+    "label": "lesson",
+    "category": "tutorial"
+  },
+  {
     "label": "library",
     "category": "tool"
   },
@@ -916,6 +948,10 @@
     "category": "null"
   },
   {
+    "label": "opencollective",
+    "category": "financial"
+  },
+  {
     "label": "operations",
     "category": "maintenance"
   },
@@ -936,12 +972,20 @@
     "category": "platform"
   },
   {
+    "label": "paper",
+    "category": "content"
+  },
+  {
     "label": "parser",
     "category": "tool"
   },
   {
     "label": "parser-specific",
     "category": "tool"
+  },
+  {
+    "label": "patreon",
+    "category": "financial"
   },
   {
     "label": "performance",
@@ -1092,6 +1136,10 @@
     "category": "test"
   },
   {
+    "label": "query",
+    "category": "question"
+  },
+  {
     "label": "question",
     "category": "question"
   },
@@ -1158,6 +1206,10 @@
   {
     "label": "ruby",
     "category": "code"
+  },
+  {
+    "label": "sample",
+    "category": "example"
   },
   {
     "label": "scrum",
@@ -1288,6 +1340,10 @@
     "category": "ideas"
   },
   {
+    "label": "talk",
+    "category": "talk"
+  },
+  {
     "label": "target:android",
     "category": "platform"
   },
@@ -1352,6 +1408,10 @@
     "category": "test"
   },
   {
+    "label": "thesis",
+    "category": "content"
+  },
+  {
     "label": "tips",
     "category": "ideas"
   },
@@ -1370,6 +1430,10 @@
   {
     "label": "translation",
     "category": "translation"
+  },
+  {
+    "label": "trello",
+    "category": "projectManagement"
   },
   {
     "label": "travis-yml",
