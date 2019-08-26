@@ -8,24 +8,21 @@ describe('a learner', () => {
     const learner = new Learner({dataset})
     const trainSplit = 0.7
     const validationSplit = 0.15
-    const testSplit =
-      Math.round((1 - trainSplit - validationSplit) * 1000) / 1000 // because 1 - .8 = .199..
+    // const testSplit =
+    //   Math.round((1 - trainSplit - validationSplit) * 1000) / 1000 // because 1 - .8 = .199..
     // console.log('splits=', trainSplit, validationSplit, testSplit);
     // console.log([trainSplit, validationSplit, testSplit].map(x => dataset.length * x));
     // console.log([trainSplit, validationSplit, testSplit].map(x => Math.round(dataset.length * x)));
     expect(learner.dataset).toEqual(dataset)
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
-    expect(learner.trainSet.length).toStrictEqual(
-      Math.round(dataset.length * trainSplit),
-    )
+    const trainLen = Math.round(dataset.length * trainSplit)
+    expect(learner.trainSet.length).toStrictEqual(trainLen)
     expect(Array.isArray(learner.validationSet)).toBeTruthy()
-    expect(learner.validationSet.length).toStrictEqual(
-      Math.round(dataset.length * validationSplit),
-    )
+    const validationLen = Math.round(dataset.length * validationSplit)
+    expect(learner.validationSet.length).toStrictEqual(validationLen)
     expect(Array.isArray(learner.testSet)).toBeTruthy()
-    expect(learner.testSet.length).toStrictEqual(
-      Math.round(dataset.length * testSplit),
-    )
+    const testLen = dataset.length - trainLen - validationLen
+    expect(learner.testSet.length).toStrictEqual(testLen)
     expect(learner.splits).toStrictEqual([trainSplit, validationSplit])
     expect(typeof learner.classifier).toStrictEqual('object')
     expect(typeof learner.classifierBuilder).toStrictEqual('function')

@@ -20,22 +20,6 @@
     "category": "null"
   },
   {
-    "label": "2 - working",
-    "category": "null"
-  },
-  {
-    "label": "2.x",
-    "category": "null"
-  },
-  {
-    "label": "3 - done",
-    "category": "null"
-  },
-  {
-    "label": "6.x: backport",
-    "category": "null"
-  },
-  {
     "label": "7.x: regression",
     "category": "bug"
   },
@@ -81,10 +65,14 @@
   },
   {
     "label": "accessibility",
-    "category": "null"
+    "category": "design"
   },
   {
     "label": "adapter",
+    "category": "plugin"
+  },
+  {
+    "label": "addon",
     "category": "plugin"
   },
   {
@@ -108,28 +96,12 @@
     "category": "code"
   },
   {
-    "label": "animals (category)",
-    "category": "null"
-  },
-  {
-    "label": "answered",
-    "category": "null"
-  },
-  {
     "label": "approved",
-    "category": "null"
-  },
-  {
-    "label": "area: concurrent",
     "category": "null"
   },
   {
     "label": "area: crash",
     "category": "bug"
-  },
-  {
-    "label": "arrows (category)",
-    "category": "null"
   },
   {
     "label": "art",
@@ -144,14 +116,6 @@
     "category": "test"
   },
   {
-    "label": "automotive (category)",
-    "category": "null"
-  },
-  {
-    "label": "available in fa pro",
-    "category": "null"
-  },
-  {
     "label": "awaiting-review",
     "category": "null"
   },
@@ -164,6 +128,10 @@
     "category": "doc"
   },
   {
+    "label": "basecamp",
+    "category": "projectManagement"
+  },
+  {
     "label": "bdd",
     "category": "test"
   },
@@ -172,19 +140,11 @@
     "category": "null"
   },
   {
-    "label": "beverage (category)",
-    "category": "null"
-  },
-  {
     "label": "bitbucket cloud",
     "category": "infra"
   },
   {
     "label": "blocked",
-    "category": "null"
-  },
-  {
-    "label": "blocker",
     "category": "null"
   },
   {
@@ -217,11 +177,11 @@
   },
   {
     "label": "browser: ie",
-    "category": "null"
+    "category": "platform"
   },
   {
     "label": "browser: safari",
-    "category": "null"
+    "category": "platform"
   },
   {
     "label": "bug",
@@ -241,14 +201,10 @@
   },
   {
     "label": "c/c++",
-    "category": "null"
+    "category": "code"
   },
   {
     "label": "cannot reproduce",
-    "category": "null"
-  },
-  {
-    "label": "cantfix",
     "category": "null"
   },
   {
@@ -269,18 +225,6 @@
   },
   {
     "label": "cla signed",
-    "category": "null"
-  },
-  {
-    "label": "cla signed :heavy_check_mark:",
-    "category": "null"
-  },
-  {
-    "label": "cla: no",
-    "category": "null"
-  },
-  {
-    "label": "cla: yes",
     "category": "null"
   },
   {
@@ -316,18 +260,6 @@
     "category": "null"
   },
   {
-    "label": "cmty:status:fixed",
-    "category": "null"
-  },
-  {
-    "label": "cmty:status:implemented",
-    "category": "null"
-  },
-  {
-    "label": "cmty:status:resolved",
-    "category": "null"
-  },
-  {
     "label": "community",
     "category": "null"
   },
@@ -338,10 +270,6 @@
   {
     "label": "component: component api",
     "category": "code"
-  },
-  {
-    "label": "component: concurrent mode",
-    "category": "null"
   },
   {
     "label": "component: core utilities",
@@ -372,10 +300,6 @@
     "category": "code"
   },
   {
-    "label": "component: reconciler",
-    "category": "null"
-  },
-  {
     "label": "component: scheduler",
     "category": "null"
   },
@@ -388,16 +312,16 @@
     "category": "code"
   },
   {
-    "label": "component: suspense",
-    "category": "null"
-  },
-  {
     "label": "component: test renderer",
     "category": "test"
   },
   {
     "label": "component: test utils",
     "category": "test"
+  },
+  {
+    "label": "conference",
+    "category": "eventOrganizing"
   },
   {
     "label": "configuration",
@@ -422,6 +346,10 @@
   {
     "label": "core",
     "category": "maintenance"
+  },
+  {
+    "label": "crowdin",
+    "category": "translation"
   },
   {
     "label": "critical",
@@ -488,10 +416,6 @@
     "category": "design"
   },
   {
-    "label": "difficulty: challenging",
-    "category": "null"
-  },
-  {
     "label": "difficulty: easy",
     "category": "null"
   },
@@ -501,18 +425,6 @@
   },
   {
     "label": "difficulty: medium",
-    "category": "null"
-  },
-  {
-    "label": "difficulty: starter",
-    "category": "null"
-  },
-  {
-    "label": "difficulty: unknown or n/a",
-    "category": "null"
-  },
-  {
-    "label": "difficulty: very hard",
     "category": "null"
   },
   {
@@ -564,22 +476,6 @@
     "category": "maintenance"
   },
   {
-    "label": "enterprise",
-    "category": "null"
-  },
-  {
-    "label": "enterprise-2.0-backport",
-    "category": "null"
-  },
-  {
-    "label": "enterprise-2.1-backport",
-    "category": "null"
-  },
-  {
-    "label": "enterprise-2.2-backport",
-    "category": "null"
-  },
-  {
     "label": "es6",
     "category": "code"
   },
@@ -594,6 +490,10 @@
   {
     "label": "example",
     "category": "example"
+  },
+  {
+    "label": "extension",
+    "category": "plugin"
   },
   {
     "label": "external",
@@ -672,10 +572,6 @@
     "category": "null"
   },
   {
-    "label": "files (category)",
-    "category": "null"
-  },
-  {
     "label": "film",
     "category": "video"
   },
@@ -692,20 +588,8 @@
     "category": "null"
   },
   {
-    "label": "flags (category)",
-    "category": "null"
-  },
-  {
     "label": "flashsocket",
     "category": "tool"
-  },
-  {
-    "label": "fontawesome.com",
-    "category": "null"
-  },
-  {
-    "label": "food (category)",
-    "category": "null"
   },
   {
     "label": "freemasonry icons",
@@ -732,16 +616,12 @@
     "category": "security"
   },
   {
-    "label": "genders (category)",
-    "category": "null"
-  },
-  {
     "label": "general js",
     "category": "code"
   },
   {
-    "label": "gh review: accepted",
-    "category": "null"
+    "label": "glo",
+    "category": "projectManagement"
   },
   {
     "label": "go",
@@ -749,14 +629,10 @@
   },
   {
     "label": "go client internal release",
-    "category": "null"
+    "category": "infra"
   },
   {
     "label": "good first issue",
-    "category": "null"
-  },
-  {
-    "label": "good first issue :+1:",
     "category": "null"
   },
   {
@@ -796,39 +672,11 @@
     "category": "business"
   },
   {
-    "label": "has bounty",
-    "category": "null"
-  },
-  {
     "label": "has pr",
     "category": "null"
   },
   {
-    "label": "help",
-    "category": "null"
-  },
-  {
-    "label": "help / pr wanted",
-    "category": "null"
-  },
-  {
     "label": "help wanted",
-    "category": "null"
-  },
-  {
-    "label": "help wanted :sos:",
-    "category": "null"
-  },
-  {
-    "label": "hi-pri",
-    "category": "null"
-  },
-  {
-    "label": "high-priority",
-    "category": "null"
-  },
-  {
-    "label": "hodor",
     "category": "null"
   },
   {
@@ -848,10 +696,6 @@
     "category": "code"
   },
   {
-    "label": "https",
-    "category": "null"
-  },
-  {
     "label": "icebox",
     "category": "platform"
   },
@@ -861,15 +705,7 @@
   },
   {
     "label": "ie8",
-    "category": "null"
-  },
-  {
-    "label": "import in progress",
-    "category": "null"
-  },
-  {
-    "label": "import started",
-    "category": "null"
+    "category": "platform"
   },
   {
     "label": "improved error handling",
@@ -912,20 +748,8 @@
     "category": "platform"
   },
   {
-    "label": "jquery differences",
-    "category": "null"
-  },
-  {
-    "label": "jsonp-polling",
-    "category": "null"
-  },
-  {
     "label": "kanban",
     "category": "projectManagement"
-  },
-  {
-    "label": "kbfs",
-    "category": "null"
   },
   {
     "label": "kotlin",
@@ -972,6 +796,14 @@
     "category": "infra"
   },
   {
+    "label": "lecture",
+    "category": "tutorial"
+  },
+  {
+    "label": "lesson",
+    "category": "tutorial"
+  },
+  {
     "label": "library",
     "category": "tool"
   },
@@ -984,24 +816,8 @@
     "category": "platform"
   },
   {
-    "label": "lks",
-    "category": "null"
-  },
-  {
     "label": "logo",
     "category": "design"
-  },
-  {
-    "label": "m1.s0",
-    "category": "null"
-  },
-  {
-    "label": "m1.s1",
-    "category": "null"
-  },
-  {
-    "label": "m1.s2",
-    "category": "null"
   },
   {
     "label": "macos",
@@ -1020,10 +836,6 @@
     "category": "doc"
   },
   {
-    "label": "mass purge 2015.10.26",
-    "category": "null"
-  },
-  {
     "label": "maven",
     "category": "infra"
   },
@@ -1032,16 +844,8 @@
     "category": "eventOrganizing"
   },
   {
-    "label": "minor",
-    "category": "null"
-  },
-  {
     "label": "mobile device support",
     "category": "platform"
-  },
-  {
-    "label": "mode: proxy",
-    "category": "null"
   },
   {
     "label": "modules",
@@ -1057,10 +861,6 @@
   },
   {
     "label": "must-triage",
-    "category": "null"
-  },
-  {
-    "label": "namespaces",
     "category": "null"
   },
   {
@@ -1088,18 +888,6 @@
     "category": "null"
   },
   {
-    "label": "needs documentation",
-    "category": "null"
-  },
-  {
-    "label": "needs info",
-    "category": "null"
-  },
-  {
-    "label": "needs more info :man_shrugging:",
-    "category": "null"
-  },
-  {
     "label": "needs repro",
     "category": "null"
   },
@@ -1109,10 +897,6 @@
   },
   {
     "label": "needs triage",
-    "category": "null"
-  },
-  {
-    "label": "needs-more-info",
     "category": "null"
   },
   {
@@ -1164,8 +948,8 @@
     "category": "null"
   },
   {
-    "label": "open",
-    "category": "null"
+    "label": "opencollective",
+    "category": "financial"
   },
   {
     "label": "operations",
@@ -1173,7 +957,7 @@
   },
   {
     "label": "opinions needed",
-    "category": "null"
+    "category": "ideas"
   },
   {
     "label": "optimisation",
@@ -1184,24 +968,12 @@
     "category": "ideas"
   },
   {
-    "label": "p0",
-    "category": "null"
-  },
-  {
-    "label": "p1",
-    "category": "null"
-  },
-  {
-    "label": "p2",
-    "category": "null"
-  },
-  {
-    "label": "p3",
-    "category": "null"
-  },
-  {
     "label": "packaging",
     "category": "platform"
+  },
+  {
+    "label": "paper",
+    "category": "content"
   },
   {
     "label": "parser",
@@ -1212,8 +984,8 @@
     "category": "tool"
   },
   {
-    "label": "pending release",
-    "category": "null"
+    "label": "patreon",
+    "category": "financial"
   },
   {
     "label": "performance",
@@ -1236,10 +1008,6 @@
     "category": "null"
   },
   {
-    "label": "pr-existing",
-    "category": "null"
-  },
-  {
     "label": "pr: breaking change",
     "category": "code"
   },
@@ -1258,10 +1026,6 @@
   {
     "label": "pr: dependency ⬆️",
     "category": "maintenance"
-  },
-  {
-    "label": "pr: deprecation",
-    "category": "null"
   },
   {
     "label": "pr: docs :memo:",
@@ -1344,10 +1108,6 @@
     "category": "projectManagement"
   },
   {
-    "label": "priority: critical",
-    "category": "null"
-  },
-  {
     "label": "priority: high",
     "category": "null"
   },
@@ -1357,10 +1117,6 @@
   },
   {
     "label": "priority: medium",
-    "category": "null"
-  },
-  {
-    "label": "production",
     "category": "null"
   },
   {
@@ -1380,6 +1136,10 @@
     "category": "test"
   },
   {
+    "label": "query",
+    "category": "question"
+  },
+  {
     "label": "question",
     "category": "question"
   },
@@ -1394,10 +1154,6 @@
   {
     "label": "readme",
     "category": "doc"
-  },
-  {
-    "label": "ready",
-    "category": "null"
   },
   {
     "label": "recording",
@@ -1428,18 +1184,6 @@
     "category": "code"
   },
   {
-    "label": "resolution: duplicate",
-    "category": "null"
-  },
-  {
-    "label": "resolution: invalid",
-    "category": "null"
-  },
-  {
-    "label": "resolution: needs more information",
-    "category": "null"
-  },
-  {
     "label": "resolution: support redirect",
     "category": "null"
   },
@@ -1462,6 +1206,10 @@
   {
     "label": "ruby",
     "category": "code"
+  },
+  {
+    "label": "sample",
+    "category": "example"
   },
   {
     "label": "scrum",
@@ -1489,10 +1237,6 @@
   },
   {
     "label": "spam",
-    "category": "null"
-  },
-  {
-    "label": "spammy",
     "category": "null"
   },
   {
@@ -1536,27 +1280,11 @@
     "category": "null"
   },
   {
-    "label": "status: accepted :heavy_check_mark:",
-    "category": "null"
-  },
-  {
     "label": "status: available",
     "category": "null"
   },
   {
-    "label": "status: available :free:",
-    "category": "null"
-  },
-  {
-    "label": "status: cla not signed",
-    "category": "null"
-  },
-  {
     "label": "status: code review request",
-    "category": "null"
-  },
-  {
-    "label": "status: duplicate",
     "category": "null"
   },
   {
@@ -1572,19 +1300,7 @@
     "category": "null"
   },
   {
-    "label": "status: in progress :construction_worker:",
-    "category": "null"
-  },
-  {
     "label": "status: in review",
-    "category": "null"
-  },
-  {
-    "label": "status: in review :detective:",
-    "category": "null"
-  },
-  {
-    "label": "status: invalid",
     "category": "null"
   },
   {
@@ -1592,15 +1308,7 @@
     "category": "null"
   },
   {
-    "label": "status: left out :left_luggage:",
-    "category": "null"
-  },
-  {
     "label": "status: on hold",
-    "category": "null"
-  },
-  {
-    "label": "status: on hold :stop_sign:",
     "category": "null"
   },
   {
@@ -1612,15 +1320,7 @@
     "category": "null"
   },
   {
-    "label": "status: review needed :passport_control:",
-    "category": "null"
-  },
-  {
     "label": "status: waiting for feedback",
-    "category": "null"
-  },
-  {
-    "label": "status: wontfix",
     "category": "null"
   },
   {
@@ -1638,6 +1338,10 @@
   {
     "label": "syntax feature request",
     "category": "ideas"
+  },
+  {
+    "label": "talk",
+    "category": "talk"
   },
   {
     "label": "target:android",
@@ -1704,6 +1408,10 @@
     "category": "test"
   },
   {
+    "label": "thesis",
+    "category": "content"
+  },
+  {
     "label": "tips",
     "category": "ideas"
   },
@@ -1724,15 +1432,15 @@
     "category": "translation"
   },
   {
+    "label": "trello",
+    "category": "projectManagement"
+  },
+  {
     "label": "travis-yml",
     "category": "infra"
   },
   {
     "label": "triage",
-    "category": "null"
-  },
-  {
-    "label": "triage-done",
     "category": "null"
   },
   {
@@ -1746,10 +1454,6 @@
   {
     "label": "tutorial",
     "category": "tutorial"
-  },
-  {
-    "label": "type: archive",
-    "category": "null"
   },
   {
     "label": "type: bug",
@@ -1800,10 +1504,6 @@
     "category": "maintenance"
   },
   {
-    "label": "type: non-library issue",
-    "category": "null"
-  },
-  {
     "label": "type: question",
     "category": "question"
   },
@@ -1824,24 +1524,12 @@
     "category": "maintenance"
   },
   {
-    "label": "type: support",
-    "category": "null"
-  },
-  {
     "label": "type: vulnerability :warning:",
     "category": "security"
   },
   {
-    "label": "types",
-    "category": "null"
-  },
-  {
     "label": "ui",
     "category": "design"
-  },
-  {
-    "label": "unable to reproduce",
-    "category": "null"
   },
   {
     "label": "unconfirmed",
@@ -1866,10 +1554,6 @@
   {
     "label": "ux",
     "category": "design"
-  },
-  {
-    "label": "v3",
-    "category": "null"
   },
   {
     "label": "video",
@@ -1920,19 +1604,11 @@
     "category": "null"
   },
   {
-    "label": "work in progress",
-    "category": "null"
-  },
-  {
     "label": "writer-needed",
     "category": "null"
   },
   {
     "label": "wrong repo",
-    "category": "null"
-  },
-  {
-    "label": "xhr-polling",
     "category": "null"
   },
   {
