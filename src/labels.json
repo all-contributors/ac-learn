@@ -64,8 +64,12 @@
     "category": "null"
   },
   {
+    "label": "a11y",
+    "category": "a11y"
+  },
+  {
     "label": "accessibility",
-    "category": "design"
+    "category": "a11y"
   },
   {
     "label": "adapter",
@@ -114,6 +118,10 @@
   {
     "label": "assess",
     "category": "test"
+  },
+  {
+    "label": "audio",
+    "category": "audio"
   },
   {
     "label": "awaiting-review",
@@ -374,6 +382,18 @@
   {
     "label": "data protection",
     "category": "security"
+  },
+  {
+    "label": "data",
+    "category": "data"
+  },
+  {
+    "label": "data-entry",
+    "category": "data"
+  },
+  {
+    "label": "data-collection",
+    "category": "data"
   },
   {
     "label": "debug information",
@@ -644,6 +664,10 @@
     "category": "fundingFinding"
   },
   {
+    "label": "graphics",
+    "category": "design"
+  },
+  {
     "label": "great insight",
     "category": "ideas"
   },
@@ -657,6 +681,10 @@
   },
   {
     "label": "hack",
+    "category": "code"
+  },
+  {
+    "label": "hackathon",
     "category": "code"
   },
   {
@@ -750,6 +778,10 @@
   {
     "label": "ios",
     "category": "platform"
+  },
+  {
+    "label": "javascript",
+    "category": "code"
   },
   {
     "label": "kanban",
@@ -862,6 +894,10 @@
   {
     "label": "multi module",
     "category": "maintenance"
+  },
+  {
+    "label": "music",
+    "category": "audio"
   },
   {
     "label": "must-triage",
@@ -1001,7 +1037,7 @@
   },
   {
     "label": "planned feature",
-    "category": "null"
+    "category": "ideas"
   },
   {
     "label": "planned for next release",
@@ -1172,6 +1208,10 @@
     "category": "code"
   },
   {
+    "label": "refactoring",
+    "category": "code"
+  },
+  {
     "label": "regression",
     "category": "bug"
   },
@@ -1242,6 +1282,10 @@
   {
     "label": "socket.io client",
     "category": "tool"
+  },
+  {
+    "label": "sound",
+    "category": "audio"
   },
   {
     "label": "spam",
@@ -1394,6 +1438,10 @@
   {
     "label": "tdd",
     "category": "test"
+  },
+  {
+    "label": "teaching",
+    "category": "tutorial"
   },
   {
     "label": "technical debt",
