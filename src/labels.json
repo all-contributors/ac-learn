@@ -64,8 +64,12 @@
     "category": "null"
   },
   {
+    "label": "a11y",
+    "category": "a11y"
+  },
+  {
     "label": "accessibility",
-    "category": "design"
+    "category": "a11y"
   },
   {
     "label": "adapter",
@@ -660,6 +664,10 @@
     "category": "code"
   },
   {
+    "label": "hackathon",
+    "category": "code"
+  },
+  {
     "label": "hacked",
     "category": "security"
   },
@@ -750,6 +758,10 @@
   {
     "label": "ios",
     "category": "platform"
+  },
+  {
+    "label": "javascript",
+    "category": "code"
   },
   {
     "label": "kanban",
@@ -1394,6 +1406,10 @@
   {
     "label": "tdd",
     "category": "test"
+  },
+  {
+    "label": "teaching",
+    "category": "tutorial"
   },
   {
     "label": "technical debt",
