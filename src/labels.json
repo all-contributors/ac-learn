@@ -120,6 +120,10 @@
     "category": "test"
   },
   {
+    "label": "audio",
+    "category": "audio"
+  },
+  {
     "label": "awaiting-review",
     "category": "null"
   },
@@ -378,6 +382,18 @@
   {
     "label": "data protection",
     "category": "security"
+  },
+  {
+    "label": "data",
+    "category": "data"
+  },
+  {
+    "label": "data-entry",
+    "category": "data"
+  },
+  {
+    "label": "data-collection",
+    "category": "data"
   },
   {
     "label": "debug information",
@@ -648,6 +664,10 @@
     "category": "fundingFinding"
   },
   {
+    "label": "graphics",
+    "category": "design"
+  },
+  {
     "label": "great insight",
     "category": "ideas"
   },
@@ -876,6 +896,10 @@
     "category": "maintenance"
   },
   {
+    "label": "music",
+    "category": "audio"
+  },
+  {
     "label": "must-triage",
     "category": "null"
   },
@@ -1013,7 +1037,7 @@
   },
   {
     "label": "planned feature",
-    "category": "null"
+    "category": "ideas"
   },
   {
     "label": "planned for next release",
@@ -1184,6 +1208,10 @@
     "category": "code"
   },
   {
+    "label": "refactoring",
+    "category": "code"
+  },
+  {
     "label": "regression",
     "category": "bug"
   },
@@ -1254,6 +1282,10 @@
   {
     "label": "socket.io client",
     "category": "tool"
+  },
+  {
+    "label": "sound",
+    "category": "audio"
   },
   {
     "label": "spam",
