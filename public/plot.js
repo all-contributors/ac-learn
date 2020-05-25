@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 /* global Plotly */
-import {loadData, orderEntriesByValues, perc, chunk} from './utils.js'
+import {loadData, orderEntriesByValues, perc, chunk, groupBy} from './utils.js'
 
 const labelDistributionPlot = data => {
-  const orderedData = orderEntriesByValues(data, [
-    'overall',
-    'train',
-    'test',
-    'validation',
+  const groups = groupBy(data, 'category')
+  const orderedData = Object.entries(groups).map(entry => [
+    entry[0],
+    entry[1].length,
   ])
-  const xVals = orderedData.map(entry => entry[1].overall)
+  orderedData.sort((a, b) => a[1] - b[1])
+  const xVals = orderedData.map(entry => entry[1])
   const categoryDistPlot = {
     y: orderedData.map(entry => entry[0]),
     x: xVals,
@@ -37,7 +37,7 @@ const labelDistributionPlot = data => {
       type: 'log',
       automargin: true,
       tick0: 0,
-      dtick: Math.log10(1), //log10(e**1), 0.30102999566
+      dtick: Math.log10(1), //log10(2)
     },
   }
 
@@ -104,7 +104,6 @@ const facettedPartitionPlot = data => {
     ['overall', 'train', 'test', 'validation'],
     ['desc', 'desc', 'desc', 'desc'],
   )
-  console.log('orderd', orderedData)
   const chunks = chunk(orderedData, 9)
   const parentPlot = document.getElementById('plot2')
 
@@ -261,10 +260,10 @@ const testedCategories = data => {
 }
 
 const build = async () => {
-  const [data] = await loadData()
+  const [data, categoryPartitions] = await loadData()
   console.log(data)
-  const entries = Object.entries(data)
-  labelDistributionPlot(entries)
+  const entries = Object.entries(categoryPartitions)
+  labelDistributionPlot(data)
   tvtPartitionsPlot(entries)
   facettedPartitionPlot(entries)
   trainedCategories(entries)

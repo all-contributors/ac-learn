@@ -3,7 +3,7 @@ const loadData = async () => {
   try {
     const data = await Promise.all([
       // fetch('../src/categories.json').then(res => res.json(), console.error),
-      // fetch('../src/labels.json').then(res => res.json(), console.error),
+      fetch('../src/labels.json').then(res => res.json(), console.error),
       fetch('../playground/categoryPartitions.json').then(
         res => res.json(),
         console.error,
@@ -53,4 +53,12 @@ const chunk = (arr, size) =>
     arr.slice(i * size, i * size + size),
   )
 
-export {loadData, orderBy, orderEntriesByValues, perc, chunk}
+const groupBy = (arr, fn) =>
+  arr
+    .map(typeof fn === 'function' ? fn : val => val[fn])
+    .reduce((acc, val, i) => {
+      acc[val] = (acc[val] || []).concat(arr[i])
+      return acc
+    }, {})
+
+export {loadData, orderBy, orderEntriesByValues, perc, chunk, groupBy}
