@@ -61,6 +61,7 @@
     "git-cz": "^3.2.1",
     "jsdom": "^15.1.1",
     "kcd-scripts": "^1.5.2",
+    "plotly.js-dist": "^1.54.1",
     "semantic-release": "^15.13.18",
     "snyk": "^1.195.1"
   },
