@@ -47,4 +47,10 @@ const orderEntriesByValues = (arr, props, orders) =>
 
 const perc = num => `${Math.round(num * 10000) / 100}%`
 
-export {loadData, orderBy, orderEntriesByValues, perc}
+//Source: https://www.30secondsofcode.org/js/s/chunk/
+const chunk = (arr, size) =>
+  Array.from({length: Math.ceil(arr.length / size)}, (v, i) =>
+    arr.slice(i * size, i * size + size),
+  )
+
+export {loadData, orderBy, orderEntriesByValues, perc, chunk}

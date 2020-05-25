@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
 /* global Plotly */
-import {loadData, orderEntriesByValues, perc} from './utils.js'
+import {loadData, orderEntriesByValues, perc, chunk} from './utils.js'
 
 const labelDistributionPlot = data => {
-  const orderedData = orderEntriesByValues(
-    data,
-    ['overall', 'train', 'test', 'validation'],
-    ['asc', 'asc', 'asc', 'asc'],
-  )
-  // console.log('ordered:', orderedData)
+  const orderedData = orderEntriesByValues(data, [
+    'overall',
+    'train',
+    'test',
+    'validation',
+  ])
   const xVals = orderedData.map(entry => entry[1].overall)
   const categoryDistPlot = {
     y: orderedData.map(entry => entry[0]),
@@ -18,19 +18,11 @@ const labelDistributionPlot = data => {
     text: xVals.map(String),
     textposition: 'outside',
     hoverinfo: 'none',
-    // marker: {
-    //   color: 'rgb(158,202,225)',
-    //   opacity: 0.6,
-    //   line: {
-    //     color: 'rgb(8,48,107)',
-    //     width: 1.5
-    //   }
-    // }
   }
 
   const vizData = [categoryDistPlot]
   const layout = {
-    title: 'Label Distribution',
+    title: 'Label distribution',
     autosize: true,
     font: {
       size: 18,
@@ -62,7 +54,6 @@ const tvtPartitionsPlot = data => {
       }
       return acc
     }, {})
-  console.log('tvt=', tvtSplits)
 
   const xVals = Object.keys(tvtSplits).slice(1)
   const yVals = Object.values(tvtSplits).slice(1)
@@ -88,12 +79,6 @@ const tvtPartitionsPlot = data => {
     },
   }
 
-  // const pie = {
-  //   labels: Object.keys(tvtSplits),
-  //   values: Object.values(tvtSplits),
-  //   type: 'pie',
-  // }
-
   const vizData = [partitionsPlot]
   const layout = {
     title: 'Dataset partitions',
@@ -101,22 +86,178 @@ const tvtPartitionsPlot = data => {
     font: {
       size: 18,
     },
-    // height: 1000,
     yaxis: {
       title: 'Count',
       automargin: true,
     },
     xaxis: {
       title: 'Partitions',
-      //   type: 'log',
-      //   automargin: true,
-      //   tick0: 0,
-      //   dtick: Math.log10(1), //log10(e**1), 0.30102999566
     },
   }
 
   Plotly.newPlot('plot1', vizData, layout, {scrollZoom: true})
-  // Plotly.newPlot('plot', [pie], layout);
+}
+
+const facettedPartitionPlot = data => {
+  const orderedData = orderEntriesByValues(
+    data,
+    ['overall', 'train', 'test', 'validation'],
+    ['desc', 'desc', 'desc', 'desc'],
+  )
+  console.log('orderd', orderedData)
+  const chunks = chunk(orderedData, 9)
+  const parentPlot = document.getElementById('plot2')
+
+  chunks.forEach((chk, section) => {
+    const vizData = chk.map(([name, categories], idx) => {
+      return {
+        x: Object.keys(categories).slice(1),
+        y: Object.values(categories).slice(1),
+        type: 'bar', //'scatter'??
+        name,
+        xaxis: `x${idx + 1}`,
+        yaxis: `y${idx + 1}`,
+      }
+    })
+
+    const size = Math.round(Math.sqrt(chk.length))
+    const layout = {
+      title: `Dataset partitions by category ${section + 1}/${chunks.length}`,
+      autosize: true,
+      yaxis: {
+        title: 'Count',
+      },
+      grid: {
+        rows: size,
+        columns: size,
+        pattern: 'independent',
+      },
+    }
+
+    parentPlot.innerHTML += `<div id="plot2_${section}"></div>`
+    Plotly.newPlot(`plot2_${section}`, vizData, layout, {scrollZoom: true})
+  })
+}
+
+const trainedCategories = data => {
+  const orderedData = orderEntriesByValues(data, [
+    'train',
+    'overall',
+    'validation',
+  ])
+  const xVals = orderedData.map(entry => entry[1].train)
+  const categoryDistPlot = {
+    y: orderedData.map(entry => entry[0]),
+    x: xVals,
+    type: 'bar',
+    orientation: 'h',
+    text: xVals.map(String),
+    textposition: 'outside',
+    hoverinfo: 'none',
+  }
+
+  const vizData = [categoryDistPlot]
+  const layout = {
+    title: 'Training set label distribution',
+    autosize: true,
+    font: {
+      size: 18,
+    },
+    height: 1000,
+    yaxis: {
+      title: 'Training categories',
+      automargin: true,
+    },
+    xaxis: {
+      title: '# of training observations',
+      // type: 'log',
+      automargin: true,
+      // tick0: 0,
+      // dtick: Math.log10(1), //log10(e**1), 0.30102999566
+    },
+  }
+
+  Plotly.newPlot('plot3', vizData, layout, {scrollZoom: true})
+}
+
+const validatedCategories = data => {
+  const orderedData = orderEntriesByValues(data, [
+    'validation',
+    'overall',
+    'train',
+    'test',
+  ])
+  const xVals = orderedData.map(entry => entry[1].validation)
+  const categoryDistPlot = {
+    y: orderedData.map(entry => entry[0]),
+    x: xVals,
+    type: 'bar',
+    orientation: 'h',
+    text: xVals.map(String),
+    textposition: 'outside',
+    hoverinfo: 'none',
+  }
+
+  const vizData = [categoryDistPlot]
+  const layout = {
+    title: 'Validation set label distribution',
+    autosize: true,
+    font: {
+      size: 18,
+    },
+    height: 1000,
+    yaxis: {
+      title: 'Validation categories',
+      automargin: true,
+    },
+    xaxis: {
+      title: '# of validation observations',
+      // type: 'log',
+      automargin: true,
+    },
+  }
+
+  Plotly.newPlot('plot4', vizData, layout, {scrollZoom: true})
+}
+
+const testedCategories = data => {
+  const orderedData = orderEntriesByValues(data, [
+    'test',
+    'overall',
+    'validation',
+    'train',
+  ])
+  const xVals = orderedData.map(entry => entry[1].test)
+  const categoryDistPlot = {
+    y: orderedData.map(entry => entry[0]),
+    x: xVals,
+    type: 'bar',
+    orientation: 'h',
+    text: xVals.map(String),
+    textposition: 'outside',
+    hoverinfo: 'none',
+  }
+
+  const vizData = [categoryDistPlot]
+  const layout = {
+    title: 'Test set label distribution',
+    autosize: true,
+    font: {
+      size: 18,
+    },
+    height: 1000,
+    yaxis: {
+      title: 'Test categories',
+      automargin: true,
+    },
+    xaxis: {
+      title: '# of test observations',
+      // type: 'log',
+      automargin: true,
+    },
+  }
+
+  Plotly.newPlot('plot5', vizData, layout, {scrollZoom: true})
 }
 
 const build = async () => {
@@ -125,6 +266,10 @@ const build = async () => {
   const entries = Object.entries(data)
   labelDistributionPlot(entries)
   tvtPartitionsPlot(entries)
+  facettedPartitionPlot(entries)
+  trainedCategories(entries)
+  validatedCategories(entries)
+  testedCategories(entries)
 }
 
 build()
