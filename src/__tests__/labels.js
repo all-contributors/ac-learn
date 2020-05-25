@@ -66,3 +66,9 @@ test('Labels with a `bug` category', () => {
   expect(nl.length > 2).toBeTruthy()
   expect(nl[0]).toEqual({label: '7.x: regression', category: 'bug'})
 })
+
+test('Category "buckets"', () => {
+  const buckets = labels.getCategoryPartitions()
+  expect(typeof buckets === 'object').toBeTruthy()
+  expect(buckets.a11y.length >= 2).toBeTruthy()
+})
