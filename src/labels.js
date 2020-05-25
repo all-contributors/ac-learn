@@ -6,6 +6,14 @@ const getDistinctCategories = () => {
   return Array.from(cats)
 }
 
+const groupBy = (arr, fn) =>
+  arr
+    .map(typeof fn === 'function' ? fn : val => val[fn])
+    .reduce((acc, val, i) => {
+      acc[val] = (acc[val] || []).concat(arr[i])
+      return acc
+    }, {})
+
 const CATEGORIES = getDistinctCategories().filter(Boolean)
 
 module.exports = {
@@ -24,4 +32,5 @@ module.exports = {
     ),
   getLabelsFromCategory: category =>
     labels.filter(d => d.category === category),
+  getCategoryPartitions: () => groupBy(labels, 'category'),
 }
