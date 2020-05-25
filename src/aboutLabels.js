@@ -6,9 +6,8 @@ const len = labels.length
 const categorisedData = labels.filter(l => !!l.category)
 const nullCategorisedData = labels.filter(l => l.category == 'null')
 const validCategorisedData = labels.filter(l => cats.includes(l.category))
-const badData = labels.filter(
-  l => !!l.category && l.category != 'null' && !cats.includes(l.category),
-)
+
+const badData = labels.filter(l => !cats.includes(l.category))
 //source: https://gist.github.com/antoniocsoares/fa794527a0a61f5decd515f502224af7#gistcomment-2360675
 const duplicates = arr => {
   const seen = new Set()
