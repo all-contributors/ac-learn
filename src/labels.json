@@ -732,6 +732,10 @@
     "category": "design"
   },
   {
+    "label": "idea",
+    "category": "ideas"
+  },
+  {
     "label": "ie8",
     "category": "platform"
   },
@@ -1478,6 +1482,10 @@
   {
     "label": "to merge",
     "category": "null"
+  },
+  {
+    "label": "todo",
+    "category": "maintenance"
   },
   {
     "label": "todo :spiral_notepad:",
