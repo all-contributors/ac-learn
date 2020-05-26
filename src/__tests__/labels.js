@@ -2,7 +2,7 @@ import labels from '../labels'
 import categories from '../categories'
 
 const LEN = 380
-const nineth = {label: ':rocket: enhancement', category: 'maintenance'}
+const nineth = {label: ':bug: bug', category: 'bug'}
 
 test('All data', () => {
   const data = labels.getAll()
