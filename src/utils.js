@@ -3,6 +3,7 @@ const chalk = require('chalk')
 /**
  * @param {*} el Element
  * @returns {*} Copy of <code>el</code>
+ * @private
  */
 const copy = el => {
   if (

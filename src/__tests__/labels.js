@@ -2,7 +2,7 @@ import labels from '../labels'
 import categories from '../categories'
 
 const LEN = 380
-const nineth = {label: ':rocket: enhancement', category: 'maintenance'}
+const nineth = {label: ':bug: bug', category: 'bug'}
 
 test('All data', () => {
   const data = labels.getAll()
@@ -65,4 +65,10 @@ test('Labels with a `bug` category', () => {
   const nl = labels.getLabelsFromCategory('bug')
   expect(nl.length > 2).toBeTruthy()
   expect(nl[0]).toEqual({label: '7.x: regression', category: 'bug'})
+})
+
+test('Category "buckets"', () => {
+  const buckets = labels.getCategoryPartitions()
+  expect(typeof buckets === 'object').toBeTruthy()
+  expect(buckets.a11y.length >= 2).toBeTruthy()
 })
