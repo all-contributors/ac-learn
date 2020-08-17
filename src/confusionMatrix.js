@@ -595,12 +595,20 @@ class ConfusionMatrix {
   //Macro/Micro Avg versions of the above
 
   /**
+   * Textual tabular representation of the confusion matrix.
    * @param {Object} opt Options
    * @param {boolean} [opt.split=false] Split the classes in half (&rarr; 2 matrices)
    * @param {boolean} [opt.clean=false] Remove empty column/row pairs
    * @param {boolean} [opt.colours=true] Colourize cells
    * @returns {string} String representation
    * @protected
+   * @example <caption>Example output (cf. /src/__tests__/confusionMatrix.js)</caption>
+   * ```
+   * Actual \\ Predicted  bug   code  other
+   * ------------------  ----  ----  -----
+   * bug                 5.00  0.00  1.00
+   * code                1.00  2.00  0.00
+   * other               0.00  3.00  8.00
    */
   toString({
     split = false,
@@ -657,6 +665,7 @@ class ConfusionMatrix {
   }
 
   /**
+   * `console.table` version of `confusionMatrix.toString()`.
    * @param {Object} opt Options
    * @param {boolean} [opt.split=false] Split the classes in half (&rarr; 2 matrices)
    * @param {boolean} [opt.clean=false] Remove empty column/row pairs

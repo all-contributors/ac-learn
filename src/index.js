@@ -1,3 +1,4 @@
+/* eslint-disable jest/valid-title, jest/no-export */
 const {writeFile, readFile, writeFileSync} = require('fs')
 const serialize = require('serialization')
 const tvts = require('tvt-split')
@@ -23,31 +24,31 @@ const spinner = new Spinner('Loading...', [
 /**
  * NodeJS Classification-based learner.
  * @class Learner
+ * @param {Object} opts Options.
+ * @param {Object[]} [opts.dataset=require('./conv')('io')] Dataset (for training and testing)
+ * @param {number} [opts.splits=[.7, .15]] Dataset split percentage for the training/validation set (default: 70%/15%/15%)
+ * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
+ * @param {Object[]} [opts.pastTrainingSamples=[]] Past training samples for the classifier
+ * @example <caption>Using pre-defined data</caption>
+ * const learner = new Learner()
+ * @example <caption>Using a custom dataset</caption>
+ * const learner = new Learner({
+ *  dataset: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
+ *  })
+ * @example <caption>Using a specified classifier function</caption>
+ * const learner = new Learner({
+ *  classifier: myClassifierBuilderFn //see {@link module:./classifier} for an example (or checkout `limdu`'s examples)
+ * })
+ * @example <caption>Changing the train/test split percentage</caption>
+ * const learner = new Learner({
+ *  splits: [.6, .2]
+ * })
+ * @example <caption>(Re-)Using past-training samples</caption>
+ * const learner = new Learner({
+ *   pastTrainingSamples: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
+ * })
  */
 class Learner {
-  /**
-   * @param {Object} opts Options.
-   * @param {Object[]} [opts.dataset=require('./conv')('io')] Dataset (for training and testing)
-   * @param {number} [opts.splits=[.7, .15]] Dataset split percentage for the training/validation set (default: 70%/15%/15%)
-   * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
-   * @param {Object[]} [opts.pastTrainingSamples=[]] Past training samples for the classifier
-   * @memberof Learner
-   * @example <caption>Using pre-defined data</caption>
-   * const learner = new Learner()
-   * @example <caption>Using a custom dataset</caption>
-   * const learner = new Learner({
-   *  dataset: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
-   *  })
-   * @example <caption>Using a specified classifier function</caption>
-   * const learner = new Learner({
-   *  classifier: myClassifierBuilderFn //see {@link module:./classifier} for an example (or checkout `limdu`'s examples)
-   * })
-   * @example <caption>Changing the train/test split percentage</caption>
-   * const learner = new Learner({
-   *  splits: [.6, .2]
-   * })
-   * @public
-   */
   constructor({
     dataset = labelDS,
     splits = [0.7, 0.15],
@@ -71,7 +72,6 @@ class Learner {
    * @public
    */
   train(trainSet = this.trainSet) {
-    //@todo Move this so it could be used for any potentially lengthy ops
     // spinner.start()
     // spinner.message('Training...')
     this.classifier.trainBatch(trainSet)
@@ -257,6 +257,7 @@ class Learner {
   }
 
   /**
+   * JSON representation of the learner with the serialized classification model.
    * @memberof Learner
    * @returns {Object} JSON representation
    * @public
@@ -307,6 +308,7 @@ class Learner {
   }
 
   /**
+   * Get the observational overall/train/validation/test count for each classes in the associated dataset.
    * @memberof Learner
    * @param {boolean} [log=false] Log events
    * @param {string} [outputFile=''] Filename for the output (to be used by chart.html)
