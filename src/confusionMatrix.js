@@ -1,5 +1,5 @@
 const Table = require('easy-table')
-const camel = require('camel-case')
+const camel = require('camel-case').camelCase
 const {
   objectify,
   sum,
@@ -56,7 +56,10 @@ const getResults = (cm, sampleSize) => {
     RES_METRICS.forEach(m => {
       res[camel(m)] = cm[`get${m}`](category)
     })
-    res.confusionMatrix = [[res.tp, res.fp], [res.fn, res.tn]]
+    res.confusionMatrix = [
+      [res.tp, res.fp],
+      [res.fn, res.tn],
+    ]
     return res
   }
   return mapObject(cm.classes, cls => results(cls))
@@ -729,8 +732,9 @@ class ConfusionMatrix {
         F1 = this.getMicroF1()
     }
 
-    return `${stats}Accuracy: ${Ac * 100}%\nPrecision: ${Pr *
-      100}%\nRecall: ${R * 100}%\nF1: ${F1 * 100}%`
+    return `${stats}Accuracy: ${Ac * 100}%\nPrecision: ${Pr * 100}%\nRecall: ${
+      R * 100
+    }%\nF1: ${F1 * 100}%`
   }
 
   /**
