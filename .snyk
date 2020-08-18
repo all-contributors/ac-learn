@@ -1,4 +1,122 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
-ignore: {}
+version: v1.14.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-MINIMIST-559764:
+    - libnpm > pacote > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.037Z'
+    - libcipm > pacote > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.037Z'
+    - libnpm > pacote > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.038Z'
+    - libnpm > libnpmaccess > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.038Z'
+    - libnpm > libnpmhook > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.041Z'
+    - libnpm > libnpmorg > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.041Z'
+    - libnpm > libnpmpublish > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.041Z'
+    - libnpm > libnpmsearch > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.042Z'
+    - libnpm > libnpmteam > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.042Z'
+    - libnpm > npm-profile > npm-registry-fetch > make-fetch-happen > cacache > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.042Z'
+    - libnpm > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.043Z'
+    - libcipm > pacote > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.043Z'
+    - libnpm > pacote > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.043Z'
+    - libcipm > pacote > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.044Z'
+    - libnpm > pacote > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.044Z'
+    - libnpm > libnpmaccess > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.044Z'
+    - libnpm > libnpmhook > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.044Z'
+    - libnpm > libnpmorg > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.044Z'
+    - libnpm > libnpmpublish > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.045Z'
+    - libnpm > libnpmsearch > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.045Z'
+    - libnpm > libnpmteam > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.045Z'
+    - libnpm > npm-profile > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.045Z'
+    - libcipm > pacote > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.045Z'
+    - libnpm > pacote > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.046Z'
+    - libnpm > libnpmaccess > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.046Z'
+    - libnpm > libnpmhook > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.046Z'
+    - libnpm > libnpmorg > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.046Z'
+    - libnpm > libnpmpublish > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.046Z'
+    - libnpm > libnpmsearch > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.047Z'
+    - libnpm > libnpmteam > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.047Z'
+    - libnpm > npm-profile > npm-registry-fetch > make-fetch-happen > cacache > move-concurrently > copy-concurrently > mkdirp > minimist:
+        reason: None given
+        expires: '2020-09-17T17:36:12.047Z'
+  SNYK-JS-YARGSPARSER-560381:
+    - '@iarna/cli > yargs > yargs-parser':
+        reason: None given
+        expires: '2020-09-17T17:36:12.047Z'
+    - libcipm > lock-verify > @iarna/cli > yargs > yargs-parser:
+        reason: None given
+        expires: '2020-09-17T17:36:12.048Z'
+    - libnpm > lock-verify > @iarna/cli > yargs > yargs-parser:
+        reason: None given
+        expires: '2020-09-17T17:36:12.048Z'
+    - tvt-split > yargs > yargs-parser:
+        reason: None given
+        expires: '2020-09-17T17:36:12.048Z'
+  'npm:mem:20180117':
+    - '@iarna/cli > yargs > os-locale > mem':
+        reason: None given
+        expires: '2020-09-17T17:36:12.048Z'
+    - libcipm > lock-verify > @iarna/cli > yargs > os-locale > mem:
+        reason: None given
+        expires: '2020-09-17T17:36:12.048Z'
+    - libnpm > lock-verify > @iarna/cli > yargs > os-locale > mem:
+        reason: None given
+        expires: '2020-09-17T17:36:12.049Z'
 patch: {}
