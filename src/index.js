@@ -29,6 +29,7 @@ const spinner = new Spinner('Loading...', [
  * @param {number} [opts.splits=[.7, .15]] Dataset split percentage for the training/validation set (default: 70%/15%/15%)
  * @param {function(): Object} [opts.classifier=classifierBuilder] Classifier builder function
  * @param {Object[]} [opts.pastTrainingSamples=[]] Past training samples for the classifier
+ * @param {string[]} [opts.classes=require('./categories')] List of classes (categories)
  * @example <caption>Using pre-defined data</caption>
  * const learner = new Learner()
  * @example <caption>Using a custom dataset</caption>
@@ -54,6 +55,7 @@ class Learner {
     splits = [0.7, 0.15],
     classifier = classifierBuilder,
     pastTrainingSamples = [],
+    classes = categories,
   } = {}) {
     this.dataset = dataset
     const [train, validation, _test] = tvts(dataset, ...splits)
@@ -64,6 +66,7 @@ class Learner {
     this.classifier = classifier(pastTrainingSamples)
     this.classifierBuilder = classifier
     this.confusionMatrix = null //new ConfusionMatrix(categories)
+    this.classes = classes
   }
 
   /**
@@ -115,7 +118,7 @@ class Learner {
     this.confusionMatrix = ConfusionMatrix.fromData(
       actual,
       predicted,
-      categories,
+      this.classes,
     )
 
     const completeMsg = 'Evaluation complete'
@@ -321,7 +324,7 @@ class Learner {
     spinner.message('Generating category partitions...')
     spinner.start()
     const res = {}
-    categories.forEach(cat => {
+    this.classes.forEach(cat => {
       res[cat] = {
         overall: 0,
         test: 0,

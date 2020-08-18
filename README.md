@@ -195,6 +195,9 @@ NodeJS Classification-based learner.
   - `opts.pastTrainingSamples`
     **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>**
     Past training samples for the classifier (optional, default `[]`)
+  - `opts.classes`
+    **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
+    List of classes (categories) (optional, default `require('./categories')`)
 
 #### Examples
 
