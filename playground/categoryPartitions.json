@@ -1,69 +1,69 @@
 {
   "a11y": {
-    "overall": 5,
-    "test": 0,
-    "validation": 2,
-    "train": 3
+    "overall": 9,
+    "test": 3,
+    "validation": 1,
+    "train": 5
   },
   "audio": {
     "overall": 6,
     "test": 0,
-    "validation": 1,
-    "train": 5
+    "validation": 0,
+    "train": 6
   },
   "blog": {
     "overall": 5,
-    "test": 1,
-    "validation": 2,
-    "train": 2
+    "test": 0,
+    "validation": 0,
+    "train": 5
   },
   "bug": {
     "overall": 26,
-    "test": 2,
-    "validation": 4,
-    "train": 20
+    "test": 3,
+    "validation": 8,
+    "train": 15
   },
   "business": {
     "overall": 8,
-    "test": 2,
-    "validation": 1,
-    "train": 5
+    "test": 1,
+    "validation": 0,
+    "train": 7
   },
   "code": {
     "overall": 65,
-    "test": 11,
-    "validation": 9,
+    "test": 8,
+    "validation": 12,
     "train": 45
   },
   "content": {
     "overall": 5,
-    "test": 2,
+    "test": 1,
     "validation": 0,
-    "train": 3
+    "train": 4
   },
   "data": {
     "overall": 6,
-    "test": 1,
+    "test": 0,
     "validation": 1,
-    "train": 4
+    "train": 5
   },
   "design": {
-    "overall": 37,
-    "test": 7,
-    "validation": 3,
+    "overall": 39,
+    "test": 4,
+    "validation": 8,
     "train": 27
   },
   "doc": {
     "overall": 30,
-    "test": 7,
-    "validation": 2,
-    "train": 21
+    "test": 5,
+    "validation": 3,
+    "train": 22
   },
   "eventOrganizing": {
     "overall": 5,
     "test": 1,
-    "validation": 0,
-    "train": 4
+    "validation": 1,
+    "train": 3
   },
   "example": {
     "overall": 5,
@@ -74,110 +74,110 @@
   "financial": {
     "overall": 10,
     "test": 1,
-    "validation": 0,
-    "train": 9
+    "validation": 5,
+    "train": 4
   },
   "fundingFinding": {
     "overall": 4,
-    "test": 1,
+    "test": 0,
     "validation": 1,
-    "train": 2
+    "train": 3
   },
   "ideas": {
-    "overall": 38,
-    "test": 5,
-    "validation": 7,
-    "train": 26
+    "overall": 40,
+    "test": 4,
+    "validation": 6,
+    "train": 30
   },
   "infra": {
-    "overall": 22,
-    "test": 6,
-    "validation": 5,
-    "train": 11
+    "overall": 39,
+    "test": 7,
+    "validation": 6,
+    "train": 26
   },
   "maintenance": {
-    "overall": 36,
-    "test": 8,
-    "validation": 8,
-    "train": 20
+    "overall": 40,
+    "test": 7,
+    "validation": 3,
+    "train": 30
   },
   "mentoring": {
     "overall": 4,
     "test": 0,
-    "validation": 0,
-    "train": 4
+    "validation": 1,
+    "train": 3
   },
   "null": {
     "overall": 92,
-    "test": 13,
-    "validation": 14,
-    "train": 65
+    "test": 12,
+    "validation": 11,
+    "train": 69
   },
   "platform": {
-    "overall": 40,
-    "test": 6,
-    "validation": 5,
-    "train": 29
+    "overall": 41,
+    "test": 10,
+    "validation": 6,
+    "train": 25
   },
   "plugin": {
     "overall": 6,
-    "test": 1,
-    "validation": 0,
+    "test": 0,
+    "validation": 1,
     "train": 5
   },
   "projectManagement": {
     "overall": 11,
-    "test": 2,
-    "validation": 3,
-    "train": 6
+    "test": 1,
+    "validation": 0,
+    "train": 10
   },
   "question": {
     "overall": 9,
-    "test": 0,
+    "test": 2,
     "validation": 1,
-    "train": 8
+    "train": 6
   },
   "review": {
     "overall": 9,
-    "test": 1,
+    "test": 2,
     "validation": 1,
-    "train": 7
+    "train": 6
   },
   "security": {
-    "overall": 18,
-    "test": 2,
-    "validation": 4,
-    "train": 12
+    "overall": 25,
+    "test": 6,
+    "validation": 6,
+    "train": 13
   },
   "talk": {
     "overall": 5,
     "test": 1,
-    "validation": 1,
-    "train": 3
+    "validation": 0,
+    "train": 4
   },
   "test": {
-    "overall": 27,
-    "test": 1,
-    "validation": 6,
+    "overall": 30,
+    "test": 8,
+    "validation": 2,
     "train": 20
   },
   "tool": {
     "overall": 14,
     "test": 1,
-    "validation": 0,
-    "train": 13
+    "validation": 4,
+    "train": 9
   },
   "translation": {
-    "overall": 4,
-    "test": 1,
-    "validation": 0,
-    "train": 3
+    "overall": 7,
+    "test": 2,
+    "validation": 1,
+    "train": 4
   },
   "tutorial": {
     "overall": 7,
     "test": 1,
-    "validation": 2,
-    "train": 4
+    "validation": 1,
+    "train": 5
   },
   "userTesting": {
     "overall": 4,
@@ -187,8 +187,8 @@
   },
   "video": {
     "overall": 7,
-    "test": 0,
-    "validation": 1,
+    "test": 1,
+    "validation": 0,
     "train": 6
   }
 }
