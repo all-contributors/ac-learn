@@ -28,8 +28,16 @@
     "category": "bug"
   },
   {
+    "label": ":apple: ios",
+    "category": "platform"
+  },
+  {
     "label": ":arrow_heading_down: pull",
     "category": "maintenance"
+  },
+  {
+    "label": ":beginner: documentation",
+    "category": "doc"
   },
   {
     "label": ":boom: regression",
@@ -40,6 +48,38 @@
     "category": "bug"
   },
   {
+    "label": ":computer: desktop",
+    "category": "platform"
+  },
+  {
+    "label": ":heavy_plus_sign: feature request",
+    "category": "ideas"
+  },
+  {
+    "label": ":iphone: mobile",
+    "category": "platform"
+  },
+  {
+    "label": ":lipstick: ui",
+    "category": "design"
+  },
+  {
+    "label": ":lock: security",
+    "category": "security"
+  },
+  {
+    "label": ":question: question",
+    "category": "question"
+  },
+  {
+    "label": ":robot: android",
+    "category": "platform"
+  },
+  {
+    "label": ":rocket: deployment",
+    "category": "infra"
+  },
+  {
     "label": ":rocket: enhancement",
     "category": "maintenance"
   },
@@ -48,8 +88,16 @@
     "category": "ideas"
   },
   {
+    "label": ":sparkles: enhancement",
+    "category": "maintenance"
+  },
+  {
     "label": ":speech_balloon: question",
     "category": "question"
+  },
+  {
+    "label": ":white_check_mark: testing",
+    "category": "test"
   },
   {
     "label": "@font-face",
@@ -528,12 +576,20 @@
     "category": "maintenance"
   },
   {
+    "label": "deployment",
+    "category": "infra"
+  },
+  {
     "label": "design",
     "category": "design"
   },
   {
     "label": "design (category)",
     "category": "design"
+  },
+  {
+    "label": "desktop",
+    "category": "platform"
   },
   {
     "label": "dev experience",

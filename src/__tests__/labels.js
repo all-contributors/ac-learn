@@ -1,5 +1,6 @@
 import labels from '../labels'
 import categories from '../categories'
+import dataset from '../labels.json'
 
 const LEN = 380
 const nineth = {label: ':bug: bug', category: 'bug'}
