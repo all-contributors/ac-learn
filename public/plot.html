@@ -7,14 +7,21 @@
     <title>ac-learn charts</title>
 </head>
 <body>
-    <!-- <canvas id="labels" width="400" height="400"></canvas> -->
-    <div id="plot0"></div>
-    <div id="plot1"></div>
-    <div id="plot2"></div>
-    <div id="plot3"></div>
-    <div id="plot4"></div>
-    <div id="plot5"></div>
+    <div id="labelDist"></div>
+    <section id="playgroundGraphs">
+        <h3>Playground-driven data</h3>
+        <div id="tvtPartitions"></div>
+        <div id="partitions"></div>
+        <div id="trainingLabelDist"></div>
+        <div id="validationLabelDist"></div>
+        <div id="testLabelDist"></div>
+    </section>
     <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8"></script>
     <script type="module" src="plot.js"></script>
+    <style>
+        h3 {
+            font-family: "Open Sans", verdana, arial, sans-serif;
+        }
+    </style>
 </body>
 </html>

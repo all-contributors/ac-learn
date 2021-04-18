@@ -41,7 +41,7 @@ const labelDistributionPlot = data => {
     },
   }
 
-  Plotly.newPlot('plot0', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('labelDist', vizData, layout, {scrollZoom: true})
 }
 
 const tvtPartitionsPlot = data => {
@@ -95,7 +95,7 @@ const tvtPartitionsPlot = data => {
     },
   }
 
-  Plotly.newPlot('plot1', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('tvtPartitions', vizData, layout, {scrollZoom: true})
 }
 
 const facettedPartitionPlot = data => {
@@ -105,7 +105,8 @@ const facettedPartitionPlot = data => {
     ['desc', 'desc', 'desc', 'desc'],
   )
   const chunks = chunk(orderedData, 9)
-  const parentPlot = document.getElementById('plot2')
+  const plotName = 'partitions'
+  const parentPlot = document.getElementById(plotName)
 
   chunks.forEach((chk, section) => {
     const vizData = chk.map(([name, categories], idx) => {
@@ -133,8 +134,10 @@ const facettedPartitionPlot = data => {
       },
     }
 
-    parentPlot.innerHTML += `<div id="plot2_${section}"></div>`
-    Plotly.newPlot(`plot2_${section}`, vizData, layout, {scrollZoom: true})
+    parentPlot.innerHTML += `<div id="${plotName}_${section}"></div>`
+    Plotly.newPlot(`${plotName}_${section}`, vizData, layout, {
+      scrollZoom: true,
+    })
   })
 }
 
@@ -176,7 +179,7 @@ const trainedCategories = data => {
     },
   }
 
-  Plotly.newPlot('plot3', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('trainingLabelDist', vizData, layout, {scrollZoom: true})
 }
 
 const validatedCategories = data => {
@@ -216,7 +219,7 @@ const validatedCategories = data => {
     },
   }
 
-  Plotly.newPlot('plot4', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('validationLabelDist', vizData, layout, {scrollZoom: true})
 }
 
 const testedCategories = data => {
@@ -256,7 +259,7 @@ const testedCategories = data => {
     },
   }
 
-  Plotly.newPlot('plot5', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('testLabelDist', vizData, layout, {scrollZoom: true})
 }
 
 const build = async () => {
