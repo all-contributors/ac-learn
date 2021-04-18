@@ -160,6 +160,10 @@
     "category": "code"
   },
   {
+    "label": "ansible",
+    "category": "infra"
+  },
+  {
     "label": "approachability",
     "category": "a11y"
   },
@@ -188,6 +192,10 @@
     "category": "test"
   },
   {
+    "label": "assessment",
+    "category": "test"
+  },
+  {
     "label": "audio",
     "category": "audio"
   },
@@ -196,8 +204,24 @@
     "category": "null"
   },
   {
+    "label": "aws",
+    "category": "infra"
+  },
+  {
+    "label": "axe",
+    "category": "a11y"
+  },
+  {
     "label": "azur",
     "category": "infra"
+  },
+  {
+    "label": "azure ad",
+    "category": "infra"
+  },
+  {
+    "label": "backdoor",
+    "category": "security"
   },
   {
     "label": "backer",
@@ -244,12 +268,20 @@
     "category": "tool"
   },
   {
+    "label": "brainstorm",
+    "category": "ideas"
+  },
+  {
     "label": "brainstorming",
     "category": "ideas"
   },
   {
     "label": "brand icon",
     "category": "design"
+  },
+  {
+    "label": "breach",
+    "category": "security"
   },
   {
     "label": "breaking change",
@@ -316,6 +348,10 @@
     "category": "review"
   },
   {
+    "label": "chef",
+    "category": "infra"
+  },
+  {
     "label": "chore",
     "category": "maintenance"
   },
@@ -326,6 +362,10 @@
   {
     "label": "cla signed",
     "category": "null"
+  },
+  {
+    "label": "clean up",
+    "category": "maintenance"
   },
   {
     "label": "cli",
@@ -341,6 +381,10 @@
   },
   {
     "label": "cloud",
+    "category": "infra"
+  },
+  {
+    "label": "cloud native",
     "category": "infra"
   },
   {
@@ -512,6 +556,18 @@
     "category": "financial"
   },
   {
+    "label": "customer experience",
+    "category": "design"
+  },
+  {
+    "label": "cx",
+    "category": "design"
+  },
+  {
+    "label": "cybersec",
+    "category": "security"
+  },
+  {
     "label": "data",
     "category": "data"
   },
@@ -616,6 +672,10 @@
     "category": "null"
   },
   {
+    "label": "digital ocean",
+    "category": "infra"
+  },
+  {
     "label": "discussion",
     "category": "ideas"
   },
@@ -710,6 +770,10 @@
   {
     "label": "event",
     "category": "eventOrganizing"
+  },
+  {
+    "label": "eventstorming",
+    "category": "ideas"
   },
   {
     "label": "examination",
@@ -876,6 +940,10 @@
     "category": "ideas"
   },
   {
+    "label": "gcp",
+    "category": "infra"
+  },
+  {
     "label": "gdpr",
     "category": "security"
   },
@@ -905,6 +973,10 @@
   },
   {
     "label": "gradle",
+    "category": "infra"
+  },
+  {
+    "label": "grafana",
     "category": "infra"
   },
   {
@@ -980,6 +1052,14 @@
     "category": "code"
   },
   {
+    "label": "i18n",
+    "category": "translation"
+  },
+  {
+    "label": "iac",
+    "category": "infra"
+  },
+  {
     "label": "icebox",
     "category": "platform"
   },
@@ -1024,6 +1104,10 @@
     "category": "null"
   },
   {
+    "label": "infosec",
+    "category": "security"
+  },
+  {
     "label": "infra",
     "category": "infra"
   },
@@ -1064,6 +1148,14 @@
     "category": "bug"
   },
   {
+    "label": "internationalisation",
+    "category": "translation"
+  },
+  {
+    "label": "internationalization",
+    "category": "translation"
+  },
+  {
     "label": "invalid",
     "category": "null"
   },
@@ -1102,6 +1194,10 @@
   {
     "label": "kubernetes",
     "category": "infra"
+  },
+  {
+    "label": "labour",
+    "category": "maintenance"
   },
   {
     "label": "lang-crystal",
@@ -1188,6 +1284,10 @@
     "category": "null"
   },
   {
+    "label": "malware",
+    "category": "security"
+  },
+  {
     "label": "manual",
     "category": "doc"
   },
@@ -1238,6 +1338,10 @@
   {
     "label": "multi module",
     "category": "maintenance"
+  },
+  {
+    "label": "multi-cloud",
+    "category": "infra"
   },
   {
     "label": "music",
@@ -1302,6 +1406,10 @@
   {
     "label": "new iea",
     "category": "ideas"
+  },
+  {
+    "label": "newrelic",
+    "category": "infra"
   },
   {
     "label": "newsletter",
@@ -1376,6 +1484,10 @@
     "category": "ideas"
   },
   {
+    "label": "paas",
+    "category": "platform"
+  },
+  {
     "label": "packaging",
     "category": "platform"
   },
@@ -1398,6 +1510,10 @@
   {
     "label": "patreon",
     "category": "financial"
+  },
+  {
+    "label": "pentesting",
+    "category": "security"
   },
   {
     "label": "performance",
@@ -1576,12 +1692,20 @@
     "category": "promotion"
   },
   {
+    "label": "prometheus",
+    "category": "infra"
+  },
+  {
     "label": "proposal",
     "category": "ideas"
   },
   {
     "label": "protection",
     "category": "security"
+  },
+  {
+    "label": "puppet",
+    "category": "infra"
   },
   {
     "label": "python",
@@ -1648,6 +1772,10 @@
     "category": "null"
   },
   {
+    "label": "reliability",
+    "category": "maintenance"
+  },
+  {
     "label": "reminder",
     "category": "null"
   },
@@ -1704,8 +1832,16 @@
     "category": "security"
   },
   {
+    "label": "saltstack",
+    "category": "infra"
+  },
+  {
     "label": "sample",
     "category": "example"
+  },
+  {
+    "label": "sast",
+    "category": "security"
   },
   {
     "label": "scrum",
@@ -1716,8 +1852,16 @@
     "category": "security"
   },
   {
+    "label": "sentry",
+    "category": "infra"
+  },
+  {
     "label": "shell",
     "category": "tool"
+  },
+  {
+    "label": "site reliability",
+    "category": "maintenance"
   },
   {
     "label": "sketch",
@@ -1984,6 +2128,10 @@
     "category": "example"
   },
   {
+    "label": "terraform",
+    "category": "infra"
+  },
+  {
     "label": "test",
     "category": "test"
   },
@@ -2148,8 +2296,16 @@
     "category": "design"
   },
   {
+    "label": "uat",
+    "category": "test"
+  },
+  {
     "label": "ui",
     "category": "design"
+  },
+  {
+    "label": "ui test",
+    "category": "test"
   },
   {
     "label": "unconfirmed",
@@ -2232,6 +2388,10 @@
     "category": "security"
   },
   {
+    "label": "vultr",
+    "category": "infra"
+  },
+  {
     "label": "walkthrough",
     "category": "doc"
   },
@@ -2244,8 +2404,20 @@
     "category": "projectManagement"
   },
   {
+    "label": "wave",
+    "category": "a11y"
+  },
+  {
+    "label": "wcag",
+    "category": "a11y"
+  },
+  {
     "label": "web app",
     "category": "code"
+  },
+  {
+    "label": "webaim",
+    "category": "a11y"
   },
   {
     "label": "website",
