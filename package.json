@@ -27,7 +27,8 @@
     "doc:gen": "documentation readme src/index.js -s Documentation",
     "doc": "yarn doc:lint && yarn doc:gen",
     "prepare": "snyk-protect",
-    "open": "concurrently \"serve -d .\" \"xdg-open http://localhost:5000/public/\""
+    "open": "concurrently \"serve -d .\" \"xdg-open http://localhost:5000/public/\"",
+    "playground": "node src/sorter && node src/aboutLabels && DRY=1 CM=1 SAVE=1 node playground/playground && node plot-screenshot"
   },
   "husky": {
     "hooks": {
