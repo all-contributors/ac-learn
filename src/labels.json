@@ -140,6 +140,10 @@
     "category": "null"
   },
   {
+    "label": "academia",
+    "category": "research"
+  },
+  {
     "label": "acceptance testing",
     "category": "test"
   },
@@ -872,6 +876,10 @@
     "category": "doc"
   },
   {
+    "label": "doctorate",
+    "category": "research"
+  },
+  {
     "label": "documentation",
     "category": "doc"
   },
@@ -1508,6 +1516,10 @@
     "category": "platform"
   },
   {
+    "label": "literature review",
+    "category": "research"
+  },
+  {
     "label": "logo",
     "category": "design"
   },
@@ -1758,6 +1770,10 @@
   {
     "label": "patreon",
     "category": "financial"
+  },
+  {
+    "label": "peer-review",
+    "category": "review"
   },
   {
     "label": "pentesting",
@@ -2069,6 +2085,14 @@
   },
   {
     "label": "research",
+    "category": "research"
+  },
+  {
+    "label": "research opportunity",
+    "category": "research"
+  },
+  {
+    "label": "researching",
     "category": "research"
   },
   {
