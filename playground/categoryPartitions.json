@@ -1,194 +1,194 @@
 {
   "a11y": {
     "overall": 9,
-    "test": 2,
-    "validation": 2,
-    "train": 5
-  },
-  "audio": {
-    "overall": 6,
     "test": 1,
     "validation": 1,
-    "train": 4
+    "train": 7
+  },
+  "audio": {
+    "overall": 8,
+    "test": 1,
+    "validation": 1,
+    "train": 6
   },
   "blog": {
-    "overall": 5,
+    "overall": 8,
     "test": 1,
     "validation": 0,
-    "train": 4
+    "train": 7
   },
   "bug": {
-    "overall": 27,
+    "overall": 30,
     "test": 6,
-    "validation": 3,
-    "train": 18
+    "validation": 7,
+    "train": 17
   },
   "business": {
-    "overall": 8,
-    "test": 2,
-    "validation": 2,
-    "train": 4
+    "overall": 10,
+    "test": 1,
+    "validation": 3,
+    "train": 6
   },
   "code": {
     "overall": 67,
-    "test": 12,
-    "validation": 9,
-    "train": 46
+    "test": 13,
+    "validation": 13,
+    "train": 41
   },
   "content": {
-    "overall": 5,
-    "test": 2,
+    "overall": 9,
+    "test": 3,
     "validation": 0,
-    "train": 3
+    "train": 6
   },
   "data": {
-    "overall": 6,
+    "overall": 9,
     "test": 1,
-    "validation": 0,
-    "train": 5
+    "validation": 2,
+    "train": 6
   },
   "design": {
     "overall": 39,
-    "test": 6,
-    "validation": 6,
-    "train": 27
+    "test": 3,
+    "validation": 7,
+    "train": 29
   },
   "doc": {
-    "overall": 31,
-    "test": 4,
-    "validation": 6,
-    "train": 21
+    "overall": 32,
+    "test": 3,
+    "validation": 1,
+    "train": 28
   },
   "eventOrganizing": {
     "overall": 7,
-    "test": 3,
-    "validation": 2,
-    "train": 2
+    "test": 2,
+    "validation": 0,
+    "train": 5
   },
   "example": {
-    "overall": 5,
-    "test": 1,
-    "validation": 1,
-    "train": 3
+    "overall": 8,
+    "test": 0,
+    "validation": 2,
+    "train": 6
   },
   "financial": {
+    "overall": 11,
+    "test": 2,
+    "validation": 3,
+    "train": 6
+  },
+  "fundingFinding": {
+    "overall": 9,
+    "test": 2,
+    "validation": 2,
+    "train": 5
+  },
+  "ideas": {
+    "overall": 46,
+    "test": 5,
+    "validation": 11,
+    "train": 30
+  },
+  "infra": {
+    "overall": 45,
+    "test": 5,
+    "validation": 6,
+    "train": 34
+  },
+  "maintenance": {
+    "overall": 46,
+    "test": 9,
+    "validation": 4,
+    "train": 33
+  },
+  "mentoring": {
+    "overall": 7,
+    "test": 0,
+    "validation": 1,
+    "train": 6
+  },
+  "null": {
+    "overall": 92,
+    "test": 14,
+    "validation": 14,
+    "train": 64
+  },
+  "platform": {
+    "overall": 43,
+    "test": 7,
+    "validation": 1,
+    "train": 35
+  },
+  "plugin": {
     "overall": 10,
     "test": 0,
     "validation": 3,
     "train": 7
   },
-  "fundingFinding": {
-    "overall": 4,
-    "test": 0,
-    "validation": 0,
-    "train": 4
-  },
-  "ideas": {
-    "overall": 44,
-    "test": 5,
-    "validation": 6,
-    "train": 33
-  },
-  "infra": {
-    "overall": 44,
-    "test": 7,
-    "validation": 10,
-    "train": 27
-  },
-  "maintenance": {
-    "overall": 43,
-    "test": 7,
-    "validation": 5,
-    "train": 31
-  },
-  "mentoring": {
-    "overall": 4,
-    "test": 1,
-    "validation": 1,
-    "train": 2
-  },
-  "null": {
-    "overall": 92,
-    "test": 4,
-    "validation": 10,
-    "train": 78
-  },
-  "platform": {
-    "overall": 41,
-    "test": 7,
-    "validation": 4,
-    "train": 30
-  },
-  "plugin": {
-    "overall": 6,
-    "test": 0,
-    "validation": 2,
-    "train": 4
-  },
   "projectManagement": {
     "overall": 14,
-    "test": 2,
+    "test": 1,
     "validation": 3,
-    "train": 9
+    "train": 10
   },
   "question": {
-    "overall": 11,
-    "test": 0,
-    "validation": 4,
+    "overall": 12,
+    "test": 2,
+    "validation": 3,
     "train": 7
   },
   "review": {
     "overall": 9,
     "test": 2,
-    "validation": 0,
-    "train": 7
+    "validation": 2,
+    "train": 5
   },
   "security": {
-    "overall": 25,
-    "test": 3,
-    "validation": 5,
-    "train": 17
+    "overall": 30,
+    "test": 5,
+    "validation": 2,
+    "train": 23
   },
   "talk": {
-    "overall": 5,
+    "overall": 7,
     "test": 0,
-    "validation": 0,
-    "train": 5
+    "validation": 1,
+    "train": 6
   },
   "test": {
     "overall": 31,
     "test": 8,
-    "validation": 6,
-    "train": 17
+    "validation": 2,
+    "train": 21
   },
   "tool": {
     "overall": 14,
-    "test": 0,
-    "validation": 2,
+    "test": 2,
+    "validation": 0,
     "train": 12
   },
   "translation": {
-    "overall": 7,
-    "test": 3,
-    "validation": 1,
-    "train": 3
+    "overall": 8,
+    "test": 2,
+    "validation": 2,
+    "train": 4
   },
   "tutorial": {
-    "overall": 7,
-    "test": 2,
-    "validation": 0,
+    "overall": 8,
+    "test": 1,
+    "validation": 2,
     "train": 5
   },
   "userTesting": {
-    "overall": 4,
-    "test": 2,
-    "validation": 1,
-    "train": 1
+    "overall": 9,
+    "test": 1,
+    "validation": 2,
+    "train": 6
   },
   "video": {
-    "overall": 7,
-    "test": 1,
-    "validation": 1,
-    "train": 5
+    "overall": 9,
+    "test": 2,
+    "validation": 3,
+    "train": 4
   }
 }
