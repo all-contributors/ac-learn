@@ -224,6 +224,10 @@
     "category": "security"
   },
   {
+    "label": "backend",
+    "category": "code"
+  },
+  {
     "label": "backer",
     "category": "financial"
   },
@@ -362,6 +366,10 @@
   {
     "label": "chromeos",
     "category": "platform"
+  },
+  {
+    "label": "ci/cd",
+    "category": "infra"
   },
   {
     "label": "cla signed",
@@ -528,6 +536,10 @@
     "category": "maintenance"
   },
   {
+    "label": "corporate event",
+    "category": "eventOrganizing"
+  },
+  {
     "label": "credit",
     "category": "financial"
   },
@@ -624,6 +636,10 @@
     "category": "ideas"
   },
   {
+    "label": "deliverable",
+    "category": "projectManagement"
+  },
+  {
     "label": "deno",
     "category": "platform"
   },
@@ -664,6 +680,18 @@
     "category": "design"
   },
   {
+    "label": "devops: configure",
+    "category": "infra"
+  },
+  {
+    "label": "devops: create",
+    "category": "infra"
+  },
+  {
+    "label": "devops: defend",
+    "category": "infra"
+  },
+  {
     "label": "diary",
     "category": "blog"
   },
@@ -690,6 +718,10 @@
   {
     "label": "dissertation",
     "category": "research"
+  },
+  {
+    "label": "discussion :speech_balloon:",
+    "category": "ideas"
   },
   {
     "label": "do not merge",
@@ -784,6 +816,10 @@
     "category": "eventOrganizing"
   },
   {
+    "label": "events",
+    "category": "eventOrganizing"
+  },
+  {
     "label": "eventstorming",
     "category": "ideas"
   },
@@ -873,6 +909,10 @@
   },
   {
     "label": "feature",
+    "category": "ideas"
+  },
+  {
+    "label": "feature proposal",
     "category": "ideas"
   },
   {
@@ -1186,6 +1226,10 @@
   {
     "label": "javascript",
     "category": "code"
+  },
+  {
+    "label": "jira",
+    "category": "projectManagement"
   },
   {
     "label": "journal",
@@ -1544,6 +1588,10 @@
     "category": "audio"
   },
   {
+    "label": "plan",
+    "category": "ideas"
+  },
+  {
     "label": "planned feature",
     "category": "ideas"
   },
@@ -1838,6 +1886,10 @@
   {
     "label": "rgba",
     "category": "design"
+  },
+  {
+    "label": "roadmap",
+    "category": "projectManagement"
   },
   {
     "label": "ruby",
@@ -2280,8 +2332,16 @@
     "category": "ideas"
   },
   {
+    "label": "type: feature request",
+    "category": "ideas"
+  },
+  {
     "label": "type: getting started",
     "category": "null"
+  },
+  {
+    "label": "type: infrastructure",
+    "category": "infra"
   },
   {
     "label": "type: invalid :x:",
@@ -2292,12 +2352,20 @@
     "category": "maintenance"
   },
   {
+    "label": "type: performance",
+    "category": "maintenance"
+  },
+  {
     "label": "type: question",
     "category": "question"
   },
   {
     "label": "type: question :grey_question:",
     "category": "question"
+  },
+  {
+    "label": "type: refactor",
+    "category": "code"
   },
   {
     "label": "type: regression :boom:",
@@ -2310,6 +2378,10 @@
   {
     "label": "type: sendgrid enhancement",
     "category": "maintenance"
+  },
+  {
+    "label": "type: test",
+    "category": "test"
   },
   {
     "label": "type: vulnerability :warning:",
