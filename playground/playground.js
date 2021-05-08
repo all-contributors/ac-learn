@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
 const {writeFileSync, existsSync} = require('fs')
-const Learner = require('../src')
+const {join} = require('path')
+const Learner = require(join(__dirname, '../src'))
 
 let learner = null
+const jsonPath = join(__dirname, './playground-learner.json')
 
-if (existsSync('playground-learner.json') && !process.env.DRY) {
+if (existsSync(jsonPath) && !process.env.DRY) {
   //If there's already a JSON version of a learner, use it's past training samples
-  const pgl = require('./playground-learner.json')
+  const pgl = require(jsonPath)
   learner = Learner.fromJSON(pgl)
 } else learner = new Learner() //Or use a fresh one
 
@@ -21,19 +23,19 @@ console.log('\nShort stats=\n', stats)
 
 /* eslint-disable babel/no-unused-expressions */
 if (process.env.SAVE) {
-  writeFileSync('playground-learner.json', JSON.stringify(jsonData)) &&
-    console.log('Saved learner to "playground-learner.json"')
+  writeFileSync(jsonPath, JSON.stringify(jsonData)) &&
+    console.log(`Saved learner to "${jsonPath}"`)
 }
 
 if (process.env.CM) {
+  const cmPath = join(__dirname, './playground-confusionMatrix.json')
+  const cmTablePath = join(__dirname, './confusionMatrix.txt')
+  writeFileSync(cmPath, JSON.stringify(learner.confusionMatrix, null, 2)) &&
+    console.log(`Saved learner to "${cmPath}"`)
   writeFileSync(
-    'playground-confusionMatrix.json',
-    JSON.stringify(learner.confusionMatrix, null, 2),
-  ) && console.log('Saved learner to "playground-confusionMatrix.json"')
-  writeFileSync(
-    'confusionMatrix.txt',
+    cmTablePath,
     learner.confusionMatrix.toString({colours: false}),
-  ) && console.log('Saved learner to "confusionMatrix.txt"')
+  ) && console.log(`Saved learner to "${cmTablePath}"`)
   console.log('Confusion Matrix:')
   // console.log('\n\n', learner.confusionMatrix.toString({split: true, colours: false}));
   console.log(
@@ -43,11 +45,13 @@ if (process.env.CM) {
   // learner.confusionMatrix.toTable({split: true});
 }
 
-writeFileSync(
-  'playground-fullStats.json',
-  JSON.stringify(longStats, null, 2),
-) && console.log('Saved learner to "playground-fullStats.json"')
+const fullStatsPath = join(__dirname, './playground-fullStats.json')
+writeFileSync(fullStatsPath, JSON.stringify(longStats, null, 2)) &&
+  console.log(`Saved learner to "${fullStatsPath}"`)
 
-console.log('More Stats:', learner.getStats(true, 'categoryPartitions.json'))
+console.log(
+  'More Stats:',
+  learner.getStats(true, join(__dirname, './categoryPartitions.json')),
+)
 
 process.exit(0)

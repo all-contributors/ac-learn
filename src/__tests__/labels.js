@@ -1,8 +1,9 @@
 import labels from '../labels'
 import categories from '../categories'
+import dataset from '../labels.json'
 
 const LEN = 380
-const nineth = {label: ':bug: bug', category: 'bug'}
+const nineth = dataset[9]
 
 test('All data', () => {
   const data = labels.getAll()
@@ -12,7 +13,7 @@ test('All data', () => {
 })
 
 test('get', () => {
-  expect(labels.getAt(0)).toEqual({label: '.net core', category: 'code'})
+  expect(labels.getAt(0)).toEqual(dataset[0])
   expect(labels.getAt(9)).toEqual(nineth)
 })
 
@@ -54,7 +55,7 @@ test('Labels with a `null` category', () => {
 test('Labels with a valid category', () => {
   const vl = labels.getValidCatLabels()
   expect(vl.length > categories.length).toBeTruthy()
-  expect(vl[0]).toEqual({label: '.net core', category: 'code'})
+  expect(vl[0]).toEqual(dataset[0])
 })
 
 test('Bad data', () => {

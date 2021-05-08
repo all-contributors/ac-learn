@@ -15,7 +15,9 @@ const labelDistributionPlot = data => {
     x: xVals,
     type: 'bar',
     orientation: 'h',
-    text: xVals.map(String),
+    text: xVals.map(
+      x => `${x} (<span style="color: #00f">${perc(x / data.length)}</span>)`,
+    ),
     textposition: 'outside',
     hoverinfo: 'none',
   }
@@ -41,7 +43,171 @@ const labelDistributionPlot = data => {
     },
   }
 
-  Plotly.newPlot('plot0', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('labelDist', vizData, layout, {scrollZoom: true})
+}
+
+const predictionDistributionPlot = data => {
+  const xVals = ['Correct', 'Incorrect']
+  const yVals = [data.correctPredictions, data.incorrectPredictions]
+  const partitionsPlot = {
+    x: xVals,
+    y: yVals,
+    type: 'bar',
+    text: yVals.map(
+      y => `${y} (<span style="color: #00f">${perc(y / data.total)}</span>)`,
+    ),
+    hoverinfo: 'none',
+    textposition: 'auto',
+    marker: {
+      color: 'rgb(158,202,225)',
+      opacity: 0.6,
+      line: {
+        color: 'rgb(8,48,107)',
+        width: 1.5,
+      },
+    },
+  }
+
+  const vizData = [partitionsPlot]
+  const layout = {
+    title: 'Model predictions',
+    autosize: true,
+    font: {
+      size: 18,
+    },
+    yaxis: {
+      title: 'Count',
+      automargin: true,
+    },
+    xaxis: {
+      title: 'Correctness',
+    },
+  }
+
+  Plotly.newPlot('predictions', vizData, layout, {scrollZoom: true})
+}
+
+const accuracyDistributionPlot = data => {
+  const orderedData = Object.entries(data.results).map(entry => [
+    entry[0],
+    entry[1].accuracy,
+  ])
+  orderedData.sort((a, b) => a[1] - b[1])
+  const xVals = orderedData.map(entry => entry[1])
+  const categoryDistPlot = {
+    y: orderedData.map(entry => entry[0]),
+    x: xVals,
+    type: 'bar',
+    orientation: 'h',
+    text: xVals.map(String),
+    textposition: 'outside',
+    hoverinfo: 'none',
+  }
+
+  const vizData = [categoryDistPlot]
+  const layout = {
+    title: 'Model accuracy distribution',
+    autosize: true,
+    font: {
+      size: 18,
+    },
+    height: 1000,
+    yaxis: {
+      title: 'Contribution categories (labels)',
+      automargin: true,
+    },
+    xaxis: {
+      title: 'Accuracy',
+      type: 'linear',
+      automargin: true,
+      tick0: 0,
+      dtick: 0.1,
+    },
+  }
+
+  Plotly.newPlot('accDist', vizData, layout, {scrollZoom: true})
+}
+
+const f1DistributionPlot = data => {
+  const orderedData = Object.entries(data.results).map(entry => [
+    entry[0],
+    entry[1].f1,
+  ])
+  orderedData.sort((a, b) => a[1] - b[1])
+  const xVals = orderedData.map(entry => entry[1])
+  const categoryDistPlot = {
+    y: orderedData.map(entry => entry[0]),
+    x: xVals,
+    type: 'bar',
+    orientation: 'h',
+    text: xVals.map(String),
+    textposition: 'outside',
+    hoverinfo: 'none',
+  }
+
+  const vizData = [categoryDistPlot]
+  const layout = {
+    title: 'Model F1 distribution',
+    autosize: true,
+    font: {
+      size: 18,
+    },
+    height: 1000,
+    yaxis: {
+      title: 'Contribution categories (labels)',
+      automargin: true,
+    },
+    xaxis: {
+      title: 'F1 Score',
+      type: 'linear',
+      automargin: true,
+      tick0: 0,
+      dtick: 0.1,
+    },
+  }
+
+  Plotly.newPlot('f1Dist', vizData, layout, {scrollZoom: true})
+}
+
+const precisionDistributionPlot = data => {
+  const orderedData = Object.entries(data.results).map(entry => [
+    entry[0],
+    entry[1].precision,
+  ])
+  orderedData.sort((a, b) => a[1] - b[1])
+  const xVals = orderedData.map(entry => entry[1])
+  const categoryDistPlot = {
+    y: orderedData.map(entry => entry[0]),
+    x: xVals,
+    type: 'bar',
+    orientation: 'h',
+    text: xVals.map(String),
+    textposition: 'outside',
+    hoverinfo: 'none',
+  }
+
+  const vizData = [categoryDistPlot]
+  const layout = {
+    title: 'Model Precision distribution',
+    autosize: true,
+    font: {
+      size: 18,
+    },
+    height: 1000,
+    yaxis: {
+      title: 'Contribution categories (labels)',
+      automargin: true,
+    },
+    xaxis: {
+      title: 'F1 Score',
+      type: 'linear',
+      automargin: true,
+      tick0: 0,
+      dtick: 0.1,
+    },
+  }
+
+  Plotly.newPlot('prDist', vizData, layout, {scrollZoom: true})
 }
 
 const tvtPartitionsPlot = data => {
@@ -95,7 +261,7 @@ const tvtPartitionsPlot = data => {
     },
   }
 
-  Plotly.newPlot('plot1', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('tvtPartitions', vizData, layout, {scrollZoom: true})
 }
 
 const facettedPartitionPlot = data => {
@@ -105,7 +271,8 @@ const facettedPartitionPlot = data => {
     ['desc', 'desc', 'desc', 'desc'],
   )
   const chunks = chunk(orderedData, 9)
-  const parentPlot = document.getElementById('plot2')
+  const plotName = 'partitions'
+  const parentPlot = document.getElementById(plotName)
 
   chunks.forEach((chk, section) => {
     const vizData = chk.map(([name, categories], idx) => {
@@ -133,8 +300,10 @@ const facettedPartitionPlot = data => {
       },
     }
 
-    parentPlot.innerHTML += `<div id="plot2_${section}"></div>`
-    Plotly.newPlot(`plot2_${section}`, vizData, layout, {scrollZoom: true})
+    parentPlot.innerHTML += `<div id="${plotName}_${section}"></div>`
+    Plotly.newPlot(`${plotName}_${section}`, vizData, layout, {
+      scrollZoom: true,
+    })
   })
 }
 
@@ -176,7 +345,7 @@ const trainedCategories = data => {
     },
   }
 
-  Plotly.newPlot('plot3', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('trainingLabelDist', vizData, layout, {scrollZoom: true})
 }
 
 const validatedCategories = data => {
@@ -216,7 +385,7 @@ const validatedCategories = data => {
     },
   }
 
-  Plotly.newPlot('plot4', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('validationLabelDist', vizData, layout, {scrollZoom: true})
 }
 
 const testedCategories = data => {
@@ -256,14 +425,18 @@ const testedCategories = data => {
     },
   }
 
-  Plotly.newPlot('plot5', vizData, layout, {scrollZoom: true})
+  Plotly.newPlot('testLabelDist', vizData, layout, {scrollZoom: true})
 }
 
 const build = async () => {
-  const [data, categoryPartitions] = await loadData()
+  const [data, categoryPartitions, modelStats] = await loadData()
   console.log(data)
   const entries = Object.entries(categoryPartitions)
   labelDistributionPlot(data)
+  predictionDistributionPlot(modelStats)
+  accuracyDistributionPlot(modelStats)
+  f1DistributionPlot(modelStats)
+  precisionDistributionPlot(modelStats)
   tvtPartitionsPlot(entries)
   facettedPartitionPlot(entries)
   trainedCategories(entries)
