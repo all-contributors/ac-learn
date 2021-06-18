@@ -196,6 +196,14 @@
     "category": "null"
   },
   {
+    "label": "area/cli",
+    "category": "infra"
+  },
+  {
+    "label": "area/runner",
+    "category": "infra"
+  },
+  {
     "label": "area: crash",
     "category": "bug"
   },
@@ -1418,6 +1426,22 @@
   {
     "label": "kanban",
     "category": "projectManagement"
+  },
+  {
+    "label": "kind/bug",
+    "category": "bug"
+  },
+  {
+    "label": "kind/discussion",
+    "category": "ideas"
+  },
+  {
+    "label": "kind/feature-request",
+    "category": "ideas"
+  },
+  {
+    "label": "kind/question",
+    "category": "question"
   },
   {
     "label": "kotlin",

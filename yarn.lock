@@ -2079,6 +2079,20 @@
     "traverse" "^0.6.6"
     "unified" "^6.1.6"
 
+"@testing-library/dom@^7.28.1":
+  "integrity" "sha512-3UqjCpey6HiTZT92vODYLPxTBWlM8ZOOjr3LX5F37/VRipW2M1kX6I/Cm4VXzteZqfGfagg8yXywpcOgQBlNsQ=="
+  "resolved" "https://registry.npmjs.org/@testing-library/dom/-/dom-7.31.2.tgz"
+  "version" "7.31.2"
+  dependencies:
+    "@babel/code-frame" "^7.10.4"
+    "@babel/runtime" "^7.12.5"
+    "@types/aria-query" "^4.2.0"
+    "aria-query" "^4.2.2"
+    "chalk" "^4.1.0"
+    "dom-accessibility-api" "^0.5.6"
+    "lz-string" "^1.4.4"
+    "pretty-format" "^26.6.2"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz"
@@ -2532,6 +2546,84 @@
   dependencies:
     "@webassemblyjs/helper-numbers" "1.11.6"
     "@webassemblyjs/helper-wasm-bytecode" "1.11.6"
+
+"@vue/compiler-core@3.1.1":
+  "integrity" "sha512-Z1RO3T6AEtAUFf2EqqovFm3ohAeTvFzRtB0qUENW2nEerJfdlk13/LS1a0EgsqlzxmYfR/S/S/gW9PLbFZZxkA=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-core/-/compiler-core-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@babel/parser" "^7.12.0"
+    "@babel/types" "^7.12.0"
+    "@vue/shared" "3.1.1"
+    "estree-walker" "^2.0.1"
+    "source-map" "^0.6.1"
+
+"@vue/compiler-dom@3.1.1":
+  "integrity" "sha512-nobRIo0t5ibzg+q8nC31m+aJhbq8FbWUoKvk6h3Vs1EqTDJaj6lBTcVTq5or8AYht7FbSpdAJ81isbJ1rWNX7A=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-dom/-/compiler-dom-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@vue/compiler-core" "3.1.1"
+    "@vue/shared" "3.1.1"
+
+"@vue/compiler-sfc@^3.0.11":
+  "integrity" "sha512-lSgMsZaYHF+bAgryq5aUqpvyfhu52GJI2/4LoiJCE5uaxc6FCZfxfgqgw/d9ltiZghv+HiISFtmQVAVvlsk+/w=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@babel/parser" "^7.13.9"
+    "@babel/types" "^7.13.0"
+    "@vue/compiler-core" "3.1.1"
+    "@vue/compiler-dom" "3.1.1"
+    "@vue/compiler-ssr" "3.1.1"
+    "@vue/shared" "3.1.1"
+    "consolidate" "^0.16.0"
+    "estree-walker" "^2.0.1"
+    "hash-sum" "^2.0.0"
+    "lru-cache" "^5.1.1"
+    "magic-string" "^0.25.7"
+    "merge-source-map" "^1.1.0"
+    "postcss" "^8.1.10"
+    "postcss-modules" "^4.0.0"
+    "postcss-selector-parser" "^6.0.4"
+    "source-map" "^0.6.1"
+
+"@vue/compiler-ssr@3.1.1":
+  "integrity" "sha512-7H6krZtVt3h/YzfNp7eYK41hMDz8ZskiBy+Wby+EDRINX6BD9JQ5C8zyy2xAa7T6Iz2VrQzsaJ/Bb52lTPSS5A=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-ssr/-/compiler-ssr-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@vue/compiler-dom" "3.1.1"
+    "@vue/shared" "3.1.1"
+
+"@vue/reactivity@3.1.1":
+  "integrity" "sha512-DsH5woNVCcPK1M0RRYVgJEU1GJDU2ASOKpAqW3ppHk+XjoFLCbqc/26RTCgTpJYd9z8VN+79Q1u7/QqgQPbuLQ=="
+  "resolved" "https://registry.npmjs.org/@vue/reactivity/-/reactivity-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@vue/shared" "3.1.1"
+
+"@vue/runtime-core@3.1.1":
+  "integrity" "sha512-GboqR02txOtkd9F3Ysd8ltPL68vTCqIx2p/J52/gFtpgb5FG9hvOAPEwFUqxeEJRu7ResvQnmdOHiEycGPCLhQ=="
+  "resolved" "https://registry.npmjs.org/@vue/runtime-core/-/runtime-core-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@vue/reactivity" "3.1.1"
+    "@vue/shared" "3.1.1"
+
+"@vue/runtime-dom@3.1.1":
+  "integrity" "sha512-o57n/199e/BBAmLRMSXmD2r12Old/h/gf6BgL0RON1NT2pwm6MWaMY4Ul55eyq+FsDILz4jR/UgoPQ9vYB8xcw=="
+  "resolved" "https://registry.npmjs.org/@vue/runtime-dom/-/runtime-dom-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@vue/runtime-core" "3.1.1"
+    "@vue/shared" "3.1.1"
+    "csstype" "^2.6.8"
+
+"@vue/shared@3.1.1":
+  "integrity" "sha512-g+4pzAw7PYSjARtLBoDq6DmcblX8i9KJHSCnyM5VDDFFifUaUT9iHbFpOF/KOizQ9f7QAqU2JH3Y6aXjzUMhVA=="
+  "resolved" "https://registry.npmjs.org/@vue/shared/-/shared-3.1.1.tgz"
+  "version" "3.1.1"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -4038,9 +4130,8 @@ cardinal@^2.1.1:
   resolved "https://registry.npmjs.org/cardinal/-/cardinal-2.1.1.tgz"
   integrity sha512-JSr5eOgoEymtYHBjNWyjrMqet9Am2miJhlfKNdqLp6zoeAh0KN5dRAcxlecj5mAJrmQomgiOBj35xHLrFjqBpw==
   dependencies:
-    "camelcase" "^4.1.0"
-    "map-obj" "^2.0.0"
-    "quick-lru" "^1.0.0"
+    "camelcase" "^1.0.1"
+    "map-obj" "^1.0.0"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -4201,24 +4292,24 @@ chokidar@^2.1.8:
     "supports-color" "^7.1.0"
 
 "character-entities-html4@^1.0.0":
-  "integrity" "sha512-SwnyZ7jQBCRHELk9zf2CN5AnGEc2nA+uKMZLHvcqhpPprjkYhiLn0DywMHgN5ttFZuITMATbh68M6VIVKwJbcg=="
-  "resolved" "https://registry.npmjs.org/character-entities-html4/-/character-entities-html4-1.1.3.tgz"
-  "version" "1.1.3"
+  "integrity" "sha512-HRcDxZuZqMx3/a+qrzxdBKBPUpxWEq9xw2OPZ3a/174ihfrQKVsFhqtthBInFy1zZ9GgZyFXOatNujm8M+El3g=="
+  "resolved" "https://registry.npmjs.org/character-entities-html4/-/character-entities-html4-1.1.4.tgz"
+  "version" "1.1.4"
 
 "character-entities-legacy@^1.0.0":
-  "integrity" "sha512-YAxUpPoPwxYFsslbdKkhrGnXAtXoHNgYjlBM3WMXkWGTl5RsY3QmOyhwAgL8Nxm9l5LBThXGawxKPn68y6/fww=="
-  "resolved" "https://registry.npmjs.org/character-entities-legacy/-/character-entities-legacy-1.1.3.tgz"
-  "version" "1.1.3"
+  "integrity" "sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA=="
+  "resolved" "https://registry.npmjs.org/character-entities-legacy/-/character-entities-legacy-1.1.4.tgz"
+  "version" "1.1.4"
 
 "character-entities@^1.0.0":
-  "integrity" "sha512-yB4oYSAa9yLcGyTbB4ItFwHw43QHdH129IJ5R+WvxOkWlyFnR5FAaBNnUq4mcxsTVZGh28bHoeTHMKXH1wZf3w=="
-  "resolved" "https://registry.npmjs.org/character-entities/-/character-entities-1.2.3.tgz"
-  "version" "1.2.3"
+  "integrity" "sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw=="
+  "resolved" "https://registry.npmjs.org/character-entities/-/character-entities-1.2.4.tgz"
+  "version" "1.2.4"
 
 "character-reference-invalid@^1.0.0":
-  "integrity" "sha512-VOq6PRzQBam/8Jm6XBGk2fNEnHXAdGd6go0rtd4weAGECBamHDwwCQSOT12TACIYUZegUXnV6xBXqUssijtxIg=="
-  "resolved" "https://registry.npmjs.org/character-reference-invalid/-/character-reference-invalid-1.1.3.tgz"
-  "version" "1.1.3"
+  "integrity" "sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg=="
+  "resolved" "https://registry.npmjs.org/character-reference-invalid/-/character-reference-invalid-1.1.4.tgz"
+  "version" "1.1.4"
 
 "chardet@^0.4.0":
   "integrity" "sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I="
@@ -7719,7 +7810,7 @@ hmac-drbg@^1.0.1:
   resolved "https://registry.npmjs.org/hmac-drbg/-/hmac-drbg-1.0.1.tgz"
   integrity sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==
   dependencies:
-    "xtend" "^4.0.1"
+    "xtend" "^4.0.0"
 
 homedir-polyfill@^1.0.1:
   version "1.0.3"
@@ -7727,15 +7818,15 @@ homedir-polyfill@^1.0.1:
   integrity sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==
   dependencies:
     "ccount" "^1.0.0"
-    "comma-separated-tokens" "^1.0.1"
+    "comma-separated-tokens" "^1.0.0"
     "hast-util-is-element" "^1.0.0"
     "hast-util-whitespace" "^1.0.0"
     "html-void-elements" "^1.0.0"
-    "property-information" "^4.0.0"
+    "property-information" "^5.0.0"
     "space-separated-tokens" "^1.0.0"
-    "stringify-entities" "^1.0.1"
-    "unist-util-is" "^2.0.0"
-    "xtend" "^4.0.1"
+    "stringify-entities" "^3.0.1"
+    "unist-util-is" "^4.0.0"
+    "xtend" "^4.0.0"
 
 hook-std@^2.0.0:
   version "2.0.0"
@@ -10328,7 +10419,62 @@ mdast-util-inject@^1.1.0:
   resolved "https://registry.npmjs.org/mdast-util-inject/-/mdast-util-inject-1.1.0.tgz"
   integrity sha512-CcJ0mHa36QYumDKiZ2OIR+ClhfOM7zIzN+Wfy8tRZ1hpH9DKLCS+Mh4DyK5bCxzE9uxMWcbIpeNFWsg1zrj/2g==
   dependencies:
-    "unist-util-visit" "^1.0.0"
+    "escape-string-regexp" "^4.0.0"
+    "unist-util-is" "^4.0.0"
+    "unist-util-visit-parents" "^3.0.0"
+
+"mdast-util-from-markdown@^0.8.0":
+  "integrity" "sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ=="
+  "resolved" "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-0.8.5.tgz"
+  "version" "0.8.5"
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    "mdast-util-to-string" "^2.0.0"
+    "micromark" "~2.11.0"
+    "parse-entities" "^2.0.0"
+    "unist-util-stringify-position" "^2.0.0"
+
+"mdast-util-gfm-autolink-literal@^0.1.0":
+  "integrity" "sha512-GjmLjWrXg1wqMIO9+ZsRik/s7PLwTaeCHVB7vRxUwLntZc8mzmTsLVr6HW1yLokcnhfURsn5zmSVdi3/xWWu1A=="
+  "resolved" "https://registry.npmjs.org/mdast-util-gfm-autolink-literal/-/mdast-util-gfm-autolink-literal-0.1.3.tgz"
+  "version" "0.1.3"
+  dependencies:
+    "ccount" "^1.0.0"
+    "mdast-util-find-and-replace" "^1.1.0"
+    "micromark" "^2.11.3"
+
+"mdast-util-gfm-strikethrough@^0.2.0":
+  "integrity" "sha512-5OQLXpt6qdbttcDG/UxYY7Yjj3e8P7X16LzvpX8pIQPYJ/C2Z1qFGMmcw+1PZMUM3Z8wt8NRfYTvCni93mgsgA=="
+  "resolved" "https://registry.npmjs.org/mdast-util-gfm-strikethrough/-/mdast-util-gfm-strikethrough-0.2.3.tgz"
+  "version" "0.2.3"
+  dependencies:
+    "mdast-util-to-markdown" "^0.6.0"
+
+"mdast-util-gfm-table@^0.1.0":
+  "integrity" "sha512-j4yDxQ66AJSBwGkbpFEp9uG/LS1tZV3P33fN1gkyRB2LoRL+RR3f76m0HPHaby6F4Z5xr9Fv1URmATlRRUIpRQ=="
+  "resolved" "https://registry.npmjs.org/mdast-util-gfm-table/-/mdast-util-gfm-table-0.1.6.tgz"
+  "version" "0.1.6"
+  dependencies:
+    "markdown-table" "^2.0.0"
+    "mdast-util-to-markdown" "~0.6.0"
+
+"mdast-util-gfm-task-list-item@^0.1.0":
+  "integrity" "sha512-/d51FFIfPsSmCIRNp7E6pozM9z1GYPIkSy1urQ8s/o4TC22BZ7DqfHFWiqBD23bc7J3vV1Fc9O4QIHBlfuit8A=="
+  "resolved" "https://registry.npmjs.org/mdast-util-gfm-task-list-item/-/mdast-util-gfm-task-list-item-0.1.6.tgz"
+  "version" "0.1.6"
+  dependencies:
+    "mdast-util-to-markdown" "~0.6.0"
+
+"mdast-util-gfm@^0.1.0":
+  "integrity" "sha512-NNkhDx/qYcuOWB7xHUGWZYVXvjPFFd6afg6/e2g+SV4r9q5XUcCbV4Wfa3DLYIiD+xAEZc6K4MGaE/m0KDcPwQ=="
+  "resolved" "https://registry.npmjs.org/mdast-util-gfm/-/mdast-util-gfm-0.1.2.tgz"
+  "version" "0.1.2"
+  dependencies:
+    "mdast-util-gfm-autolink-literal" "^0.1.0"
+    "mdast-util-gfm-strikethrough" "^0.2.0"
+    "mdast-util-gfm-table" "^0.1.0"
+    "mdast-util-gfm-task-list-item" "^0.1.0"
+    "mdast-util-to-markdown" "^0.6.1"
 
 mdast-util-to-hast@^10.0.0:
   version "10.2.0"
@@ -13873,8 +14019,7 @@ stringify-object@^3.3.0:
   dependencies:
     "character-entities-html4" "^1.0.0"
     "character-entities-legacy" "^1.0.0"
-    "is-alphanumerical" "^1.0.0"
-    "is-hexadecimal" "^1.0.0"
+    "xtend" "^4.0.0"
 
 stringify-package@^1.0.1:
   version "1.0.1"
@@ -14731,10 +14876,10 @@ unique-slug@^2.0.0:
   dependencies:
     "bail" "^1.0.0"
     "extend" "^3.0.0"
-    "is-plain-obj" "^1.1.0"
+    "is-buffer" "^2.0.0"
+    "is-plain-obj" "^2.0.0"
     "trough" "^1.0.0"
-    "vfile" "^2.0.0"
-    "x-is-string" "^0.1.0"
+    "vfile" "^4.0.0"
 
 unique-slug@^3.0.0:
   version "3.0.0"
@@ -14809,7 +14954,8 @@ unist-util-visit-parents@^2.0.0:
   resolved "https://registry.npmjs.org/unist-util-visit-parents/-/unist-util-visit-parents-2.1.2.tgz"
   integrity sha512-DyN5vD4NE3aSeB+PXYNKxzGsfocxp6asDc2XXE3b0ekO2BaRUpBicbbUygfSvYfUz1IkmjFR1YF7dPklraMZ2g==
   dependencies:
-    "unist-util-is" "^3.0.0"
+    "@types/unist" "^2.0.0"
+    "unist-util-is" "^4.0.0"
 
 unist-util-visit-parents@^3.0.0:
   version "3.1.1"
@@ -14824,7 +14970,9 @@ unist-util-visit@^1.1.0:
   resolved "https://registry.npmjs.org/unist-util-visit/-/unist-util-visit-1.4.1.tgz"
   integrity sha512-AvGNk7Bb//EmJZyhtRUnNMEpId/AZ5Ph/KUpTI09WHQuDZHKovQ1oEv3mfmKpWKtoMzyMC4GLBm1Zy5k12fjIw==
   dependencies:
-    "unist-util-visit-parents" "^2.0.0"
+    "@types/unist" "^2.0.0"
+    "unist-util-is" "^4.0.0"
+    "unist-util-visit-parents" "^3.0.0"
 
 unist-util-visit@^2.0.0, unist-util-visit@^2.0.3:
   version "2.0.3"
