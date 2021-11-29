@@ -15138,9 +15138,9 @@ vm-browserify@^1.0.1:
   integrity sha512-iq+S7vZJE60yejDYM0ek6zg308+UZsdtPExWP9VZoCFCz1zkJoXFnAX7aZfd/ZwrkidzdUZL0C/ryW+JwAiIGw==
 
 vm2@^3.5.2:
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.8.2.tgz#7744c40f669c079db4fda44b8edae64afd26cfb0"
-  integrity sha512-FE9slf0o4YoD2Jf7VEjytHTac2SMt2J4ahf9Tw9YLLVqJm0DQiMpmN+I0+RsnOZ0kb7PyeR1rLxathXZWJ23kg==
+  version "3.9.5"
+  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.5.tgz#5288044860b4bbace443101fcd3bddb2a0aa2496"
+  integrity sha512-LuCAHZN75H9tdrAiLFf030oW7nJV5xwNMuk1ymOZwopmuK3d2H4L1Kv4+GFHgarKiLfXXLFU+7LDABHnwOkWng==
 
 vscode-languageserver-types@^3.5.0:
   version "3.14.0"
