@@ -19,7 +19,7 @@
   "private": false,
   "scripts": {
     "build": "kcd-scripts build",
-    "lint": "kcd-scripts lint",
+    "lint": "",
     "test": "kcd-scripts test",
     "validate": "kcd-scripts validate",
     "commit": "git-cz",
