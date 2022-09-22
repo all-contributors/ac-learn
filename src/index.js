@@ -102,14 +102,14 @@ class Learner {
       predicted.push(guess) //Ignores the rest (as it only wants one guess)
       if (log) {
         if (guess === data.output)
-          succ(`Classified "${data.input}" as "${guess}"`)
+          {succ(`Classified "${data.input}" as "${guess}"`)}
         else
-          error(
+          {error(
             `Classified "${data.input}" as "${guess}" instead of "${use(
               'info',
               data.output,
             )}"`,
-          )
+          )}
       }
       spinner.message(
         `Evaluating instances (${Math.round((idx++ / len) * 10000) / 100}%)`,
@@ -337,7 +337,7 @@ class Learner {
       ++res[data.output].overall
       if (hasInput(this.trainSet, data.input)) ++res[data.output].train
       if (hasInput(this.validationSet, data.input))
-        ++res[data.output].validation
+        {++res[data.output].validation}
       if (hasInput(this.testSet, data.input)) ++res[data.output].test
     })
 

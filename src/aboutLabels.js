@@ -1,5 +1,5 @@
-const ck = require('chalk')
 const {join} = require('path')
+const ck = require('chalk')
 const labels = require(join(__dirname, './labels.json'))
 const cats = require(join(__dirname, './categories.json'))
 
