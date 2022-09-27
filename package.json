@@ -65,7 +65,7 @@
     "kcd-scripts": "^6.2.4",
     "plotly.js-dist": "^1.54.7",
     "semantic-release": "^19.0.3",
-    "snyk": "^1.377.1"
+    "snyk": "^1.1012.0"
   },
   "eslintIgnore": [
     "node_modules",
