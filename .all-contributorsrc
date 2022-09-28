@@ -25,6 +25,17 @@
         "test",
         "security"
       ]
+    },
+    {
+      "login": "tenshiAMD",
+      "name": "Angel Aviel Domaoan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13580338?v=4",
+      "profile": "https://tenshiamd.com",
+      "contributions": [
+        "code",
+        "maintenance",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7
