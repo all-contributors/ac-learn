@@ -1040,13 +1040,19 @@ Returns **[ConfusionMatrix](#confusionmatrix)** Filled confusion matrix
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="http://maxcubing.wordpress.com"><img src="https://avatars0.githubusercontent.com/u/8260834?v=4" width="100px;" alt="Maximilian Berkmann"/><br /><sub><b>Maximilian Berkmann</b></sub></a><br /><a href="https://github.com/all-contributors/ac-learn/commits?author=Berkmann18" title="Code">💻</a> <a href="https://github.com/all-contributors/ac-learn/commits?author=Berkmann18" title="Documentation">📖</a> <a href="#ideas-Berkmann18" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Berkmann18" title="Maintenance">🚧</a> <a href="#platform-Berkmann18" title="Packaging/porting to new platform">📦</a> <a href="#infra-Berkmann18" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/all-contributors/ac-learn/commits?author=Berkmann18" title="Tests">⚠️</a> <a href="#security-Berkmann18" title="Security">🛡️</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center"><a href="http://maxcubing.wordpress.com"><img src="https://avatars0.githubusercontent.com/u/8260834?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Maximilian Berkmann</b></sub></a><br /><a href="https://github.com/all-contributors/ac-learn/commits?author=Berkmann18" title="Code">💻</a> <a href="https://github.com/all-contributors/ac-learn/commits?author=Berkmann18" title="Documentation">📖</a> <a href="#ideas-Berkmann18" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Berkmann18" title="Maintenance">🚧</a> <a href="#platform-Berkmann18" title="Packaging/porting to new platform">📦</a> <a href="#infra-Berkmann18" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/all-contributors/ac-learn/commits?author=Berkmann18" title="Tests">⚠️</a> <a href="#security-Berkmann18" title="Security">🛡️</a></td>
+      <td align="center"><a href="https://tenshiamd.com"><img src="https://avatars.githubusercontent.com/u/13580338?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Angel Aviel Domaoan</b></sub></a><br /><a href="https://github.com/all-contributors/ac-learn/commits?author=tenshiAMD" title="Code">💻</a> <a href="#maintenance-tenshiAMD" title="Maintenance">🚧</a> <a href="https://github.com/all-contributors/ac-learn/pulls?q=is%3Apr+reviewed-by%3AtenshiAMD" title="Reviewed Pull Requests">👀</a></td>
+    </tr>
+  </tbody>
 </table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
