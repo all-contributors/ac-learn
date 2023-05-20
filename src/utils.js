@@ -10,10 +10,9 @@ const copy = el => {
     typeof el === 'string' ||
     typeof el === 'number' ||
     typeof el === 'boolean'
-  )
-    {return el}
-  //As they are immutable types
-  else {
+  ) {
+    return el
+  } else { //As they are immutable types
     const clone = {}
     for (const i in el) {
       if (el.hasOwnProperty(i)) clone[i] = el[i]
@@ -123,8 +122,9 @@ const rmEmpty = matrix => {
   })
   const nonEmpty = {}
   for (const row in matrix) {
-    if (matrix.hasOwnProperty(row) && !empty.includes(row))
-      {nonEmpty[row] = matrix[row]}
+    if (matrix.hasOwnProperty(row) && !empty.includes(row)) {
+      nonEmpty[row] = matrix[row]
+    }
   }
   return nonEmpty
 }
@@ -139,8 +139,9 @@ const rmEmpty = matrix => {
  * @private
  */
 const hexSeries = (position, start = 0.1, inc = 0.1) => {
-  if (position < 0 || position > 2)
-    {throw new Error('position needs be between 0 and 2')}
+  if (position < 0 || position > 2) {
+    throw new Error('position needs be between 0 and 2')
+  }
   const TEMPLATE = ['00', '00', '00']
   const res = []
   for (let i = start; i <= 1; i += inc) {

@@ -80,8 +80,9 @@ class ConfusionMatrix {
     if (matrix === null) {
       this.matrix = objectify(this.classes)
       for (const category in this.matrix) {
-        if (this.matrix.hasOwnProperty(category))
-          {this.matrix[category] = objectify(this.classes, 0)}
+        if (this.matrix.hasOwnProperty(category)) {
+          this.matrix[category] = objectify(this.classes, 0)
+        }
       }
     } else this.matrix = matrix
   }
@@ -129,8 +130,9 @@ class ConfusionMatrix {
    * @protected
    */
   static fromData(actual, predictions, classes = []) {
-    if (actual.length !== predictions.length)
-      {throw new Error("actual and predictions don't have the same length")}
+    if (actual.length !== predictions.length) {
+      throw new Error("actual and predictions don't have the same length")
+    }
     const cm = new ConfusionMatrix(
       classes.length ? classes : [...actual, ...predictions],
     )
