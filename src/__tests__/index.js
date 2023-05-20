@@ -1,5 +1,5 @@
 const Learner = require('../')
-const { toPrecision } = require('../utils')
+const {toPrecision} = require('../utils')
 const dataset = require('../conv')('io')
 
 const copy = x => JSON.parse(JSON.stringify(x))
@@ -9,11 +9,6 @@ describe('a learner', () => {
     const learner = new Learner({dataset})
     const trainSplit = 0.7
     const validationSplit = 0.15
-    // const testSplit =
-    //   Math.round((1 - trainSplit - validationSplit) * 1000) / 1000 // because 1 - .8 = .199..
-    // console.log('splits=', trainSplit, validationSplit, testSplit);
-    // console.log([trainSplit, validationSplit, testSplit].map(x => dataset.length * x));
-    // console.log([trainSplit, validationSplit, testSplit].map(x => Math.round(dataset.length * x)));
     expect(learner.dataset).toEqual(dataset)
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
     const trainLen = Math.round(dataset.length * trainSplit)
@@ -84,19 +79,6 @@ describe('a learner', () => {
       /* eslint-disable no-console */
       .then(classifier => {
         expect(classifier).not.toMatchObject(learner.classifier)
-        //TODO: Either uncomment or remove
-        // const moddedClassifier = {
-        //   ...learner.classifier,
-        //   classifier: {
-        //     binaryClassifierType: Winnow,
-        //     debug: false,
-        //     mapClassnameToClassifier: {}
-        //   },
-        //   createNewObjectString: SERIAL_JSON.createNewObjectString,
-        //   featureDocumentFrequency: undefined,
-        //   documentCount: undefined,
-        // }
-        // expect(classifier).toMatchObject(moddedClassifier)
       }, console.error)
       /* eslint-enable no-console */
       .then(_ => done())
@@ -193,13 +175,10 @@ describe('has stats', () => {
     /* eslint-enable babel/no-unused-expressions */
   })
 
-  // console.log('micro=', learner.microAvg, '\nmacro=', learner.macroAvg)
   it('has a correct accuracy', () => {
     const acc = avg => (avg.TP + avg.TN) / avg.count
 
-    const a = acc(learner.macroAvg)
-
-    expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(toPrecision(a, 10))
+    expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(toPrecision(acc(learner.macroAvg), 10))
     // expect(learner.microAvg.Accuracy).toEqual(acc(learner.microAvg)) //cf. https://github.com/erelsgl/limdu/issues/64
   })
 

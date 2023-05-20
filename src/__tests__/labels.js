@@ -2,7 +2,7 @@ import labels from '../labels'
 import categories from '../categories'
 
 const LEN = 380
-const nineth = {label: ':bug: bug', category: 'bug'};
+const nineth = {label: ':bug: bug', category: 'bug'}
 const allLabels = labels.getAll(true)
 
 test('All data', () => {
@@ -16,8 +16,8 @@ test('All data', () => {
 test('get', () => {
   expect(labels.getAt(0)).toEqual({label: '*nix', category: 'platform'})
   const firstLabel = labels.getAt(0);
-  expect(typeof firstLabel.category === 'string').toBeTruthy();
-  expect(typeof firstLabel.label === 'string').toBeTruthy();
+  expect(typeof firstLabel.category === 'string').toBeTruthy()
+  expect(typeof firstLabel.label === 'string').toBeTruthy()
   expect(labels.getAt(9)).toEqual(nineth)
 })
 
@@ -38,9 +38,9 @@ test('Categories', () => {
 test('Distinct categories (and all are present)', () => {
   const dc = labels.getDistinctCategories()
   expect(dc.includes('null')).toBeTruthy()
-  const sortAtoZ = (a, b) => a.localeCompare(b);
+  const sortAtoZ = (a, b) => a.localeCompare(b)
   dc.sort(sortAtoZ);
-  const sortedCategories = [...categories].sort(sortAtoZ);
+  const sortedCategories = [...categories].sort(sortAtoZ)
   expect(dc).toEqual(sortedCategories)
 })
 
