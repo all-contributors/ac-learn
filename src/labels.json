@@ -1,5 +1,9 @@
 [
   {
+    "label": "*nix",
+    "category": "platform"
+  },
+  {
     "label": ".net core",
     "category": "code"
   },
@@ -10,10 +14,6 @@
   {
     "label": ".net standard",
     "category": "code"
-  },
-  {
-    "label": "*nix",
-    "category": "platform"
   },
   {
     "label": "0 - backlog",
@@ -64,6 +64,10 @@
     "category": "userTesting"
   },
   {
+    "label": "a11y",
+    "category": "a11y"
+  },
+  {
     "label": "abandoned",
     "category": "null"
   },
@@ -74,10 +78,6 @@
   {
     "label": "accepted",
     "category": "null"
-  },
-  {
-    "label": "a11y",
-    "category": "a11y"
   },
   {
     "label": "accessibility",
@@ -132,11 +132,11 @@
     "category": "content"
   },
   {
-    "label": "assess",
+    "label": "assertion",
     "category": "test"
   },
   {
-    "label": "assertion",
+    "label": "assess",
     "category": "test"
   },
   {
@@ -312,6 +312,14 @@
     "category": "null"
   },
   {
+    "label": "coach",
+    "category": "mentoring"
+  },
+  {
+    "label": "coaching",
+    "category": "mentoring"
+  },
+  {
     "label": "color",
     "category": "design"
   },
@@ -428,16 +436,16 @@
     "category": "financial"
   },
   {
-    "label": "crowdin",
-    "category": "translation"
-  },
-  {
     "label": "critical",
     "category": "null"
   },
   {
     "label": "critique",
     "category": "review"
+  },
+  {
+    "label": "crowdin",
+    "category": "translation"
   },
   {
     "label": "csharp",
@@ -454,10 +462,6 @@
   {
     "label": "currency (category)",
     "category": "financial"
-  },
-  {
-    "label": "data protection",
-    "category": "security"
   },
   {
     "label": "data",
@@ -478,6 +482,10 @@
   {
     "label": "data entry",
     "category": "data"
+  },
+  {
+    "label": "data protection",
+    "category": "security"
   },
   {
     "label": "deal",
@@ -536,6 +544,10 @@
     "category": "design"
   },
   {
+    "label": "diary",
+    "category": "blog"
+  },
+  {
     "label": "difficulty: easy",
     "category": "null"
   },
@@ -548,12 +560,12 @@
     "category": "null"
   },
   {
-    "label": "diary",
-    "category": "blog"
-  },
-  {
     "label": "discussion",
     "category": "ideas"
+  },
+  {
+    "label": "dissertation",
+    "category": "research"
   },
   {
     "label": "do not merge",
@@ -570,6 +582,10 @@
   {
     "label": "docs",
     "category": "doc"
+  },
+  {
+    "label": "doctorate",
+    "category": "research"
   },
   {
     "label": "documentation",
@@ -892,11 +908,11 @@
     "category": "tutorial"
   },
   {
-    "label": "hsv",
+    "label": "hsl",
     "category": "design"
   },
   {
-    "label": "hsl",
+    "label": "hsv",
     "category": "design"
   },
   {
@@ -964,10 +980,6 @@
     "category": "infra"
   },
   {
-    "label": "infrastructure :hammer_and_wrench:",
-    "category": "infra"
-  },
-  {
     "label": "inquiry",
     "category": "question"
   },
@@ -1008,11 +1020,11 @@
     "category": "platform"
   },
   {
-    "label": "javascript",
+    "label": "java",
     "category": "code"
   },
   {
-    "label": "java",
+    "label": "javascript",
     "category": "code"
   },
   {
@@ -1076,16 +1088,16 @@
     "category": "design"
   },
   {
+    "label": "lecture",
+    "category": "tutorial"
+  },
+  {
     "label": "legal",
     "category": "security"
   },
   {
     "label": "lerna",
     "category": "infra"
-  },
-  {
-    "label": "lecture",
-    "category": "tutorial"
   },
   {
     "label": "lesson",
@@ -1130,6 +1142,18 @@
   {
     "label": "meetup",
     "category": "eventOrganizing"
+  },
+  {
+    "label": "mentor",
+    "category": "mentoring"
+  },
+  {
+    "label": "mentoring",
+    "category": "mentoring"
+  },
+  {
+    "label": "mentorship",
+    "category": "mentoring"
   },
   {
     "label": "mishap",
@@ -1244,10 +1268,6 @@
     "category": "platform"
   },
   {
-    "label": "node-4",
-    "category": "platform"
-  },
-  {
     "label": "not a bug",
     "category": "null"
   },
@@ -1326,6 +1346,10 @@
   {
     "label": "performance",
     "category": "maintenance"
+  },
+  {
+    "label": "phd",
+    "category": "research"
   },
   {
     "label": "phone",
@@ -1492,6 +1516,10 @@
     "category": "projectManagement"
   },
   {
+    "label": "promotion",
+    "category": "promotion"
+  },
+  {
     "label": "proposal",
     "category": "ideas"
   },
@@ -1574,6 +1602,10 @@
   {
     "label": "requires upstream change",
     "category": "code"
+  },
+  {
+    "label": "research",
+    "category": "research"
   },
   {
     "label": "resolution: support redirect",
@@ -1904,11 +1936,11 @@
     "category": "null"
   },
   {
-    "label": "tests",
+    "label": "testing",
     "category": "test"
   },
   {
-    "label": "testing",
+    "label": "tests",
     "category": "test"
   },
   {
@@ -1948,12 +1980,12 @@
     "category": "translation"
   },
   {
-    "label": "trello",
-    "category": "projectManagement"
-  },
-  {
     "label": "travis-yml",
     "category": "infra"
+  },
+  {
+    "label": "trello",
+    "category": "projectManagement"
   },
   {
     "label": "triage",
@@ -1978,6 +2010,10 @@
   {
     "label": "tutorial",
     "category": "tutorial"
+  },
+  {
+    "label": "tv",
+    "category": "video"
   },
   {
     "label": "type: bug",
@@ -2054,10 +2090,6 @@
   {
     "label": "typography",
     "category": "design"
-  },
-  {
-    "label": "tv",
-    "category": "video"
   },
   {
     "label": "ui",
