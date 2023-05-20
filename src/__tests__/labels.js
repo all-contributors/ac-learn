@@ -3,16 +3,21 @@ import categories from '../categories'
 
 const LEN = 380
 const nineth = {label: ':bug: bug', category: 'bug'}
+const allLabels = labels.getAll(true)
 
 test('All data', () => {
   const data = labels.getAll()
   expect(data.length >= LEN).toBeTruthy()
   expect(Array.isArray(data)).toBeTruthy()
   expect(data[9]).toEqual(nineth)
+  expect(allLabels).toEqual(data)
 })
 
 test('get', () => {
-  expect(labels.getAt(0)).toEqual({label: '.net core', category: 'code'})
+  expect(labels.getAt(0)).toEqual({label: '*nix', category: 'platform'})
+  const firstLabel = labels.getAt(0);
+  expect(typeof firstLabel.category === 'string').toBeTruthy()
+  expect(typeof firstLabel.label === 'string').toBeTruthy()
   expect(labels.getAt(9)).toEqual(nineth)
 })
 
@@ -30,9 +35,13 @@ test('Categories', () => {
   expect(cats[9]).toEqual(nineth.category)
 })
 
-test('Distinct cats', () => {
+test('Distinct categories (and all are present)', () => {
   const dc = labels.getDistinctCategories()
   expect(dc.includes('null')).toBeTruthy()
+  const sortAtoZ = (a, b) => a.localeCompare(b)
+  dc.sort(sortAtoZ);
+  const sortedCategories = [...categories].sort(sortAtoZ)
+  expect(dc).toEqual(sortedCategories)
 })
 
 test('Size', () => {
@@ -54,7 +63,8 @@ test('Labels with a `null` category', () => {
 test('Labels with a valid category', () => {
   const vl = labels.getValidCatLabels()
   expect(vl.length > categories.length).toBeTruthy()
-  expect(vl[0]).toEqual({label: '.net core', category: 'code'})
+  const labelsWithIncorectCategories = allLabels.filter(d => !categories.includes(d.category));
+  expect(labelsWithIncorectCategories).toHaveLength(0)
 })
 
 test('Bad data', () => {

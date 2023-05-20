@@ -1,4 +1,5 @@
 const Learner = require('../')
+const {toPrecision} = require('../utils')
 const dataset = require('../conv')('io')
 
 const copy = x => JSON.parse(JSON.stringify(x))
@@ -8,21 +9,16 @@ describe('a learner', () => {
     const learner = new Learner({dataset})
     const trainSplit = 0.7
     const validationSplit = 0.15
-    // const testSplit =
-    //   Math.round((1 - trainSplit - validationSplit) * 1000) / 1000 // because 1 - .8 = .199..
-    // console.log('splits=', trainSplit, validationSplit, testSplit);
-    // console.log([trainSplit, validationSplit, testSplit].map(x => dataset.length * x));
-    // console.log([trainSplit, validationSplit, testSplit].map(x => Math.round(dataset.length * x)));
     expect(learner.dataset).toEqual(dataset)
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
     const trainLen = Math.round(dataset.length * trainSplit)
-    expect(learner.trainSet.length).toStrictEqual(trainLen)
+    expect(learner.trainSet).toHaveLength(trainLen)
     expect(Array.isArray(learner.validationSet)).toBeTruthy()
     const validationLen = Math.round(dataset.length * validationSplit)
-    expect(learner.validationSet.length).toStrictEqual(validationLen)
+    expect(learner.validationSet).toHaveLength(validationLen)
     expect(Array.isArray(learner.testSet)).toBeTruthy()
     const testLen = dataset.length - trainLen - validationLen
-    expect(learner.testSet.length).toStrictEqual(testLen)
+    expect(learner.testSet).toHaveLength(testLen)
     expect(learner.splits).toStrictEqual([trainSplit, validationSplit])
     expect(typeof learner.classifier).toStrictEqual('object')
     expect(typeof learner.classifierBuilder).toStrictEqual('function')
@@ -52,7 +48,7 @@ describe('a learner', () => {
   })
 
   const SERIAL_STR = `{
-  "createNewObjectString": "(pastTrainingSamples = []) => {\\n  const {\\n    multilabel,\\n    Winnow,\\n    EnhancedClassifier\\n  } = require('limdu').classifiers; // Word extractor - a function that takes a sample and adds features to a given features set:\\n\\n\\n  const TextClassifier = multilabel.BinaryRelevance.bind(0, {\\n    //eslint-disable-next-line babel/camelcase\\n    binaryClassifierType: Winnow.bind(0, {\\n      retrain_count: 10\\n    })\\n  });\\n  const classifier = new EnhancedClassifier({\\n    classifierType: TextClassifier,\\n    featureExtractor: (input, features) => {\\n      //similar to limdu.features.NGramsOfWords(1)\\n      input.split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\n      .filter(Boolean).forEach(word => {\\n        features[word.toLowerCase()] = 1;\\n      });\\n    },\\n    //or extract\\n    pastTrainingSamples\\n  });\\n  return classifier;\\n}",
+  "createNewObjectString": "(pastTrainingSamples = []) => {\\n  const {\\n    multilabel,\\n    Winnow,\\n    EnhancedClassifier\\n  } = require('limdu').classifiers;\\n\\n  // Word extractor - a function that takes a sample and adds features to a given features set:\\n\\n  const TextClassifier = multilabel.BinaryRelevance.bind(0, {\\n    //eslint-disable-next-line babel/camelcase\\n    binaryClassifierType: Winnow.bind(0, {\\n      retrain_count: 10\\n    })\\n  });\\n  const classifier = new EnhancedClassifier({\\n    classifierType: TextClassifier,\\n    featureExtractor: (input, features) => {\\n      //similar to limdu.features.NGramsOfWords(1)\\n      input.split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\n      .filter(Boolean).forEach(word => {\\n        features[word.toLowerCase()] = 1;\\n      });\\n    },\\n    //or extract\\n    pastTrainingSamples\\n  });\\n  return classifier;\\n}",
   "object": {\n\t\t"classifier": {},\n\t\t"pastTrainingSamples": []\n\t}\n}`
   const SERIAL_JSON = JSON.parse(SERIAL_STR)
 
@@ -83,18 +79,6 @@ describe('a learner', () => {
       /* eslint-disable no-console */
       .then(classifier => {
         expect(classifier).not.toMatchObject(learner.classifier)
-        // const moddedClassifier = {
-        //   ...learner.classifier,
-        //   classifier: {
-        //     binaryClassifierType: Winnow,
-        //     debug: false,
-        //     mapClassnameToClassifier: {}
-        //   },
-        //   createNewObjectString: SERIAL_JSON.createNewObjectString,
-        //   featureDocumentFrequency: undefined,
-        //   documentCount: undefined,
-        // }
-        // expect(classifier).toMatchObject(moddedClassifier)
       }, console.error)
       /* eslint-enable no-console */
       .then(_ => done())
@@ -102,7 +86,6 @@ describe('a learner', () => {
 })
 
 describe('a knowledgeable learner', () => {
-  //Commented out because the issue is affecting the whole suite
   const trainSplit = 0.8
   const trainLen = Math.round(dataset.length * trainSplit)
   const validationSplit = 0.1
@@ -117,11 +100,11 @@ describe('a knowledgeable learner', () => {
   it('is knowledgeable', () => {
     // expect(learner.dataset).toEqual(dataset) //cf. https://github.com/erelsgl/limdu/issues/62
     expect(Array.isArray(learner.trainSet)).toBeTruthy()
-    expect(learner.trainSet.length).toStrictEqual(trainLen)
+    expect(learner.trainSet).toHaveLength(trainLen)
     expect(Array.isArray(learner.validationSet)).toBeTruthy()
-    expect(learner.validationSet.length).toStrictEqual(validationLen)
+    expect(learner.validationSet).toHaveLength(validationLen)
     expect(Array.isArray(learner.testSet)).toBeTruthy()
-    expect(learner.testSet.length).toStrictEqual(testLen)
+    expect(learner.testSet).toHaveLength(testLen)
     expect(learner.splits).toStrictEqual([trainSplit, validationSplit])
     expect(typeof learner.classifier).toStrictEqual('object')
     expect(
@@ -132,7 +115,7 @@ describe('a knowledgeable learner', () => {
     ).toBeTruthy()
     expect(typeof learner.classifierBuilder).toStrictEqual('function')
     expect(learner.classifierBuilder.name).toStrictEqual('classifierBuilder')
-    expect(learner.classifier.pastTrainingSamples.length).toStrictEqual(
+    expect(learner.classifier.pastTrainingSamples).toHaveLength(
       learner.trainSet.length,
     )
   })
@@ -147,17 +130,10 @@ describe('a knowledgeable learner', () => {
 
   it('can generate bug labels', () => {
     const bugs = learner.backClassify('bug')
-    // expect(bugs.includes('bug')).toBeTruthy()
-    // expect(bugs.includes(':bug: bug')).toBeTruthy()
-    // expect(bugs.includes('regression')).toBeTruthy()
-    // expect(bugs.includes('browser bug')).toBeTruthy()
     expect(bugs.length > 1).toBeTruthy()
   })
   it('can generate code labels', () => {
     const code = learner.backClassify('code')
-    // expect(code.includes('frontend')).toBeTruthy()
-    // expect(code.includes('breaking change')).toBeTruthy()
-    // expect(code.includes('html')).toBeTruthy()
     expect(code.length > 1).toBeTruthy()
   })
 })
@@ -167,6 +143,7 @@ describe('has stats', () => {
     dataset: copy(dataset),
   })
   learner.crossValidate()
+  const maxPrecision = 100_000;
 
   const props = [
     'TP',
@@ -198,12 +175,10 @@ describe('has stats', () => {
     /* eslint-enable babel/no-unused-expressions */
   })
 
-  // console.log('micro=', learner.microAvg, '\nmacro=', learner.macroAvg)
   it('has a correct accuracy', () => {
     const acc = avg => (avg.TP + avg.TN) / avg.count
-    expect(Math.round(learner.macroAvg.Accuracy * 10) / 10).toEqual(
-      Math.round(acc(learner.macroAvg) * 10) / 10,
-    )
+
+    expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(toPrecision(acc(learner.macroAvg), 10))
     // expect(learner.microAvg.Accuracy).toEqual(acc(learner.microAvg)) //cf. https://github.com/erelsgl/limdu/issues/64
   })
 
@@ -215,9 +190,7 @@ describe('has stats', () => {
 
   it('has a correct recall', () => {
     const re = avg => avg.TP / (avg.TP + avg.FN)
-    expect(Math.round(learner.macroAvg.Recall * 100000) / 100000).toEqual(
-      Math.round(re(learner.macroAvg) * 100000) / 100000,
-    )
+    expect(toPrecision(learner.macroAvg.Recall, maxPrecision)).toEqual(toPrecision(re(learner.macroAvg), maxPrecision))
     expect(learner.microAvg.Recall).toEqual(re(learner.microAvg))
   })
 
@@ -225,9 +198,7 @@ describe('has stats', () => {
     const f1 = avg =>
       (2 * (avg.Precision * avg.Recall)) / (avg.Precision + avg.Recall)
     expect(learner.macroAvg.F1).not.toEqual(f1(learner.macroAvg))
-    expect(Math.round(learner.microAvg.F1 * 100000) / 100000).toEqual(
-      Math.round(f1(learner.microAvg) * 100000) / 100000,
-    )
+    expect(toPrecision(learner.microAvg.F1, maxPrecision)).toEqual(toPrecision(f1(learner.microAvg), maxPrecision))
   })
 
   const stats = learner.getStats()
