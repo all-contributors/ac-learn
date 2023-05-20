@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const {writeFileSync, existsSync} = require('fs')
-const {info, out, succ} = require('nclr')
+const {succ, use} = require('nclr')
 const Learner = require('../src')
 
 let learner = null
@@ -14,11 +14,11 @@ if (existsSync('playground-learner.json') && !process.env.DRY) {
 // Cross-validated training on the training/validation sets
 const {microAvg} = learner.crossValidate(5, 0, true)
 const jsonData = learner.toJSON()
-info('micro avg:', microAvg)
+console.log(use('info', 'micro avg:'), microAvg)
 // Evaluation time
 const longStats = learner.eval(process.env.VERBOSE)
 const stats = learner.confusionMatrix.getShortStats()
-out('\nShort stats=\n', stats)
+console.log(`\n${use('out', 'Short stats=')}\n`, stats)
 
 /* eslint-disable babel/no-unused-expressions */
 if (process.env.SAVE) {
@@ -49,6 +49,6 @@ writeFileSync(
   JSON.stringify(longStats, null, 2),
 ) && succ('Saved learner to "playground-fullStats.json"')
 
-info('More Stats:', learner.getStats(true, 'categoryPartitions.json'))
+console.log(use('info', 'More Stats:'), learner.getStats(true, 'categoryPartitions.json'))
 
 process.exit(0)
