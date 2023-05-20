@@ -52,7 +52,7 @@ describe('a learner', () => {
   "object": {\n\t\t"classifier": {},\n\t\t"pastTrainingSamples": []\n\t}\n}`
   const SERIAL_JSON = JSON.parse(SERIAL_STR)
 
-  // TODO: Make this test passed
+  // TODO: Find a way to test it without it timing out
   // test('serialized and saved', done => {
   //   const learner = new Learner()
   //   learner
@@ -144,7 +144,7 @@ describe('has stats', () => {
     dataset: copy(dataset),
   })
   learner.crossValidate()
-  const maxPrecision = 100_000;
+  const maxPrecision = 100000;
 
   const props = [
     'TP',
@@ -169,15 +169,14 @@ describe('has stats', () => {
   test.each(details)('has %s in %sAvg', (prop, avgType) => {
     const avg = learner[`${avgType}Avg`]
     expect(avg).toHaveProperty(prop)
-    /* eslint-disable babel/no-unused-expressions */
     objProps.includes(prop)
       ? expect(typeof avg[prop]).toStrictEqual('object')
       : expect(avg[prop] >= 0).toBeTruthy()
-    /* eslint-enable babel/no-unused-expressions */
   })
 
   it('has a correct accuracy', () => {
     const acc = avg => (avg.TP + avg.TN) / avg.count
+    console.log('TP/TN/count=', learner.macroAvg.TP, learner.macroAvg.TN, learner.macroAvg.count, 'expected Acc=', acc(learner.macroAvg))
 
     expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(toPrecision(acc(learner.macroAvg), 10))
     // expect(learner.microAvg.Accuracy).toEqual(acc(learner.microAvg)) //cf. https://github.com/erelsgl/limdu/issues/64
