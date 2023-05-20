@@ -852,12 +852,12 @@
     "category": "ideas"
   },
   {
-    "label": "dissertation",
-    "category": "research"
-  },
-  {
     "label": "discussion :speech_balloon:",
     "category": "ideas"
+  },
+  {
+    "label": "dissertation",
+    "category": "research"
   },
   {
     "label": "do not merge",
@@ -876,12 +876,12 @@
     "category": "doc"
   },
   {
-    "label": "doctorate",
-    "category": "research"
-  },
-  {
     "label": "docs improvement",
     "category": "doc"
+  },
+  {
+    "label": "doctorate",
+    "category": "research"
   },
   {
     "label": "documentation",
@@ -1992,16 +1992,16 @@
     "category": "projectManagement"
   },
   {
+    "label": "prometheus",
+    "category": "infra"
+  },
+  {
     "label": "promote",
     "category": "promotion"
   },
   {
     "label": "promotion",
     "category": "promotion"
-  },
-  {
-    "label": "prometheus",
-    "category": "infra"
   },
   {
     "label": "proposal",

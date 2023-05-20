@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 const {succ, use} = require('nclr')
 
-const URL = process.env.URL || 'http://localhost:5000/public/plot'
+const URL = process.env.URL || 'http://localhost:3000/public/plot'
 
 const screenshotElement = async (page, id) => {
   await page.waitForSelector(`#${id}`)
