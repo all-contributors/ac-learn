@@ -12,7 +12,8 @@ const copy = el => {
     typeof el === 'boolean'
   ) {
     return el
-  } else { //As they are immutable types
+  } else {
+    //As they are immutable types
     const clone = {}
     for (const i in el) {
       if (el.hasOwnProperty(i)) clone[i] = el[i]

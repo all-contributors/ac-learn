@@ -144,7 +144,7 @@ describe('has stats', () => {
     dataset: copy(dataset),
   })
   learner.crossValidate()
-  const maxPrecision = 100000;
+  const maxPrecision = 100000
 
   const props = [
     'TP',
@@ -176,9 +176,18 @@ describe('has stats', () => {
 
   it('has a correct accuracy', () => {
     const acc = avg => (avg.TP + avg.TN) / avg.count
-    console.log('TP/TN/count=', learner.macroAvg.TP, learner.macroAvg.TN, learner.macroAvg.count, 'expected Acc=', acc(learner.macroAvg))
+    console.log(
+      'TP/TN/count=',
+      learner.macroAvg.TP,
+      learner.macroAvg.TN,
+      learner.macroAvg.count,
+      'expected Acc=',
+      acc(learner.macroAvg),
+    )
 
-    expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(toPrecision(acc(learner.macroAvg), 10))
+    expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(
+      toPrecision(acc(learner.macroAvg), 10),
+    )
     // expect(learner.microAvg.Accuracy).toEqual(acc(learner.microAvg)) //cf. https://github.com/erelsgl/limdu/issues/64
   })
 
@@ -190,7 +199,9 @@ describe('has stats', () => {
 
   it('has a correct recall', () => {
     const re = avg => avg.TP / (avg.TP + avg.FN)
-    expect(toPrecision(learner.macroAvg.Recall, maxPrecision)).toEqual(toPrecision(re(learner.macroAvg), maxPrecision))
+    expect(toPrecision(learner.macroAvg.Recall, maxPrecision)).toEqual(
+      toPrecision(re(learner.macroAvg), maxPrecision),
+    )
     expect(learner.microAvg.Recall).toEqual(re(learner.microAvg))
   })
 
@@ -198,7 +209,9 @@ describe('has stats', () => {
     const f1 = avg =>
       (2 * (avg.Precision * avg.Recall)) / (avg.Precision + avg.Recall)
     expect(learner.macroAvg.F1).not.toEqual(f1(learner.macroAvg))
-    expect(toPrecision(learner.microAvg.F1, maxPrecision)).toEqual(toPrecision(f1(learner.microAvg), maxPrecision))
+    expect(toPrecision(learner.microAvg.F1, maxPrecision)).toEqual(
+      toPrecision(f1(learner.microAvg), maxPrecision),
+    )
   })
 
   const stats = learner.getStats()
