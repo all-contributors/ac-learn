@@ -101,6 +101,12 @@
     "validation": 4,
     "train": 24
   },
+  "mentoring": {
+    "overall": 0,
+    "test": 0,
+    "validation": 0,
+    "train": 0
+  },
   "null": {
     "overall": 92,
     "test": 18,
@@ -125,11 +131,23 @@
     "validation": 2,
     "train": 6
   },
+  "promotion": {
+    "overall": 0,
+    "test": 0,
+    "validation": 0,
+    "train": 0
+  },
   "question": {
     "overall": 8,
     "test": 1,
     "validation": 2,
     "train": 5
+  },
+  "research": {
+    "overall": 0,
+    "test": 0,
+    "validation": 0,
+    "train": 0
   },
   "review": {
     "overall": 9,
