@@ -79,7 +79,11 @@
       "no-process-exit": "off",
       "import/extensions": "off",
       "func-names": "off",
-      "consistent-return": "off"
+      "consistent-return": "off",
+      "jest/no-done-callback": "off",
+      "jest/no-conditional-expect": "off",
+      "jest/no-try-expect": "off",
+      "jest/valid-describe": "off"
     }
   },
   "config": {

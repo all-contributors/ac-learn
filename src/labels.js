@@ -17,7 +17,7 @@ const groupBy = (arr, fn) =>
 const CATEGORIES = getDistinctCategories().filter(Boolean)
 
 module.exports = {
-  getAll: () => [...labels],
+  getAll: (noCopy = false) => noCopy ? labels: [...labels],
   getAt: idx => labels[idx],
   getLabels: () => labels.map(d => d.label),
   getCategories: () => labels.map(d => d.category),
