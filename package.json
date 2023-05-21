@@ -59,7 +59,7 @@
     "codecov": "^3.8.3",
     "concurrently": "^8.0.1",
     "cz-conventional-changelog": "^3.2.0",
-    "documentation": "^13.0.2",
+    "documentation": "^14.0.2",
     "eslint-config-kentcdodds": "^20.5.0",
     "git-cz": "^4.9.0",
     "jsdom": "^22.0.0",

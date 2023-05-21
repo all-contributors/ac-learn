@@ -2,12 +2,12 @@
 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [ac-learn](#ac-learn)
-  - [Install](#install)
-  - [Documentation](#documentation)
-    - [Learner](#learner)
-    - [ConfusionMatrix](#confusionmatrix)
-  - [Contributors](#contributors)
+*   [ac-learn](#ac-learn)
+    *   [Install](#install)
+    *   [Documentation](#documentation)
+        *   [Learner](#learner)
+        *   [ConfusionMatrix](#confusionmatrix)
+    *   [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -65,112 +65,112 @@ writeFileSync('your-learner.json', JSON.stringify(jsonData))
 
 #### Table of Contents
 
-- [Learner](#learner)
-  - [Parameters](#parameters)
-  - [Examples](#examples)
-  - [train](#train)
-    - [Parameters](#parameters-1)
-  - [eval](#eval)
-    - [Parameters](#parameters-2)
-  - [serializeClassifier](#serializeclassifier)
-  - [serializeAndSaveClassifier](#serializeandsaveclassifier)
-    - [Parameters](#parameters-3)
-  - [deserializeClassifier](#deserializeclassifier)
-    - [Parameters](#parameters-4)
-  - [loadAndDeserializeClassifier](#loadanddeserializeclassifier)
-    - [Parameters](#parameters-5)
-  - [classify](#classify)
-    - [Parameters](#parameters-6)
-  - [crossValidate](#crossvalidate)
-    - [Parameters](#parameters-7)
-  - [backClassify](#backclassify)
-    - [Parameters](#parameters-8)
-  - [toJSON](#tojson)
-  - [fromJSON](#fromjson)
-    - [Parameters](#parameters-9)
-  - [getCategoryPartition](#getcategorypartition)
-    - [Parameters](#parameters-10)
-  - [getStats](#getstats)
-    - [Parameters](#parameters-11)
-- [ConfusionMatrix](#confusionmatrix)
-  - [addEntry](#addentry)
-    - [Parameters](#parameters-12)
-  - [setEntry](#setentry)
-    - [Parameters](#parameters-13)
-  - [getEntry](#getentry)
-    - [Parameters](#parameters-14)
-  - [getTotal](#gettotal)
-  - [getTP](#gettp)
-    - [Parameters](#parameters-15)
-  - [getFP](#getfp)
-    - [Parameters](#parameters-16)
-  - [getFN](#getfn)
-    - [Parameters](#parameters-17)
-  - [getTN](#gettn)
-    - [Parameters](#parameters-18)
-  - [getDiagonal](#getdiagonal)
-  - [getTrue](#gettrue)
-  - [getFalse](#getfalse)
-  - [getPositive](#getpositive)
-    - [Parameters](#parameters-19)
-  - [getNegative](#getnegative)
-    - [Parameters](#parameters-20)
-  - [getPredPositive](#getpredpositive)
-    - [Parameters](#parameters-21)
-  - [getPredNegative](#getprednegative)
-    - [Parameters](#parameters-22)
-  - [getSupport](#getsupport)
-    - [Parameters](#parameters-23)
-  - [getAccuracy](#getaccuracy)
-    - [Parameters](#parameters-24)
-  - [getMicroAccuracy](#getmicroaccuracy)
-  - [getMacroAccuracy](#getmacroaccuracy)
-  - [getWeightedAccuracy](#getweightedaccuracy)
-  - [getTotalPositiveRate](#gettotalpositiverate)
-    - [Parameters](#parameters-25)
-  - [getMicroRecall](#getmicrorecall)
-  - [getMacroRecall](#getmacrorecall)
-  - [getWeightedRecall](#getweightedrecall)
-  - [getPositivePredictiveValue](#getpositivepredictivevalue)
-    - [Parameters](#parameters-26)
-  - [getPositivePredictiveValue](#getpositivepredictivevalue-1)
-    - [Parameters](#parameters-27)
-  - [getMicroPrecision](#getmicroprecision)
-  - [getMacroPrecision](#getmacroprecision)
-  - [getWeightedPrecision](#getweightedprecision)
-  - [getMicroF1](#getmicrof1)
-  - [getMacroF1](#getmacrof1)
-  - [getWeightedF1](#getweightedf1)
-  - [getFalseNegativeRate](#getfalsenegativerate)
-    - [Parameters](#parameters-28)
-  - [getMicroMissRate](#getmicromissrate)
-  - [getMacroMissRate](#getmacromissrate)
-  - [getWeightedMissRate](#getweightedmissrate)
-  - [getFalsePositiveRate](#getfalsepositiverate)
-    - [Parameters](#parameters-29)
-  - [getMicroFallOut](#getmicrofallout)
-  - [getMacroFallOut](#getmacrofallout)
-  - [getWeightedFallOut](#getweightedfallout)
-  - [getTrueNegativeRate](#gettruenegativerate)
-    - [Parameters](#parameters-30)
-  - [getMicroSpecificity](#getmicrospecificity)
-  - [getMacroSpecificity](#getmacrospecificity)
-  - [getWeightedSpecificity](#getweightedspecificity)
-  - [getPrevalence](#getprevalence)
-    - [Parameters](#parameters-31)
-  - [getMicroPrevalence](#getmicroprevalence)
-  - [getMacroPrevalence](#getmacroprevalence)
-  - [getWeightedPrevalence](#getweightedprevalence)
-  - [toString](#tostring)
-    - [Parameters](#parameters-32)
-    - [Examples](#examples-1)
-  - [toTable](#totable)
-    - [Parameters](#parameters-33)
-  - [getShortStats](#getshortstats)
-    - [Parameters](#parameters-34)
-  - [getStats](#getstats-1)
-  - [fromData](#fromdata)
-    - [Parameters](#parameters-35)
+*   [Learner](#learner)
+    *   [Parameters](#parameters)
+    *   [Examples](#examples)
+    *   [train](#train)
+        *   [Parameters](#parameters-1)
+    *   [eval](#eval)
+        *   [Parameters](#parameters-2)
+    *   [serializeClassifier](#serializeclassifier)
+    *   [serializeAndSaveClassifier](#serializeandsaveclassifier)
+        *   [Parameters](#parameters-3)
+    *   [deserializeClassifier](#deserializeclassifier)
+        *   [Parameters](#parameters-4)
+    *   [loadAndDeserializeClassifier](#loadanddeserializeclassifier)
+        *   [Parameters](#parameters-5)
+    *   [classify](#classify)
+        *   [Parameters](#parameters-6)
+    *   [crossValidate](#crossvalidate)
+        *   [Parameters](#parameters-7)
+    *   [backClassify](#backclassify)
+        *   [Parameters](#parameters-8)
+    *   [toJSON](#tojson)
+    *   [fromJSON](#fromjson)
+        *   [Parameters](#parameters-9)
+    *   [getCategoryPartition](#getcategorypartition)
+        *   [Parameters](#parameters-10)
+    *   [getStats](#getstats)
+        *   [Parameters](#parameters-11)
+*   [ConfusionMatrix](#confusionmatrix)
+    *   [addEntry](#addentry)
+        *   [Parameters](#parameters-12)
+    *   [setEntry](#setentry)
+        *   [Parameters](#parameters-13)
+    *   [getEntry](#getentry)
+        *   [Parameters](#parameters-14)
+    *   [getTotal](#gettotal)
+    *   [getTP](#gettp)
+        *   [Parameters](#parameters-15)
+    *   [getFP](#getfp)
+        *   [Parameters](#parameters-16)
+    *   [getFN](#getfn)
+        *   [Parameters](#parameters-17)
+    *   [getTN](#gettn)
+        *   [Parameters](#parameters-18)
+    *   [getDiagonal](#getdiagonal)
+    *   [getTrue](#gettrue)
+    *   [getFalse](#getfalse)
+    *   [getPositive](#getpositive)
+        *   [Parameters](#parameters-19)
+    *   [getNegative](#getnegative)
+        *   [Parameters](#parameters-20)
+    *   [getPredPositive](#getpredpositive)
+        *   [Parameters](#parameters-21)
+    *   [getPredNegative](#getprednegative)
+        *   [Parameters](#parameters-22)
+    *   [getSupport](#getsupport)
+        *   [Parameters](#parameters-23)
+    *   [getAccuracy](#getaccuracy)
+        *   [Parameters](#parameters-24)
+    *   [getMicroAccuracy](#getmicroaccuracy)
+    *   [getMacroAccuracy](#getmacroaccuracy)
+    *   [getWeightedAccuracy](#getweightedaccuracy)
+    *   [getTotalPositiveRate](#gettotalpositiverate)
+        *   [Parameters](#parameters-25)
+    *   [getMicroRecall](#getmicrorecall)
+    *   [getMacroRecall](#getmacrorecall)
+    *   [getWeightedRecall](#getweightedrecall)
+    *   [getPositivePredictiveValue](#getpositivepredictivevalue)
+        *   [Parameters](#parameters-26)
+    *   [getPositivePredictiveValue](#getpositivepredictivevalue-1)
+        *   [Parameters](#parameters-27)
+    *   [getMicroPrecision](#getmicroprecision)
+    *   [getMacroPrecision](#getmacroprecision)
+    *   [getWeightedPrecision](#getweightedprecision)
+    *   [getMicroF1](#getmicrof1)
+    *   [getMacroF1](#getmacrof1)
+    *   [getWeightedF1](#getweightedf1)
+    *   [getFalseNegativeRate](#getfalsenegativerate)
+        *   [Parameters](#parameters-28)
+    *   [getMicroMissRate](#getmicromissrate)
+    *   [getMacroMissRate](#getmacromissrate)
+    *   [getWeightedMissRate](#getweightedmissrate)
+    *   [getFalsePositiveRate](#getfalsepositiverate)
+        *   [Parameters](#parameters-29)
+    *   [getMicroFallOut](#getmicrofallout)
+    *   [getMacroFallOut](#getmacrofallout)
+    *   [getWeightedFallOut](#getweightedfallout)
+    *   [getTrueNegativeRate](#gettruenegativerate)
+        *   [Parameters](#parameters-30)
+    *   [getMicroSpecificity](#getmicrospecificity)
+    *   [getMacroSpecificity](#getmacrospecificity)
+    *   [getWeightedSpecificity](#getweightedspecificity)
+    *   [getPrevalence](#getprevalence)
+        *   [Parameters](#parameters-31)
+    *   [getMicroPrevalence](#getmicroprevalence)
+    *   [getMacroPrevalence](#getmacroprevalence)
+    *   [getWeightedPrevalence](#getweightedprevalence)
+    *   [toString](#tostring)
+        *   [Parameters](#parameters-32)
+        *   [Examples](#examples-1)
+    *   [toTable](#totable)
+        *   [Parameters](#parameters-33)
+    *   [getShortStats](#getshortstats)
+        *   [Parameters](#parameters-34)
+    *   [getStats](#getstats-1)
+    *   [fromData](#fromdata)
+        *   [Parameters](#parameters-35)
 
 ### Learner
 
@@ -178,26 +178,13 @@ NodeJS Classification-based learner.
 
 #### Parameters
 
-- `opts`
-  **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-  Options.
-  - `opts.dataset`
-    **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>**
-    Dataset (for training and testing) (optional, default
-    `require('./conv')('io')`)
-  - `opts.splits`
-    **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-    Dataset split percentage for the training/validation set (default:
-    70%/15%/15%) (optional, default `[.7,.15]`)
-  - `opts.classifier` **function ():
-    [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-    Classifier builder function (optional, default `classifierBuilder`)
-  - `opts.pastTrainingSamples`
-    **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>**
-    Past training samples for the classifier (optional, default `[]`)
-  - `opts.classes`
-    **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
-    List of classes (categories) (optional, default `require('./categories')`)
+*   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options.
+
+    *   `opts.dataset` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Dataset (for training and testing) (optional, default `require('./conv')('io')`)
+    *   `opts.splits` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Dataset split percentage for the training/validation set (default: 70%/15%/15%) (optional, default `[.7,.15]`)
+    *   `opts.classifier` **function (): [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Classifier builder function (optional, default `classifierBuilder`)
+    *   `opts.pastTrainingSamples` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Past training samples for the classifier (optional, default `[]`)
+    *   `opts.classes` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** List of classes (categories) (optional, default `require('./categories')`)
 
 #### Examples
 
@@ -211,18 +198,15 @@ Using a custom dataset
 
 ```javascript
 const learner = new Learner({
-  dataset: [
-    {input: 'something bad', output: 'bad'},
-    {input: 'a good thing', output: 'good'},
-  ],
-})
+ dataset: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
+ })
 ```
 
 Using a specified classifier function
 
 ```javascript
 const learner = new Learner({
-  classifier: myClassifierBuilderFn, //see {@link module:./classifier} for an example (or checkout `limdu`'s examples)
+ classifier: myClassifierBuilderFn //see {@link module:./classifier} for an example (or checkout `limdu`'s examples)
 })
 ```
 
@@ -230,7 +214,7 @@ Changing the train/test split percentage
 
 ```javascript
 const learner = new Learner({
-  splits: [0.6, 0.2],
+ splits: [.6, .2]
 })
 ```
 
@@ -238,10 +222,7 @@ const learner = new Learner({
 
 ```javascript
 const learner = new Learner({
-  pastTrainingSamples: [
-    {input: 'something bad', output: 'bad'},
-    {input: 'a good thing', output: 'good'},
-  ],
+  pastTrainingSamples: [{input: 'something bad', output: 'bad'}, {input: 'a good thing', output: 'good'}]
 })
 ```
 
@@ -249,170 +230,103 @@ const learner = new Learner({
 
 ##### Parameters
 
-- `trainSet`
-  **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>**
-  Training set (optional, default `this.trainSet`)
+*   `trainSet` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Training set (optional, default `this.trainSet`)
 
 #### eval
 
 ##### Parameters
 
-- `log`
-  **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-  Log events (optional, default `false`)
+*   `log` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Log events (optional, default `false`)
 
-Returns
-**[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-Statistics from a confusion matrix
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Statistics from a confusion matrix
 
 #### serializeClassifier
 
-Returns
-**[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-Serialized classifier
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized classifier
 
 #### serializeAndSaveClassifier
 
 ##### Parameters
 
-- `file`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Filename (optional, default `'classifier.json'`)
+*   `file` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Filename (optional, default `'classifier.json'`)
 
-Returns
-**[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
-\|
-[Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error))>**
-Serialized classifier
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error))>** Serialized classifier
 
 #### deserializeClassifier
 
 ##### Parameters
 
-- `serializedClassifier`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  .
+*   `serializedClassifier` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** .
 
-Returns
-**[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-Deserialized classifier
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Deserialized classifier
 
 #### loadAndDeserializeClassifier
 
 ##### Parameters
 
-- `file`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Filename (optional, default `'classifier.json'`)
+*   `file` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Filename (optional, default `'classifier.json'`)
 
-Returns
-**[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
-\|
-[Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error))>**
-Deserialized classifier
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error))>** Deserialized classifier
 
 #### classify
 
 ##### Parameters
 
-- `data` **{input: any, output: any}** Data to classify
+*   `data` **{input: any, output: any}** Data to classify
 
-Returns
-**[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
-Classes
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** Classes
 
 #### crossValidate
 
 ##### Parameters
 
-- `numOfFolds`
-  **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-  Cross-validation folds (optional, default `5`)
-- `verboseLevel`
-  **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-  Verbosity level on limdu's explainations (optional, default `0`)
-- `log`
-  **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-  Cross-validation logging (optional, default `false`)
+*   `numOfFolds` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Cross-validation folds (optional, default `5`)
+*   `verboseLevel` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Verbosity level on limdu's explainations (optional, default `0`)
+*   `log` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Cross-validation logging (optional, default `false`)
 
-Returns **{microAvg:
-[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object),
-macroAvg:
-[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)}**
-Averages
+Returns **{microAvg: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object), macroAvg: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)}** Averages
 
 #### backClassify
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Category name.
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Category name.
 
-Returns
-**[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
-Labels associated with `category`
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** Labels associated with `category`
 
 #### toJSON
 
 JSON representation of the learner with the serialized classification model.
 
-Returns
-**[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-JSON representation
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** JSON representation
 
 #### fromJSON
 
 ##### Parameters
 
-- `json`
-  **([JSON](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON)
-  \|
-  [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))**
-  JSON form
+*   `json` **([JSON](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON) | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** JSON form
 
 Returns **[Learner](#learner)** Generated learner from `json`
 
 #### getCategoryPartition
 
-Get the observational overall/train/validation/test count for each classes in
-the associated dataset.
+Get the observational overall/train/validation/test count for each classes in the associated dataset.
 
 ##### Parameters
 
-- `log`
-  **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-  Log events (optional, default `false`)
-- `outputFile`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Filename for the output (to be used by chart.html) (optional, default `''`)
+*   `log` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Log events (optional, default `false`)
+*   `outputFile` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Filename for the output (to be used by chart.html) (optional, default `''`)
 
-Returns
-**[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String),
-{overall:
-[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number),
-test:
-[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number),
-validation:
-[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number),
-train:
-[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)}>**
-Partitions
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), {overall: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), test: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), validation: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), train: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)}>** Partitions
 
 #### getStats
 
 ##### Parameters
 
-- `log`
-  **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-  Log events (optional, default `false`)
-- `categoryPartitionOutput`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Filename for the output of the category partitions. (optional, default `''`)
+*   `log` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Log events (optional, default `false`)
+*   `categoryPartitionOutput` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Filename for the output of the category partitions. (optional, default `''`)
 
-Returns
-**[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-Statistics
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Statistics
 
 ### ConfusionMatrix
 
@@ -422,193 +336,131 @@ Multi-class focused confusion matrix.
 
 ##### Parameters
 
-- `actual`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Actual class
-- `predicted`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Predicted class
+*   `actual` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Actual class
+*   `predicted` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Predicted class
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-Updated entry
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Updated entry
 
 #### setEntry
 
 ##### Parameters
 
-- `actual`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Actual class
-- `predicted`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Predicted class
-- `val`
-  **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-  New entry
+*   `actual` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Actual class
+*   `predicted` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Predicted class
+*   `val` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** New entry
 
 #### getEntry
 
 ##### Parameters
 
-- `actual`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Actual class
-- `predicted`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Predicted class
+*   `actual` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Actual class
+*   `predicted` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Predicted class
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-Entry
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Entry
 
 #### getTotal
 
 Get the total count of **all** entries.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-Total count
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Total count
 
 #### getTP
 
-Number of elements _in_ the `category` class correctly predicted.
+Number of elements *in* the `category` class correctly predicted.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-True Positives
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** True Positives
 
 #### getFP
 
-Number of elements that _aren't in_ the `category` class but predicted as such.
+Number of elements that *aren't in* the `category` class but predicted as such.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-False Positives
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** False Positives
 
 #### getFN
 
-Number of elements _in_ the `category` class but predicted as not being in it.
+Number of elements *in* the `category` class but predicted as not being in it.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-False Negatives
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** False Negatives
 
 #### getTN
 
-Number of elements that _aren't in_ the `category` class correctly predicted.
+Number of elements that *aren't in* the `category` class correctly predicted.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-True Negatives
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** True Negatives
 
 #### getDiagonal
 
 Diagonal of truth (top-left → bottom-right)
 
-Returns
-**[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)>**
-Numbers in the diagonal
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)>** Numbers in the diagonal
 
 #### getTrue
 
 Number of correct (truthful) predictions.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TP
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TP
 
 #### getFalse
 
 Number of incorrect predictions.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-FP + FN
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** FP + FN
 
 #### getPositive
 
-Number of real (actual) "positive" elements (i.e. elements that belong to the
-`category` class).
+Number of real (actual) "positive" elements (i.e. elements that belong to the `category` class).
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TP + FN
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TP + FN
 
 #### getNegative
 
-Number of real (actual) "negative" elements (i.e. elements that don't belong to
-the `category` class).
+Number of real (actual) "negative" elements (i.e. elements that don't belong to the `category` class).
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TN + FP
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TN + FP
 
 #### getPredPositive
 
-Number of predicted "positive" elements (i.e. elements guessed as belonging to
-the `category` class).
+Number of predicted "positive" elements (i.e. elements guessed as belonging to the `category` class).
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TP + FN
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TP + FN
 
 #### getPredNegative
 
-Number of predicted "negative" elements (i.e. elements guessed as not belonging
-to the `category` class).
+Number of predicted "negative" elements (i.e. elements guessed as not belonging to the `category` class).
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TN + FP
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TN + FP
 
 #### getSupport
 
@@ -616,13 +468,9 @@ Support value (count/occurrences) of `category` in the matrix
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category to look at
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category to look at
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-Support value
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Support value
 
 #### getAccuracy
 
@@ -630,38 +478,27 @@ Prediction accuracy for `category`.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(TP + TN) / (TP + TN + FP + FN)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (TP + TN) / (TP + TN + FP + FN)
 
 #### getMicroAccuracy
 
 Micro-average of accuracy.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(TP0 + ... + TPn + TN0 + ... + TNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 +
-... + FPn + FN0 + ... + FNn)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (TP0 + ... + TPn + TN0 + ... + TNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 + ... + FPn + FN0 + ... + FNn)
 
 #### getMacroAccuracy
 
 Macro-average of accuracy.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(A0 + ...+ An_1) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (A0 + ...+ An\_1) / n
 
 #### getWeightedAccuracy
 
 Weighted accuracy.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(A0 _ s0 + ... + An _ sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (A0 \* s0 + ... + An \* sn) / Total
 
 #### getTotalPositiveRate
 
@@ -669,37 +506,27 @@ Predicition recall.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TP / (TP + FN)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TP / (TP + FN)
 
 #### getMicroRecall
 
 Micro-average of recall.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(TP0 + ... + TPn) / (TP0 + ... + TPn + FN0 + ... + FNn)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (TP0 + ... + TPn) / (TP0 + ... + TPn + FN0 + ... + FNn)
 
 #### getMacroRecall
 
 Macro-average of recall.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(R0 + R1 + ... + Rn-1) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (R0 + R1 + ... + Rn-1) / n
 
 #### getWeightedRecall
 
 Weighted recalll.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(R0 _ s0 + ... + Rn _ sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (R0 \* s0 + ... + Rn \* sn) / Total
 
 #### getPositivePredictiveValue
 
@@ -707,13 +534,9 @@ Prediction precision for `category`.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TP / (TP + FP)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TP / (TP + FP)
 
 #### getPositivePredictiveValue
 
@@ -721,62 +544,45 @@ Prediction F1 score for `category`.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-2 _ (Pr _ R) / (Pr + R)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** 2 \* (Pr \* R) / (Pr + R)
 
 #### getMicroPrecision
 
 Micro-average of the precision.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(TP0 + ... + TPn) / (TP0 + ... + TPn + FP0 + ... FPn)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (TP0 + ... + TPn) / (TP0 + ... + TPn + FP0 + ... FPn)
 
 #### getMacroPrecision
 
 Macro-average of the precsion.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(Pr0 + Pr1 + ... + Pr_n-1) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (Pr0 + Pr1 + ... + Pr\_n-1) / n
 
 #### getWeightedPrecision
 
 Weighted precision.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(Pr0 _ s0 + ... + Prn _ sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (Pr0 \* s0 + ... + Prn \* sn) / Total
 
 #### getMicroF1
 
 Micro-average of the F1 score.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-2 _ (TP0 + ... + TPn) / (2 _ (TP0 + ... + TPn) + (FN0 + ... + FNn) + (FP0 +
-... + FPn))
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** 2 \* (TP0 + ... + TPn) / (2 \* (TP0 + ... + TPn) + (FN0 + ... + FNn) + (FP0 + ... + FPn))
 
 #### getMacroF1
 
 Macro-average of the F1 score.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(F0_1 + F1_1 + ... + F_n-1_1) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (F0\_1 + F1\_1 + ... + F\_n-1\_1) / n
 
 #### getWeightedF1
 
 Weighted F1.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(F0*1 * s0 + ... + Fn*1 * sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (F0\_1 \* s0 + ... + Fn\_1 \* sn) / Total
 
 #### getFalseNegativeRate
 
@@ -784,37 +590,27 @@ Miss rates on predictions for `category`.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-FN / (TP + FN)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** FN / (TP + FN)
 
 #### getMicroMissRate
 
 Micro-average of the miss rate.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(FN0 + ... + FNn) / (TP0 + ... + TPn + FN0 + ... FNn)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (FN0 + ... + FNn) / (TP0 + ... + TPn + FN0 + ... FNn)
 
 #### getMacroMissRate
 
 Macro-average of the miss rate.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(M0 + M1 + ... + Mn) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (M0 + M1 + ... + Mn) / n
 
 #### getWeightedMissRate
 
 Weighted miss rate.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(M0 _ s0 + ... + Mn _ sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (M0 \* s0 + ... + Mn \* sn) / Total
 
 #### getFalsePositiveRate
 
@@ -822,37 +618,27 @@ Fall out (false alarm) on predictions for `category`.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-FP / (FP + TN)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** FP / (FP + TN)
 
 #### getMicroFallOut
 
 Micro-average of the fall out.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(FP0 + ... + FPn) / (FP0 + ... + FPn + TN0 + ... TNn)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (FP0 + ... + FPn) / (FP0 + ... + FPn + TN0 + ... TNn)
 
 #### getMacroFallOut
 
 Macro-average of the fall out.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(Fo0 + Fo1 + ... + Fo_n) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (Fo0 + Fo1 + ... + Fo\_n) / n
 
 #### getWeightedFallOut
 
 Weighted fall out.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(Fo0 _ s0 + ... + Fon _ sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (Fo0 \* s0 + ... + Fon \* sn) / Total
 
 #### getTrueNegativeRate
 
@@ -860,37 +646,27 @@ Specificity on predictions for `category`.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-TN / (FP + TN)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** TN / (FP + TN)
 
 #### getMicroSpecificity
 
 Micro-average of the specificity.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(TN0 + ... + TNn) / (FP0 + ... + FPn + TN0 + ... TNn)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (TN0 + ... + TNn) / (FP0 + ... + FPn + TN0 + ... TNn)
 
 #### getMacroSpecificity
 
 Macro-average of the specificity.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(S0 + S1 + ... + Sn) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (S0 + S1 + ... + Sn) / n
 
 #### getWeightedSpecificity
 
 Weighted specificity.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(S0 _ s0 + ... + Sn _ sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (S0 \* s0 + ... + Sn \* sn) / Total
 
 #### getPrevalence
 
@@ -898,38 +674,27 @@ Prevalence on predictions for `category`.
 
 ##### Parameters
 
-- `category`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Class/category considered as positive
+*   `category` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Class/category considered as positive
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(TP + FN) / (TP + TN + FP + FN)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (TP + FN) / (TP + TN + FP + FN)
 
 #### getMicroPrevalence
 
 Micro-average of the prevalence.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(TP0 + ... + TPn + FN0 + ... + FNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 +
-... + FPn + FN0 + ... + FNn)
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (TP0 + ... + TPn + FN0 + ... + FNn) / (TP0 + ... + TPn + TN0 + ... + TNn + FP0 + ... + FPn + FN0 + ... + FNn)
 
 #### getMacroPrevalence
 
 Macro-average of the prevalence.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(Pe0 + Pe1 + ... + Pen) / n
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (Pe0 + Pe1 + ... + Pen) / n
 
 #### getWeightedPrevalence
 
 Weighted prevalence.
 
-Returns
-**[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)**
-(Pe0 _ s0 + ... + Pen _ sn) / Total
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** (Pe0 \* s0 + ... + Pen \* sn) / Total
 
 #### toString
 
@@ -937,19 +702,12 @@ Textual tabular representation of the confusion matrix.
 
 ##### Parameters
 
-- `opt`
-  **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-  Options (optional, default `{}`)
-  - `opt.split`
-    **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-    Split the classes in half (→ 2 matrices) (optional, default `false`)
-  - `opt.clean`
-    **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-    Remove empty column/row pairs (optional, default `false`)
-  - `opt.colours`
-    **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-    Colourize cells (optional, default `true`)
-  - `opt.maxValue` (optional, default `100`)
+*   `opt` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options (optional, default `{}`)
+
+    *   `opt.split` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Split the classes in half (→ 2 matrices) (optional, default `false`)
+    *   `opt.clean` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Remove empty column/row pairs (optional, default `false`)
+    *   `opt.colours` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Colourize cells (optional, default `true`)
+    *   `opt.maxValue`   (optional, default `100`)
 
 ##### Examples
 
@@ -964,9 +722,7 @@ code                1.00  2.00  0.00
 other               0.00  3.00  8.00
 ````
 
-Returns
-**[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-String representation
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** String representation
 
 #### toTable
 
@@ -974,50 +730,24 @@ String representation
 
 ##### Parameters
 
-- `opt`
-  **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-  Options (optional, default `{}`)
-  - `opt.split`
-    **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-    Split the classes in half (→ 2 matrices) (optional, default `false`)
-  - `opt.clean`
-    **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-    Remove empty column/row pairs (optional, default `false`)
-  - `opt.colours`
-    **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
-    Colourize cells (optional, default `true`)
-  - `opt.maxValue` (optional, default `100`)
+*   `opt` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options (optional, default `{}`)
+
+    *   `opt.split` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Split the classes in half (→ 2 matrices) (optional, default `false`)
+    *   `opt.clean` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Remove empty column/row pairs (optional, default `false`)
+    *   `opt.colours` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Colourize cells (optional, default `true`)
+    *   `opt.maxValue`   (optional, default `100`)
 
 #### getShortStats
 
 ##### Parameters
 
-- `type`
-  **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-  Type of stats (`micro`/`macro`/`weighted` average) (optional, default
-  `'micro'`)
+*   `type` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Type of stats (`micro`/`macro`/`weighted` average) (optional, default `'micro'`)
 
-Returns
-**[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
-Short statistics (total, true, false, accuracy, precision, recall and f1)
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Short statistics (total, true, false, accuracy, precision, recall and f1)
 
 #### getStats
 
-Returns **{total:
-[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number),
-correctPredictions:
-[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number),
-incorrectPredictions:
-[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number),
-classes:
-[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>,
-microAvg:
-[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object),
-macroAvg:
-[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object),
-results:
-[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)}**
-(Long) statistics
+Returns **{total: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), correctPredictions: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), incorrectPredictions: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), classes: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>, microAvg: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object), macroAvg: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object), results: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)}** (Long) statistics
 
 #### fromData
 
@@ -1025,23 +755,20 @@ Creates a confusion matrix from the `actual` and `predictions` classes.
 
 ##### Parameters
 
-- `actual`
-  **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
-  Actual classes
-- `predictions`
-  **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
-  Predicted classes
-- `classes`
-  **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
-  Classes/categories to use (optional, default `[]`)
+*   `actual` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** Actual classes
+*   `predictions` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** Predicted classes
+*   `classes` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** Classes/categories to use (optional, default `[]`)
 
 Returns **[ConfusionMatrix](#confusionmatrix)** Filled confusion matrix
 
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+
 <!-- prettier-ignore-start -->
+
 <!-- markdownlint-disable -->
+
 <table>
   <tbody>
     <tr>
@@ -1053,6 +780,7 @@ Returns **[ConfusionMatrix](#confusionmatrix)** Filled confusion matrix
 </table>
 
 <!-- markdownlint-restore -->
+
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
