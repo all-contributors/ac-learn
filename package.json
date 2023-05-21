@@ -64,7 +64,7 @@
     "git-cz": "^4.9.0",
     "jsdom": "^22.0.0",
     "kcd-scripts": "^6.2.4",
-    "plotly.js-dist": "^1.54.7",
+    "plotly.js-dist": "^2.23.2",
     "semantic-release": "^19.0.3"
   },
   "eslintIgnore": [
