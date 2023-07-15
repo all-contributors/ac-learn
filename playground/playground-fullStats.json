@@ -1,7 +1,7 @@
 {
-  "total": 83,
-  "correctPredictions": 29,
-  "incorrectPredictions": 54,
+  "total": 107,
+  "correctPredictions": 39,
+  "incorrectPredictions": 68,
   "classes": [
     "a11y",
     "audio",
@@ -20,11 +20,14 @@
     "ideas",
     "infra",
     "maintenance",
+    "mentoring",
     "null",
     "platform",
     "plugin",
     "projectManagement",
+    "promotion",
     "question",
+    "research",
     "review",
     "security",
     "talk",
@@ -36,69 +39,87 @@
     "video"
   ],
   "microAvg": {
-    "accuracy": 0.3493975903614458,
-    "f1": 0.3493975903614458,
-    "fallOut": 0.021686746987951807,
-    "missRate": 0.6506024096385542,
-    "precision": 0.3493975903614458,
-    "prevalence": 0.03225806451612903,
-    "recall": 0.3493975903614458,
-    "specificity": 0.9783132530120482
+    "accuracy": 0.3644859813084112,
+    "f1": 0.3644859813084112,
+    "fallOut": 0.019258000566411783,
+    "missRate": 0.6355140186915887,
+    "precision": 0.3644859813084112,
+    "prevalence": 0.029411764705882353,
+    "recall": 0.3644859813084112,
+    "specificity": 0.9807419994335882
   },
   "macroAvg": {
-    "accuracy": 0.9580256509910611,
+    "accuracy": 0.9626168224299069,
     "f1": null,
-    "fallOut": 0.02635494404924104,
+    "fallOut": 0.02148387744992627,
     "missRate": null,
     "precision": null,
-    "prevalence": 0.03225806451612904,
+    "prevalence": 0.029411764705882353,
     "recall": null,
-    "specificity": 0.9736450559507589
+    "specificity": 0.9785161225500737
   },
   "weightedAvg": {
-    "accuracy": 0.8297285527652781,
+    "accuracy": 0.8856668704690364,
     "f1": null,
-    "fallOut": 0.16640085588791806,
+    "fallOut": 0.09493781460590425,
     "missRate": null,
     "precision": null,
-    "prevalence": 0.08753084627667294,
+    "prevalence": 0.061402742597606745,
     "recall": null,
-    "specificity": 0.8335991441120819
+    "specificity": 0.9050621853940957
   },
   "results": {
     "a11y": {
       "total": 1,
-      "samplePortion": 0.012048192771084338,
+      "samplePortion": 0.009345794392523364,
       "tp": 0,
       "fp": 0,
       "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
+      "tn": 106,
+      "accuracy": 0.9906542056074766,
       "f1": null,
       "fallOut": 0,
       "missRate": 1,
       "precision": null,
-      "prevalence": 0.012048192771084338,
+      "prevalence": 0.009345794392523364,
       "recall": 0,
       "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          106
+        ]
+      ]
     },
     "audio": {
-      "total": 0,
-      "samplePortion": 0,
+      "total": 3,
+      "samplePortion": 0.028037383177570093,
       "tp": 0,
       "fp": 0,
-      "fn": 0,
-      "tn": 83,
-      "accuracy": 1,
+      "fn": 3,
+      "tn": 104,
+      "accuracy": 0.9719626168224299,
       "f1": null,
       "fallOut": 0,
-      "missRate": null,
+      "missRate": 1,
       "precision": null,
-      "prevalence": 0,
-      "recall": null,
+      "prevalence": 0.028037383177570093,
+      "recall": 0,
       "specificity": 1,
-      "confusionMatrix": [[0, 0], [0, 83]]
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          104
+        ]
+      ]
     },
     "blog": {
       "total": 0,
@@ -106,7 +127,7 @@
       "tp": 0,
       "fp": 0,
       "fn": 0,
-      "tn": 83,
+      "tn": 107,
       "accuracy": 1,
       "f1": null,
       "fallOut": 0,
@@ -115,364 +136,640 @@
       "prevalence": 0,
       "recall": null,
       "specificity": 1,
-      "confusionMatrix": [[0, 0], [0, 83]]
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          107
+        ]
+      ]
     },
     "bug": {
-      "total": 6,
-      "samplePortion": 0.07228915662650602,
+      "total": 4,
+      "samplePortion": 0.037383177570093455,
       "tp": 3,
       "fp": 1,
-      "fn": 3,
-      "tn": 76,
-      "accuracy": 0.9518072289156626,
-      "f1": 0.6,
-      "fallOut": 0.012987012987012988,
-      "missRate": 0.5,
+      "fn": 1,
+      "tn": 102,
+      "accuracy": 0.9813084112149533,
+      "f1": 0.75,
+      "fallOut": 0.009708737864077669,
+      "missRate": 0.25,
       "precision": 0.75,
-      "prevalence": 0.07228915662650602,
-      "recall": 0.5,
-      "specificity": 0.987012987012987,
-      "confusionMatrix": [[3, 1], [3, 76]]
+      "prevalence": 0.037383177570093455,
+      "recall": 0.75,
+      "specificity": 0.9902912621359223,
+      "confusionMatrix": [
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          102
+        ]
+      ]
     },
     "business": {
-      "total": 0,
-      "samplePortion": 0,
-      "tp": 0,
-      "fp": 0,
-      "fn": 0,
-      "tn": 83,
-      "accuracy": 1,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": null,
-      "precision": null,
-      "prevalence": 0,
-      "recall": null,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [0, 83]]
-    },
-    "code": {
-      "total": 5,
-      "samplePortion": 0.060240963855421686,
-      "tp": 1,
-      "fp": 1,
-      "fn": 4,
-      "tn": 77,
-      "accuracy": 0.9397590361445783,
-      "f1": 0.28571428571428575,
-      "fallOut": 0.01282051282051282,
-      "missRate": 0.8,
-      "precision": 0.5,
-      "prevalence": 0.060240963855421686,
-      "recall": 0.2,
-      "specificity": 0.9871794871794872,
-      "confusionMatrix": [[1, 1], [4, 77]]
-    },
-    "content": {
-      "total": 0,
-      "samplePortion": 0,
-      "tp": 0,
-      "fp": 0,
-      "fn": 0,
-      "tn": 83,
-      "accuracy": 1,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": null,
-      "precision": null,
-      "prevalence": 0,
-      "recall": null,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [0, 83]]
-    },
-    "data": {
-      "total": 2,
-      "samplePortion": 0.024096385542168676,
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "tn": 81,
-      "accuracy": 1,
-      "f1": 1,
-      "fallOut": 0,
-      "missRate": 0,
-      "precision": 1,
-      "prevalence": 0.024096385542168676,
-      "recall": 1,
-      "specificity": 1,
-      "confusionMatrix": [[2, 0], [0, 81]]
-    },
-    "design": {
-      "total": 7,
-      "samplePortion": 0.08433734939759036,
-      "tp": 1,
-      "fp": 0,
-      "fn": 6,
-      "tn": 76,
-      "accuracy": 0.927710843373494,
-      "f1": 0.25,
-      "fallOut": 0,
-      "missRate": 0.8571428571428571,
-      "precision": 1,
-      "prevalence": 0.08433734939759036,
-      "recall": 0.14285714285714285,
-      "specificity": 1,
-      "confusionMatrix": [[1, 0], [6, 76]]
-    },
-    "doc": {
-      "total": 4,
-      "samplePortion": 0.04819277108433735,
-      "tp": 2,
-      "fp": 1,
-      "fn": 2,
-      "tn": 78,
-      "accuracy": 0.963855421686747,
-      "f1": 0.5714285714285715,
-      "fallOut": 0.012658227848101266,
-      "missRate": 0.5,
-      "precision": 0.6666666666666666,
-      "prevalence": 0.04819277108433735,
-      "recall": 0.5,
-      "specificity": 0.9873417721518988,
-      "confusionMatrix": [[2, 1], [2, 78]]
-    },
-    "eventOrganizing": {
-      "total": 1,
-      "samplePortion": 0.012048192771084338,
-      "tp": 0,
-      "fp": 0,
-      "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.012048192771084338,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
-    },
-    "example": {
-      "total": 1,
-      "samplePortion": 0.012048192771084338,
-      "tp": 0,
-      "fp": 0,
-      "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.012048192771084338,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
-    },
-    "financial": {
-      "total": 1,
-      "samplePortion": 0.012048192771084338,
-      "tp": 0,
-      "fp": 0,
-      "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.012048192771084338,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
-    },
-    "fundingFinding": {
-      "total": 2,
-      "samplePortion": 0.024096385542168676,
-      "tp": 0,
-      "fp": 0,
-      "fn": 2,
-      "tn": 81,
-      "accuracy": 0.9759036144578314,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.024096385542168676,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [2, 81]]
-    },
-    "ideas": {
       "total": 3,
-      "samplePortion": 0.03614457831325301,
-      "tp": 0,
-      "fp": 0,
-      "fn": 3,
-      "tn": 80,
-      "accuracy": 0.963855421686747,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.03614457831325301,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [3, 80]]
-    },
-    "infra": {
-      "total": 6,
-      "samplePortion": 0.07228915662650602,
-      "tp": 0,
-      "fp": 0,
-      "fn": 6,
-      "tn": 77,
-      "accuracy": 0.927710843373494,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.07228915662650602,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [6, 77]]
-    },
-    "maintenance": {
-      "total": 7,
-      "samplePortion": 0.08433734939759036,
-      "tp": 1,
-      "fp": 0,
-      "fn": 6,
-      "tn": 76,
-      "accuracy": 0.927710843373494,
-      "f1": 0.25,
-      "fallOut": 0,
-      "missRate": 0.8571428571428571,
-      "precision": 1,
-      "prevalence": 0.08433734939759036,
-      "recall": 0.14285714285714285,
-      "specificity": 1,
-      "confusionMatrix": [[1, 0], [6, 76]]
-    },
-    "null": {
-      "total": 18,
-      "samplePortion": 0.21686746987951808,
-      "tp": 15,
-      "fp": 49,
-      "fn": 3,
-      "tn": 16,
-      "accuracy": 0.37349397590361444,
-      "f1": 0.3658536585365853,
-      "fallOut": 0.7538461538461538,
-      "missRate": 0.16666666666666666,
-      "precision": 0.234375,
-      "prevalence": 0.21686746987951808,
-      "recall": 0.8333333333333334,
-      "specificity": 0.24615384615384617,
-      "confusionMatrix": [[15, 49], [3, 16]]
-    },
-    "platform": {
-      "total": 4,
-      "samplePortion": 0.04819277108433735,
-      "tp": 2,
-      "fp": 0,
-      "fn": 2,
-      "tn": 79,
-      "accuracy": 0.9759036144578314,
-      "f1": 0.6666666666666666,
-      "fallOut": 0,
-      "missRate": 0.5,
-      "precision": 1,
-      "prevalence": 0.04819277108433735,
-      "recall": 0.5,
-      "specificity": 1,
-      "confusionMatrix": [[2, 0], [2, 79]]
-    },
-    "plugin": {
-      "total": 1,
-      "samplePortion": 0.012048192771084338,
-      "tp": 0,
-      "fp": 0,
-      "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.012048192771084338,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
-    },
-    "projectManagement": {
-      "total": 3,
-      "samplePortion": 0.03614457831325301,
-      "tp": 0,
-      "fp": 0,
-      "fn": 3,
-      "tn": 80,
-      "accuracy": 0.963855421686747,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.03614457831325301,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [3, 80]]
-    },
-    "question": {
-      "total": 1,
-      "samplePortion": 0.012048192771084338,
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "tn": 82,
-      "accuracy": 1,
-      "f1": 1,
-      "fallOut": 0,
-      "missRate": 0,
-      "precision": 1,
-      "prevalence": 0.012048192771084338,
-      "recall": 1,
-      "specificity": 1,
-      "confusionMatrix": [[1, 0], [0, 82]]
-    },
-    "review": {
-      "total": 1,
-      "samplePortion": 0.012048192771084338,
-      "tp": 0,
-      "fp": 0,
-      "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.012048192771084338,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
-    },
-    "security": {
-      "total": 3,
-      "samplePortion": 0.03614457831325301,
+      "samplePortion": 0.028037383177570093,
       "tp": 1,
       "fp": 0,
       "fn": 2,
-      "tn": 80,
-      "accuracy": 0.9759036144578314,
+      "tn": 104,
+      "accuracy": 0.9813084112149533,
       "f1": 0.5,
       "fallOut": 0,
       "missRate": 0.6666666666666666,
       "precision": 1,
-      "prevalence": 0.03614457831325301,
+      "prevalence": 0.028037383177570093,
       "recall": 0.3333333333333333,
       "specificity": 1,
-      "confusionMatrix": [[1, 0], [2, 80]]
+      "confusionMatrix": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          104
+        ]
+      ]
+    },
+    "code": {
+      "total": 11,
+      "samplePortion": 0.102803738317757,
+      "tp": 2,
+      "fp": 2,
+      "fn": 9,
+      "tn": 94,
+      "accuracy": 0.897196261682243,
+      "f1": 0.26666666666666666,
+      "fallOut": 0.020833333333333332,
+      "missRate": 0.8181818181818182,
+      "precision": 0.5,
+      "prevalence": 0.102803738317757,
+      "recall": 0.18181818181818182,
+      "specificity": 0.9791666666666666,
+      "confusionMatrix": [
+        [
+          2,
+          2
+        ],
+        [
+          9,
+          94
+        ]
+      ]
+    },
+    "content": {
+      "total": 3,
+      "samplePortion": 0.028037383177570093,
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "tn": 104,
+      "accuracy": 0.9719626168224299,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.028037383177570093,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          104
+        ]
+      ]
+    },
+    "data": {
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "tn": 105,
+      "accuracy": 0.9906542056074766,
+      "f1": 0.6666666666666666,
+      "fallOut": 0.009433962264150943,
+      "missRate": 0,
+      "precision": 0.5,
+      "prevalence": 0.009345794392523364,
+      "recall": 1,
+      "specificity": 0.9905660377358491,
+      "confusionMatrix": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          105
+        ]
+      ]
+    },
+    "design": {
+      "total": 5,
+      "samplePortion": 0.04672897196261682,
+      "tp": 1,
+      "fp": 0,
+      "fn": 4,
+      "tn": 102,
+      "accuracy": 0.9626168224299065,
+      "f1": 0.33333333333333337,
+      "fallOut": 0,
+      "missRate": 0.8,
+      "precision": 1,
+      "prevalence": 0.04672897196261682,
+      "recall": 0.2,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          102
+        ]
+      ]
+    },
+    "doc": {
+      "total": 3,
+      "samplePortion": 0.028037383177570093,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 104,
+      "accuracy": 1,
+      "f1": 1,
+      "fallOut": 0,
+      "missRate": 0,
+      "precision": 1,
+      "prevalence": 0.028037383177570093,
+      "recall": 1,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          104
+        ]
+      ]
+    },
+    "eventOrganizing": {
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 106,
+      "accuracy": 1,
+      "f1": 1,
+      "fallOut": 0,
+      "missRate": 0,
+      "precision": 1,
+      "prevalence": 0.009345794392523364,
+      "recall": 1,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          106
+        ]
+      ]
+    },
+    "example": {
+      "total": 2,
+      "samplePortion": 0.018691588785046728,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "tn": 105,
+      "accuracy": 0.9813084112149533,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.018691588785046728,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          105
+        ]
+      ]
+    },
+    "financial": {
+      "total": 3,
+      "samplePortion": 0.028037383177570093,
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "tn": 104,
+      "accuracy": 0.9719626168224299,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.028037383177570093,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          104
+        ]
+      ]
+    },
+    "fundingFinding": {
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "tn": 105,
+      "accuracy": 0.9906542056074766,
+      "f1": 0.6666666666666666,
+      "fallOut": 0.009433962264150943,
+      "missRate": 0,
+      "precision": 0.5,
+      "prevalence": 0.009345794392523364,
+      "recall": 1,
+      "specificity": 0.9905660377358491,
+      "confusionMatrix": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          105
+        ]
+      ]
+    },
+    "ideas": {
+      "total": 7,
+      "samplePortion": 0.06542056074766354,
+      "tp": 2,
+      "fp": 0,
+      "fn": 5,
+      "tn": 100,
+      "accuracy": 0.9532710280373832,
+      "f1": 0.4444444444444445,
+      "fallOut": 0,
+      "missRate": 0.7142857142857143,
+      "precision": 1,
+      "prevalence": 0.06542056074766354,
+      "recall": 0.2857142857142857,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          100
+        ]
+      ]
+    },
+    "infra": {
+      "total": 8,
+      "samplePortion": 0.07476635514018691,
+      "tp": 1,
+      "fp": 0,
+      "fn": 7,
+      "tn": 99,
+      "accuracy": 0.9345794392523364,
+      "f1": 0.2222222222222222,
+      "fallOut": 0,
+      "missRate": 0.875,
+      "precision": 1,
+      "prevalence": 0.07476635514018691,
+      "recall": 0.125,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          1,
+          0
+        ],
+        [
+          7,
+          99
+        ]
+      ]
+    },
+    "maintenance": {
+      "total": 7,
+      "samplePortion": 0.06542056074766354,
+      "tp": 4,
+      "fp": 1,
+      "fn": 3,
+      "tn": 99,
+      "accuracy": 0.9626168224299065,
+      "f1": 0.6666666666666666,
+      "fallOut": 0.01,
+      "missRate": 0.42857142857142855,
+      "precision": 0.8,
+      "prevalence": 0.06542056074766354,
+      "recall": 0.5714285714285714,
+      "specificity": 0.99,
+      "confusionMatrix": [
+        [
+          4,
+          1
+        ],
+        [
+          3,
+          99
+        ]
+      ]
+    },
+    "mentoring": {
+      "total": 2,
+      "samplePortion": 0.018691588785046728,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "tn": 105,
+      "accuracy": 0.9813084112149533,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.018691588785046728,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          105
+        ]
+      ]
+    },
+    "null": {
+      "total": 15,
+      "samplePortion": 0.14018691588785046,
+      "tp": 14,
+      "fp": 60,
+      "fn": 1,
+      "tn": 32,
+      "accuracy": 0.42990654205607476,
+      "f1": 0.3146067415730337,
+      "fallOut": 0.6521739130434783,
+      "missRate": 0.06666666666666667,
+      "precision": 0.1891891891891892,
+      "prevalence": 0.14018691588785046,
+      "recall": 0.9333333333333333,
+      "specificity": 0.34782608695652173,
+      "confusionMatrix": [
+        [
+          14,
+          60
+        ],
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    "platform": {
+      "total": 5,
+      "samplePortion": 0.04672897196261682,
+      "tp": 2,
+      "fp": 0,
+      "fn": 3,
+      "tn": 102,
+      "accuracy": 0.9719626168224299,
+      "f1": 0.5714285714285715,
+      "fallOut": 0,
+      "missRate": 0.6,
+      "precision": 1,
+      "prevalence": 0.04672897196261682,
+      "recall": 0.4,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          102
+        ]
+      ]
+    },
+    "plugin": {
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 106,
+      "accuracy": 0.9906542056074766,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.009345794392523364,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    "projectManagement": {
+      "total": 4,
+      "samplePortion": 0.037383177570093455,
+      "tp": 0,
+      "fp": 0,
+      "fn": 4,
+      "tn": 103,
+      "accuracy": 0.9626168224299065,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.037383177570093455,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          103
+        ]
+      ]
+    },
+    "promotion": {
+      "total": 0,
+      "samplePortion": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 107,
+      "accuracy": 1,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": null,
+      "precision": null,
+      "prevalence": 0,
+      "recall": null,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          107
+        ]
+      ]
+    },
+    "question": {
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 106,
+      "accuracy": 1,
+      "f1": 1,
+      "fallOut": 0,
+      "missRate": 0,
+      "precision": 1,
+      "prevalence": 0.009345794392523364,
+      "recall": 1,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          106
+        ]
+      ]
+    },
+    "research": {
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 106,
+      "accuracy": 0.9906542056074766,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.009345794392523364,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    "review": {
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 106,
+      "accuracy": 0.9906542056074766,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.009345794392523364,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    "security": {
+      "total": 3,
+      "samplePortion": 0.028037383177570093,
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "tn": 104,
+      "accuracy": 0.9719626168224299,
+      "f1": null,
+      "fallOut": 0,
+      "missRate": 1,
+      "precision": null,
+      "prevalence": 0.028037383177570093,
+      "recall": 0,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          104
+        ]
+      ]
     },
     "talk": {
       "total": 0,
@@ -480,7 +777,7 @@
       "tp": 0,
       "fp": 0,
       "fn": 0,
-      "tn": 83,
+      "tn": 107,
       "accuracy": 1,
       "f1": null,
       "fallOut": 0,
@@ -489,32 +786,76 @@
       "prevalence": 0,
       "recall": null,
       "specificity": 1,
-      "confusionMatrix": [[0, 0], [0, 83]]
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          107
+        ]
+      ]
     },
     "test": {
-      "total": 2,
-      "samplePortion": 0.024096385542168676,
+      "total": 1,
+      "samplePortion": 0.009345794392523364,
       "tp": 0,
-      "fp": 2,
-      "fn": 2,
-      "tn": 79,
-      "accuracy": 0.9518072289156626,
+      "fp": 1,
+      "fn": 1,
+      "tn": 105,
+      "accuracy": 0.9813084112149533,
       "f1": null,
-      "fallOut": 0.024691358024691357,
+      "fallOut": 0.009433962264150943,
       "missRate": 1,
       "precision": 0,
-      "prevalence": 0.024096385542168676,
+      "prevalence": 0.009345794392523364,
       "recall": 0,
-      "specificity": 0.9753086419753086,
-      "confusionMatrix": [[0, 2], [2, 79]]
+      "specificity": 0.9905660377358491,
+      "confusionMatrix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          105
+        ]
+      ]
     },
     "tool": {
+      "total": 5,
+      "samplePortion": 0.04672897196261682,
+      "tp": 1,
+      "fp": 0,
+      "fn": 4,
+      "tn": 102,
+      "accuracy": 0.9626168224299065,
+      "f1": 0.33333333333333337,
+      "fallOut": 0,
+      "missRate": 0.8,
+      "precision": 1,
+      "prevalence": 0.04672897196261682,
+      "recall": 0.2,
+      "specificity": 1,
+      "confusionMatrix": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          102
+        ]
+      ]
+    },
+    "translation": {
       "total": 0,
       "samplePortion": 0,
       "tp": 0,
       "fp": 0,
       "fn": 0,
-      "tn": 83,
+      "tn": 107,
       "accuracy": 1,
       "f1": null,
       "fallOut": 0,
@@ -523,75 +864,94 @@
       "prevalence": 0,
       "recall": null,
       "specificity": 1,
-      "confusionMatrix": [[0, 0], [0, 83]]
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          107
+        ]
+      ]
     },
-    "translation": {
-      "total": 2,
-      "samplePortion": 0.024096385542168676,
+    "tutorial": {
+      "total": 4,
+      "samplePortion": 0.037383177570093455,
       "tp": 0,
       "fp": 0,
-      "fn": 2,
-      "tn": 81,
-      "accuracy": 0.9759036144578314,
+      "fn": 4,
+      "tn": 103,
+      "accuracy": 0.9626168224299065,
       "f1": null,
       "fallOut": 0,
       "missRate": 1,
       "precision": null,
-      "prevalence": 0.024096385542168676,
+      "prevalence": 0.037383177570093455,
       "recall": 0,
       "specificity": 1,
-      "confusionMatrix": [[0, 0], [2, 81]]
-    },
-    "tutorial": {
-      "total": 0,
-      "samplePortion": 0,
-      "tp": 0,
-      "fp": 0,
-      "fn": 0,
-      "tn": 83,
-      "accuracy": 1,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": null,
-      "precision": null,
-      "prevalence": 0,
-      "recall": null,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [0, 83]]
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          103
+        ]
+      ]
     },
     "userTesting": {
       "total": 1,
-      "samplePortion": 0.012048192771084338,
-      "tp": 0,
-      "fp": 0,
-      "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
-      "f1": null,
-      "fallOut": 0,
-      "missRate": 1,
-      "precision": null,
-      "prevalence": 0.012048192771084338,
-      "recall": 0,
-      "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
+      "samplePortion": 0.009345794392523364,
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "tn": 105,
+      "accuracy": 0.9906542056074766,
+      "f1": 0.6666666666666666,
+      "fallOut": 0.009433962264150943,
+      "missRate": 0,
+      "precision": 0.5,
+      "prevalence": 0.009345794392523364,
+      "recall": 1,
+      "specificity": 0.9905660377358491,
+      "confusionMatrix": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          105
+        ]
+      ]
     },
     "video": {
-      "total": 1,
-      "samplePortion": 0.012048192771084338,
+      "total": 0,
+      "samplePortion": 0,
       "tp": 0,
       "fp": 0,
-      "fn": 1,
-      "tn": 82,
-      "accuracy": 0.9879518072289156,
+      "fn": 0,
+      "tn": 107,
+      "accuracy": 1,
       "f1": null,
       "fallOut": 0,
-      "missRate": 1,
+      "missRate": null,
       "precision": null,
-      "prevalence": 0.012048192771084338,
-      "recall": 0,
+      "prevalence": 0,
+      "recall": null,
       "specificity": 1,
-      "confusionMatrix": [[0, 0], [1, 82]]
+      "confusionMatrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          107
+        ]
+      ]
     }
   }
 }

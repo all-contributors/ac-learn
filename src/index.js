@@ -101,15 +101,16 @@ class Learner {
       actual.push(data.output)
       predicted.push(guess) //Ignores the rest (as it only wants one guess)
       if (log) {
-        if (guess === data.output)
+        if (guess === data.output) {
           succ(`Classified "${data.input}" as "${guess}"`)
-        else
+        } else {
           error(
             `Classified "${data.input}" as "${guess}" instead of "${use(
               'info',
               data.output,
             )}"`,
           )
+        }
       }
       spinner.message(
         `Evaluating instances (${Math.round((idx++ / len) * 10000) / 100}%)`,
@@ -122,7 +123,6 @@ class Learner {
     )
 
     const completeMsg = 'Evaluation complete'
-    //eslint-disable-next-line babel/no-unused-expressions
     log ? succ(completeMsg) : spinner.message(completeMsg)
     spinner.stop()
     return this.confusionMatrix.getStats()
@@ -224,7 +224,6 @@ class Learner {
       const status = `Fold #${fold++}\nTraining on ${
         trainSet.length
       } samples, testing ${validationSet.length} samples`
-      //eslint-disable-next-line babel/no-unused-expressions
       log ? info(status) : spinner.message(status)
       this.train(trainSet)
       test(
@@ -239,7 +238,6 @@ class Learner {
     this.macroAvg.calculateMacroAverageStats(numOfFolds)
     this.microAvg.calculateStats()
     const completeMsg = 'Cross-validation complete'
-    //eslint-disable-next-line babel/no-unused-expressions
     log ? succ(completeMsg) : spinner.message(completeMsg)
     spinner.stop()
     return {
@@ -336,13 +334,13 @@ class Learner {
       spinner.message(`Adding ${data.output} data`)
       ++res[data.output].overall
       if (hasInput(this.trainSet, data.input)) ++res[data.output].train
-      if (hasInput(this.validationSet, data.input))
+      if (hasInput(this.validationSet, data.input)) {
         ++res[data.output].validation
+      }
       if (hasInput(this.testSet, data.input)) ++res[data.output].test
     })
 
     const completeMsg = 'Category partitions complete'
-    //eslint-disable-next-line babel/no-unused-expressions
     log ? succ(completeMsg) : spinner.message(completeMsg)
     spinner.stop()
     if (outputFile.length) {
@@ -360,18 +358,8 @@ class Learner {
    * @public
    */
   getStats(log = false, categoryPartitionOutput = '') {
-    const {
-      TP,
-      TN,
-      FP,
-      FN,
-      Precision,
-      Accuracy,
-      Recall,
-      F1,
-      count,
-      confusion,
-    } = this.microAvg
+    const {TP, TN, FP, FN, Precision, Accuracy, Recall, F1, count, confusion} =
+      this.microAvg
     return {
       TP,
       TN,

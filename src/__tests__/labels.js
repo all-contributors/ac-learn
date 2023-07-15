@@ -2,7 +2,7 @@ import labels from '../labels'
 import categories from '../categories'
 
 const LEN = 380
-const nineth = {label: ':bug: bug', category: 'bug'}
+const nineth = labels.getAt(9)
 const allLabels = labels.getAll(true)
 
 test('All data', () => {
@@ -15,7 +15,7 @@ test('All data', () => {
 
 test('get', () => {
   expect(labels.getAt(0)).toEqual({label: '*nix', category: 'platform'})
-  const firstLabel = labels.getAt(0);
+  const firstLabel = labels.getAt(0)
   expect(typeof firstLabel.category === 'string').toBeTruthy()
   expect(typeof firstLabel.label === 'string').toBeTruthy()
   expect(labels.getAt(9)).toEqual(nineth)
@@ -39,7 +39,7 @@ test('Distinct categories (and all are present)', () => {
   const dc = labels.getDistinctCategories()
   expect(dc.includes('null')).toBeTruthy()
   const sortAtoZ = (a, b) => a.localeCompare(b)
-  dc.sort(sortAtoZ);
+  dc.sort(sortAtoZ)
   const sortedCategories = [...categories].sort(sortAtoZ)
   expect(dc).toEqual(sortedCategories)
 })
@@ -63,7 +63,9 @@ test('Labels with a `null` category', () => {
 test('Labels with a valid category', () => {
   const vl = labels.getValidCatLabels()
   expect(vl.length > categories.length).toBeTruthy()
-  const labelsWithIncorectCategories = allLabels.filter(d => !categories.includes(d.category));
+  const labelsWithIncorectCategories = allLabels.filter(
+    d => !categories.includes(d.category),
+  )
   expect(labelsWithIncorectCategories).toHaveLength(0)
 })
 

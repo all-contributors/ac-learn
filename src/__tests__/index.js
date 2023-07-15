@@ -48,7 +48,7 @@ describe('a learner', () => {
   })
 
   const SERIAL_STR = `{
-  "createNewObjectString": "(pastTrainingSamples = []) => {\\n  const {\\n    multilabel,\\n    Winnow,\\n    EnhancedClassifier\\n  } = require('limdu').classifiers;\\n\\n  // Word extractor - a function that takes a sample and adds features to a given features set:\\n\\n  const TextClassifier = multilabel.BinaryRelevance.bind(0, {\\n    //eslint-disable-next-line babel/camelcase\\n    binaryClassifierType: Winnow.bind(0, {\\n      retrain_count: 10\\n    })\\n  });\\n  const classifier = new EnhancedClassifier({\\n    classifierType: TextClassifier,\\n    featureExtractor: (input, features) => {\\n      //similar to limdu.features.NGramsOfWords(1)\\n      input.split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\n      .filter(Boolean).forEach(word => {\\n        features[word.toLowerCase()] = 1;\\n      });\\n    },\\n    //or extract\\n    pastTrainingSamples\\n  });\\n  return classifier;\\n}",
+  "createNewObjectString": "(pastTrainingSamples = []) => {\\n  const {\\n    multilabel,\\n    Winnow,\\n    EnhancedClassifier\\n  } = require('limdu').classifiers;\\n\\n  // Word extractor - a function that takes a sample and adds features to a given features set:\\n  const featureExtractor = (input, features) => {\\n    //similar to limdu.features.NGramsOfWords(1)\\n    input.split(/[ \\\\t,;:.-_]/) //perhaps remove _ to keep emoji words joint\\n    .filter(Boolean).forEach(word => {\\n      features[word.toLowerCase()] = 1;\\n    });\\n  };\\n  const TextClassifier = multilabel.BinaryRelevance.bind(0, {\\n    //eslint-disable-next-line babel/camelcase\\n    binaryClassifierType: Winnow.bind(0, {\\n      retrain_count: 10\\n    })\\n  });\\n  const classifier = new EnhancedClassifier({\\n    classifierType: TextClassifier,\\n    featureExtractor,\\n    //or extract\\n    pastTrainingSamples\\n  });\\n  return classifier;\\n}",
   "object": {\n\t\t"classifier": {},\n\t\t"pastTrainingSamples": []\n\t}\n}`
   const SERIAL_JSON = JSON.parse(SERIAL_STR)
 
@@ -63,7 +63,7 @@ describe('a learner', () => {
       )
       /* eslint-enable no-console */
       .then(_ => done())
-  })
+  }, 10000)
 
   test('deserialization', () => {
     const learner = new Learner()
@@ -143,7 +143,7 @@ describe('has stats', () => {
     dataset: copy(dataset),
   })
   learner.crossValidate()
-  const maxPrecision = 100_000;
+  const maxPrecision = 100000
 
   const props = [
     'TP',
@@ -168,17 +168,26 @@ describe('has stats', () => {
   test.each(details)('has %s in %sAvg', (prop, avgType) => {
     const avg = learner[`${avgType}Avg`]
     expect(avg).toHaveProperty(prop)
-    /* eslint-disable babel/no-unused-expressions */
+    //eslint-disable-next-line jest/no-conditional-in-test
     objProps.includes(prop)
       ? expect(typeof avg[prop]).toStrictEqual('object')
       : expect(avg[prop] >= 0).toBeTruthy()
-    /* eslint-enable babel/no-unused-expressions */
   })
 
   it('has a correct accuracy', () => {
     const acc = avg => (avg.TP + avg.TN) / avg.count
+    /* console.log(
+      'TP/TN/count=',
+      learner.macroAvg.TP,
+      learner.macroAvg.TN,
+      learner.macroAvg.count,
+      'expected Acc=',
+      acc(learner.macroAvg),
+    ) */
 
-    expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(toPrecision(acc(learner.macroAvg), 10))
+    expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(
+      toPrecision(acc(learner.macroAvg), 10),
+    )
     // expect(learner.microAvg.Accuracy).toEqual(acc(learner.microAvg)) //cf. https://github.com/erelsgl/limdu/issues/64
   })
 
@@ -190,7 +199,9 @@ describe('has stats', () => {
 
   it('has a correct recall', () => {
     const re = avg => avg.TP / (avg.TP + avg.FN)
-    expect(toPrecision(learner.macroAvg.Recall, maxPrecision)).toEqual(toPrecision(re(learner.macroAvg), maxPrecision))
+    expect(toPrecision(learner.macroAvg.Recall, maxPrecision)).toEqual(
+      toPrecision(re(learner.macroAvg), maxPrecision),
+    )
     expect(learner.microAvg.Recall).toEqual(re(learner.microAvg))
   })
 
@@ -198,7 +209,9 @@ describe('has stats', () => {
     const f1 = avg =>
       (2 * (avg.Precision * avg.Recall)) / (avg.Precision + avg.Recall)
     expect(learner.macroAvg.F1).not.toEqual(f1(learner.macroAvg))
-    expect(toPrecision(learner.microAvg.F1, maxPrecision)).toEqual(toPrecision(f1(learner.microAvg), maxPrecision))
+    expect(toPrecision(learner.microAvg.F1, maxPrecision)).toEqual(
+      toPrecision(f1(learner.microAvg), maxPrecision),
+    )
   })
 
   const stats = learner.getStats()

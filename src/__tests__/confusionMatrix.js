@@ -578,7 +578,10 @@ describe('Long stats', () => {
       fp: 1,
       fn: 1,
       tn: 13,
-      confusionMatrix: [[5, 1], [1, 13]],
+      confusionMatrix: [
+        [5, 1],
+        [1, 13],
+      ],
     })
     expect(bugStats).toHaveProperty('accuracy')
     expect(bugStats).toHaveProperty('f1')

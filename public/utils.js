@@ -8,6 +8,10 @@ const loadData = async () => {
         res => res.json(),
         console.error,
       ),
+      fetch('../playground/playground-fullStats.json').then(
+        res => res.json(),
+        console.error,
+      ),
     ])
 
     return data //[categories, dataset, categoryPartitions]

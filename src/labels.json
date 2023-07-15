@@ -28,8 +28,20 @@
     "category": "bug"
   },
   {
+    "label": ":apple: ios",
+    "category": "platform"
+  },
+  {
     "label": ":arrow_heading_down: pull",
     "category": "maintenance"
+  },
+  {
+    "label": ":beetle: bug",
+    "category": "bug"
+  },
+  {
+    "label": ":beginner: documentation",
+    "category": "doc"
   },
   {
     "label": ":boom: regression",
@@ -40,6 +52,50 @@
     "category": "bug"
   },
   {
+    "label": ":bulb: proposal",
+    "category": "ideas"
+  },
+  {
+    "label": ":computer: desktop",
+    "category": "platform"
+  },
+  {
+    "label": ":doughnut: enhancement",
+    "category": "maintenance"
+  },
+  {
+    "label": ":grey_question: question",
+    "category": "question"
+  },
+  {
+    "label": ":heavy_plus_sign: feature request",
+    "category": "ideas"
+  },
+  {
+    "label": ":iphone: mobile",
+    "category": "platform"
+  },
+  {
+    "label": ":lipstick: ui",
+    "category": "design"
+  },
+  {
+    "label": ":lock: security",
+    "category": "security"
+  },
+  {
+    "label": ":question: question",
+    "category": "question"
+  },
+  {
+    "label": ":robot: android",
+    "category": "platform"
+  },
+  {
+    "label": ":rocket: deployment",
+    "category": "infra"
+  },
+  {
     "label": ":rocket: enhancement",
     "category": "maintenance"
   },
@@ -48,8 +104,20 @@
     "category": "ideas"
   },
   {
+    "label": ":sparkles: enhancement",
+    "category": "maintenance"
+  },
+  {
     "label": ":speech_balloon: question",
     "category": "question"
+  },
+  {
+    "label": ":white_check_mark: testing",
+    "category": "test"
+  },
+  {
+    "label": ":wrench: infrastructure",
+    "category": "infra"
   },
   {
     "label": "@font-face",
@@ -70,6 +138,10 @@
   {
     "label": "abandoned",
     "category": "null"
+  },
+  {
+    "label": "academia",
+    "category": "research"
   },
   {
     "label": "acceptance testing",
@@ -112,12 +184,24 @@
     "category": "code"
   },
   {
+    "label": "ansible",
+    "category": "infra"
+  },
+  {
     "label": "approachability",
     "category": "a11y"
   },
   {
     "label": "approved",
     "category": "null"
+  },
+  {
+    "label": "area/cli",
+    "category": "infra"
+  },
+  {
+    "label": "area/runner",
+    "category": "infra"
   },
   {
     "label": "area: crash",
@@ -140,6 +224,14 @@
     "category": "test"
   },
   {
+    "label": "assessment",
+    "category": "test"
+  },
+  {
+    "label": "attitudinal user testing",
+    "category": "userTesting"
+  },
+  {
     "label": "audio",
     "category": "audio"
   },
@@ -148,8 +240,28 @@
     "category": "null"
   },
   {
+    "label": "aws",
+    "category": "infra"
+  },
+  {
+    "label": "axe",
+    "category": "a11y"
+  },
+  {
     "label": "azur",
     "category": "infra"
+  },
+  {
+    "label": "azure ad",
+    "category": "infra"
+  },
+  {
+    "label": "backdoor",
+    "category": "security"
+  },
+  {
+    "label": "backend",
+    "category": "code"
   },
   {
     "label": "backer",
@@ -158,6 +270,14 @@
   {
     "label": "backer finding",
     "category": "fundingFinding"
+  },
+  {
+    "label": "backing",
+    "category": "financial"
+  },
+  {
+    "label": "backup",
+    "category": "maintenance"
   },
   {
     "label": "badges",
@@ -176,8 +296,16 @@
     "category": "null"
   },
   {
+    "label": "behavioral user testing",
+    "category": "userTesting"
+  },
+  {
     "label": "bitbucket cloud",
     "category": "infra"
+  },
+  {
+    "label": "biz",
+    "category": "business"
   },
   {
     "label": "blocked",
@@ -188,12 +316,24 @@
     "category": "blog"
   },
   {
+    "label": "blogging",
+    "category": "blog"
+  },
+  {
     "label": "blogpost",
+    "category": "blog"
+  },
+  {
+    "label": "blogs",
     "category": "blog"
   },
   {
     "label": "bootstrap",
     "category": "tool"
+  },
+  {
+    "label": "brainstorm",
+    "category": "ideas"
   },
   {
     "label": "brainstorming",
@@ -204,11 +344,19 @@
     "category": "design"
   },
   {
+    "label": "breach",
+    "category": "security"
+  },
+  {
     "label": "breaking change",
     "category": "code"
   },
   {
     "label": "browser bug",
+    "category": "bug"
+  },
+  {
+    "label": "browser issue",
     "category": "bug"
   },
   {
@@ -232,6 +380,10 @@
     "category": "bug"
   },
   {
+    "label": "bugs",
+    "category": "bug"
+  },
+  {
     "label": "business",
     "category": "business"
   },
@@ -240,8 +392,16 @@
     "category": "business"
   },
   {
+    "label": "business process",
+    "category": "business"
+  },
+  {
     "label": "c/c++",
     "category": "code"
+  },
+  {
+    "label": "camera",
+    "category": "video"
   },
   {
     "label": "cannot reproduce",
@@ -268,6 +428,10 @@
     "category": "review"
   },
   {
+    "label": "chef",
+    "category": "infra"
+  },
+  {
     "label": "chore",
     "category": "maintenance"
   },
@@ -276,12 +440,24 @@
     "category": "platform"
   },
   {
+    "label": "ci/cd",
+    "category": "infra"
+  },
+  {
     "label": "cla signed",
     "category": "null"
   },
   {
+    "label": "clean up",
+    "category": "maintenance"
+  },
+  {
     "label": "cli",
     "category": "code"
+  },
+  {
+    "label": "clickup",
+    "category": "projectManagement"
   },
   {
     "label": "client test",
@@ -293,6 +469,10 @@
   },
   {
     "label": "cloud",
+    "category": "infra"
+  },
+  {
+    "label": "cloud native",
     "category": "infra"
   },
   {
@@ -404,6 +584,10 @@
     "category": "ideas"
   },
   {
+    "label": "confer",
+    "category": "talk"
+  },
+  {
     "label": "conference",
     "category": "eventOrganizing"
   },
@@ -420,6 +604,22 @@
     "category": "null"
   },
   {
+    "label": "container",
+    "category": "infra"
+  },
+  {
+    "label": "containerd",
+    "category": "infra"
+  },
+  {
+    "label": "content",
+    "category": "content"
+  },
+  {
+    "label": "contenu",
+    "category": "content"
+  },
+  {
     "label": "contribution welcome",
     "category": "null"
   },
@@ -428,8 +628,24 @@
     "category": "maintenance"
   },
   {
+    "label": "copywriting",
+    "category": "content"
+  },
+  {
     "label": "core",
     "category": "maintenance"
+  },
+  {
+    "label": "corporate event",
+    "category": "eventOrganizing"
+  },
+  {
+    "label": "counsel",
+    "category": "mentoring"
+  },
+  {
+    "label": "cracking",
+    "category": "security"
   },
   {
     "label": "credit",
@@ -464,6 +680,18 @@
     "category": "financial"
   },
   {
+    "label": "customer experience",
+    "category": "design"
+  },
+  {
+    "label": "cx",
+    "category": "design"
+  },
+  {
+    "label": "cybersec",
+    "category": "security"
+  },
+  {
     "label": "data",
     "category": "data"
   },
@@ -476,6 +704,10 @@
     "category": "data"
   },
   {
+    "label": "data cleaning",
+    "category": "data"
+  },
+  {
     "label": "data collection",
     "category": "data"
   },
@@ -484,7 +716,19 @@
     "category": "data"
   },
   {
+    "label": "data manipulation",
+    "category": "data"
+  },
+  {
     "label": "data protection",
+    "category": "security"
+  },
+  {
+    "label": "data wrangling",
+    "category": "data"
+  },
+  {
+    "label": "ddos",
     "category": "security"
   },
   {
@@ -516,6 +760,18 @@
     "category": "ideas"
   },
   {
+    "label": "deliverable",
+    "category": "projectManagement"
+  },
+  {
+    "label": "demo",
+    "category": "example"
+  },
+  {
+    "label": "demonstration",
+    "category": "example"
+  },
+  {
     "label": "deno",
     "category": "platform"
   },
@@ -528,12 +784,24 @@
     "category": "maintenance"
   },
   {
+    "label": "dependency-update",
+    "category": "maintenance"
+  },
+  {
+    "label": "deployment",
+    "category": "infra"
+  },
+  {
     "label": "design",
     "category": "design"
   },
   {
     "label": "design (category)",
     "category": "design"
+  },
+  {
+    "label": "desktop",
+    "category": "platform"
   },
   {
     "label": "dev experience",
@@ -544,8 +812,24 @@
     "category": "design"
   },
   {
+    "label": "devops: configure",
+    "category": "infra"
+  },
+  {
+    "label": "devops: create",
+    "category": "infra"
+  },
+  {
+    "label": "devops: defend",
+    "category": "infra"
+  },
+  {
     "label": "diary",
     "category": "blog"
+  },
+  {
+    "label": "didactic",
+    "category": "tutorial"
   },
   {
     "label": "difficulty: easy",
@@ -560,7 +844,15 @@
     "category": "null"
   },
   {
+    "label": "digital ocean",
+    "category": "infra"
+  },
+  {
     "label": "discussion",
+    "category": "ideas"
+  },
+  {
+    "label": "discussion :speech_balloon:",
     "category": "ideas"
   },
   {
@@ -584,6 +876,10 @@
     "category": "doc"
   },
   {
+    "label": "docs improvement",
+    "category": "doc"
+  },
+  {
     "label": "doctorate",
     "category": "research"
   },
@@ -593,6 +889,10 @@
   },
   {
     "label": "documentation :book:",
+    "category": "doc"
+  },
+  {
+    "label": "documentation :orange_book:",
     "category": "doc"
   },
   {
@@ -656,6 +956,14 @@
     "category": "eventOrganizing"
   },
   {
+    "label": "events",
+    "category": "eventOrganizing"
+  },
+  {
+    "label": "eventstorming",
+    "category": "ideas"
+  },
+  {
     "label": "examination",
     "category": "test"
   },
@@ -668,12 +976,20 @@
     "category": "test"
   },
   {
+    "label": "exploit",
+    "category": "security"
+  },
+  {
     "label": "extension",
     "category": "plugin"
   },
   {
     "label": "external",
     "category": "plugin"
+  },
+  {
+    "label": "external-bugs",
+    "category": "bug"
   },
   {
     "label": "externs",
@@ -744,6 +1060,10 @@
     "category": "ideas"
   },
   {
+    "label": "feature proposal",
+    "category": "ideas"
+  },
+  {
     "label": "feature request",
     "category": "ideas"
   },
@@ -792,6 +1112,10 @@
     "category": "bug"
   },
   {
+    "label": "focus groups",
+    "category": "userTesting"
+  },
+  {
     "label": "font design",
     "category": "design"
   },
@@ -808,7 +1132,23 @@
     "category": "code"
   },
   {
+    "label": "fund collection",
+    "category": "fundingFinding"
+  },
+  {
+    "label": "fund investigation",
+    "category": "fundingFinding"
+  },
+  {
+    "label": "funding call",
+    "category": "fundingFinding"
+  },
+  {
     "label": "funding finder",
+    "category": "fundingFinding"
+  },
+  {
+    "label": "funding research",
     "category": "fundingFinding"
   },
   {
@@ -820,12 +1160,20 @@
     "category": "ideas"
   },
   {
+    "label": "gcp",
+    "category": "infra"
+  },
+  {
     "label": "gdpr",
     "category": "security"
   },
   {
     "label": "general js",
     "category": "code"
+  },
+  {
+    "label": "gh-pages",
+    "category": "platform"
   },
   {
     "label": "glitch",
@@ -849,6 +1197,10 @@
   },
   {
     "label": "gradle",
+    "category": "infra"
+  },
+  {
+    "label": "grafana",
     "category": "infra"
   },
   {
@@ -881,6 +1233,10 @@
   },
   {
     "label": "hacked",
+    "category": "security"
+  },
+  {
+    "label": "hacking",
     "category": "security"
   },
   {
@@ -922,6 +1278,14 @@
   {
     "label": "htmlfile",
     "category": "code"
+  },
+  {
+    "label": "i18n",
+    "category": "translation"
+  },
+  {
+    "label": "iac",
+    "category": "infra"
   },
   {
     "label": "icebox",
@@ -968,6 +1332,10 @@
     "category": "null"
   },
   {
+    "label": "infosec",
+    "category": "security"
+  },
+  {
     "label": "infra",
     "category": "infra"
   },
@@ -1008,6 +1376,14 @@
     "category": "bug"
   },
   {
+    "label": "internationalisation",
+    "category": "translation"
+  },
+  {
+    "label": "internationalization",
+    "category": "translation"
+  },
+  {
     "label": "invalid",
     "category": "null"
   },
@@ -1028,7 +1404,15 @@
     "category": "code"
   },
   {
+    "label": "jira",
+    "category": "projectManagement"
+  },
+  {
     "label": "journal",
+    "category": "blog"
+  },
+  {
+    "label": "journaling",
     "category": "blog"
   },
   {
@@ -1040,12 +1424,36 @@
     "category": "projectManagement"
   },
   {
+    "label": "kind/bug",
+    "category": "bug"
+  },
+  {
+    "label": "kind/discussion",
+    "category": "ideas"
+  },
+  {
+    "label": "kind/feature-request",
+    "category": "ideas"
+  },
+  {
+    "label": "kind/question",
+    "category": "question"
+  },
+  {
     "label": "kotlin",
     "category": "code"
   },
   {
     "label": "kubernetes",
     "category": "infra"
+  },
+  {
+    "label": "labour",
+    "category": "maintenance"
+  },
+  {
+    "label": "lang-convert",
+    "category": "translation"
   },
   {
     "label": "lang-crystal",
@@ -1088,8 +1496,16 @@
     "category": "design"
   },
   {
+    "label": "lean",
+    "category": "projectManagement"
+  },
+  {
     "label": "lecture",
     "category": "tutorial"
+  },
+  {
+    "label": "legacy",
+    "category": "maintenance"
   },
   {
     "label": "legal",
@@ -1104,6 +1520,10 @@
     "category": "tutorial"
   },
   {
+    "label": "lib",
+    "category": "plugin"
+  },
+  {
     "label": "library",
     "category": "tool"
   },
@@ -1114,6 +1534,10 @@
   {
     "label": "linux",
     "category": "platform"
+  },
+  {
+    "label": "literature review",
+    "category": "research"
   },
   {
     "label": "logo",
@@ -1132,8 +1556,16 @@
     "category": "null"
   },
   {
+    "label": "malware",
+    "category": "security"
+  },
+  {
     "label": "manual",
     "category": "doc"
+  },
+  {
+    "label": "mastering",
+    "category": "audio"
   },
   {
     "label": "maven",
@@ -1160,6 +1592,10 @@
     "category": "bug"
   },
   {
+    "label": "mixing",
+    "category": "audio"
+  },
+  {
     "label": "mobile device support",
     "category": "platform"
   },
@@ -1182,6 +1618,10 @@
   {
     "label": "multi module",
     "category": "maintenance"
+  },
+  {
+    "label": "multi-cloud",
+    "category": "infra"
   },
   {
     "label": "music",
@@ -1246,6 +1686,10 @@
   {
     "label": "new iea",
     "category": "ideas"
+  },
+  {
+    "label": "newrelic",
+    "category": "infra"
   },
   {
     "label": "newsletter",
@@ -1320,6 +1764,10 @@
     "category": "ideas"
   },
   {
+    "label": "paas",
+    "category": "platform"
+  },
+  {
     "label": "packaging",
     "category": "platform"
   },
@@ -1344,6 +1792,14 @@
     "category": "financial"
   },
   {
+    "label": "peer-review",
+    "category": "review"
+  },
+  {
+    "label": "pentesting",
+    "category": "security"
+  },
+  {
     "label": "performance",
     "category": "maintenance"
   },
@@ -1360,6 +1816,10 @@
     "category": "audio"
   },
   {
+    "label": "plan",
+    "category": "ideas"
+  },
+  {
     "label": "planned feature",
     "category": "ideas"
   },
@@ -1368,8 +1828,16 @@
     "category": "null"
   },
   {
+    "label": "platform",
+    "category": "platform"
+  },
+  {
     "label": "plot",
     "category": "data"
+  },
+  {
+    "label": "plugin",
+    "category": "plugin"
   },
   {
     "label": "pmi",
@@ -1484,6 +1952,10 @@
     "category": "null"
   },
   {
+    "label": "present",
+    "category": "talk"
+  },
+  {
     "label": "prince2",
     "category": "projectManagement"
   },
@@ -1498,6 +1970,10 @@
   {
     "label": "priority: medium",
     "category": "null"
+  },
+  {
+    "label": "privacy",
+    "category": "security"
   },
   {
     "label": "problem",
@@ -1516,6 +1992,14 @@
     "category": "projectManagement"
   },
   {
+    "label": "prometheus",
+    "category": "infra"
+  },
+  {
+    "label": "promote",
+    "category": "promotion"
+  },
+  {
     "label": "promotion",
     "category": "promotion"
   },
@@ -1526,6 +2010,10 @@
   {
     "label": "protection",
     "category": "security"
+  },
+  {
+    "label": "puppet",
+    "category": "infra"
   },
   {
     "label": "python",
@@ -1545,6 +2033,14 @@
   },
   {
     "label": "question",
+    "category": "question"
+  },
+  {
+    "label": "question :question:",
+    "category": "question"
+  },
+  {
+    "label": "question :raising_hand:",
     "category": "question"
   },
   {
@@ -1576,6 +2072,10 @@
     "category": "code"
   },
   {
+    "label": "reference",
+    "category": "example"
+  },
+  {
     "label": "regression",
     "category": "bug"
   },
@@ -1592,6 +2092,10 @@
     "category": "null"
   },
   {
+    "label": "reliability",
+    "category": "maintenance"
+  },
+  {
     "label": "reminder",
     "category": "null"
   },
@@ -1605,6 +2109,14 @@
   },
   {
     "label": "research",
+    "category": "research"
+  },
+  {
+    "label": "research opportunity",
+    "category": "research"
+  },
+  {
+    "label": "researching",
     "category": "research"
   },
   {
@@ -1636,6 +2148,10 @@
     "category": "design"
   },
   {
+    "label": "roadmap",
+    "category": "projectManagement"
+  },
+  {
     "label": "ruby",
     "category": "code"
   },
@@ -1648,8 +2164,16 @@
     "category": "security"
   },
   {
+    "label": "saltstack",
+    "category": "infra"
+  },
+  {
     "label": "sample",
     "category": "example"
+  },
+  {
+    "label": "sast",
+    "category": "security"
   },
   {
     "label": "scrum",
@@ -1660,8 +2184,20 @@
     "category": "security"
   },
   {
+    "label": "seeding-round",
+    "category": "fundingFinding"
+  },
+  {
+    "label": "sentry",
+    "category": "infra"
+  },
+  {
     "label": "shell",
     "category": "tool"
+  },
+  {
+    "label": "site reliability",
+    "category": "maintenance"
   },
   {
     "label": "sketch",
@@ -1742,6 +2278,10 @@
   {
     "label": "specs",
     "category": "doc"
+  },
+  {
+    "label": "sponsor",
+    "category": "mentoring"
   },
   {
     "label": "stale",
@@ -1908,6 +2448,10 @@
     "category": "tutorial"
   },
   {
+    "label": "tech-debt",
+    "category": "maintenance"
+  },
+  {
     "label": "technical debt",
     "category": "maintenance"
   },
@@ -1926,6 +2470,10 @@
   {
     "label": "template",
     "category": "example"
+  },
+  {
+    "label": "terraform",
+    "category": "infra"
   },
   {
     "label": "test",
@@ -1984,6 +2532,10 @@
     "category": "infra"
   },
   {
+    "label": "tree testing",
+    "category": "userTesting"
+  },
+  {
     "label": "trello",
     "category": "projectManagement"
   },
@@ -2013,6 +2565,10 @@
   },
   {
     "label": "tv",
+    "category": "video"
+  },
+  {
+    "label": "tv show",
     "category": "video"
   },
   {
@@ -2052,8 +2608,20 @@
     "category": "ideas"
   },
   {
+    "label": "type: feature request",
+    "category": "ideas"
+  },
+  {
     "label": "type: getting started",
     "category": "null"
+  },
+  {
+    "label": "type: idea",
+    "category": "ideas"
+  },
+  {
+    "label": "type: infrastructure",
+    "category": "infra"
   },
   {
     "label": "type: invalid :x:",
@@ -2064,12 +2632,20 @@
     "category": "maintenance"
   },
   {
+    "label": "type: performance",
+    "category": "maintenance"
+  },
+  {
     "label": "type: question",
     "category": "question"
   },
   {
     "label": "type: question :grey_question:",
     "category": "question"
+  },
+  {
+    "label": "type: refactor",
+    "category": "code"
   },
   {
     "label": "type: regression :boom:",
@@ -2084,6 +2660,10 @@
     "category": "maintenance"
   },
   {
+    "label": "type: test",
+    "category": "test"
+  },
+  {
     "label": "type: vulnerability :warning:",
     "category": "security"
   },
@@ -2092,8 +2672,16 @@
     "category": "design"
   },
   {
+    "label": "uat",
+    "category": "test"
+  },
+  {
     "label": "ui",
     "category": "design"
+  },
+  {
+    "label": "ui test",
+    "category": "test"
   },
   {
     "label": "unconfirmed",
@@ -2128,6 +2716,10 @@
     "category": "a11y"
   },
   {
+    "label": "usability testing",
+    "category": "userTesting"
+  },
+  {
     "label": "user experience",
     "category": "design"
   },
@@ -2138,6 +2730,14 @@
   {
     "label": "user testing",
     "category": "userTesting"
+  },
+  {
+    "label": "utility-lib",
+    "category": "plugin"
+  },
+  {
+    "label": "utils",
+    "category": "plugin"
   },
   {
     "label": "ux",
@@ -2176,6 +2776,10 @@
     "category": "security"
   },
   {
+    "label": "vultr",
+    "category": "infra"
+  },
+  {
     "label": "walkthrough",
     "category": "doc"
   },
@@ -2188,12 +2792,28 @@
     "category": "projectManagement"
   },
   {
+    "label": "wave",
+    "category": "a11y"
+  },
+  {
+    "label": "wcag",
+    "category": "a11y"
+  },
+  {
     "label": "web app",
     "category": "code"
   },
   {
+    "label": "webaim",
+    "category": "a11y"
+  },
+  {
     "label": "website",
     "category": "code"
+  },
+  {
+    "label": "website copy",
+    "category": "content"
   },
   {
     "label": "websocket",

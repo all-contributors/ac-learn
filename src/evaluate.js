@@ -50,7 +50,10 @@ const evalu = ({classifier, test, classes /* , log = true */}) => {
     }
   })
   curStats.calculateStats()
-  stats.confusionMatrix2D = [[stats.TP, stats.FP], [stats.FN, stats.TN]]
+  stats.confusionMatrix2D = [
+    [stats.TP, stats.FP],
+    [stats.FN, stats.TN],
+  ]
   stats.confusionMatrix = ConfusionMatrix.fromData(actual, predicted, classes)
   return {curStats, stats}
 }

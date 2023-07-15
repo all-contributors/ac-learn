@@ -1,6 +1,9 @@
 const fs = require('fs')
+const {join} = require('path')
 const chalk = require('chalk')
-const labels = require('./labels.json')
+
+const labelsPath = join(__dirname, './labels.json')
+const labels = require(labelsPath)
 
 const update = () => {
   const sorted = []
@@ -14,7 +17,7 @@ const update = () => {
       sorted.push({label: l, category: label.category})
     })
 
-  fs.writeFile('labels.json', JSON.stringify(sorted, null, 2), err => {
+  fs.writeFile(labelsPath, JSON.stringify(sorted, null, 2), err => {
     /* eslint-disable no-console */
     if (err) throw err
     console.log(chalk.cyan(`${sorted.length} results saved`))
