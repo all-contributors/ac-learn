@@ -168,6 +168,7 @@ describe('has stats', () => {
   test.each(details)('has %s in %sAvg', (prop, avgType) => {
     const avg = learner[`${avgType}Avg`]
     expect(avg).toHaveProperty(prop)
+    //eslint-disable-next-line jest/no-conditional-in-test
     objProps.includes(prop)
       ? expect(typeof avg[prop]).toStrictEqual('object')
       : expect(avg[prop] >= 0).toBeTruthy()
@@ -175,14 +176,14 @@ describe('has stats', () => {
 
   it('has a correct accuracy', () => {
     const acc = avg => (avg.TP + avg.TN) / avg.count
-    console.log(
+    /* console.log(
       'TP/TN/count=',
       learner.macroAvg.TP,
       learner.macroAvg.TN,
       learner.macroAvg.count,
       'expected Acc=',
       acc(learner.macroAvg),
-    )
+    ) */
 
     expect(toPrecision(learner.macroAvg.Accuracy, 10)).toEqual(
       toPrecision(acc(learner.macroAvg), 10),
