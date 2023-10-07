@@ -48,7 +48,7 @@
     "clui": "^0.3.6",
     "easy-table": "^1.2.0",
     "javascript-lemmatizer": "0.0.2",
-    "limdu": "^0.9.4",
+    "limdu": "^1.0.0",
     "nclr": "^2.2.5",
     "serialization": "^0.2.0",
     "tvt-split": "^1.0.3"
